@@ -284,8 +284,8 @@ export const blogPosts: BlogPost[] = [
 
 // FAQ Data
 export interface FAQItem {
-  question: string;
-  answer: string;
+  q: string;
+  a: string;
 }
 
 export interface FAQCategory {
