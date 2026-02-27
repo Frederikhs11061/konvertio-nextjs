@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowLeft, Clock, User, ArrowRight } from 'lucide-react'
+import { Clock, User, ArrowRight } from 'lucide-react'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Breadcrumbs from '@/components/Breadcrumbs'
