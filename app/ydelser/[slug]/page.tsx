@@ -174,16 +174,16 @@ export default function YdelsePage({ params }: PageProps) {
                 <section className="py-10 md:py-16 px-6 relative">
                     <div className="absolute inset-0 bg-gradient-to-b from-transparent via-neutral-900/20 to-transparent pointer-events-none" />
                     <div className="relative max-w-7xl mx-auto">
-                        <AnimateSection className="text-center mb-12">
+                        <AnimateSection className="mb-12">
                             <h2 className="text-3xl font-bold text-white mb-4">Sådan foregår det</h2>
-                            <p className="text-neutral-400 text-left md:text-center">En transparent proces fra start til slut</p>
+                            <p className="text-neutral-400">En transparent proces fra start til slut</p>
                         </AnimateSection>
                         <div className="relative">
                             <div className="hidden md:block absolute top-5 left-10 right-10 h-px bg-gradient-to-r from-transparent via-neutral-800 to-transparent" />
                             <div className="grid sm:grid-cols-2 md:grid-cols-5 gap-8">
                                 {service.process.map((step, i) => (
-                                    <AnimateSection key={step.step} delay={i * 100} className="text-center relative">
-                                        <div className="w-10 h-10 rounded-full bg-brand-600 text-white flex items-center justify-center text-sm font-bold mx-auto mb-4 relative z-10 shadow-lg shadow-brand-600/20">
+                                    <AnimateSection key={step.step} delay={i * 100} className="text-left relative">
+                                        <div className="w-10 h-10 rounded-full bg-brand-600 text-white flex items-center justify-center text-sm font-bold mb-4 relative z-10 shadow-lg shadow-brand-600/20">
                                             {step.step}
                                         </div>
                                         <p className="font-semibold text-white mb-2">{step.title}</p>

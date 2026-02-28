@@ -39,10 +39,10 @@ export default function HomePage() {
     <div className="min-h-screen">
       {/* Hero */}
       <section className="relative min-h-screen flex flex-col justify-center pt-24 pb-32 px-6 overflow-hidden">
-        {/* Background effects */}
+        {/* Background effects – blød overgang til sort på mobil */}
         <div className="absolute inset-0 bg-hero-gradient" />
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-brand-600/5 blur-[120px] pointer-events-none" />
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-neutral-950 to-transparent pointer-events-none" />
+        <div className="absolute bottom-0 left-0 right-0 h-56 sm:h-44 md:h-32 bg-gradient-to-t from-neutral-950 via-neutral-950/90 to-transparent pointer-events-none" />
 
         <div className="relative max-w-7xl mx-auto w-full">
           <AnimateSection delay={0} animation="fade-in">
@@ -249,14 +249,15 @@ export default function HomePage() {
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <AnimateSection animation="slide-left">
               <div className="relative">
-                <div className="aspect-[3/4] rounded-2xl overflow-hidden bg-gradient-to-br from-neutral-900 to-neutral-800 border border-neutral-800/50 flex items-center justify-center">
-                  <div className="text-center px-8">
-                    <div className="w-28 h-28 rounded-full bg-gradient-to-br from-brand-600 to-brand-800 flex items-center justify-center mx-auto mb-6 shadow-2xl shadow-brand-600/20">
-                      <span className="text-white text-4xl font-bold">F</span>
-                    </div>
-                    <p className="text-white font-semibold text-lg">Frederik Høgh Simonsen</p>
-                    <p className="text-neutral-500 text-sm mt-1">Konvertio · Viborg</p>
-                  </div>
+                <div className="aspect-[3/4] rounded-2xl overflow-hidden border border-neutral-800/50 relative">
+                  <Image
+                    src="/images/frederik.png"
+                    alt="Frederik Høgh Simonsen"
+                    fill
+                    className="object-cover object-top"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    priority
+                  />
                 </div>
                 <div className="absolute -bottom-4 -right-4 p-4 rounded-xl bg-neutral-900 border border-neutral-800/50 shadow-2xl">
                   <div className="flex items-center gap-3">
@@ -388,9 +389,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* CTA Section – blød overgang fra sort på mobil */}
       <section className="py-14 md:py-24 px-6 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-brand-950 via-neutral-950 to-neutral-950" />
+        <div className="absolute top-0 left-0 right-0 h-32 sm:h-24 md:hidden bg-gradient-to-b from-neutral-950 to-transparent pointer-events-none z-10" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-brand-600/10 blur-[120px] pointer-events-none" />
         <div className="relative max-w-4xl mx-auto text-center">
           <AnimateSection>
