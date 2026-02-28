@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { ArrowRight, Linkedin, Mail, Check, Zap, MapPin } from 'lucide-react'
+import { ArrowRight, Linkedin, Mail, Check, Zap } from 'lucide-react'
 import type { Metadata } from 'next'
 import AnimateSection from '@/components/AnimateSection'
 import Breadcrumbs from '@/components/Breadcrumbs'

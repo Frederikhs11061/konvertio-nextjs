@@ -26,10 +26,10 @@ export default function Footer() {
                     <div className="col-span-2 md:col-span-1">
                         <Link href="/" className="flex items-center gap-2.5 mb-5">
                             <Image
-                                src="/logo.png"
+                                src="/logo.svg"
                                 alt="Konvertio"
                                 width={140}
-                                height={36}
+                                height={40}
                                 className="h-9 w-auto object-contain"
                             />
                         </Link>

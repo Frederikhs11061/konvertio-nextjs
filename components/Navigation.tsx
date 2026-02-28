@@ -53,10 +53,10 @@ export default function Navigation() {
                         className="relative z-10 flex items-center gap-2.5 group"
                     >
                         <Image
-                            src="/logo.png"
+                            src="/logo.svg"
                             alt="Konvertio"
                             width={140}
-                            height={36}
+                            height={40}
                             className="h-9 w-auto object-contain"
                             priority
                         />

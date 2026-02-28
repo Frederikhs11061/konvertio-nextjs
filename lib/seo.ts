@@ -4,7 +4,7 @@ export const organizationSchema = {
     '@type': 'Organization',
     name: 'Konvertio',
     url: 'https://konvertio.dk',
-    logo: 'https://konvertio.dk/logo.png',
+    logo: 'https://konvertio.dk/logo.svg',
     contactPoint: {
         '@type': 'ContactPoint',
         email: 'kontakt@konvertio.dk',
