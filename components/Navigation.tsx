@@ -3,11 +3,11 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, ArrowRight } from 'lucide-react'
 
 const navLinks = [
     { label: 'Hjem', href: '/' },
-    { label: 'Services', href: '/services' },
+    { label: 'Ydelser', href: '/services' },
     { label: 'Om mig', href: '/om-mig' },
     { label: 'Blog', href: '/blog' },
     { label: 'FAQ', href: '/faq' },
@@ -20,7 +20,7 @@ export default function Navigation() {
 
     useEffect(() => {
         const handleScroll = () => setIsScrolled(window.scrollY > 20)
-        window.addEventListener('scroll', handleScroll)
+        window.addEventListener('scroll', handleScroll, { passive: true })
         return () => window.removeEventListener('scroll', handleScroll)
     }, [])
 
@@ -28,85 +28,112 @@ export default function Navigation() {
         setIsOpen(false)
     }, [pathname])
 
+    useEffect(() => {
+        document.body.style.overflow = isOpen ? 'hidden' : ''
+        return () => { document.body.style.overflow = '' }
+    }, [isOpen])
+
     return (
         <header
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-                    ? 'bg-white/95 backdrop-blur-md border-b border-neutral-200/80 shadow-sm'
+            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+                isScrolled
+                    ? 'bg-neutral-950/80 backdrop-blur-2xl border-b border-neutral-800/50 shadow-2xl shadow-black/20'
                     : 'bg-transparent'
-                }`}
+            }`}
         >
-            <div className="max-w-6xl mx-auto px-6">
-                <nav className="flex items-center justify-between h-16">
-                    {/* Logo */}
+            <div className="max-w-7xl mx-auto px-6">
+                <nav className="flex items-center justify-between h-18 py-4">
                     <Link
                         href="/"
-                        className="text-lg font-semibold text-neutral-900 hover:opacity-70 transition-opacity"
+                        className="relative z-10 flex items-center gap-2.5 group"
                     >
-                        Konvertio
+                        <div className="w-9 h-9 rounded-xl bg-brand-600 flex items-center justify-center group-hover:bg-brand-500 transition-colors duration-300">
+                            <span className="text-white text-sm font-bold">K</span>
+                        </div>
+                        <span className="text-lg font-bold text-white tracking-tight">
+                            Konvertio
+                        </span>
                     </Link>
 
-                    {/* Desktop Navigation */}
-                    <div className="hidden md:flex items-center gap-8">
-                        {navLinks.map((link) => (
-                            <Link
-                                key={link.href}
-                                href={link.href}
-                                className={`text-sm transition-colors ${pathname === link.href
-                                        ? 'text-neutral-900 font-medium'
-                                        : 'text-neutral-600 hover:text-neutral-900'
-                                    }`}
-                            >
-                                {link.label}
-                            </Link>
-                        ))}
+                    <div className="hidden lg:flex items-center">
+                        <div className="flex items-center gap-1 px-2 py-1.5 rounded-full bg-neutral-900/60 backdrop-blur-xl border border-neutral-800/50">
+                            {navLinks.map((link) => {
+                                const isActive = pathname === link.href || (link.href !== '/' && pathname.startsWith(link.href))
+                                return (
+                                    <Link
+                                        key={link.href}
+                                        href={link.href}
+                                        className={`relative px-4 py-2 rounded-full text-sm transition-all duration-300 ${
+                                            isActive
+                                                ? 'text-white bg-neutral-800 font-medium'
+                                                : 'text-neutral-400 hover:text-white hover:bg-neutral-800/50'
+                                        }`}
+                                    >
+                                        {link.label}
+                                    </Link>
+                                )
+                            })}
+                        </div>
                     </div>
 
-                    {/* Desktop CTA */}
-                    <div className="hidden md:block">
-                        <Link
-                            href="/kontakt"
-                            className="inline-flex items-center rounded-full bg-neutral-900 text-white hover:bg-neutral-700 px-5 py-2 text-sm font-medium transition-all hover:scale-[1.02]"
-                        >
+                    <div className="hidden lg:block">
+                        <Link href="/kontakt" className="btn-primary text-sm px-6 py-2.5">
                             Kontakt mig
+                            <ArrowRight className="w-4 h-4" />
                         </Link>
                     </div>
 
-                    {/* Mobile Menu Toggle */}
                     <button
-                        className="md:hidden p-2 text-neutral-900"
+                        className="lg:hidden relative z-10 p-2 text-white"
                         onClick={() => setIsOpen(!isOpen)}
-                        aria-label="Åbn menu"
+                        aria-label={isOpen ? 'Luk menu' : 'Åbn menu'}
                     >
-                        {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+                        {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
                     </button>
                 </nav>
             </div>
 
-            {/* Mobile Menu */}
-            {isOpen && (
-                <div className="md:hidden absolute top-16 left-0 right-0 bg-white border-b border-neutral-200 shadow-lg">
-                    <div className="max-w-6xl mx-auto px-6 py-6 flex flex-col gap-5">
-                        {navLinks.map((link) => (
+            {/* Mobile overlay */}
+            <div
+                className={`lg:hidden fixed inset-0 bg-neutral-950/95 backdrop-blur-2xl transition-all duration-500 ${
+                    isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+                }`}
+                style={{ top: 0 }}
+            >
+                <div className="flex flex-col justify-center items-center min-h-screen gap-2 px-6">
+                    {navLinks.map((link, i) => {
+                        const isActive = pathname === link.href
+                        return (
                             <Link
                                 key={link.href}
                                 href={link.href}
-                                className={`text-lg transition-colors ${pathname === link.href
-                                        ? 'text-neutral-900 font-semibold'
-                                        : 'text-neutral-600 hover:text-neutral-900'
-                                    }`}
+                                className={`text-3xl font-semibold transition-all duration-300 py-3 ${
+                                    isActive ? 'text-brand-500' : 'text-neutral-300 hover:text-white'
+                                }`}
+                                style={{
+                                    transitionDelay: isOpen ? `${i * 60}ms` : '0ms',
+                                    opacity: isOpen ? 1 : 0,
+                                    transform: isOpen ? 'translateY(0)' : 'translateY(20px)',
+                                }}
                             >
                                 {link.label}
                             </Link>
-                        ))}
-                        <Link
-                            href="/kontakt"
-                            className="inline-flex justify-center items-center rounded-full bg-neutral-900 text-white py-3 text-sm font-medium mt-2"
-                        >
-                            Kontakt mig
-                        </Link>
-                    </div>
+                        )
+                    })}
+                    <Link
+                        href="/kontakt"
+                        className="btn-primary mt-8 text-base px-10 py-4"
+                        style={{
+                            transitionDelay: isOpen ? `${navLinks.length * 60}ms` : '0ms',
+                            opacity: isOpen ? 1 : 0,
+                            transform: isOpen ? 'translateY(0)' : 'translateY(20px)',
+                        }}
+                    >
+                        Kontakt mig
+                        <ArrowRight className="w-5 h-5" />
+                    </Link>
                 </div>
-            )}
+            </div>
         </header>
     )
 }

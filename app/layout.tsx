@@ -66,7 +66,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="da" className={inter.variable}>
+    <html lang="da" className={`${inter.variable} dark`}>
       <head>
         <script
           type="application/ld+json"
@@ -81,7 +81,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
         />
       </head>
-      <body className="min-h-screen flex flex-col bg-white">
+      <body className="min-h-screen flex flex-col bg-neutral-950 text-white">
         <Navigation />
         <main className="flex-1">{children}</main>
         <Footer />

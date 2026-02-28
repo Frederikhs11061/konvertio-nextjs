@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -14,24 +12,116 @@
   }
 
   body {
-    @apply bg-white text-neutral-900 antialiased;
+    @apply bg-neutral-950 text-white antialiased;
     font-family: var(--font-inter);
   }
 
+  ::selection {
+    @apply bg-brand-500/30 text-white;
+  }
+
   * {
-    @apply border-neutral-200;
+    @apply border-neutral-800;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-neutral-900/60 backdrop-blur-xl border border-neutral-800/50;
+  }
+
+  .glass-light {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10;
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-white via-white to-neutral-400;
+  }
+
+  .gradient-text-brand {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-400 to-brand-600;
+  }
+
+  .section-dark {
+    @apply bg-neutral-950;
+  }
+
+  .section-darker {
+    @apply bg-black;
+  }
+
+  .section-card {
+    @apply bg-neutral-900/50 border border-neutral-800/50 rounded-2xl;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 rounded-full bg-brand-600 text-white font-semibold
+           hover:bg-brand-500 px-7 py-3.5 text-sm transition-all duration-300
+           hover:scale-[1.03] hover:shadow-lg hover:shadow-brand-600/25 active:scale-[0.98];
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 rounded-full border border-neutral-700 text-neutral-300
+           hover:bg-neutral-800 hover:text-white hover:border-neutral-600
+           px-7 py-3.5 text-sm font-medium transition-all duration-300;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 text-sm font-medium text-neutral-400
+           hover:text-white transition-colors duration-300;
+  }
+
+  .card-hover {
+    @apply transition-all duration-500 hover:border-neutral-700
+           hover:shadow-xl hover:shadow-black/20 hover:-translate-y-1;
+  }
+
+  .glow-red {
+    box-shadow: 0 0 80px 20px rgba(239, 68, 68, 0.08);
+  }
+
+  .glow-red-strong {
+    box-shadow: 0 0 120px 40px rgba(239, 68, 68, 0.12);
   }
 }
 
 @layer utilities {
   .animate-initial {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(32px);
   }
 
   .text-balance {
     text-wrap: balance;
   }
+
+  .mask-fade-b {
+    mask-image: linear-gradient(to bottom, black 60%, transparent);
+  }
+
+  .mask-fade-x {
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  }
+}
+
+/* Prose overrides for blog content */
+.prose-dark {
+  --tw-prose-body: theme('colors.neutral.300');
+  --tw-prose-headings: theme('colors.white');
+  --tw-prose-lead: theme('colors.neutral.400');
+  --tw-prose-links: theme('colors.brand.400');
+  --tw-prose-bold: theme('colors.white');
+  --tw-prose-counters: theme('colors.neutral.400');
+  --tw-prose-bullets: theme('colors.neutral.600');
+  --tw-prose-hr: theme('colors.neutral.800');
+  --tw-prose-quotes: theme('colors.neutral.300');
+  --tw-prose-quote-borders: theme('colors.brand.600');
+  --tw-prose-captions: theme('colors.neutral.400');
+  --tw-prose-code: theme('colors.brand.400');
+  --tw-prose-pre-code: theme('colors.neutral.300');
+  --tw-prose-pre-bg: theme('colors.neutral.900');
+  --tw-prose-th-borders: theme('colors.neutral.700');
+  --tw-prose-td-borders: theme('colors.neutral.800');
 }
 
 /* Reduced motion */

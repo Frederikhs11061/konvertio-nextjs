@@ -30,19 +30,19 @@ export default function Breadcrumbs({ items }: BreadcrumbsProps) {
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
             />
-            <nav aria-label="Breadcrumb" className="py-4 px-6">
-                <div className="max-w-6xl mx-auto">
+            <nav aria-label="Breadcrumb" className="py-4 px-6 border-b border-neutral-800/30">
+                <div className="max-w-7xl mx-auto">
                     <ol className="flex items-center gap-2 text-sm text-neutral-500 flex-wrap">
                         {allItems.map((item, index) => (
                             <li key={index} className="flex items-center gap-2">
-                                {index > 0 && <ChevronRight className="w-3.5 h-3.5 text-neutral-400" />}
+                                {index > 0 && <ChevronRight className="w-3.5 h-3.5 text-neutral-700" />}
                                 {item.href && index < allItems.length - 1 ? (
-                                    <Link href={item.href} className="hover:text-neutral-900 transition-colors flex items-center gap-1">
+                                    <Link href={item.href} className="hover:text-white transition-colors duration-300 flex items-center gap-1">
                                         {index === 0 && <Home className="w-3.5 h-3.5" />}
                                         {item.label}
                                     </Link>
                                 ) : (
-                                    <span className="text-neutral-900 font-medium">{item.label}</span>
+                                    <span className="text-neutral-300 font-medium">{item.label}</span>
                                 )}
                             </li>
                         ))}

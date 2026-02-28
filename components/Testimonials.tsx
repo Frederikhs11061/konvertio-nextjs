@@ -29,38 +29,39 @@ const testimonials = [
 
 export default function Testimonials() {
     return (
-        <section id="anbefalinger" className="py-24 px-6 bg-neutral-50">
-            <div className="max-w-6xl mx-auto">
+        <section id="anbefalinger" className="py-24 px-6 relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-b from-neutral-950 via-neutral-900/50 to-neutral-950 pointer-events-none" />
+            <div className="relative max-w-7xl mx-auto">
                 <AnimateSection className="text-center mb-16">
-                    <span className="inline-block text-sm font-medium text-neutral-500 uppercase tracking-wider mb-4">
+                    <span className="inline-block text-sm font-medium text-brand-500 uppercase tracking-wider mb-4">
                         Anbefalinger
                     </span>
-                    <h2 className="text-3xl sm:text-4xl font-semibold text-neutral-900 tracking-tight mb-4">
+                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight mb-4">
                         Hvad kunderne siger
                     </h2>
-                    <p className="text-lg text-neutral-600 max-w-xl mx-auto">
+                    <p className="text-lg text-neutral-400 max-w-xl mx-auto">
                         Jeg stopper ikke før du er tilfreds. Her er hvad mine kunder siger.
                     </p>
                 </AnimateSection>
 
                 <div className="grid md:grid-cols-2 gap-6">
                     {testimonials.map((t, i) => (
-                        <AnimateSection key={t.name} delay={i * 100}>
-                            <article className="p-6 rounded-2xl bg-white border border-neutral-100 hover:border-neutral-200 hover:shadow-sm transition-all duration-300">
-                                <div className="flex gap-1 mb-4" aria-label="5 ud af 5 stjerner">
+                        <AnimateSection key={t.name} delay={i * 100} animation={i % 2 === 0 ? 'slide-left' : 'slide-right'}>
+                            <article className="group p-7 rounded-2xl bg-neutral-900/40 border border-neutral-800/50 hover:border-neutral-700/50 transition-all duration-500 hover:bg-neutral-900/60 h-full">
+                                <div className="flex gap-1 mb-5" aria-label="5 ud af 5 stjerner">
                                     {[...Array(5)].map((_, j) => (
-                                        <span key={j} className="text-neutral-900 text-lg">★</span>
+                                        <span key={j} className="text-brand-500 text-lg">★</span>
                                     ))}
                                 </div>
-                                <blockquote className="text-neutral-700 leading-relaxed mb-6">
+                                <blockquote className="text-neutral-300 leading-relaxed mb-6 text-[15px]">
                                     &ldquo;{t.quote}&rdquo;
                                 </blockquote>
-                                <div className="flex items-center gap-3">
-                                    <div className="w-10 h-10 rounded-full bg-neutral-900 flex items-center justify-center flex-shrink-0">
-                                        <span className="text-white text-sm font-semibold">{t.initial}</span>
+                                <div className="flex items-center gap-3 pt-4 border-t border-neutral-800/50">
+                                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-brand-600 to-brand-800 flex items-center justify-center flex-shrink-0">
+                                        <span className="text-white text-sm font-bold">{t.initial}</span>
                                     </div>
                                     <div>
-                                        <p className="text-sm font-semibold text-neutral-900">{t.name}</p>
+                                        <p className="text-sm font-semibold text-white">{t.name}</p>
                                         <p className="text-sm text-neutral-500">{t.company}</p>
                                     </div>
                                 </div>
