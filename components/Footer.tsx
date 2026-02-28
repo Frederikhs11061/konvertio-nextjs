@@ -56,7 +56,7 @@ export default function Footer() {
                         </div>
                     </div>
 
-                    <div>
+                    <div className="min-w-[7.5rem]">
                         <h3 className="text-sm font-semibold text-white mb-5 uppercase tracking-wider">
                             Navigation
                         </h3>
@@ -74,7 +74,7 @@ export default function Footer() {
                         </ul>
                     </div>
 
-                    <div>
+                    <div className="min-w-[7.5rem]">
                         <h3 className="text-sm font-semibold text-white mb-5 uppercase tracking-wider">
                             Ydelser
                         </h3>

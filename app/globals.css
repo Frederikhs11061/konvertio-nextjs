@@ -9,6 +9,8 @@
 
   html {
     scroll-behavior: smooth;
+    /* Reserver plads til scrollbar så indhold ikke rykker ved indlæsning */
+    scrollbar-gutter: stable;
   }
 
   body {
