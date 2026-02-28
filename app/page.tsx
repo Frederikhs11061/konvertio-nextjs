@@ -110,7 +110,7 @@ export default function HomePage() {
       </section>
 
       {/* Stats */}
-      <section className="py-12 md:py-20 px-6 relative">
+      <section className="py-10 md:py-16 px-6 relative">
         <div className="absolute inset-0 glow-brand pointer-events-none opacity-30" />
         <div className="relative max-w-7xl mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
@@ -128,7 +128,7 @@ export default function HomePage() {
       </section>
 
       {/* Problem / Agitation */}
-      <section className="py-14 md:py-24 px-6 relative overflow-hidden">
+      <section className="py-10 md:py-20 px-6 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-brand-600/5 rounded-full blur-[100px] pointer-events-none" />
         <div className="relative max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -187,7 +187,7 @@ export default function HomePage() {
       </section>
 
       {/* Services Preview */}
-      <section id="services" className="py-14 md:py-24 px-6 relative">
+      <section id="services" className="py-10 md:py-20 px-6 relative">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-neutral-900/30 to-transparent pointer-events-none" />
         <div className="relative max-w-7xl mx-auto">
           <AnimateSection className="text-center mb-12 md:mb-16">
@@ -243,7 +243,7 @@ export default function HomePage() {
       <Testimonials />
 
       {/* About Preview */}
-      <section className="py-14 md:py-24 px-6 relative overflow-hidden">
+      <section className="py-10 md:py-20 px-6 relative overflow-hidden">
         <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-brand-600/5 rounded-full blur-[100px] pointer-events-none" />
         <div className="relative max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -333,7 +333,7 @@ export default function HomePage() {
       </section>
 
       {/* Blog Preview */}
-      <section className="py-14 md:py-24 px-6 relative">
+      <section className="py-10 md:py-20 px-6 relative">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-neutral-900/20 to-transparent pointer-events-none" />
         <div className="relative max-w-7xl mx-auto">
           <AnimateSection className="text-center mb-12 md:mb-16">
@@ -389,7 +389,7 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 md:py-32 px-6 relative overflow-hidden">
+      <section className="py-14 md:py-24 px-6 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-brand-950 via-neutral-950 to-neutral-950" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-brand-600/10 blur-[120px] pointer-events-none" />
         <div className="relative max-w-4xl mx-auto text-center">

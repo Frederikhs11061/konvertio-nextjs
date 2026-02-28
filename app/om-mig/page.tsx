@@ -28,7 +28,7 @@ export default function AboutPage() {
         <div className="pt-20">
             <Breadcrumbs items={[{ label: 'Om mig', href: '/om-mig' }]} />
 
-            <section className="py-12 md:py-20 px-6 relative overflow-hidden">
+            <section className="py-10 md:py-16 px-6 relative overflow-hidden">
                 <div className="absolute top-0 left-1/4 w-96 h-96 bg-brand-600/5 rounded-full blur-[120px] pointer-events-none" />
                 <div className="relative max-w-7xl mx-auto">
                     <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -144,7 +144,7 @@ export default function AboutPage() {
 
             <Testimonials />
 
-            <section className="py-16 md:py-24 px-6 relative overflow-hidden">
+            <section className="py-12 md:py-20 px-6 relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-brand-950/50 via-neutral-950 to-neutral-950" />
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full bg-brand-600/10 blur-[100px] pointer-events-none" />
                 <div className="relative max-w-4xl mx-auto text-center">

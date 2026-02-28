@@ -5,6 +5,7 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import AnimateSection from '@/components/AnimateSection'
+import BlogContent from '@/components/BlogContent'
 import { blogPosts } from '@/lib/data'
 
 interface PageProps {
@@ -96,7 +97,7 @@ export default function BlogPostPage({ params }: PageProps) {
                         </p>
                     </AnimateSection>
 
-                    <AnimateSection delay={200} className="mb-10">
+                    <AnimateSection delay={200} className="mb-8">
                         <div className="aspect-video rounded-2xl overflow-hidden bg-neutral-800 border border-neutral-800/50">
                             <Image
                                 src={post.image}
@@ -109,18 +110,19 @@ export default function BlogPostPage({ params }: PageProps) {
                         </div>
                     </AnimateSection>
 
+                    {/* Grafisk afbryder mellem billede og indhold */}
+                    <AnimateSection delay={220} className="my-8">
+                        <div className="flex items-center gap-4" aria-hidden>
+                            <div className="h-px flex-1 bg-gradient-to-r from-transparent via-brand-600/30 to-transparent" />
+                            <div className="w-12 h-12 rounded-xl bg-brand-600/10 border border-brand-600/20 flex items-center justify-center">
+                                <span className="text-brand-500 font-bold text-lg">K</span>
+                            </div>
+                            <div className="h-px flex-1 bg-gradient-to-l from-transparent via-brand-600/30 to-transparent" />
+                        </div>
+                    </AnimateSection>
+
                     <AnimateSection delay={250}>
-                        <div
-                            className="prose prose-lg prose-dark max-w-none
-                prose-headings:font-bold prose-headings:text-white prose-headings:tracking-tight
-                prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4
-                prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3
-                prose-p:text-neutral-300 prose-p:leading-relaxed prose-p:mb-4
-                prose-ul:my-4 prose-li:text-neutral-300 prose-li:mb-1
-                prose-strong:text-white prose-strong:font-semibold
-                prose-a:text-brand-400 prose-a:no-underline hover:prose-a:text-brand-300"
-                            dangerouslySetInnerHTML={{ __html: post.content }}
-                        />
+                        <BlogContent content={post.content} />
                     </AnimateSection>
 
                     {/* Author box */}
@@ -164,7 +166,7 @@ export default function BlogPostPage({ params }: PageProps) {
             </article>
 
             {relatedPosts.length > 0 && (
-                <section className="py-16 px-6 border-t border-neutral-800/30">
+                <section className="py-12 px-6 border-t border-neutral-800/30">
                     <div className="max-w-7xl mx-auto">
                         <h2 className="text-2xl font-bold text-white mb-8">Relaterede artikler</h2>
                         <div className="grid md:grid-cols-2 gap-6">

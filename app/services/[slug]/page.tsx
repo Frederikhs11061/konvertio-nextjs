@@ -46,7 +46,7 @@ export default function ServicePage({ params }: PageProps) {
             />
 
             {/* Hero */}
-            <section className="py-12 md:py-20 px-6 relative overflow-hidden">
+            <section className="py-10 md:py-16 px-6 relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-600/5 rounded-full blur-[120px] pointer-events-none" />
                 <div className="relative max-w-7xl mx-auto">
                     <div className="max-w-3xl">
@@ -81,7 +81,7 @@ export default function ServicePage({ params }: PageProps) {
             </section>
 
             {/* Features & Benefits */}
-            <section className="py-12 md:py-20 px-6 relative">
+            <section className="py-10 md:py-16 px-6 relative">
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-neutral-900/30 to-transparent pointer-events-none" />
                 <div className="relative max-w-7xl mx-auto">
                     <div className="grid md:grid-cols-2 gap-12">
@@ -115,9 +115,9 @@ export default function ServicePage({ params }: PageProps) {
 
             {/* Packages */}
             {service.packages && (
-                <section className="py-12 md:py-20 px-6">
+                <section className="py-10 md:py-16 px-6">
                     <div className="max-w-7xl mx-auto">
-                        <AnimateSection className="text-center mb-12">
+                        <AnimateSection className="text-center mb-8">
                             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">Priser & pakker</h2>
                             <p className="text-neutral-400 text-left md:text-center">Fast pris – ingen skjulte gebyrer</p>
                         </AnimateSection>
@@ -171,7 +171,7 @@ export default function ServicePage({ params }: PageProps) {
 
             {/* Process */}
             {service.process && (
-                <section className="py-12 md:py-20 px-6 relative">
+                <section className="py-10 md:py-16 px-6 relative">
                     <div className="absolute inset-0 bg-gradient-to-b from-transparent via-neutral-900/20 to-transparent pointer-events-none" />
                     <div className="relative max-w-7xl mx-auto">
                         <AnimateSection className="text-center mb-12">
@@ -199,9 +199,9 @@ export default function ServicePage({ params }: PageProps) {
             <Testimonials />
 
             {/* Other Services */}
-            <section className="py-12 md:py-20 px-6">
+            <section className="py-10 md:py-16 px-6">
                 <div className="max-w-7xl mx-auto">
-                    <AnimateSection className="mb-10">
+                    <AnimateSection className="mb-8">
                         <h2 className="text-2xl font-bold text-white mb-2">Andre ydelser</h2>
                         <p className="text-neutral-400">Se hvad jeg ellers kan hjælpe med</p>
                     </AnimateSection>
@@ -231,7 +231,7 @@ export default function ServicePage({ params }: PageProps) {
             </section>
 
             {/* CTA */}
-            <section className="py-16 md:py-24 px-6 relative overflow-hidden">
+            <section className="py-12 md:py-20 px-6 relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-brand-950/50 via-neutral-950 to-neutral-950" />
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full bg-brand-600/10 blur-[100px] pointer-events-none" />
                 <div className="relative max-w-4xl mx-auto text-center">

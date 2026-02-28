@@ -94,7 +94,7 @@ export default function FAQPage() {
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
             <Breadcrumbs items={[{ label: 'FAQ', href: '/faq' }]} />
 
-            <section className="py-12 md:py-20 px-6">
+            <section className="py-10 md:py-16 px-6">
                 <div className="max-w-4xl mx-auto">
                     <AnimateSection className="text-center mb-12">
                         <span className="inline-block text-sm font-medium text-brand-500 uppercase tracking-wider mb-4">
@@ -120,7 +120,7 @@ export default function FAQPage() {
                         />
                     </AnimateSection>
 
-                    <div className="space-y-12">
+                    <div className="space-y-8">
                         {filtered.map((cat, catIdx) => (
                             <AnimateSection key={cat.name} delay={catIdx * 50}>
                                 <h2 className="text-xl font-bold text-white mb-4">{cat.name}</h2>

@@ -20,9 +20,9 @@ export default function ServicesPage() {
         <div className="pt-20">
             <Breadcrumbs items={[{ label: 'Ydelser', href: '/services' }]} />
 
-            <section className="py-12 md:py-20 px-6">
+            <section className="py-10 md:py-16 px-6">
                 <div className="max-w-7xl mx-auto">
-                    <AnimateSection className="text-center mb-12">
+                    <AnimateSection className="text-center mb-8 md:mb-12">
                         <span className="inline-block text-sm font-medium text-brand-500 uppercase tracking-wider mb-4">
                             Mine ydelser
                         </span>
@@ -37,7 +37,7 @@ export default function ServicesPage() {
                     </AnimateSection>
 
                     {/* Quick-access: spring direkte til hver ydelse */}
-                    <AnimateSection className="mb-20">
+                    <AnimateSection className="mb-10 md:mb-14">
                         <h2 className="sr-only">Spring til ydelse</h2>
                         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
                             {services.map((s) => {
@@ -60,13 +60,13 @@ export default function ServicesPage() {
                         </div>
                     </AnimateSection>
 
-                    <div className="space-y-32">
+                    <div className="space-y-16 md:space-y-20">
                         {services.map((service, si) => {
                             const Icon = iconMap[service.icon] || Target
                             return (
                                 <article key={service.slug} id={service.slug}>
-                                    <AnimateSection className="mb-10">
-                                        <div className="mb-6">
+                                    <AnimateSection className="mb-6">
+                                        <div className="mb-4">
                                             <div className="w-14 h-14 rounded-xl bg-brand-600/10 border border-brand-600/20 flex items-center justify-center mb-4">
                                                 <Icon className="w-7 h-7 text-brand-500" />
                                             </div>
@@ -162,14 +162,14 @@ export default function ServicesPage() {
                                     </AnimateSection>
 
                                     {si < services.length - 1 && (
-                                        <div className="border-b border-neutral-800/30 mt-16" />
+                                        <div className="border-b border-neutral-800/30 mt-10 md:mt-12" />
                                     )}
                                 </article>
                             )
                         })}
                     </div>
 
-                    <AnimateSection className="mt-20 p-10 rounded-2xl bg-gradient-to-br from-neutral-900/50 to-neutral-900/30 border border-neutral-800/50 text-center">
+                    <AnimateSection className="mt-12 md:mt-16 p-8 md:p-10 rounded-2xl bg-gradient-to-br from-neutral-900/50 to-neutral-900/30 border border-neutral-800/50 text-center">
                         <h3 className="text-2xl font-bold text-white mb-3">Har du brug for noget andet?</h3>
                         <p className="text-neutral-400 mb-8 max-w-xl mx-auto">
                             Jeg tilbyder også skræddersyede løsninger til større kampagner, abonnementsløsninger med løbende levering,
