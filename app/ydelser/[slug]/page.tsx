@@ -25,11 +25,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return {
         title: service.metaTitle,
         description: service.metaDescription,
-        alternates: { canonical: `https://konvertio.dk/services/${service.slug}` },
+        alternates: { canonical: `https://konvertio.dk/ydelser/${service.slug}` },
     }
 }
 
-export default function ServicePage({ params }: PageProps) {
+export default function YdelsePage({ params }: PageProps) {
     const service = services.find((s) => s.slug === params.slug)
     if (!service) notFound()
 
@@ -40,7 +40,7 @@ export default function ServicePage({ params }: PageProps) {
         <div className="pt-20">
             <Breadcrumbs
                 items={[
-                    { label: 'Ydelser', href: '/services' },
+                    { label: 'Ydelser', href: '/ydelser' },
                     { label: service.shortTitle },
                 ]}
             />
@@ -71,7 +71,7 @@ export default function ServicePage({ params }: PageProps) {
                                     Kontakt mig
                                     <ArrowRight className="w-4 h-4" />
                                 </Link>
-                                <Link href="/services" className="btn-secondary">
+                                <Link href="/ydelser" className="btn-secondary">
                                     Alle ydelser
                                 </Link>
                             </div>
@@ -211,7 +211,7 @@ export default function ServicePage({ params }: PageProps) {
                             return (
                                 <AnimateSection key={s.slug} delay={i * 100}>
                                     <Link
-                                        href={`/services/${s.slug}`}
+                                        href={`/ydelser/${s.slug}`}
                                         className="group p-6 rounded-2xl bg-neutral-900/30 border border-neutral-800/50 card-hover block"
                                     >
                                         <div className="w-10 h-10 rounded-xl bg-brand-600/10 border border-brand-600/20 group-hover:bg-brand-600/20 flex items-center justify-center mb-4 transition-colors duration-300">

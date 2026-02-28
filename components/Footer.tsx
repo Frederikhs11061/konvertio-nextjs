@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { Mail, Linkedin, ArrowUpRight } from 'lucide-react'
 
 const footerLinks = [
-    { label: 'Ydelser', href: '/services' },
+    { label: 'Ydelser', href: '/ydelser' },
     { label: 'Om mig', href: '/om-mig' },
     { label: 'Blog', href: '/blog' },
     { label: 'FAQ', href: '/faq' },
@@ -10,10 +10,10 @@ const footerLinks = [
 ]
 
 const serviceLinks = [
-    { label: 'Static Ads', href: '/services/static-ads' },
-    { label: 'CRO Analyse', href: '/services/cro-analyse' },
-    { label: 'Shopify Webshop', href: '/services/shopify-webshop' },
-    { label: 'Websites', href: '/services/wordpress-website' },
+    { label: 'Static Ads', href: '/ydelser/static-ads' },
+    { label: 'CRO Analyse', href: '/ydelser/cro-analyse' },
+    { label: 'Shopify Webshop', href: '/ydelser/shopify-webshop' },
+    { label: 'Websites', href: '/ydelser/wordpress-website' },
 ]
 
 export default function Footer() {

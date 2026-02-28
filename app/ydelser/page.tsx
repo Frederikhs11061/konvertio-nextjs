@@ -8,17 +8,17 @@ import { services } from '@/lib/data'
 export const metadata: Metadata = {
     title: 'Ydelser der skaber resultater',
     description: 'Static Ads, CRO Analyse, Shopify Webshop og WordPress websites. Se alle ydelser og priser.',
-    alternates: { canonical: 'https://konvertio.dk/services' },
+    alternates: { canonical: 'https://konvertio.dk/ydelser' },
 }
 
 const iconMap: Record<string, React.ElementType> = {
     Target, TrendingUp, ShoppingBag, Globe,
 }
 
-export default function ServicesPage() {
+export default function YdelserPage() {
     return (
         <div className="pt-20">
-            <Breadcrumbs items={[{ label: 'Ydelser', href: '/services' }]} />
+            <Breadcrumbs items={[{ label: 'Ydelser', href: '/ydelser' }]} />
 
             <section className="py-10 md:py-16 px-6">
                 <div className="max-w-7xl mx-auto">
@@ -36,7 +36,7 @@ export default function ServicesPage() {
                         </p>
                     </AnimateSection>
 
-                    {/* Quick-access: spring direkte til hver ydelse */}
+                    {/* Quick-access: link til hver ydelsesside (uden #) */}
                     <AnimateSection className="mb-10 md:mb-14">
                         <h2 className="sr-only">Spring til ydelse</h2>
                         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
@@ -45,7 +45,7 @@ export default function ServicesPage() {
                                 return (
                                     <Link
                                         key={s.slug}
-                                        href={`/services#${s.slug}`}
+                                        href={`/ydelser/${s.slug}`}
                                         className="flex items-center gap-3 p-4 rounded-xl bg-neutral-900/40 border border-neutral-800/50 hover:border-brand-600/40 hover:bg-neutral-900/60 transition-all duration-300 group"
                                     >
                                         <div className="w-10 h-10 rounded-lg bg-brand-600/10 border border-brand-600/20 flex items-center justify-center flex-shrink-0 group-hover:bg-brand-600/20 transition-colors">
@@ -152,7 +152,7 @@ export default function ServicesPage() {
                                                 </div>
                                             </div>
                                             <Link
-                                                href={`/services/${service.slug}`}
+                                                href={`/ydelser/${service.slug}`}
                                                 className="inline-flex items-center gap-2 text-sm font-medium text-brand-500 hover:text-brand-400 whitespace-nowrap transition-colors"
                                             >
                                                 Se detaljer

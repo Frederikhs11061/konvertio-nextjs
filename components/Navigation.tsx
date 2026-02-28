@@ -7,7 +7,7 @@ import { Menu, X, ArrowRight } from 'lucide-react'
 
 const navLinks = [
     { label: 'Hjem', href: '/' },
-    { label: 'Ydelser', href: '/services' },
+    { label: 'Ydelser', href: '/ydelser' },
     { label: 'Om mig', href: '/om-mig' },
     { label: 'Blog', href: '/blog' },
     { label: 'FAQ', href: '/faq' },

@@ -69,7 +69,7 @@ export default function HomePage() {
 
           <AnimateSection delay={300}>
             <div className="flex flex-wrap gap-4 mb-16">
-              <Link href="/services" className="btn-primary text-base px-8 py-4">
+              <Link href="/ydelser" className="btn-primary text-base px-8 py-4">
                 Se mine ydelser
                 <ArrowRight className="w-5 h-5" />
               </Link>
@@ -209,7 +209,7 @@ export default function HomePage() {
               return (
                 <AnimateSection key={service.slug} delay={i * 100} animation="scale">
                   <Link
-                    href={`/services/${service.slug}`}
+                    href={`/ydelser/${service.slug}`}
                     className="group flex flex-col p-8 rounded-2xl bg-neutral-900/30 border border-neutral-800/50 card-hover h-full relative overflow-hidden"
                   >
                     <div className="absolute top-0 right-0 w-32 h-32 bg-brand-600/5 rounded-full blur-[60px] pointer-events-none group-hover:bg-brand-600/10 transition-all duration-700" />
@@ -231,7 +231,7 @@ export default function HomePage() {
           </div>
 
           <AnimateSection className="text-center">
-            <Link href="/services" className="btn-secondary">
+            <Link href="/ydelser" className="btn-secondary">
               Se alle ydelser og priser
               <ArrowRight className="w-4 h-4" />
             </Link>
@@ -409,7 +409,7 @@ export default function HomePage() {
                 Kontakt mig i dag
                 <ArrowRight className="w-5 h-5" />
               </Link>
-              <Link href="/services" className="btn-secondary text-base px-10 py-4">
+              <Link href="/ydelser" className="btn-secondary text-base px-10 py-4">
                 Se ydelser & priser
               </Link>
             </div>
