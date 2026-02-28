@@ -141,15 +141,20 @@ export default function BlogPostPage({ params }: PageProps) {
                         </div>
                     </AnimateSection>
 
-                    {/* Interne links (SEO) */}
+                    {/* Læs også – andre blogindlæg */}
                     <AnimateSection className="mt-10 p-6 rounded-2xl bg-neutral-900/30 border border-neutral-800/50">
                         <h3 className="text-lg font-bold text-white mb-3">Læs også</h3>
                         <ul className="flex flex-wrap gap-3 text-sm">
-                            <li><Link href="/services" className="text-brand-400 hover:text-brand-300 transition-colors">Alle ydelser</Link></li>
-                            <li><Link href="/services/static-ads" className="text-brand-400 hover:text-brand-300 transition-colors">Static Ads</Link></li>
-                            <li><Link href="/services/cro-analyse" className="text-brand-400 hover:text-brand-300 transition-colors">CRO Analyse</Link></li>
-                            <li><Link href="/faq" className="text-brand-400 hover:text-brand-300 transition-colors">Ofte stillede spørgsmål</Link></li>
-                            <li><Link href="/kontakt" className="text-brand-400 hover:text-brand-300 transition-colors">Kontakt</Link></li>
+                            {blogPosts
+                                .filter((p) => p.slug !== post.slug)
+                                .slice(0, 6)
+                                .map((other) => (
+                                    <li key={other.slug}>
+                                        <Link href={`/blog/${other.slug}`} className="text-brand-400 hover:text-brand-300 transition-colors">
+                                            {other.title}
+                                        </Link>
+                                    </li>
+                                ))}
                         </ul>
                     </AnimateSection>
 

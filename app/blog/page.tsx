@@ -14,7 +14,18 @@ export const metadata: Metadata = {
 
 const categories = Array.from(new Set(blogPosts.map((p) => p.category)))
 
-export default function BlogPage() {
+interface BlogPageProps {
+    searchParams?: { category?: string }
+}
+
+export default function BlogPage({ searchParams }: BlogPageProps) {
+    const activeCategory = searchParams?.category ?? null
+    const filteredPosts = activeCategory
+        ? blogPosts.filter((p) => p.category === activeCategory)
+        : blogPosts
+    const featuredPost = filteredPosts[0]
+    const restPosts = filteredPosts.slice(1)
+
     return (
         <div className="pt-20">
             <Breadcrumbs items={[{ label: 'Blog', href: '/blog' }]} />
@@ -34,27 +45,46 @@ export default function BlogPage() {
                     </AnimateSection>
 
                     <AnimateSection className="flex flex-wrap gap-2 justify-center mb-12">
-                        <span className="px-4 py-2 rounded-full bg-brand-600 text-white text-sm font-medium">
+                        <Link
+                            href="/blog"
+                            className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                                !activeCategory
+                                    ? 'bg-brand-600 text-white'
+                                    : 'border border-neutral-800 text-neutral-400 hover:bg-neutral-800 hover:text-white'
+                            }`}
+                        >
                             Alle
-                        </span>
+                        </Link>
                         {categories.map((cat) => (
-                            <span
+                            <Link
                                 key={cat}
-                                className="px-4 py-2 rounded-full border border-neutral-800 text-neutral-400 text-sm hover:bg-neutral-800 hover:text-white transition-all duration-300 cursor-pointer"
+                                href={`/blog?category=${encodeURIComponent(cat)}`}
+                                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                                    activeCategory === cat
+                                        ? 'bg-brand-600 text-white'
+                                        : 'border border-neutral-800 text-neutral-400 hover:bg-neutral-800 hover:text-white'
+                                }`}
                             >
                                 {cat}
-                            </span>
+                            </Link>
                         ))}
                     </AnimateSection>
 
+                    {filteredPosts.length === 0 ? (
+                        <AnimateSection className="text-center py-12 text-neutral-500">
+                            <p>Ingen indlæg i denne kategori endnu.</p>
+                            <Link href="/blog" className="text-brand-500 hover:text-brand-400 mt-2 inline-block">Vis alle</Link>
+                        </AnimateSection>
+                    ) : (
+                        <>
                     {/* Featured Post */}
                     <AnimateSection className="mb-12">
-                        <Link href={`/blog/${blogPosts[0].slug}`} className="group block">
+                        <Link href={`/blog/${featuredPost.slug}`} className="group block">
                             <div className="grid md:grid-cols-2 gap-0 rounded-2xl overflow-hidden border border-neutral-800/50 bg-neutral-900/30 hover:border-neutral-700/50 transition-all duration-500">
                                 <div className="aspect-video overflow-hidden bg-neutral-800">
                                     <Image
-                                        src={blogPosts[0].image}
-                                        alt={blogPosts[0].title}
+                                        src={featuredPost.image}
+                                        alt={featuredPost.title}
                                         width={800}
                                         height={450}
                                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
@@ -64,17 +94,17 @@ export default function BlogPage() {
                                 <div className="p-8 flex flex-col justify-center">
                                     <div className="flex items-center gap-3 mb-4">
                                         <span className="px-3 py-1 bg-brand-600/10 border border-brand-600/20 text-xs font-semibold text-brand-400 rounded-full">
-                                            {blogPosts[0].category}
+                                            {featuredPost.category}
                                         </span>
                                         <span className="text-xs text-neutral-500 flex items-center gap-1">
                                             <Clock className="w-3.5 h-3.5" />
-                                            {blogPosts[0].readTime} læsning
+                                            {featuredPost.readTime} læsning
                                         </span>
                                     </div>
                                     <h2 className="text-2xl font-bold text-white mb-3 group-hover:text-brand-400 transition-colors duration-300">
-                                        {blogPosts[0].title}
+                                        {featuredPost.title}
                                     </h2>
-                                    <p className="text-neutral-400 mb-6 leading-relaxed">{blogPosts[0].excerpt}</p>
+                                    <p className="text-neutral-400 mb-6 leading-relaxed">{featuredPost.excerpt}</p>
                                     <span className="inline-flex items-center gap-2 text-sm font-medium text-brand-500 group-hover:text-brand-400 transition-colors">
                                         Læs artiklen <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
                                     </span>
@@ -85,7 +115,7 @@ export default function BlogPage() {
 
                     {/* Grid */}
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {blogPosts.slice(1).map((post, i) => (
+                        {restPosts.map((post, i) => (
                             <AnimateSection key={post.slug} delay={i * 80}>
                                 <article>
                                     <Link href={`/blog/${post.slug}`} className="group block">
@@ -125,6 +155,8 @@ export default function BlogPage() {
                             </AnimateSection>
                         ))}
                     </div>
+                        </>
+                    )}
                 </div>
             </section>
         </div>

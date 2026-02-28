@@ -21,7 +21,7 @@ export const blogPosts: BlogPost[] = [
     content: `
       <p>Konverteringsoptimering (CRO) handler om at få flere af dine besøgende til at handle. Her er 5 tips der virker:</p>
       
-      <h2>1. Optimer din produktside</h2>
+      <h2>Optimer din produktside</h2>
       <p>Din produktside er hvor beslutningen tages. Sørg for:</p>
       <ul>
         <li>Højkvalitets billeder fra flere vinkler</li>
@@ -30,16 +30,16 @@ export const blogPosts: BlogPost[] = [
         <li>Sociale beviser (anmeldelser, antal solgte)</li>
       </ul>
 
-      <h2>2. Reducer checkout friktion</h2>
+      <h2>Reducer checkout friktion</h2>
       <p>Jo nemmere det er at købe, jo flere gør det. Fjern unødvendige felter, tilbyd gæste-checkout, og vis en progress indicator.</p>
 
-      <h2>3. Brug urgency og scarcity</h2>
+      <h2>Brug urgency og scarcity</h2>
       <p>"Kun 3 tilbage på lager" eller "Tilbud slutter om 2 timer" kan skubbe kunden til at handle nu.</p>
 
-      <h2>4. Forbedr din trust signals</h2>
+      <h2>Forbedr din trust signals</h2>
       <p>Trustpilot-anmeldelser, sikkerhedscertifikater, og "gratis retur" kan fjerne bekymringer.</p>
 
-      <h2>5. Test, test, test</h2>
+      <h2>Test, test, test</h2>
       <p>A/B test dine ændringer. Hvad virker for én webshop virker ikke nødvendigvis for din.</p>
     `,
     image: '/images/blog-1.jpg',
@@ -155,19 +155,19 @@ export const blogPosts: BlogPost[] = [
     content: `
       <p>Facebook Ads i 2026 kræver en anden tilgang end tidligere. Algoritmen har ændret sig, og konkurrencen er hårdere. Her er hvad der virker:</p>
       
-      <h2>1. First-party data er guld værd</h2>
+      <h2>First-party data er guld værd</h2>
       <p>Med iOS 14 og frem er tracking blevet sværere. Byg din egen email-liste og brug den til at skabe lookalike audiences.</p>
 
-      <h2>2. Advantage+ Shopping Campaigns</h2>
+      <h2>Advantage+ Shopping Campaigns</h2>
       <p>Meta's AI-drevne kampagner kan faktisk virke rigtig godt. Giv algoritmen tid og data nok, og den finder dine kunder.</p>
 
-      <h2>3. Creative is the new targeting</h2>
+      <h2>Creative is the new targeting</h2>
       <p>Da targeting er blevet sværere, er dine creatives blevet vigtigere. Invester i godt kreativt indhold – det betaler sig.</p>
 
-      <h2>4. Test struktur</h2>
+      <h2>Test struktur</h2>
       <p>Start med 3-5 ad sets med forskellige audiences. Kør 2-3 ads i hver. Luk det der ikke virker, skaler det der gør.</p>
 
-      <h2>5. ROAS er ikke alt</h2>
+      <h2>ROAS er ikke alt</h2>
       <p>Se på helheden – LTV, repeat purchases, brand awareness. Nogle kampagner betaler sig først på længere sigt.</p>
     `,
     image: '/images/blog-5.jpg',
