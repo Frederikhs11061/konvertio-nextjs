@@ -94,7 +94,7 @@ export default function FAQPage() {
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
             <Breadcrumbs items={[{ label: 'FAQ', href: '/faq' }]} />
 
-            <section className="py-20 px-6">
+            <section className="py-12 md:py-20 px-6">
                 <div className="max-w-4xl mx-auto">
                     <AnimateSection className="text-center mb-12">
                         <span className="inline-block text-sm font-medium text-brand-500 uppercase tracking-wider mb-4">
@@ -104,7 +104,7 @@ export default function FAQPage() {
                             Ofte stillede spørgsmål –{' '}
                             <span className="gradient-text-brand">ærlige svar.</span>
                         </h1>
-                        <p className="text-lg text-neutral-400 max-w-2xl mx-auto">
+                        <p className="text-lg text-neutral-400 max-w-2xl mx-auto text-left md:text-center">
                             Find svar på de mest almindelige spørgsmål om static ads, Shopify, CRO og samarbejdet med mig.
                         </p>
                     </AnimateSection>

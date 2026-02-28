@@ -19,16 +19,16 @@ export default function BlogPage() {
         <div className="pt-20">
             <Breadcrumbs items={[{ label: 'Blog', href: '/blog' }]} />
 
-            <section className="py-20 px-6">
+            <section className="py-12 md:py-20 px-6">
                 <div className="max-w-7xl mx-auto">
-                    <AnimateSection className="text-center mb-16">
+                    <AnimateSection className="text-center mb-12 md:mb-16">
                         <span className="inline-block text-sm font-medium text-brand-500 uppercase tracking-wider mb-4">
                             Blog & Viden
                         </span>
                         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-6">
                             Seneste indsigter
                         </h1>
-                        <p className="text-lg text-neutral-400 max-w-2xl mx-auto">
+                        <p className="text-lg text-neutral-400 max-w-2xl mx-auto text-left md:text-center">
                             Praktiske guides, tips og strategier til dig der vil have mere ud af din webshop og sociale medier markedsføring.
                         </p>
                     </AnimateSection>

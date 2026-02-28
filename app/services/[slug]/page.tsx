@@ -46,7 +46,7 @@ export default function ServicePage({ params }: PageProps) {
             />
 
             {/* Hero */}
-            <section className="py-20 px-6 relative overflow-hidden">
+            <section className="py-12 md:py-20 px-6 relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-600/5 rounded-full blur-[120px] pointer-events-none" />
                 <div className="relative max-w-7xl mx-auto">
                     <div className="max-w-3xl">
@@ -81,7 +81,7 @@ export default function ServicePage({ params }: PageProps) {
             </section>
 
             {/* Features & Benefits */}
-            <section className="py-20 px-6 relative">
+            <section className="py-12 md:py-20 px-6 relative">
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-neutral-900/30 to-transparent pointer-events-none" />
                 <div className="relative max-w-7xl mx-auto">
                     <div className="grid md:grid-cols-2 gap-12">
@@ -115,11 +115,11 @@ export default function ServicePage({ params }: PageProps) {
 
             {/* Packages */}
             {service.packages && (
-                <section className="py-20 px-6">
+                <section className="py-12 md:py-20 px-6">
                     <div className="max-w-7xl mx-auto">
                         <AnimateSection className="text-center mb-12">
                             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">Priser & pakker</h2>
-                            <p className="text-neutral-400">Fast pris – ingen skjulte gebyrer</p>
+                            <p className="text-neutral-400 text-left md:text-center">Fast pris – ingen skjulte gebyrer</p>
                         </AnimateSection>
                         <div className={`grid gap-6 mx-auto ${service.packages.length >= 3 ? 'md:grid-cols-2 lg:grid-cols-3 max-w-6xl' : 'md:grid-cols-2 max-w-4xl'}`}>
                             {service.packages.map((pkg, i) => (
@@ -171,12 +171,12 @@ export default function ServicePage({ params }: PageProps) {
 
             {/* Process */}
             {service.process && (
-                <section className="py-20 px-6 relative">
+                <section className="py-12 md:py-20 px-6 relative">
                     <div className="absolute inset-0 bg-gradient-to-b from-transparent via-neutral-900/20 to-transparent pointer-events-none" />
                     <div className="relative max-w-7xl mx-auto">
                         <AnimateSection className="text-center mb-12">
                             <h2 className="text-3xl font-bold text-white mb-4">Sådan foregår det</h2>
-                            <p className="text-neutral-400">En transparent proces fra start til slut</p>
+                            <p className="text-neutral-400 text-left md:text-center">En transparent proces fra start til slut</p>
                         </AnimateSection>
                         <div className="relative">
                             <div className="hidden md:block absolute top-5 left-10 right-10 h-px bg-gradient-to-r from-transparent via-neutral-800 to-transparent" />
@@ -199,7 +199,7 @@ export default function ServicePage({ params }: PageProps) {
             <Testimonials />
 
             {/* Other Services */}
-            <section className="py-20 px-6">
+            <section className="py-12 md:py-20 px-6">
                 <div className="max-w-7xl mx-auto">
                     <AnimateSection className="mb-10">
                         <h2 className="text-2xl font-bold text-white mb-2">Andre ydelser</h2>
@@ -231,13 +231,13 @@ export default function ServicePage({ params }: PageProps) {
             </section>
 
             {/* CTA */}
-            <section className="py-24 px-6 relative overflow-hidden">
+            <section className="py-16 md:py-24 px-6 relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-brand-950/50 via-neutral-950 to-neutral-950" />
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full bg-brand-600/10 blur-[100px] pointer-events-none" />
                 <div className="relative max-w-4xl mx-auto text-center">
                     <AnimateSection>
                         <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">Klar til at komme i gang?</h2>
-                        <p className="text-neutral-400 mb-8 max-w-xl mx-auto">
+                        <p className="text-neutral-400 mb-8 max-w-xl mx-auto text-left md:text-center">
                             Tag en gratis og uforpligtende snak om {service.shortTitle.toLowerCase()}.
                         </p>
                         <Link href="/kontakt" className="btn-primary text-base px-10 py-4">

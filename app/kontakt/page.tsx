@@ -63,7 +63,7 @@ export default function KontaktPage() {
         <div className="pt-20">
             <Breadcrumbs items={[{ label: 'Kontakt', href: '/kontakt' }]} />
 
-            <section className="py-20 px-6 relative overflow-hidden">
+            <section className="py-12 md:py-20 px-6 relative overflow-hidden">
                 <div className="absolute top-0 right-1/4 w-96 h-96 bg-brand-600/5 rounded-full blur-[120px] pointer-events-none" />
                 <div className="relative max-w-7xl mx-auto">
                     <div className="grid lg:grid-cols-2 gap-16">

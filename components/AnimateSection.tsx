@@ -54,8 +54,8 @@ export default function AnimateSection({
             ([entry]) => {
                 if (entry.isIntersecting) {
                     setTimeout(() => {
-                        el.style.cssText = `${anim.final};transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1),transform 0.8s cubic-bezier(0.16,1,0.3,1);`
-                    }, delay)
+                        el.style.cssText = `${anim.final};transition:opacity 0.35s cubic-bezier(0.16,1,0.3,1),transform 0.35s cubic-bezier(0.16,1,0.3,1);`
+                    }, Math.min(delay, 80))
                     observer.unobserve(el)
                 }
             },
@@ -77,7 +77,7 @@ export default function AnimateSection({
                     : animation === 'slide-right' ? 'translateX(40px)'
                     : animation === 'scale' ? 'scale(0.92)'
                     : undefined,
-                transition: 'opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1)',
+                transition: 'opacity 0.35s cubic-bezier(0.16,1,0.3,1), transform 0.35s cubic-bezier(0.16,1,0.3,1)',
                 willChange: 'opacity, transform',
             }}
         >

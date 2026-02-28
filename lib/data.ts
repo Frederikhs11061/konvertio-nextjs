@@ -235,7 +235,7 @@ export const blogPosts: BlogPost[] = [
         <li>Implementer det der virker</li>
       </ul>
     `,
-    image: '/images/blog-7.jpg',
+    image: '/images/blog-1.jpg', // TODO: add blog-7.jpg when available
     author: 'Frederik Høgh Simonsen',
     date: '2026-01-15',
     readTime: '8 min',
@@ -272,7 +272,7 @@ export const blogPosts: BlogPost[] = [
       <p><strong>Vælg Shopify hvis:</strong> Du vil hurtigt i gang, ikke har teknisk viden, og vil have en hosted løsning der "bare virker".</p>
       <p><strong>Vælg WooCommerce hvis:</strong> Du vil have fuld kontrol, har teknisk viden eller budget til en udvikler, og vil undgå månedlige abonnementsgebyrer.</p>
     `,
-    image: '/images/blog-8.jpg',
+    image: '/images/blog-1.jpg', // TODO: add blog-8.jpg when available
     author: 'Frederik Høgh Simonsen',
     date: '2026-01-10',
     readTime: '7 min',

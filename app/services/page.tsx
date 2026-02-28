@@ -20,7 +20,7 @@ export default function ServicesPage() {
         <div className="pt-20">
             <Breadcrumbs items={[{ label: 'Ydelser', href: '/services' }]} />
 
-            <section className="py-20 px-6">
+            <section className="py-12 md:py-20 px-6">
                 <div className="max-w-7xl mx-auto">
                     <AnimateSection className="text-center mb-12">
                         <span className="inline-block text-sm font-medium text-brand-500 uppercase tracking-wider mb-4">
@@ -30,7 +30,7 @@ export default function ServicesPage() {
                             Services der skaber{' '}
                             <span className="gradient-text-brand">resultater</span>
                         </h1>
-                        <p className="text-lg text-neutral-400 max-w-2xl mx-auto">
+                        <p className="text-lg text-neutral-400 max-w-2xl mx-auto text-left md:text-center">
                             Uanset om du har brug for static ads der stopper scroll, en webshop der konverterer,
                             eller en komplet CRO-analyse – her er mine ydelser og priser.
                         </p>
@@ -66,14 +66,12 @@ export default function ServicesPage() {
                             return (
                                 <article key={service.slug} id={service.slug}>
                                     <AnimateSection className="mb-10">
-                                        <div className="flex items-start gap-5 mb-6">
-                                            <div className="w-14 h-14 rounded-xl bg-brand-600/10 border border-brand-600/20 flex items-center justify-center flex-shrink-0">
+                                        <div className="mb-6">
+                                            <div className="w-14 h-14 rounded-xl bg-brand-600/10 border border-brand-600/20 flex items-center justify-center mb-4">
                                                 <Icon className="w-7 h-7 text-brand-500" />
                                             </div>
-                                            <div>
-                                                <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2">{service.title}</h2>
-                                                <p className="text-neutral-400 max-w-2xl">{service.description}</p>
-                                            </div>
+                                            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2">{service.title}</h2>
+                                            <p className="text-neutral-400 max-w-2xl text-left">{service.description}</p>
                                         </div>
                                     </AnimateSection>
 

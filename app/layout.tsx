@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
+import BackToTop from '@/components/BackToTop'
 import { organizationSchema, websiteSchema, localBusinessSchema } from '@/lib/seo'
 
 const inter = Inter({
@@ -85,6 +86,7 @@ export default function RootLayout({
         <Navigation />
         <main className="flex-1">{children}</main>
         <Footer />
+        <BackToTop />
       </body>
     </html>
   )
