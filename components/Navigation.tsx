@@ -17,7 +17,12 @@ const navLinks = [
 export default function Navigation() {
     const [isScrolled, setIsScrolled] = useState(false)
     const [isOpen, setIsOpen] = useState(false)
+    const [mounted, setMounted] = useState(false)
     const pathname = usePathname()
+
+    useEffect(() => {
+        setMounted(true)
+    }, [])
 
     useEffect(() => {
         const handleScroll = () => setIsScrolled(window.scrollY > 20)
@@ -40,7 +45,7 @@ export default function Navigation() {
         : isScrolled
             ? 'bg-neutral-950/80 backdrop-blur-2xl border-b border-neutral-800/50 shadow-2xl shadow-black/20'
             : 'bg-transparent'
-    const headerTransition = isOpen ? 'transition-none' : 'transition-all duration-500'
+    const headerTransition = isOpen ? 'transition-none' : mounted ? 'transition-all duration-500' : 'transition-none'
 
     return (
         <header
@@ -50,14 +55,15 @@ export default function Navigation() {
                 <nav className="relative z-[60] flex items-center justify-between h-18 py-4">
                     <Link
                         href="/"
-                        className="relative z-10 flex items-center gap-2.5 group"
+                        className="relative z-10 flex items-center gap-2.5 group w-[140px] h-9 shrink-0"
+                        aria-label="Konvertio – forsiden"
                     >
                         <Image
                             src="/logo.svg"
-                            alt="Konvertio"
+                            alt=""
                             width={140}
                             height={40}
-                            className="h-9 w-auto object-contain"
+                            className="h-9 w-[140px] object-contain object-left"
                             priority
                         />
                     </Link>

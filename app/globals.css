@@ -9,8 +9,9 @@
 
   html {
     scroll-behavior: smooth;
-    /* Reserver plads til scrollbar så indhold ikke rykker ved indlæsning */
+    /* Forhindrer at menuen/logo hopper: scrollbar plads reserveret fra start */
     scrollbar-gutter: stable;
+    overflow-y: scroll;
   }
 
   body {

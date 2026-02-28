@@ -9,7 +9,8 @@ import { SITE_URL } from '@/lib/site'
 
 const inter = Inter({
   subsets: ['latin'],
-  display: 'swap',
+  display: 'optional',
+  adjustFontFallback: true,
   variable: '--font-inter',
 })
 
