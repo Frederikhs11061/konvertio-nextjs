@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { Menu, X, ArrowRight } from 'lucide-react'
 
@@ -51,12 +52,14 @@ export default function Navigation() {
                         href="/"
                         className="relative z-10 flex items-center gap-2.5 group"
                     >
-                        <div className="w-9 h-9 rounded-xl bg-brand-600 flex items-center justify-center group-hover:bg-brand-500 transition-colors duration-300">
-                            <span className="text-white text-sm font-bold">K</span>
-                        </div>
-                        <span className="text-lg font-bold text-white tracking-tight">
-                            Konvertio
-                        </span>
+                        <Image
+                            src="/logo.png"
+                            alt="Konvertio"
+                            width={140}
+                            height={36}
+                            className="h-9 w-auto object-contain"
+                            priority
+                        />
                     </Link>
 
                     <div className="hidden lg:flex items-center">

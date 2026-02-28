@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { Mail, Linkedin, ArrowUpRight } from 'lucide-react'
 
 const footerLinks = [
@@ -24,10 +25,13 @@ export default function Footer() {
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-16">
                     <div className="col-span-2 md:col-span-1">
                         <Link href="/" className="flex items-center gap-2.5 mb-5">
-                            <div className="w-9 h-9 rounded-xl bg-brand-600 flex items-center justify-center">
-                                <span className="text-white text-sm font-bold">K</span>
-                            </div>
-                            <span className="font-bold text-white tracking-tight text-lg">Konvertio</span>
+                            <Image
+                                src="/logo.png"
+                                alt="Konvertio"
+                                width={140}
+                                height={36}
+                                className="h-9 w-auto object-contain"
+                            />
                         </Link>
                         <p className="text-sm text-neutral-500 leading-relaxed max-w-xs mb-6">
                             Freelance ekspert i static ads, CRO og Shopify webshops. Baseret i Viborg, Danmark.
