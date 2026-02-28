@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { ArrowRight, Linkedin, Mail, Check, Zap, MapPin } from 'lucide-react'
 import type { Metadata } from 'next'
 import AnimateSection from '@/components/AnimateSection'
@@ -34,17 +35,15 @@ export default function AboutPage() {
                     <div className="grid lg:grid-cols-2 gap-16 items-center">
                         <AnimateSection animation="slide-left">
                             <div className="relative max-w-md mx-auto lg:mx-0">
-                                <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-gradient-to-br from-neutral-900 to-neutral-800 border border-neutral-800/50 flex items-center justify-center">
-                                    <div className="text-center px-10">
-                                        <div className="w-36 h-36 rounded-full bg-gradient-to-br from-brand-600 to-brand-800 flex items-center justify-center mx-auto mb-6 shadow-2xl shadow-brand-600/20">
-                                            <span className="text-white text-5xl font-bold">F</span>
-                                        </div>
-                                        <p className="text-white text-lg font-bold mb-1">Frederik Høgh Simonsen</p>
-                                        <p className="text-neutral-500 text-sm flex items-center justify-center gap-1">
-                                            <MapPin className="w-3.5 h-3.5" />
-                                            Viborg, Danmark
-                                        </p>
-                                    </div>
+                                <div className="aspect-[4/5] rounded-2xl overflow-hidden border border-neutral-800/50 relative">
+                                    <Image
+                                        src="/images/frederik.png"
+                                        alt="Frederik Høgh Simonsen"
+                                        fill
+                                        className="object-cover object-top"
+                                        sizes="(max-width: 1024px) 100vw, 448px"
+                                        priority
+                                    />
                                 </div>
                                 <div className="absolute -bottom-4 -right-4 p-4 rounded-xl bg-neutral-900 border border-neutral-800/50 shadow-2xl">
                                     <div className="flex items-center gap-3">

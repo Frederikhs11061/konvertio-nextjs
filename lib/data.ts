@@ -19,7 +19,7 @@ export const blogPosts: BlogPost[] = [
     title: '5 CRO-tips der øger din konvertering med 30%',
     excerpt: 'Lær de mest effektive teknikker til at optimere din webshop og øge salget uden at øge din marketingbudget.',
     content: `
-      <p>Konverteringsoptimering (CRO) handler om at få flere af dine besøgende til at handle. Her er 5 tips der virker:</p>
+      <p><a href="/ydelser/cro-analyse">Konverteringsoptimering (CRO)</a> handler om at få flere af dine besøgende til at handle. Her er 5 tips der virker:</p>
       
       <h2>Optimer din produktside</h2>
       <p>Din produktside er hvor beslutningen tages. Sørg for:</p>
@@ -31,7 +31,7 @@ export const blogPosts: BlogPost[] = [
       </ul>
 
       <h2>Reducer checkout friktion</h2>
-      <p>Jo nemmere det er at købe, jo flere gør det. Fjern unødvendige felter, tilbyd gæste-checkout, og vis en progress indicator.</p>
+      <p>Jo nemmere det er at købe, jo flere gør det. Fjern unødvendige felter, tilbyd gæste-checkout, og vis en progress indicator. Læs mere i vores guide til <a href="/blog/shopify-checkout-optimering">Shopify checkout-optimering</a>.</p>
 
       <h2>Brug urgency og scarcity</h2>
       <p>"Kun 3 tilbage på lager" eller "Tilbud slutter om 2 timer" kan skubbe kunden til at handle nu.</p>
@@ -40,7 +40,7 @@ export const blogPosts: BlogPost[] = [
       <p>Trustpilot-anmeldelser, sikkerhedscertifikater, og "gratis retur" kan fjerne bekymringer.</p>
 
       <h2>Test, test, test</h2>
-      <p>A/B test dine ændringer. Hvad virker for én webshop virker ikke nødvendigvis for din.</p>
+      <p>A/B test dine ændringer. Hvad virker for én webshop virker ikke nødvendigvis for din. Vil du have hjælp til at få <a href="/ydelser/cro-analyse">CRO-analyse og konkrete anbefalinger</a>, kan jeg hjælpe.</p>
     `,
     image: '/images/blog-1.jpg',
     author: 'Frederik Høgh Simonsen',
@@ -55,7 +55,7 @@ export const blogPosts: BlogPost[] = [
     title: 'Sådan optimerer du din Shopify checkout',
     excerpt: 'En komplet guide til at reducere abandoned carts og øge din gennemførelsesrate i checkout-flowet.',
     content: `
-      <p>Shopifys checkout er hvor mange kunder forsvinder. Her er hvordan du optimerer den:</p>
+      <p>Shopifys checkout er hvor mange kunder forsvinder. Her er hvordan du optimerer den – uanset om du har en ny <a href="/ydelser/shopify-webshop">Shopify webshop</a> eller en eksisterende butik.</p>
       
       <h2>Aktivér Shop Pay</h2>
       <p>Shop Pay gør det muligt for kunder at gemme deres informationer og checke ud med ét klik. Det kan øge konverteringen med op til 35%.</p>
@@ -67,7 +67,7 @@ export const blogPosts: BlogPost[] = [
       <p>Ingen kan lide overraskelser ved checkout. Vis fragtprisen så tidligt som muligt.</p>
 
       <h2>Brug trust badges</h2>
-      <p>Vis at din butik er sikker med SSL-certifikat badges og betalingssikkerhedsikoner.</p>
+      <p>Vis at din butik er sikker med SSL-certifikat badges og betalingssikkerhedsikoner. Det understøtter også din <a href="/blog/5-cro-tips">CRO-arbejde</a>.</p>
 
       <h2>Send abandoned cart emails</h2>
       <p>Opsæt automatiske emails til kunder der forlader deres kurv. En påmindelse kan genvinde 10-15% af disse salg.</p>
@@ -85,7 +85,7 @@ export const blogPosts: BlogPost[] = [
     title: 'Hvorfor din webshop har brug for hastighedsoptimering',
     excerpt: 'Hastighed påvirker både SEO og konvertering. Her er hvorfor og hvordan du optimerer din webshops performance.',
     content: `
-      <p>En langsom webshop koster dig penge. Her er hvorfor hastighed betyder noget:</p>
+      <p>En langsom webshop koster dig penge. Her er hvorfor hastighed betyder noget – og hvordan en <a href="/ydelser/cro-analyse">CRO-analyse</a> kan pege på konkrete forbedringer.</p>
       
       <h2>Hastighed påvirker SEO</h2>
       <p>Google bruger Core Web Vitals som ranking faktor. En langsom side rangerer lavere i søgeresultaterne.</p>
@@ -103,7 +103,7 @@ export const blogPosts: BlogPost[] = [
       </ul>
 
       <h2>Mål din hastighed</h2>
-      <p>Brug Google PageSpeed Insights eller GTmetrix til at måle og få konkrete forbedringsforslag.</p>
+      <p>Brug Google PageSpeed Insights eller GTmetrix til at måle og få konkrete forbedringsforslag. Læs også om <a href="/blog/shopify-checkout-optimering">checkout-optimering</a> og <a href="/blog/5-cro-tips">CRO-tips</a> der giver mere ud af din trafik.</p>
     `,
     image: '/images/blog-3.jpg',
     author: 'Frederik Høgh Simonsen',
@@ -118,7 +118,7 @@ export const blogPosts: BlogPost[] = [
     title: 'Sådan laver du static ads der faktisk konverterer',
     excerpt: 'Static ads er ikke døde – de er stadig en af de mest effektive annonceformater. Lær hvordan du laver nogle der virker.',
     content: `
-      <p>Static ads er simple, skalerbare, og når de gøres rigtigt, utroligt effektive. Her er opskriften:</p>
+      <p><a href="/ydelser/static-ads">Static ads</a> er simple, skalerbare, og når de gøres rigtigt, utroligt effektive. Her er opskriften:</p>
       
       <h2>Forstå din målgruppe</h2>
       <p>Før du designer noget, skal du vide hvem du taler til. Hvad er deres pain points? Hvad motiverer dem? Hvad stopper deres scroll?</p>
@@ -135,10 +135,10 @@ export const blogPosts: BlogPost[] = [
       <p>De fleste ser dine ads på mobil. Sørg for teksten er læselig, billedet er tydeligt, og CTA'en er nem at trykke på.</p>
 
       <h2>Test flere vinkler</h2>
-      <p>En ad virker sjældent første gang. Lav flere versioner med forskellige headlines, billeder, og pain points. Lad data vise hvad der virker.</p>
+      <p>En ad virker sjældent første gang. Lav flere versioner med forskellige headlines, billeder, og pain points. Lad data vise hvad der virker. Læs også om <a href="/blog/facebook-ads-strategi-2026">Facebook Ads-strategi i 2026</a> og <a href="/blog/ugc-ads-guide">UGC i ads</a>.</p>
 
       <h2>Hold det simpelt</h2>
-      <p>For meget tekst, for mange farver, for mange elementer – det forvirrer. En klar besked, ét stærkt billede, én tydelig CTA.</p>
+      <p>For meget tekst, for mange farver, for mange elementer – det forvirrer. En klar besked, ét stærkt billede, én tydelig CTA. Vil du have professionelt designede static ads, kan du se mine <a href="/ydelser/static-ads">pakker til static ads</a>.</p>
     `,
     image: '/images/blog-4.jpg',
     author: 'Frederik Høgh Simonsen',
@@ -153,7 +153,7 @@ export const blogPosts: BlogPost[] = [
     title: 'Facebook Ads strategi for e-commerce i 2026',
     excerpt: 'Facebook Ads har ændret sig. Her er den strategi der virker lige nu for danske webshops.',
     content: `
-      <p>Facebook Ads i 2026 kræver en anden tilgang end tidligere. Algoritmen har ændret sig, og konkurrencen er hårdere. Her er hvad der virker:</p>
+      <p>Facebook Ads i 2026 kræver en anden tilgang end tidligere. Algoritmen har ændret sig, og konkurrencen er hårdere. Her er hvad der virker – og hvordan <a href="/ydelser/static-ads">gode static ads</a> gør en kæmpe forskel.</p>
       
       <h2>First-party data er guld værd</h2>
       <p>Med iOS 14 og frem er tracking blevet sværere. Byg din egen email-liste og brug den til at skabe lookalike audiences.</p>
@@ -162,7 +162,7 @@ export const blogPosts: BlogPost[] = [
       <p>Meta's AI-drevne kampagner kan faktisk virke rigtig godt. Giv algoritmen tid og data nok, og den finder dine kunder.</p>
 
       <h2>Creative is the new targeting</h2>
-      <p>Da targeting er blevet sværere, er dine creatives blevet vigtigere. Invester i godt kreativt indhold – det betaler sig.</p>
+      <p>Da targeting er blevet sværere, er dine creatives blevet vigtigere. Invester i godt kreativt indhold – det betaler sig. Læs <a href="/blog/static-ads-der-virker">sådan laver du static ads der konverterer</a> og <a href="/blog/ugc-ads-guide">guide til UGC i ads</a>.</p>
 
       <h2>Test struktur</h2>
       <p>Start med 3-5 ad sets med forskellige audiences. Kør 2-3 ads i hver. Luk det der ikke virker, skaler det der gør.</p>
@@ -183,7 +183,7 @@ export const blogPosts: BlogPost[] = [
     title: 'UGC Ads: Sådan bruger du brugergenereret indhold i din markedsføring',
     excerpt: 'User Generated Content er guld værd. Lær hvordan du får og bruger UGC i dine annoncer.',
     content: `
-      <p>UGC (User Generated Content) er indhold skabt af dine kunder – anmeldelser, billeder, videoer. Det er utroligt effektivt fordi det føles ægte.</p>
+      <p>UGC (User Generated Content) er indhold skabt af dine kunder – anmeldelser, billeder, videoer. Det er utroligt effektivt fordi det føles ægte, og det fungerer rigtig godt i <a href="/ydelser/static-ads">static ads</a>.</p>
       
       <h2>Hvorfor UGC virker</h2>
       <p>Folk stoler mere på andre kunder end på brands. UGC føles autentisk, ikke som reklame. Det kan øge konverteringen med 15-30%.</p>
@@ -197,7 +197,7 @@ export const blogPosts: BlogPost[] = [
       </ul>
 
       <h2>Sådan bruger du UGC i ads</h2>
-      <p>Tag de bedste anmeldelser og lav dem til static ads. Brug kundebilleder i dine carousels. Klip kundevideoer sammen til reels.</p>
+      <p>Tag de bedste anmeldelser og lav dem til static ads. Brug kundebilleder i dine carousels. Klip kundevideoer sammen til reels. Læs også <a href="/blog/static-ads-der-virker">guide til static ads der konverterer</a> og <a href="/blog/facebook-ads-strategi-2026">Facebook Ads-strategi 2026</a>.</p>
 
       <h2>Husk tilladelse</h2>
       <p>Spørg altid om lov før du bruger andres indhold i din markedsføring. De fleste siger ja – især hvis du tilbyder noget til gengæld.</p>
@@ -215,7 +215,7 @@ export const blogPosts: BlogPost[] = [
     title: 'Hvad er CRO? Komplet guide til konverteringsoptimering',
     excerpt: 'CRO (Conversion Rate Optimization) kan øge din omsætning uden at øge dit marketingbudget. Lær hvordan her.',
     content: `
-      <p>CRO står for Conversion Rate Optimization – på dansk konverteringsoptimering. Det handler om at få flere af dine besøgende til at handle.</p>
+      <p>CRO står for Conversion Rate Optimization – på dansk konverteringsoptimering. Det handler om at få flere af dine besøgende til at handle. Vil du have en <a href="/ydelser/cro-analyse">dybdegående CRO-analyse</a> af din webshop, kan jeg hjælpe.</p>
       
       <h2>Hvad er en konverteringsrate?</h2>
       <p>Konverteringsrate er andelen af besøgende der udfører en ønsket handling – typisk et køb. Har du 100 besøgende og 2 køber, er din konverteringsrate 2%.</p>
@@ -234,6 +234,7 @@ export const blogPosts: BlogPost[] = [
         <li>Test dine ændringer med A/B tests</li>
         <li>Implementer det der virker</li>
       </ul>
+      <p>Læs også mine <a href="/blog/5-cro-tips">5 CRO-tips der øger konverteringen</a> og guide til <a href="/blog/shopify-checkout-optimering">Shopify checkout-optimering</a>.</p>
     `,
     image: '/images/blog-1.jpg', // TODO: add blog-7.jpg when available
     author: 'Frederik Høgh Simonsen',
@@ -248,7 +249,7 @@ export const blogPosts: BlogPost[] = [
     title: 'Shopify vs WooCommerce: Hvilken platform skal du vælge?',
     excerpt: 'Skal du vælge Shopify eller WooCommerce til din webshop? Her er en sammenligning af de to populære platforme.',
     content: `
-      <p>Valget af e-commerce platform er vigtigt. Shopify og WooCommerce er to af de mest populære – men hvilken skal du vælge?</p>
+      <p>Valget af e-commerce platform er vigtigt. <a href="/ydelser/shopify-webshop">Shopify</a> og <a href="/ydelser/wordpress-website">WordPress/WooCommerce</a> er to af de mest populære – men hvilken skal du vælge?</p>
       
       <h2>Shopify fordele</h2>
       <ul>
@@ -269,7 +270,7 @@ export const blogPosts: BlogPost[] = [
       </ul>
 
       <h2>Hvem skal vælge hvad?</h2>
-      <p><strong>Vælg Shopify hvis:</strong> Du vil hurtigt i gang, ikke har teknisk viden, og vil have en hosted løsning der "bare virker".</p>
+      <p><strong>Vælg Shopify hvis:</strong> Du vil hurtigt i gang, ikke har teknisk viden, og vil have en hosted løsning der "bare virker". Læs mere om <a href="/blog/shopify-checkout-optimering">Shopify checkout-optimering</a>.</p>
       <p><strong>Vælg WooCommerce hvis:</strong> Du vil have fuld kontrol, har teknisk viden eller budget til en udvikler, og vil undgå månedlige abonnementsgebyrer.</p>
     `,
     image: '/images/blog-1.jpg', // TODO: add blog-8.jpg when available
