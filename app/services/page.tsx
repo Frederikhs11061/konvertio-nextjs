@@ -22,7 +22,7 @@ export default function ServicesPage() {
 
             <section className="py-20 px-6">
                 <div className="max-w-7xl mx-auto">
-                    <AnimateSection className="text-center mb-20">
+                    <AnimateSection className="text-center mb-12">
                         <span className="inline-block text-sm font-medium text-brand-500 uppercase tracking-wider mb-4">
                             Mine ydelser
                         </span>
@@ -34,6 +34,30 @@ export default function ServicesPage() {
                             Uanset om du har brug for static ads der stopper scroll, en webshop der konverterer,
                             eller en komplet CRO-analyse – her er mine ydelser og priser.
                         </p>
+                    </AnimateSection>
+
+                    {/* Quick-access: spring direkte til hver ydelse */}
+                    <AnimateSection className="mb-20">
+                        <h2 className="sr-only">Spring til ydelse</h2>
+                        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+                            {services.map((s) => {
+                                const Icon = iconMap[s.icon] || Target
+                                return (
+                                    <Link
+                                        key={s.slug}
+                                        href={`/services#${s.slug}`}
+                                        className="flex items-center gap-3 p-4 rounded-xl bg-neutral-900/40 border border-neutral-800/50 hover:border-brand-600/40 hover:bg-neutral-900/60 transition-all duration-300 group"
+                                    >
+                                        <div className="w-10 h-10 rounded-lg bg-brand-600/10 border border-brand-600/20 flex items-center justify-center flex-shrink-0 group-hover:bg-brand-600/20 transition-colors">
+                                            <Icon className="w-5 h-5 text-brand-500" />
+                                        </div>
+                                        <span className="text-sm font-medium text-white group-hover:text-brand-400 transition-colors">
+                                            {s.shortTitle}
+                                        </span>
+                                    </Link>
+                                )
+                            })}
+                        </div>
                     </AnimateSection>
 
                     <div className="space-y-32">
@@ -54,7 +78,7 @@ export default function ServicesPage() {
                                     </AnimateSection>
 
                                     {service.packages && (
-                                        <div className="grid md:grid-cols-2 gap-6 mb-8">
+                                        <div className={`grid gap-6 mb-8 ${service.packages.length >= 3 ? 'md:grid-cols-2 lg:grid-cols-3' : 'md:grid-cols-2'}`}>
                                             {service.packages.map((pkg, i) => (
                                                 <AnimateSection key={pkg.name} delay={i * 100}>
                                                     <div
@@ -95,6 +119,9 @@ export default function ServicesPage() {
                                                 </AnimateSection>
                                             ))}
                                         </div>
+                                    )}
+                                    {service.packageNote && (
+                                        <p className="text-sm text-neutral-500 mb-8 mt-2">{service.packageNote}</p>
                                     )}
 
                                     {service.process && (

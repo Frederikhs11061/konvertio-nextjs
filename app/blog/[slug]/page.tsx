@@ -139,6 +139,18 @@ export default function BlogPostPage({ params }: PageProps) {
                         </div>
                     </AnimateSection>
 
+                    {/* Interne links (SEO) */}
+                    <AnimateSection className="mt-10 p-6 rounded-2xl bg-neutral-900/30 border border-neutral-800/50">
+                        <h3 className="text-lg font-bold text-white mb-3">Læs også</h3>
+                        <ul className="flex flex-wrap gap-3 text-sm">
+                            <li><Link href="/services" className="text-brand-400 hover:text-brand-300 transition-colors">Alle ydelser</Link></li>
+                            <li><Link href="/services/static-ads" className="text-brand-400 hover:text-brand-300 transition-colors">Static Ads</Link></li>
+                            <li><Link href="/services/cro-analyse" className="text-brand-400 hover:text-brand-300 transition-colors">CRO Analyse</Link></li>
+                            <li><Link href="/faq" className="text-brand-400 hover:text-brand-300 transition-colors">Ofte stillede spørgsmål</Link></li>
+                            <li><Link href="/kontakt" className="text-brand-400 hover:text-brand-300 transition-colors">Kontakt</Link></li>
+                        </ul>
+                    </AnimateSection>
+
                     {/* CTA */}
                     <AnimateSection className="mt-10 p-8 rounded-2xl bg-gradient-to-br from-brand-950/50 to-neutral-900/50 border border-brand-600/20 text-center">
                         <h3 className="text-xl font-bold text-white mb-3">Klar til at øge din konvertering?</h3>

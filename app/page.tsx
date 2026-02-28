@@ -29,7 +29,7 @@ const statsData = [
 ]
 
 const trustLogos = [
-  'E-commerce brands', 'Shopify butikker', 'SoMe bureauer', 'Startups', 'Etablerede virksomheder',
+  'E-commerce brands', 'Shopify butikker', 'SoMe-bureauer', 'Startups', 'Etablerede virksomheder',
 ]
 
 export default function HomePage() {
@@ -54,9 +54,9 @@ export default function HomePage() {
 
           <AnimateSection delay={100}>
             <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-[0.95] tracking-tight max-w-5xl mb-8">
-              Elevate Your Brand with{' '}
-              <span className="gradient-text-brand">High-Impact</span>{' '}
-              Creative Solutions
+              Løft dit brand med{' '}
+              <span className="gradient-text-brand">stærke</span>{' '}
+              kreative løsninger
             </h1>
           </AnimateSection>
 
@@ -111,7 +111,7 @@ export default function HomePage() {
 
       {/* Stats */}
       <section className="py-20 px-6 relative">
-        <div className="absolute inset-0 glow-red pointer-events-none opacity-30" />
+        <div className="absolute inset-0 glow-brand pointer-events-none opacity-30" />
         <div className="relative max-w-7xl mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {statsData.map((stat, i) => (
@@ -137,8 +137,8 @@ export default function HomePage() {
                 Problemet
               </span>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight mb-6 leading-tight">
-                Tired of posting content that{' '}
-                <span className="gradient-text-brand">doesn&apos;t convert?</span>
+                Træt af at poste indhold der{' '}
+                <span className="gradient-text-brand">ikke konverterer?</span>
               </h2>
               <p className="text-lg text-neutral-400 leading-relaxed mb-8">
                 De fleste e-commerce brands bruger tusindvis af kroner på ads der ikke performer.
@@ -195,8 +195,8 @@ export default function HomePage() {
               Ydelser
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight mb-4">
-              Everything You Need to{' '}
-              <span className="gradient-text-brand">Accelerate</span> Your Brand
+              Alt hvad du skal bruge for at{' '}
+              <span className="gradient-text-brand">accelerere</span> dit brand
             </h2>
             <p className="text-lg text-neutral-400 max-w-2xl mx-auto">
               Fra static ads der stopper scroll til webshops der konverterer – her er mine ydelser.
@@ -278,7 +278,7 @@ export default function HomePage() {
                   Om mig
                 </span>
                 <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight mb-6">
-                  We make content that feels real — because it is.
+                  Indhold der føles ægte – fordi det er det
                 </h2>
               </AnimateSection>
 
@@ -398,8 +398,8 @@ export default function HomePage() {
               Klar til at starte?
             </span>
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-6">
-              Ready to create content you&apos;re actually{' '}
-              <span className="gradient-text-brand">proud</span> to share?
+              Klar til at skabe indhold du er{' '}
+              <span className="gradient-text-brand">stolt</span> af at dele?
             </h2>
             <p className="text-lg text-neutral-400 mb-12 max-w-xl mx-auto">
               Tag en uforpligtende snak om hvordan jeg kan hjælpe din virksomhed med at vækste online.

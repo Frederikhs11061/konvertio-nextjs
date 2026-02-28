@@ -454,6 +454,7 @@ export interface Service {
   }[];
   metaTitle: string;
   metaDescription: string;
+  packageNote?: string;
 }
 
 export const services: Service[] = [
@@ -503,7 +504,20 @@ export const services: Service[] = [
         ],
         popular: true,
       },
+      {
+        name: 'Scale – 20 ads',
+        price: '4.995 kr.',
+        description: 'Til dig der vil skale test og have mange creatives klar til kampagner.',
+        features: [
+          '20 static creatives',
+          'Fuld research og flere vinkler',
+          'Long-form copy varianter',
+          'Prioriteret levering',
+          'Leveringstid aftales',
+        ],
+      },
     ],
+    packageNote: 'Ved større batches (fx 40 ads) aftales pris og levering individuelt.',
     process: [
       {
         step: 1,

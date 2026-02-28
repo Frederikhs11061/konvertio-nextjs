@@ -77,8 +77,21 @@ export default function FAQPage() {
         ),
     })).filter((cat) => cat.items.length > 0)
 
+    const faqSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqCategories.flatMap((cat) =>
+            cat.items.map((item) => ({
+                '@type': 'Question',
+                name: item.q,
+                acceptedAnswer: { '@type': 'Answer', text: item.a },
+            }))
+        ),
+    }
+
     return (
         <div className="pt-20">
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
             <Breadcrumbs items={[{ label: 'FAQ', href: '/faq' }]} />
 
             <section className="py-20 px-6">
@@ -88,8 +101,8 @@ export default function FAQPage() {
                             FAQ
                         </span>
                         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-6">
-                            Frequently Asked,{' '}
-                            <span className="gradient-text-brand">Honestly Answered.</span>
+                            Ofte stillede spørgsmål –{' '}
+                            <span className="gradient-text-brand">ærlige svar.</span>
                         </h1>
                         <p className="text-lg text-neutral-400 max-w-2xl mx-auto">
                             Find svar på de mest almindelige spørgsmål om static ads, Shopify, CRO og samarbejdet med mig.

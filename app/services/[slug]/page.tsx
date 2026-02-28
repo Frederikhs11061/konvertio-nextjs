@@ -121,7 +121,7 @@ export default function ServicePage({ params }: PageProps) {
                             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">Priser & pakker</h2>
                             <p className="text-neutral-400">Fast pris – ingen skjulte gebyrer</p>
                         </AnimateSection>
-                        <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                        <div className={`grid gap-6 mx-auto ${service.packages.length >= 3 ? 'md:grid-cols-2 lg:grid-cols-3 max-w-6xl' : 'md:grid-cols-2 max-w-4xl'}`}>
                             {service.packages.map((pkg, i) => (
                                 <AnimateSection key={pkg.name} delay={i * 100}>
                                     <div
@@ -162,6 +162,9 @@ export default function ServicePage({ params }: PageProps) {
                                 </AnimateSection>
                             ))}
                         </div>
+                        {service.packageNote && (
+                            <p className="text-center text-sm text-neutral-500 mt-6">{service.packageNote}</p>
+                        )}
                     </div>
                 </section>
             )}

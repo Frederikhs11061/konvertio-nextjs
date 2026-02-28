@@ -42,7 +42,7 @@ export default function Navigation() {
             }`}
         >
             <div className="max-w-7xl mx-auto px-6">
-                <nav className="flex items-center justify-between h-18 py-4">
+                <nav className="relative z-[60] flex items-center justify-between h-18 py-4">
                     <Link
                         href="/"
                         className="relative z-10 flex items-center gap-2.5 group"
@@ -93,12 +93,12 @@ export default function Navigation() {
                 </nav>
             </div>
 
-            {/* Mobile overlay */}
+            {/* Mobile overlay - altid solid sort baggrund (ikke transparent) */}
             <div
-                className={`lg:hidden fixed inset-0 bg-neutral-950/95 backdrop-blur-2xl transition-all duration-500 ${
+                className={`lg:hidden fixed inset-0 bg-black transition-all duration-500 ${
                     isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
                 }`}
-                style={{ top: 0 }}
+                style={{ top: 0, zIndex: 40 }}
             >
                 <div className="flex flex-col justify-center items-center min-h-screen gap-2 px-6">
                     {navLinks.map((link, i) => {

@@ -66,7 +66,7 @@ export default function AboutPage() {
                                     Om mig
                                 </span>
                                 <h1 className="text-4xl sm:text-5xl font-bold text-white tracking-tight mb-6">
-                                    Hej, jeg hedder Frederik
+                                    Om Frederik – Static Ads, CRO & Shopify
                                 </h1>
                             </AnimateSection>
 
