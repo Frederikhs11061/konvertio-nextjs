@@ -5,11 +5,12 @@ import type { Metadata } from 'next'
 import AnimateSection from '@/components/AnimateSection'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import Testimonials from '@/components/Testimonials'
+import { SITE_URL } from '@/lib/site'
 
 export const metadata: Metadata = {
     title: 'Om mig – Frederik Høgh Simonsen',
     description: 'Freelance ekspert i static ads, CRO og Shopify. Baseret i Viborg med passion for e-commerce og digital markedsføring.',
-    alternates: { canonical: 'https://konvertio.dk/om-mig' },
+    alternates: { canonical: `${SITE_URL}/om-mig` },
 }
 
 const skills = [

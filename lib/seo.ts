@@ -1,10 +1,12 @@
+import { SITE_URL } from '@/lib/site'
+
 // SEO schema data for JSON-LD
 export const organizationSchema = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'Konvertio',
-    url: 'https://konvertio.dk',
-    logo: 'https://konvertio.dk/logo.svg',
+    url: SITE_URL,
+    logo: `${SITE_URL}/logo.svg`,
     contactPoint: {
         '@type': 'ContactPoint',
         email: 'kontakt@konvertio.dk',
@@ -26,10 +28,10 @@ export const websiteSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: 'Konvertio',
-    url: 'https://konvertio.dk',
+    url: SITE_URL,
     potentialAction: {
         '@type': 'SearchAction',
-        target: 'https://konvertio.dk/search?q={search_term_string}',
+        target: `${SITE_URL}/search?q={search_term_string}`,
         query: 'required name=search_term_string',
     },
 }
@@ -39,7 +41,7 @@ export const localBusinessSchema = {
     '@type': 'LocalBusiness',
     name: 'Konvertio',
     description: 'Freelance ekspert i static ads, CRO og Shopify webshops til danske e-commerce virksomheder.',
-    url: 'https://konvertio.dk',
+    url: SITE_URL,
     telephone: '',
     email: 'kontakt@konvertio.dk',
     address: {

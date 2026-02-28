@@ -5,6 +5,7 @@ import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import BackToTop from '@/components/BackToTop'
 import { organizationSchema, websiteSchema, localBusinessSchema } from '@/lib/seo'
+import { SITE_URL } from '@/lib/site'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -13,7 +14,7 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://konvertio.dk'),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: 'Konvertio | Static Ads, CRO & Shopify Ekspert',
     template: '%s | Konvertio',
@@ -37,13 +38,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'da_DK',
-    url: 'https://konvertio.dk',
+    url: SITE_URL,
     siteName: 'Konvertio',
     title: 'Konvertio | Static Ads, CRO & Shopify Ekspert',
     description: 'Jeg hjælper danske e-commerce virksomheder med at vækste online gennem static ads der konverterer, CRO-analyser og Shopify-webshops.',
     images: [
       {
-        url: 'https://konvertio.dk/og-image.jpg',
+        url: `${SITE_URL}/og-image.jpg`,
         width: 1200,
         height: 630,
         alt: 'Konvertio - Static Ads, CRO & Shopify Ekspert',
@@ -54,10 +55,10 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Konvertio | Static Ads, CRO & Shopify Ekspert',
     description: 'Jeg hjælper danske e-commerce virksomheder med at vækste online.',
-    images: ['https://konvertio.dk/og-image.jpg'],
+    images: [`${SITE_URL}/og-image.jpg`],
   },
   alternates: {
-    canonical: 'https://konvertio.dk',
+    canonical: SITE_URL,
   },
 }
 

@@ -7,6 +7,7 @@ import Breadcrumbs from '@/components/Breadcrumbs'
 import AnimateSection from '@/components/AnimateSection'
 import BlogContent from '@/components/BlogContent'
 import { blogPosts } from '@/lib/data'
+import { SITE_URL } from '@/lib/site'
 
 interface PageProps {
     params: { slug: string }
@@ -22,11 +23,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return {
         title: post.metaTitle,
         description: post.metaDescription,
-        alternates: { canonical: `https://konvertio.dk/blog/${post.slug}` },
+        alternates: { canonical: `${SITE_URL}/blog/${post.slug}` },
         openGraph: {
             title: post.title,
             description: post.excerpt,
-            images: [{ url: `https://konvertio.dk${post.image}`, width: 1200, height: 630 }],
+            images: [{ url: `${SITE_URL}${post.image}`, width: 1200, height: 630 }],
             type: 'article',
             publishedTime: post.date,
             authors: [post.author],
@@ -47,7 +48,7 @@ export default function BlogPostPage({ params }: PageProps) {
         '@type': 'Article',
         headline: post.title,
         description: post.excerpt,
-        image: `https://konvertio.dk${post.image}`,
+        image: `${SITE_URL}${post.image}`,
         author: { '@type': 'Person', name: post.author },
         publisher: { '@type': 'Organization', name: 'Konvertio' },
         datePublished: post.date,

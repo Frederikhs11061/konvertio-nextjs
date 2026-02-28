@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { ChevronRight, Home } from 'lucide-react'
+import { SITE_URL } from '@/lib/site'
 
 interface BreadcrumbItem {
     label: string
@@ -20,7 +21,7 @@ export default function Breadcrumbs({ items }: BreadcrumbsProps) {
             '@type': 'ListItem',
             position: index + 1,
             name: item.label,
-            item: item.href ? `https://konvertio.dk${item.href}` : undefined,
+            item: item.href ? `${SITE_URL}${item.href}` : undefined,
         })),
     }
 

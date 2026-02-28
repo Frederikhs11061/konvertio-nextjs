@@ -5,11 +5,12 @@ import type { Metadata } from 'next'
 import AnimateSection from '@/components/AnimateSection'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import { blogPosts } from '@/lib/data'
+import { SITE_URL } from '@/lib/site'
 
 export const metadata: Metadata = {
     title: 'Blog – Guides til CRO, Shopify & Static Ads',
     description: 'Praktiske guides, tips og strategier til dig der vil have mere ud af din webshop og sociale medier markedsføring.',
-    alternates: { canonical: 'https://konvertio.dk/blog' },
+    alternates: { canonical: `${SITE_URL}/blog` },
 }
 
 const categories = Array.from(new Set(blogPosts.map((p) => p.category)))

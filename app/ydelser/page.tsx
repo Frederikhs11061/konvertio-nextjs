@@ -4,11 +4,12 @@ import type { Metadata } from 'next'
 import AnimateSection from '@/components/AnimateSection'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import { services } from '@/lib/data'
+import { SITE_URL } from '@/lib/site'
 
 export const metadata: Metadata = {
     title: 'Ydelser der skaber resultater',
     description: 'Static Ads, CRO Analyse, Shopify Webshop og WordPress websites. Se alle ydelser og priser.',
-    alternates: { canonical: 'https://konvertio.dk/ydelser' },
+    alternates: { canonical: `${SITE_URL}/ydelser` },
 }
 
 const iconMap: Record<string, React.ElementType> = {

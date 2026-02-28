@@ -34,3 +34,9 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+### Adgang for alle
+
+Sitet kører på **https://konvertio-nextjs.vercel.app**. Base-URL styres i `lib/site.ts` (`SITE_URL`). Hvis du senere tilføjer et eget domæne (fx konvertio.dk), skal du kun ændre `SITE_URL` der og tilføje domænet under Vercel → Project → Settings → Domains + DNS.
+
+Får nogen "Din forbindelse er ikke privat", skyldes det typisk deres netværk (firma/skole/ISP). De kan prøve mobil data eller et andet netværk.

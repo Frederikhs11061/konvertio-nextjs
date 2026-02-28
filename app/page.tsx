@@ -5,11 +5,12 @@ import type { Metadata } from 'next'
 import Testimonials from '@/components/Testimonials'
 import AnimateSection from '@/components/AnimateSection'
 import { services, blogPosts } from '@/lib/data'
+import { SITE_URL } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'Konvertio | Static Ads, CRO & Shopify Ekspert',
   description: 'Jeg hjælper danske e-commerce virksomheder med at vækste online gennem static ads der konverterer, CRO-analyser og Shopify-webshops.',
-  alternates: { canonical: 'https://konvertio.dk' },
+  alternates: { canonical: SITE_URL },
 }
 
 const iconMap: Record<string, React.ElementType> = {

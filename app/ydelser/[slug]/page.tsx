@@ -6,6 +6,7 @@ import AnimateSection from '@/components/AnimateSection'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import Testimonials from '@/components/Testimonials'
 import { services } from '@/lib/data'
+import { SITE_URL } from '@/lib/site'
 
 interface PageProps {
     params: { slug: string }
@@ -25,7 +26,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return {
         title: service.metaTitle,
         description: service.metaDescription,
-        alternates: { canonical: `https://konvertio.dk/ydelser/${service.slug}` },
+        alternates: { canonical: `${SITE_URL}/ydelser/${service.slug}` },
     }
 }
 
