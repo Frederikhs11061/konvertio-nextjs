@@ -33,15 +33,17 @@ export default function Navigation() {
         return () => { document.body.style.overflow = '' }
     }, [isOpen])
 
+    // På mobil: når menuen er åben skal det altid se ud som i toppen – solid sort, ingen forsinket overgang
+    const headerBg = isOpen
+        ? 'bg-black border-b border-neutral-800/50'
+        : isScrolled
+            ? 'bg-neutral-950/80 backdrop-blur-2xl border-b border-neutral-800/50 shadow-2xl shadow-black/20'
+            : 'bg-transparent'
+    const headerTransition = isOpen ? 'transition-none' : 'transition-all duration-500'
+
     return (
         <header
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-                isOpen
-                    ? 'bg-black border-b border-neutral-800/50'
-                    : isScrolled
-                        ? 'bg-neutral-950/80 backdrop-blur-2xl border-b border-neutral-800/50 shadow-2xl shadow-black/20'
-                        : 'bg-transparent'
-            }`}
+            className={`fixed top-0 left-0 right-0 z-50 ${headerTransition} ${headerBg}`}
         >
             <div className="max-w-7xl mx-auto px-6">
                 <nav className="relative z-[60] flex items-center justify-between h-18 py-4">
@@ -95,11 +97,11 @@ export default function Navigation() {
                 </nav>
             </div>
 
-            {/* Mobile overlay - altid solid sort baggrund (ikke transparent) */}
+            {/* Mobile overlay – solid sort med det samme, ingen langsom fade */}
             <div
-                className={`lg:hidden fixed inset-0 bg-black transition-all duration-500 ${
+                className={`lg:hidden fixed inset-0 bg-black ${
                     isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
-                }`}
+                } ${isOpen ? 'transition-none' : 'transition-opacity duration-300'}`}
                 style={{ top: 0, zIndex: 40 }}
             >
                 <div className="flex flex-col justify-center items-center min-h-screen gap-2 px-6">

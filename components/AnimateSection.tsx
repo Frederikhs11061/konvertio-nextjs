@@ -49,7 +49,12 @@ export default function AnimateSection({
         const el = ref.current
         if (!el) return
 
-        // Kun trigger når elementet er i den øverste del af viewport – så animationer loader i rækkefølge ved scroll
+        const vh = window.innerHeight
+        const rect = el.getBoundingClientRect()
+        // Alt i den første skærm er allerede synligt (vi renderer med opacity 1). Ingen ændring.
+        if (rect.top < vh * 1.05) return
+
+        // Længere nede: behold synlig. Animation kun når bruger scroller ned og elementet kommer i view
         const observer = new IntersectionObserver(
             ([entry]) => {
                 if (entry.isIntersecting) {
@@ -59,9 +64,8 @@ export default function AnimateSection({
                     observer.unobserve(el)
                 }
             },
-            { threshold: 0.1, rootMargin: '0px 0px -35% 0px' }
+            { threshold: 0.05, rootMargin: '0px 0px -5% 0px' }
         )
-
         observer.observe(el)
         return () => observer.disconnect()
     }, [delay, anim])
@@ -71,12 +75,8 @@ export default function AnimateSection({
             ref={ref as React.RefObject<HTMLDivElement>}
             className={className}
             style={{
-                opacity: 0,
-                transform: animation === 'fade-up' ? 'translateY(32px)'
-                    : animation === 'slide-left' ? 'translateX(-40px)'
-                    : animation === 'slide-right' ? 'translateX(40px)'
-                    : animation === 'scale' ? 'scale(0.92)'
-                    : undefined,
+                opacity: 1,
+                transform: 'none',
                 transition: 'opacity 0.35s cubic-bezier(0.16,1,0.3,1), transform 0.35s cubic-bezier(0.16,1,0.3,1)',
                 willChange: 'opacity, transform',
             }}
