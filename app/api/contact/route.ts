@@ -29,6 +29,12 @@ export async function POST(request: NextRequest) {
     )
   }
 
+  // Reject oversized payloads (max 16 KB) to prevent DoS
+  const contentLength = request.headers.get('content-length')
+  if (contentLength && parseInt(contentLength, 10) > 16_384) {
+    return NextResponse.json({ error: 'Anmodning for stor' }, { status: 413 })
+  }
+
   let body: unknown
   try {
     body = await request.json()

@@ -421,7 +421,7 @@ export const faqCategories: FAQCategory[] = [
       },
       {
         q: 'Hvordan kommer jeg i gang?',
-        a: 'Send mig en besked via kontaktformularen eller på kontakt@konvertio.dk. Så tager vi en uforpligtende snak om dine behov og mål, og jeg kommer med en anbefaling.',
+        a: 'Send mig en besked via kontaktformularen eller på frederik@konvertio.dk. Så tager vi en uforpligtende snak om dine behov og mål, og jeg kommer med en anbefaling.',
       },
       {
         q: 'Hvad gør dig forskellig fra andre?',

@@ -26,7 +26,7 @@ export default function Footer() {
                     <div className="col-span-2 md:col-span-1">
                         <Link href="/" className="flex items-center gap-2.5 mb-5">
                             <Image
-                                src="/logo.svg"
+                                src="/logo.png"
                                 alt="Konvertio"
                                 width={140}
                                 height={40}
@@ -38,7 +38,7 @@ export default function Footer() {
                         </p>
                         <div className="flex gap-3">
                             <a
-                                href="mailto:kontakt@konvertio.dk"
+                                href="mailto:frederik@konvertio.dk"
                                 className="w-10 h-10 rounded-xl bg-neutral-800/50 border border-neutral-800 flex items-center justify-center text-neutral-400 hover:text-white hover:bg-neutral-800 hover:border-neutral-700 transition-all duration-300"
                                 aria-label="Email"
                             >
@@ -98,8 +98,8 @@ export default function Footer() {
                             Kontakt
                         </h3>
                         <div className="space-y-3 text-sm text-neutral-500">
-                            <a href="mailto:kontakt@konvertio.dk" className="block hover:text-white transition-colors duration-300">
-                                kontakt@konvertio.dk
+                            <a href="mailto:frederik@konvertio.dk" className="block hover:text-white transition-colors duration-300">
+                                frederik@konvertio.dk
                             </a>
                             <p>Viborg, Danmark</p>
                             <p>Man–Fre 09:00–17:00</p>

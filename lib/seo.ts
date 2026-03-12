@@ -6,10 +6,10 @@ export const organizationSchema = {
     '@type': 'Organization',
     name: 'Konvertio',
     url: SITE_URL,
-    logo: `${SITE_URL}/logo.svg`,
+    logo: `${SITE_URL}/logo.png`,
     contactPoint: {
         '@type': 'ContactPoint',
-        email: 'kontakt@konvertio.dk',
+        email: 'frederik@konvertio.dk',
         contactType: 'customer service',
         areaServed: 'DK',
         availableLanguage: 'Danish',
@@ -43,7 +43,7 @@ export const localBusinessSchema = {
     description: 'Freelance ekspert i static ads, CRO og Shopify webshops til danske e-commerce virksomheder.',
     url: SITE_URL,
     telephone: '',
-    email: 'kontakt@konvertio.dk',
+    email: 'frederik@konvertio.dk',
     address: {
         '@type': 'PostalAddress',
         addressLocality: 'Viborg',

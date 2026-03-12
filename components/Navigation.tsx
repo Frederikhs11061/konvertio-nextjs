@@ -59,7 +59,7 @@ export default function Navigation() {
                         aria-label="Konvertio – forsiden"
                     >
                         <Image
-                            src="/logo.svg"
+                            src="/logo.png"
                             alt=""
                             width={140}
                             height={40}

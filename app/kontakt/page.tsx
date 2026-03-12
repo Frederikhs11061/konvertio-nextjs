@@ -95,7 +95,7 @@ export default function KontaktPage() {
 
                             <AnimateSection delay={300} className="space-y-4 mb-10">
                                 <a
-                                    href="mailto:kontakt@konvertio.dk"
+                                    href="mailto:frederik@konvertio.dk"
                                     className="flex items-center gap-4 p-4 rounded-xl border border-neutral-800/50 bg-neutral-900/30 hover:border-neutral-700/50 hover:bg-neutral-900/50 transition-all duration-300 group"
                                 >
                                     <div className="w-10 h-10 rounded-lg bg-brand-600/10 border border-brand-600/20 group-hover:bg-brand-600/20 flex items-center justify-center flex-shrink-0 transition-colors duration-300">
@@ -103,7 +103,7 @@ export default function KontaktPage() {
                                     </div>
                                     <div>
                                         <p className="text-xs text-neutral-500 mb-0.5">Email</p>
-                                        <p className="font-medium text-white">kontakt@konvertio.dk</p>
+                                        <p className="font-medium text-white">frederik@konvertio.dk</p>
                                     </div>
                                 </a>
 
