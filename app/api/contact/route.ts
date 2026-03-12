@@ -65,14 +65,6 @@ export async function POST(request: NextRequest) {
 
   const resend = new Resend(process.env.RESEND_API_KEY)
 
-  const serviceLabel = service
-    ? `**Ydelse:** ${service}\n`
-    : ''
-
-  const companyLabel = company
-    ? `**Virksomhed:** ${company}\n`
-    : ''
-
   const { error } = await resend.emails.send({
     from: 'Konvertio <onboarding@resend.dev>',
     to: 'frederik@konvertio.dk',
