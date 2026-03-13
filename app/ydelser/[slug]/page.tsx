@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { ArrowRight, Check, ShoppingBag, TrendingUp, Target, Globe } from 'lucide-react'
+import { ArrowRight, Check, ShoppingBag, TrendingUp, Target, Globe, Search, Lightbulb, Palette, RotateCcw, Send } from 'lucide-react'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import AnimateSection from '@/components/AnimateSection'
@@ -38,7 +38,7 @@ export default function YdelsePage({ params }: PageProps) {
     const otherServices = services.filter((s) => s.slug !== service.slug)
 
     return (
-        <div className="pt-20">
+        <div className="pt-20 md:pt-28">
             <Breadcrumbs
                 items={[
                     { label: 'Ydelser', href: '/ydelser' },
@@ -172,25 +172,49 @@ export default function YdelsePage({ params }: PageProps) {
 
             {/* Process */}
             {service.process && (
-                <section className="py-10 md:py-16 px-6 relative">
+                <section className="py-10 md:py-16 px-6 relative overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-b from-transparent via-neutral-900/20 to-transparent pointer-events-none" />
                     <div className="relative max-w-7xl mx-auto">
                         <AnimateSection className="text-center mb-12">
+                            <span className="inline-block text-sm font-medium text-brand-500 uppercase tracking-wider mb-3">Processen</span>
                             <h2 className="text-3xl font-bold text-white mb-4">Sådan foregår det</h2>
-                            <p className="text-neutral-400 text-left md:text-center">En transparent proces fra start til slut</p>
+                            <p className="text-neutral-400 text-left md:text-center">Transparent og effektiv fra start til slut</p>
                         </AnimateSection>
+
+                        {/* Steps – horizontal on md+, vertical on mobile */}
                         <div className="relative">
-                            <div className="hidden md:block absolute top-5 left-10 right-10 h-px bg-gradient-to-r from-transparent via-neutral-800 to-transparent" />
-                            <div className="grid sm:grid-cols-2 md:grid-cols-5 gap-8">
-                                {service.process.map((step, i) => (
-                                    <AnimateSection key={step.step} delay={i * 100} className="text-center relative">
-                                        <div className="w-10 h-10 rounded-full bg-brand-600 text-white flex items-center justify-center text-sm font-bold mx-auto mb-4 relative z-10 shadow-lg shadow-brand-600/20">
-                                            {step.step}
-                                        </div>
-                                        <p className="font-semibold text-white mb-2">{step.title}</p>
-                                        <p className="text-sm text-neutral-500 leading-relaxed">{step.description}</p>
-                                    </AnimateSection>
-                                ))}
+                            {/* Connecting line desktop */}
+                            <div className="hidden md:block absolute top-8 left-0 right-0 h-px pointer-events-none" style={{ background: 'linear-gradient(to right, transparent, #262626 15%, #262626 85%, transparent)' }} />
+
+                            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 md:gap-3">
+                                {service.process.map((step, i) => {
+                                    const stepIcons = [Search, Lightbulb, Palette, RotateCcw, Send]
+                                    const StepIcon = stepIcons[i] || Target
+                                    return (
+                                        <AnimateSection key={step.step} delay={i * 80}>
+                                            <div className="relative flex md:flex-col gap-4 md:gap-0 items-start md:items-center md:text-center p-4 md:p-0">
+                                                {/* Mobile vertical line */}
+                                                {i < service.process!.length - 1 && (
+                                                    <div className="md:hidden absolute left-[19px] top-14 bottom-0 w-px bg-neutral-800" style={{ height: 'calc(100% - 2.5rem)' }} />
+                                                )}
+
+                                                {/* Icon circle */}
+                                                <div className="relative z-10 w-10 h-10 rounded-full bg-brand-600/15 border border-brand-600/25 flex items-center justify-center flex-shrink-0 md:mb-4 group-hover:bg-brand-600/25 transition-colors">
+                                                    <StepIcon className="w-4 h-4 text-brand-400" />
+                                                    <span className="absolute -top-1.5 -right-1.5 w-4 h-4 rounded-full bg-brand-600 text-white text-[9px] font-bold flex items-center justify-center">
+                                                        {step.step}
+                                                    </span>
+                                                </div>
+
+                                                {/* Text */}
+                                                <div className="md:px-2">
+                                                    <p className="font-semibold text-white text-sm mb-1">{step.title}</p>
+                                                    <p className="text-xs text-neutral-500 leading-relaxed">{step.description}</p>
+                                                </div>
+                                            </div>
+                                        </AnimateSection>
+                                    )
+                                })}
                             </div>
                         </div>
                     </div>

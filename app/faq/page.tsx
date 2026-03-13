@@ -90,7 +90,7 @@ export default function FAQPage() {
     }
 
     return (
-        <div className="pt-20">
+        <div className="pt-20 md:pt-28">
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
             <Breadcrumbs items={[{ label: 'FAQ', href: '/faq' }]} />
 

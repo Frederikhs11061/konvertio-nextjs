@@ -5,6 +5,7 @@ import type { Metadata } from 'next'
 import Testimonials from '@/components/Testimonials'
 import AnimateSection from '@/components/AnimateSection'
 import ReviewsTicker from '@/components/ReviewsTicker'
+import HeroWorkflow from '@/components/HeroWorkflow'
 import { services, blogPosts } from '@/lib/data'
 import { SITE_URL } from '@/lib/site'
 
@@ -30,80 +31,81 @@ export default function HomePage() {
   return (
     <div className="min-h-screen">
       {/* Hero */}
-      <section className="relative min-h-screen flex flex-col justify-center pt-36 pb-32 px-6 overflow-hidden">
+      <section className="relative min-h-screen flex flex-col justify-center pt-36 pb-24 px-6 overflow-hidden">
         {/* Background effects */}
         <div className="absolute inset-0 bg-hero-gradient" />
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-brand-600/8 blur-[120px] pointer-events-none" />
-        <div className="absolute top-1/3 right-0 w-[400px] h-[400px] rounded-full bg-brand-700/5 blur-[100px] pointer-events-none" />
+        <div className="absolute top-1/4 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-brand-600/6 blur-[120px] pointer-events-none" />
+        <div className="absolute top-1/3 right-0 w-[300px] h-[300px] rounded-full bg-brand-700/4 blur-[100px] pointer-events-none" />
         <div className="absolute bottom-0 left-0 right-0 h-56 sm:h-44 md:h-32 bg-gradient-to-t from-neutral-950 via-neutral-950/90 to-transparent pointer-events-none" />
 
-        {/* Floating decorative icons */}
-        <div className="absolute top-1/4 right-[8%] text-brand-600/15 animate-float pointer-events-none hidden md:block" style={{ animationDuration: '7s' }}>
-          <Target className="w-10 h-10" />
+        {/* Subtle floating icons – only far left, won't conflict with workflow */}
+        <div className="absolute top-[30%] left-[2%] text-brand-600/8 animate-float pointer-events-none hidden lg:block" style={{ animationDuration: '8s', animationDelay: '0.8s' }}>
+          <Megaphone className="w-8 h-8" />
         </div>
-        <div className="absolute top-[55%] right-[15%] text-brand-500/10 animate-float pointer-events-none hidden md:block" style={{ animationDuration: '9s', animationDelay: '1.5s' }}>
-          <BarChart2 className="w-8 h-8" />
-        </div>
-        <div className="absolute top-[30%] left-[5%] text-brand-600/10 animate-float pointer-events-none hidden lg:block" style={{ animationDuration: '8s', animationDelay: '0.8s' }}>
-          <Megaphone className="w-9 h-9" />
-        </div>
-        <div className="absolute top-[65%] left-[8%] text-brand-500/10 animate-float pointer-events-none hidden lg:block" style={{ animationDuration: '6s', animationDelay: '2s' }}>
-          <MousePointer className="w-7 h-7" />
-        </div>
-        <div className="absolute top-[20%] right-[30%] text-brand-600/8 animate-float pointer-events-none hidden xl:block" style={{ animationDuration: '10s', animationDelay: '0.5s' }}>
-          <ShoppingBag className="w-6 h-6" />
+        <div className="absolute top-[65%] left-[4%] text-brand-500/8 animate-float pointer-events-none hidden lg:block" style={{ animationDuration: '6s', animationDelay: '2s' }}>
+          <MousePointer className="w-6 h-6" />
         </div>
 
         <div className="relative max-w-7xl mx-auto w-full">
-          <AnimateSection delay={0} animation="fade-in">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-600/10 backdrop-blur border border-brand-600/20 text-sm text-brand-400 mb-8">
-              <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-              Tilgængelig for nye projekter
-            </div>
-          </AnimateSection>
-
-          <AnimateSection delay={100}>
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-[0.95] tracking-tight max-w-5xl mb-8">
-              Løft dit brand med{' '}
-              <span className="gradient-text-brand">stærke</span>{' '}
-              kreative løsninger
-            </h1>
-          </AnimateSection>
-
-          <AnimateSection delay={200}>
-            <p className="text-lg sm:text-xl text-neutral-400 leading-relaxed max-w-2xl mb-12">
-              Jeg hjælper danske e-commerce virksomheder med at skabe static ads der konverterer,
-              Shopify-webshops der sælger, og CRO-analyser der giver resultater.
-            </p>
-          </AnimateSection>
-
-          <AnimateSection delay={300}>
-            <div className="flex flex-wrap gap-4 mb-16">
-              <Link href="/ydelser" className="btn-primary text-base px-8 py-4">
-                Se mine ydelser
-                <ArrowRight className="w-5 h-5" />
-              </Link>
-              <Link href="/kontakt" className="btn-secondary text-base px-8 py-4">
-                <Play className="w-4 h-4" />
-                Kontakt mig
-              </Link>
-            </div>
-          </AnimateSection>
-
-          <AnimateSection delay={400}>
-            <div className="flex flex-wrap gap-3">
-              {badges.map((badge, i) => (
-                <div
-                  key={badge.label}
-                  className="flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-neutral-900/50 border border-neutral-800/60 backdrop-blur-sm hover:border-brand-600/30 hover:bg-neutral-900/70 transition-all duration-300"
-                  style={{ animationDelay: `${i * 150}ms` }}
-                >
-                  <badge.icon className="w-4 h-4 text-brand-500" />
-                  <span className="text-sm text-neutral-300">{badge.label}</span>
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            {/* Left: copy */}
+            <div>
+              <AnimateSection delay={0} animation="fade-in">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-600/10 backdrop-blur border border-brand-600/20 text-sm text-brand-400 mb-8">
+                  <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                  Tilgængelig for nye projekter
                 </div>
-              ))}
+              </AnimateSection>
+
+              <AnimateSection delay={100}>
+                <h1 className="text-5xl sm:text-6xl lg:text-6xl xl:text-7xl font-bold text-white leading-[0.95] tracking-tight mb-8">
+                  Løft dit brand med{' '}
+                  <span className="gradient-text-brand">stærke</span>{' '}
+                  kreative løsninger
+                </h1>
+              </AnimateSection>
+
+              <AnimateSection delay={200}>
+                <p className="text-lg sm:text-xl text-neutral-400 leading-relaxed mb-10">
+                  Jeg hjælper danske e-commerce virksomheder med at skabe static ads der konverterer,
+                  Shopify-webshops der sælger, og CRO-analyser der giver resultater.
+                </p>
+              </AnimateSection>
+
+              <AnimateSection delay={300}>
+                <div className="flex flex-wrap gap-4 mb-10">
+                  <Link href="/ydelser" className="btn-primary text-base px-8 py-4">
+                    Se mine ydelser
+                    <ArrowRight className="w-5 h-5" />
+                  </Link>
+                  <Link href="/kontakt" className="btn-secondary text-base px-8 py-4">
+                    <Play className="w-4 h-4" />
+                    Kontakt mig
+                  </Link>
+                </div>
+              </AnimateSection>
+
+              <AnimateSection delay={400}>
+                <div className="flex flex-wrap gap-3">
+                  {badges.map((badge, i) => (
+                    <div
+                      key={badge.label}
+                      className="flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-neutral-900/50 border border-neutral-800/60 backdrop-blur-sm hover:border-brand-600/30 hover:bg-neutral-900/70 transition-all duration-300"
+                      style={{ animationDelay: `${i * 150}ms` }}
+                    >
+                      <badge.icon className="w-4 h-4 text-brand-500" />
+                      <span className="text-sm text-neutral-300">{badge.label}</span>
+                    </div>
+                  ))}
+                </div>
+              </AnimateSection>
             </div>
-          </AnimateSection>
+
+            {/* Right: animated workflow board (desktop only) */}
+            <AnimateSection delay={300} animation="slide-right" className="hidden lg:flex items-center justify-center pt-8">
+              <HeroWorkflow />
+            </AnimateSection>
+          </div>
         </div>
       </section>
 
@@ -156,7 +158,7 @@ export default function HomePage() {
                     </p>
                   </div>
                 </div>
-                {/* Floating feature cards */}
+                {/* Floating feature card */}
                 <div className="absolute -bottom-5 -left-5 p-4 rounded-xl bg-neutral-900 border border-neutral-800/70 shadow-2xl animate-float" style={{ animationDuration: '7s', animationDelay: '1s' }}>
                   <div className="flex items-center gap-3">
                     <div className="w-9 h-9 rounded-full bg-brand-600/15 flex items-center justify-center">
@@ -166,12 +168,6 @@ export default function HomePage() {
                       <p className="text-sm font-semibold text-white">Konkret strategi</p>
                       <p className="text-xs text-neutral-500">Fra første dag</p>
                     </div>
-                  </div>
-                </div>
-                <div className="absolute -top-4 -right-4 p-3 rounded-xl bg-neutral-900 border border-neutral-800/70 shadow-xl animate-float" style={{ animationDuration: '8s', animationDelay: '0.5s' }}>
-                  <div className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-green-500" />
-                    <p className="text-xs font-medium text-white">Ingen skjulte gebyrer</p>
                   </div>
                 </div>
               </div>

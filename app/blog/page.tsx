@@ -28,7 +28,7 @@ export default function BlogPage({ searchParams }: BlogPageProps) {
     const restPosts = filteredPosts.slice(1)
 
     return (
-        <div className="pt-20">
+        <div className="pt-20 md:pt-28">
             <Breadcrumbs items={[{ label: 'Blog', href: '/blog' }]} />
 
             <section className="py-10 md:py-16 px-6">
