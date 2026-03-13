@@ -44,25 +44,25 @@ export default function Testimonials() {
                     </p>
                 </AnimateSection>
 
-                <div className="grid md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-2 gap-4 md:gap-6">
                     {testimonials.map((t, i) => (
                         <AnimateSection key={t.name} delay={i * 100} animation={i % 2 === 0 ? 'slide-left' : 'slide-right'}>
-                            <article className="group p-7 rounded-2xl bg-neutral-900/40 border border-neutral-800/50 hover:border-neutral-700/50 transition-all duration-500 hover:bg-neutral-900/60 h-full">
-                                <div className="flex gap-1 mb-5" aria-label="5 ud af 5 stjerner">
+                            <article className="group p-5 md:p-7 rounded-2xl bg-neutral-900/40 border border-neutral-800/50 hover:border-neutral-700/50 transition-all duration-500 hover:bg-neutral-900/60 h-full">
+                                <div className="flex gap-0.5 mb-4" aria-label="5 ud af 5 stjerner">
                                     {[...Array(5)].map((_, j) => (
-                                        <span key={j} className="text-brand-500 text-lg">★</span>
+                                        <span key={j} className="text-brand-500 text-sm md:text-lg">★</span>
                                     ))}
                                 </div>
-                                <blockquote className="text-neutral-300 leading-relaxed mb-6 text-[15px]">
+                                <blockquote className="text-neutral-300 leading-relaxed mb-5 text-xs sm:text-sm md:text-[15px]">
                                     &ldquo;{t.quote}&rdquo;
                                 </blockquote>
-                                <div className="flex items-center gap-3 pt-4 border-t border-neutral-800/50">
-                                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-brand-600 to-brand-800 flex items-center justify-center flex-shrink-0">
-                                        <span className="text-white text-sm font-bold">{t.initial}</span>
+                                <div className="flex items-center gap-2 md:gap-3 pt-4 border-t border-neutral-800/50">
+                                    <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-gradient-to-br from-brand-600 to-brand-800 flex items-center justify-center flex-shrink-0">
+                                        <span className="text-white text-xs md:text-sm font-bold">{t.initial}</span>
                                     </div>
                                     <div>
-                                        <p className="text-sm font-semibold text-white">{t.name}</p>
-                                        <p className="text-sm text-neutral-500">{t.company}</p>
+                                        <p className="text-xs md:text-sm font-semibold text-white">{t.name}</p>
+                                        <p className="text-xs text-neutral-500">{t.company}</p>
                                     </div>
                                 </div>
                             </article>

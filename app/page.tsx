@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { ArrowRight, Target, TrendingUp, ShoppingBag, Globe, Check, Zap, Play, Star, BarChart3, Sparkles } from 'lucide-react'
+import { ArrowRight, Target, TrendingUp, ShoppingBag, Globe, Check, Zap, Play, Sparkles } from 'lucide-react'
 import type { Metadata } from 'next'
 import Testimonials from '@/components/Testimonials'
 import AnimateSection from '@/components/AnimateSection'
@@ -21,16 +21,6 @@ const badges = [
   { icon: Target, label: 'Static Ads Ekspert' },
   { icon: TrendingUp, label: 'CRO & Konvertering' },
   { icon: ShoppingBag, label: 'Shopify Specialist' },
-]
-
-const statsData = [
-  { value: '50+', label: 'Projekter leveret', icon: BarChart3 },
-  { value: '4.9/5', label: 'Gennemsnitlig bedømmelse', icon: Star },
-  { value: '30%+', label: 'Gns. konverteringsstigning', icon: TrendingUp },
-]
-
-const trustLogos = [
-  'E-commerce brands', 'Shopify butikker', 'SoMe-bureauer', 'Startups', 'Etablerede virksomheder',
 ]
 
 export default function HomePage() {
@@ -94,37 +84,6 @@ export default function HomePage() {
               ))}
             </div>
           </AnimateSection>
-        </div>
-      </section>
-
-      {/* Trust bar */}
-      <section className="py-8 px-6 border-y border-neutral-800/30 overflow-hidden">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex items-center justify-center gap-8 md:gap-16 flex-wrap">
-            {trustLogos.map((name) => (
-              <span key={name} className="text-sm text-neutral-600 font-medium uppercase tracking-wider whitespace-nowrap">
-                {name}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Stats */}
-      <section className="py-10 md:py-16 px-6 relative">
-        <div className="absolute inset-0 glow-brand pointer-events-none opacity-30" />
-        <div className="relative max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            {statsData.map((stat, i) => (
-              <AnimateSection key={stat.label} delay={i * 100} animation="scale">
-                <div className="text-center p-8 rounded-2xl bg-neutral-900/30 border border-neutral-800/50 card-hover">
-                  <stat.icon className="w-6 h-6 text-brand-500 mx-auto mb-4" />
-                  <p className="text-4xl sm:text-5xl font-bold text-white mb-2">{stat.value}</p>
-                  <p className="text-sm text-neutral-500">{stat.label}</p>
-                </div>
-              </AnimateSection>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -204,25 +163,25 @@ export default function HomePage() {
             </p>
           </AnimateSection>
 
-          <div className="grid md:grid-cols-2 gap-6 mb-12">
+          <div className="grid grid-cols-2 gap-4 md:gap-6 mb-12">
             {services.map((service, i) => {
               const Icon = iconMap[service.icon] || Target
               return (
                 <AnimateSection key={service.slug} delay={i * 100} animation="scale">
                   <Link
                     href={`/ydelser/${service.slug}`}
-                    className="group flex flex-col p-8 rounded-2xl bg-neutral-900/30 border border-neutral-800/50 card-hover h-full relative overflow-hidden"
+                    className="group flex flex-col p-5 md:p-8 rounded-2xl bg-neutral-900/30 border border-neutral-800/50 card-hover h-full relative overflow-hidden"
                   >
                     <div className="absolute top-0 right-0 w-32 h-32 bg-brand-600/5 rounded-full blur-[60px] pointer-events-none group-hover:bg-brand-600/10 transition-all duration-700" />
                     <div className="relative">
-                      <div className="w-12 h-12 rounded-xl bg-brand-600/10 border border-brand-600/20 flex items-center justify-center mb-6 group-hover:bg-brand-600/20 transition-colors duration-300">
-                        <Icon className="w-6 h-6 text-brand-500" />
+                      <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-brand-600/10 border border-brand-600/20 flex items-center justify-center mb-4 md:mb-6 group-hover:bg-brand-600/20 transition-colors duration-300">
+                        <Icon className="w-5 h-5 md:w-6 md:h-6 text-brand-500" />
                       </div>
-                      <h3 className="text-xl font-bold text-white mb-3">{service.shortTitle}</h3>
-                      <p className="text-neutral-400 leading-relaxed mb-6 flex-1">{service.shortDescription}</p>
-                      <span className="inline-flex items-center gap-2 text-sm font-medium text-brand-500 group-hover:text-brand-400 transition-colors">
+                      <h3 className="text-base md:text-xl font-bold text-white mb-2 md:mb-3 leading-tight">{service.shortTitle}</h3>
+                      <p className="text-neutral-400 leading-relaxed mb-4 md:mb-6 flex-1 text-sm md:text-base hidden sm:block">{service.shortDescription}</p>
+                      <span className="inline-flex items-center gap-1.5 text-xs md:text-sm font-medium text-brand-500 group-hover:text-brand-400 transition-colors">
                         Se ydelse
-                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+                        <ArrowRight className="w-3.5 h-3.5 md:w-4 md:h-4 group-hover:translate-x-1 transition-transform duration-300" />
                       </span>
                     </div>
                   </Link>
