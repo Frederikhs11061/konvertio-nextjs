@@ -25,7 +25,7 @@ export default function Navigation() {
     }, [])
 
     useEffect(() => {
-        const handleScroll = () => setIsScrolled(window.scrollY > 20)
+        const handleScroll = () => setIsScrolled(window.scrollY > 4)
         window.addEventListener('scroll', handleScroll, { passive: true })
         return () => window.removeEventListener('scroll', handleScroll)
     }, [])
