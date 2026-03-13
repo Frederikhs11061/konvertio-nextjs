@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { ArrowRight, Target, TrendingUp, ShoppingBag, Globe, Check, Zap, Play, X } from 'lucide-react'
+import { ArrowRight, Target, TrendingUp, ShoppingBag, Globe, Check, Zap, X } from 'lucide-react'
 import type { Metadata } from 'next'
 import Testimonials from '@/components/Testimonials'
 import AnimateSection from '@/components/AnimateSection'
@@ -19,10 +19,11 @@ const iconMap: Record<string, React.ElementType> = {
   Target, TrendingUp, ShoppingBag, Globe,
 }
 
-const badges = [
-  { icon: Target, label: 'Static Ads' },
-  { icon: TrendingUp, label: 'CRO & Konvertering' },
-  { icon: ShoppingBag, label: 'Shopify' },
+const stats = [
+  { value: '200+', label: 'Static ads leveret' },
+  { value: '50+', label: 'Projekter' },
+  { value: '5.0★', label: 'Trustpilot' },
+  { value: '3+', label: 'Års erfaring' },
 ]
 
 const problems = [
@@ -44,16 +45,15 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero */}
+
+      {/* ── Hero ─────────────────────────────────────────────── */}
       <section className="relative min-h-screen flex flex-col justify-center pt-36 pb-24 px-6 overflow-hidden bg-hero-gradient">
-        {/* Decorative blobs */}
         <div className="absolute top-1/4 right-0 w-[500px] h-[500px] rounded-full bg-brand-100/50 blur-[120px] pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-[300px] h-[300px] rounded-full bg-blue-100/40 blur-[100px] pointer-events-none" />
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent pointer-events-none" />
 
         <div className="relative max-w-7xl mx-auto w-full">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            {/* Left: copy */}
             <div>
               <AnimateSection delay={0} animation="fade-in">
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-neutral-200/80 text-sm text-neutral-700 mb-8 shadow-sm">
@@ -63,7 +63,7 @@ export default function HomePage() {
               </AnimateSection>
 
               <AnimateSection delay={100}>
-                <h1 className="text-5xl sm:text-6xl lg:text-6xl xl:text-7xl font-bold text-neutral-900 leading-[0.95] tracking-tight mb-8">
+                <h1 className="text-5xl sm:text-6xl xl:text-7xl font-bold text-neutral-900 leading-[0.95] tracking-tight mb-8">
                   Løft dit brand med{' '}
                   <span className="gradient-text-brand">stærke</span>{' '}
                   kreative løsninger
@@ -78,34 +78,30 @@ export default function HomePage() {
               </AnimateSection>
 
               <AnimateSection delay={300}>
-                <div className="flex flex-wrap gap-4 mb-10">
+                <div className="flex flex-wrap gap-4 mb-12">
                   <Link href="/ydelser" className="btn-primary text-base px-8 py-4">
                     Se mine ydelser
                     <ArrowRight className="w-5 h-5" />
                   </Link>
                   <Link href="/kontakt" className="btn-secondary text-base px-8 py-4">
-                    <Play className="w-4 h-4" />
                     Kontakt mig
                   </Link>
                 </div>
               </AnimateSection>
 
+              {/* Stats row */}
               <AnimateSection delay={400}>
-                <div className="flex flex-wrap gap-3">
-                  {badges.map((badge) => (
-                    <div
-                      key={badge.label}
-                      className="flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-white border border-neutral-200/80 shadow-sm hover:border-brand-300 hover:bg-brand-50/30 transition-all duration-300"
-                    >
-                      <badge.icon className="w-4 h-4 text-brand-600" />
-                      <span className="text-sm text-neutral-700 font-medium">{badge.label}</span>
+                <div className="grid grid-cols-4 gap-4 pt-8 border-t border-neutral-200/60">
+                  {stats.map((s) => (
+                    <div key={s.label}>
+                      <p className="text-xl sm:text-2xl font-bold text-neutral-900 tabular-nums">{s.value}</p>
+                      <p className="text-xs text-neutral-500 mt-0.5 leading-snug">{s.label}</p>
                     </div>
                   ))}
                 </div>
               </AnimateSection>
             </div>
 
-            {/* Right: animated workflow board (desktop only) */}
             <AnimateSection delay={300} animation="slide-right" className="hidden lg:flex items-center justify-center pt-8">
               <HeroWorkflow />
             </AnimateSection>
@@ -113,37 +109,37 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Reviews ticker */}
+      {/* ── Reviews ticker ───────────────────────────────────── */}
       <ReviewsTicker />
 
-      {/* Problem / Solution – redesigned */}
-      <section className="py-16 md:py-24 px-6 bg-white">
+      {/* ── Problem / Solution ───────────────────────────────── */}
+      <section className="py-20 md:py-28 px-6 bg-white">
         <div className="max-w-7xl mx-auto">
-          <AnimateSection className="text-center mb-12">
+          <AnimateSection className="mb-14">
             <span className="inline-block text-sm font-medium text-brand-600 uppercase tracking-wider mb-4">
               Kender du det?
             </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-900 tracking-tight mb-4">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-900 tracking-tight max-w-xl">
               Fra problem til løsning
             </h2>
           </AnimateSection>
 
-          <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 items-start">
-            {/* Problems */}
+          <div className="grid lg:grid-cols-2 gap-4 items-stretch">
+            {/* Problems – dark card */}
             <AnimateSection animation="slide-left">
-              <div className="rounded-2xl border border-neutral-200/80 overflow-hidden shadow-sm">
-                <div className="px-6 py-5 border-b border-neutral-200/60 bg-neutral-50">
-                  <h3 className="text-lg font-bold text-neutral-900">Kender du problemerne?</h3>
+              <div className="h-full rounded-2xl overflow-hidden bg-zinc-950 border border-zinc-800">
+                <div className="px-7 py-5 border-b border-zinc-800/80">
+                  <h3 className="text-base font-semibold text-zinc-100">Kender du problemerne?</h3>
                 </div>
-                <div className="p-6 space-y-4 bg-white">
+                <div className="p-7 space-y-5">
                   {problems.map((p) => (
                     <div key={p.title} className="flex items-start gap-4">
-                      <div className="w-8 h-8 rounded-lg bg-red-50 border border-red-100 flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <X className="w-4 h-4 text-red-500" />
+                      <div className="w-7 h-7 rounded-md bg-red-950/60 border border-red-800/50 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <X className="w-3.5 h-3.5 text-red-400" />
                       </div>
                       <div>
-                        <p className="font-semibold text-neutral-900 text-sm">{p.title}</p>
-                        <p className="text-sm text-neutral-500 mt-0.5">{p.desc}</p>
+                        <p className="font-semibold text-zinc-100 text-sm">{p.title}</p>
+                        <p className="text-sm text-zinc-500 mt-0.5">{p.desc}</p>
                       </div>
                     </div>
                   ))}
@@ -151,17 +147,17 @@ export default function HomePage() {
               </div>
             </AnimateSection>
 
-            {/* Solutions */}
+            {/* Solutions – brand card */}
             <AnimateSection animation="slide-right" delay={150}>
-              <div className="rounded-2xl border border-brand-200/60 overflow-hidden shadow-sm bg-gradient-to-br from-brand-50/60 to-white">
-                <div className="px-6 py-5 border-b border-brand-200/40 bg-brand-50/80">
-                  <h3 className="text-lg font-bold text-neutral-900">Sådan løser jeg det</h3>
+              <div className="h-full rounded-2xl overflow-hidden border border-brand-200/60 bg-gradient-to-br from-brand-50 to-white">
+                <div className="px-7 py-5 border-b border-brand-200/40 bg-brand-50/80">
+                  <h3 className="text-base font-semibold text-neutral-900">Sådan løser jeg det</h3>
                 </div>
-                <div className="p-6 space-y-4">
+                <div className="p-7 space-y-5">
                   {solutions.map((s) => (
                     <div key={s.title} className="flex items-start gap-4">
-                      <div className="w-8 h-8 rounded-lg bg-green-50 border border-green-200/60 flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <Check className="w-4 h-4 text-green-600" />
+                      <div className="w-7 h-7 rounded-md bg-green-50 border border-green-200/60 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <Check className="w-3.5 h-3.5 text-green-600" />
                       </div>
                       <div>
                         <p className="font-semibold text-neutral-900 text-sm">{s.title}</p>
@@ -169,7 +165,7 @@ export default function HomePage() {
                       </div>
                     </div>
                   ))}
-                  <div className="pt-2">
+                  <div className="pt-3">
                     <Link href="/kontakt" className="btn-primary w-full justify-center">
                       Start din gratis samtale
                       <ArrowRight className="w-4 h-4" />
@@ -182,32 +178,38 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Services Preview */}
-      <section id="services" className="py-10 md:py-20 px-6 relative bg-gradient-to-b from-blue-50/30 to-white">
-        <div className="relative max-w-7xl mx-auto">
-          <AnimateSection className="text-center mb-12 md:mb-16">
+      {/* ── Services ─────────────────────────────────────────── */}
+      <section id="services" className="py-20 md:py-28 px-6 bg-neutral-50/70 border-y border-neutral-200/60">
+        <div className="max-w-7xl mx-auto">
+          <AnimateSection className="mb-14">
             <span className="inline-block text-sm font-medium text-brand-600 uppercase tracking-wider mb-4">
               Ydelser
             </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-900 tracking-tight mb-4">
-              Alt hvad du skal bruge for at{' '}
-              <span className="gradient-text-brand">accelerere</span> dit brand
-            </h2>
-            <p className="text-lg text-neutral-600 max-w-2xl mx-auto text-left md:text-center">
-              Fra static ads der stopper scroll til webshops der konverterer – her er mine ydelser.
-            </p>
+            <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-900 tracking-tight max-w-xl">
+                Alt hvad du skal bruge for at{' '}
+                <span className="gradient-text-brand">accelerere</span> dit brand
+              </h2>
+              <Link href="/ydelser" className="btn-secondary flex-shrink-0">
+                Alle ydelser & priser
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
           </AnimateSection>
 
-          <div className="grid grid-cols-2 gap-4 md:gap-6 mb-12">
+          <div className="grid grid-cols-2 gap-4 md:gap-6">
             {services.map((service, i) => {
               const Icon = iconMap[service.icon] || Target
               return (
                 <AnimateSection key={service.slug} delay={i * 100} animation="scale">
                   <Link
                     href={`/ydelser/${service.slug}`}
-                    className="group flex flex-col p-5 md:p-8 rounded-2xl bg-white border border-neutral-200/80 hover:border-brand-300 hover:shadow-lg hover:shadow-brand-100/50 transition-all duration-500 h-full relative overflow-hidden hover:-translate-y-1"
+                    className="group relative flex flex-col p-5 md:p-8 rounded-2xl bg-white border border-neutral-200/80 hover:border-brand-300 hover:shadow-lg hover:shadow-brand-100/50 transition-all duration-500 h-full overflow-hidden hover:-translate-y-1"
                   >
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-brand-50 rounded-full blur-[60px] opacity-0 group-hover:opacity-100 pointer-events-none transition-all duration-700" />
+                    {/* Decorative number */}
+                    <span className="absolute top-3 right-4 text-7xl font-bold text-neutral-100 group-hover:text-brand-50 select-none transition-colors duration-500 leading-none pointer-events-none">
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
                     <div className="relative">
                       <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-brand-50 border border-brand-200/60 flex items-center justify-center mb-4 md:mb-6 group-hover:bg-brand-100 transition-colors duration-300">
                         <Icon className="w-5 h-5 md:w-6 md:h-6 text-brand-600" />
@@ -224,27 +226,20 @@ export default function HomePage() {
               )
             })}
           </div>
-
-          <AnimateSection className="text-center">
-            <Link href="/ydelser" className="btn-secondary">
-              Se alle ydelser og priser
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </AnimateSection>
         </div>
       </section>
 
-      {/* Testimonials */}
+      {/* ── Testimonials ─────────────────────────────────────── */}
       <Testimonials />
 
-      {/* About Preview */}
-      <section className="py-10 md:py-20 px-6 relative overflow-hidden bg-white">
+      {/* ── About Preview ────────────────────────────────────── */}
+      <section className="py-20 md:py-28 px-6 relative overflow-hidden bg-white">
         <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-brand-50 rounded-full blur-[100px] pointer-events-none" />
         <div className="relative max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <AnimateSection animation="slide-left">
               <div className="relative">
-                <div className="aspect-[3/4] rounded-2xl overflow-hidden border border-neutral-200/80 relative shadow-lg">
+                <div className="aspect-[3/4] rounded-2xl overflow-hidden border border-neutral-200/80 shadow-lg">
                   <Image
                     src="/images/frederik.png"
                     alt="Frederik"
@@ -327,22 +322,25 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Blog Preview */}
-      <section className="py-10 md:py-20 px-6 relative bg-gradient-to-b from-blue-50/30 to-white">
-        <div className="relative max-w-7xl mx-auto">
-          <AnimateSection className="text-center mb-12 md:mb-16">
+      {/* ── Blog Preview ─────────────────────────────────────── */}
+      <section className="py-20 md:py-28 px-6 bg-neutral-50/70 border-t border-neutral-200/60">
+        <div className="max-w-7xl mx-auto">
+          <AnimateSection className="mb-14">
             <span className="inline-block text-sm font-medium text-brand-600 uppercase tracking-wider mb-4">
               Blog & Viden
             </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-900 tracking-tight mb-4">
-              Seneste indsigter
-            </h2>
-            <p className="text-lg text-neutral-600 max-w-xl mx-auto text-left md:text-center">
-              Praktiske guides til dig der vil have mere ud af din webshop og markedsføring.
-            </p>
+            <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-900 tracking-tight">
+                Seneste indsigter
+              </h2>
+              <Link href="/blog" className="btn-secondary flex-shrink-0">
+                Alle blogindlæg
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
           </AnimateSection>
 
-          <div className="grid md:grid-cols-3 gap-6 mb-12">
+          <div className="grid md:grid-cols-3 gap-6">
             {recentPosts.map((post, i) => (
               <AnimateSection key={post.slug} delay={i * 100}>
                 <article className="group bg-white rounded-2xl border border-neutral-200/80 overflow-hidden hover:border-brand-200 hover:shadow-lg hover:shadow-brand-100/40 transition-all duration-500 hover:-translate-y-1">
@@ -374,44 +372,44 @@ export default function HomePage() {
               </AnimateSection>
             ))}
           </div>
-
-          <AnimateSection className="text-center">
-            <Link href="/blog" className="btn-secondary">
-              Se alle blogindlæg
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </AnimateSection>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-14 md:py-24 px-6 relative overflow-hidden bg-gradient-to-br from-brand-600 via-brand-700 to-brand-800">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-white/5 blur-[120px] pointer-events-none" />
-        <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-brand-400/20 blur-[80px] pointer-events-none" />
+      {/* ── CTA – Dark ───────────────────────────────────────── */}
+      <section className="py-20 md:py-32 px-6 relative overflow-hidden bg-zinc-950">
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-zinc-700 to-transparent" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-brand-600/10 blur-[120px] pointer-events-none" />
         <div className="relative max-w-4xl mx-auto text-center">
           <AnimateSection>
-            <span className="inline-block text-sm font-medium text-brand-200 uppercase tracking-wider mb-6">
+            <span className="inline-block text-sm font-medium text-zinc-500 uppercase tracking-wider mb-6">
               Klar til at starte?
             </span>
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-6">
               Klar til at skabe indhold du er{' '}
-              <span className="text-brand-200">stolt</span> af at dele?
+              <span className="text-brand-400">stolt</span> af at dele?
             </h2>
-            <p className="text-lg text-brand-100/80 mb-12 max-w-xl mx-auto text-left md:text-center">
+            <p className="text-lg text-zinc-400 mb-12 max-w-xl mx-auto text-left md:text-center">
               Tag en uforpligtende snak om hvordan jeg kan hjælpe din virksomhed med at vækste online.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
-              <Link href="/kontakt" className="inline-flex items-center gap-2 rounded-full bg-white text-brand-700 font-semibold hover:bg-brand-50 px-10 py-4 text-base transition-all duration-300 hover:scale-[1.03] hover:shadow-lg hover:shadow-brand-900/20 active:scale-[0.98]">
+              <Link
+                href="/kontakt"
+                className="inline-flex items-center gap-2 rounded-full bg-white text-zinc-900 font-semibold hover:bg-neutral-100 px-10 py-4 text-base transition-all duration-300 hover:scale-[1.03] hover:shadow-lg active:scale-[0.98]"
+              >
                 Kontakt mig i dag
                 <ArrowRight className="w-5 h-5" />
               </Link>
-              <Link href="/ydelser" className="inline-flex items-center gap-2 rounded-full border border-white/30 text-white hover:bg-white/10 hover:border-white/50 px-10 py-4 text-base font-medium transition-all duration-300">
+              <Link
+                href="/ydelser"
+                className="inline-flex items-center gap-2 rounded-full border border-zinc-700 text-zinc-300 hover:bg-zinc-800 hover:border-zinc-600 hover:text-white px-10 py-4 text-base font-medium transition-all duration-300"
+              >
                 Se ydelser & priser
               </Link>
             </div>
           </AnimateSection>
         </div>
       </section>
+
     </div>
   )
 }
