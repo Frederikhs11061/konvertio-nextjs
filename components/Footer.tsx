@@ -28,9 +28,9 @@ export default function Footer() {
                             <Image
                                 src="/logo.png"
                                 alt="Konvertio"
-                                width={64}
-                                height={64}
-                                className="h-16 w-16 object-contain"
+                                width={128}
+                                height={128}
+                                className="h-32 w-32 object-contain"
                             />
                         </Link>
                         <p className="text-sm text-neutral-500 leading-relaxed max-w-xs mb-6">

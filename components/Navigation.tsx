@@ -55,15 +55,15 @@ export default function Navigation() {
                 <nav className="relative z-[60] flex items-center justify-between h-18 py-4">
                     <Link
                         href="/"
-                        className="relative z-10 flex items-center gap-2.5 group w-16 h-16 shrink-0"
+                        className="relative z-10 flex items-center gap-2.5 group w-32 h-32 shrink-0"
                         aria-label="Konvertio – forsiden"
                     >
                         <Image
                             src="/logo.png"
                             alt=""
-                            width={64}
-                            height={64}
-                            className="h-16 w-16 object-contain"
+                            width={128}
+                            height={128}
+                            className="h-32 w-32 object-contain"
                             priority
                         />
                     </Link>
