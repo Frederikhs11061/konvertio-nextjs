@@ -263,8 +263,7 @@ export default function HomePage() {
 
               <AnimateSection delay={200}>
                 <p className="text-lg text-neutral-400 leading-relaxed mb-4">
-                  Jeg er Frederik Høgh Simonsen – Shopify-ekspert med dyb erfaring i CRO-gennemgange,
-                  Shopify-webshops og static ads der konverterer.
+                  Jeg er Frederik – ekspert i udvikling af shops til SMV&apos;er til ecommerce, med dyb erfaring i CRO-gennemgange og static ads der konverterer.
                 </p>
               </AnimateSection>
 

@@ -69,7 +69,7 @@ export default function HeroWorkflow() {
             <div className="rounded-2xl bg-neutral-900/80 border border-neutral-800/60 backdrop-blur-xl overflow-hidden shadow-2xl shadow-black/40">
                 {/* Header */}
                 <div className="flex items-center justify-between px-5 py-4 border-b border-neutral-800/60">
-                    <span className="text-sm font-semibold text-white tracking-tight">Min Proces</span>
+                    <span className="text-sm font-semibold text-white tracking-tight">Min udviklingsproces</span>
                     <div className="flex items-center gap-2">
                         <span className="text-xs text-neutral-500">
                             Trin {Math.min(active + 1, phases.length)}/{phases.length}
@@ -166,12 +166,9 @@ export default function HeroWorkflow() {
                 </div>
 
                 {/* Footer */}
-                <div className="px-5 py-3 border-t border-neutral-800/60 flex items-center justify-between">
-                    <div className="flex items-center gap-1.5">
-                        <Clock className="w-3 h-3 text-neutral-700" />
-                        <span className="text-[11px] text-neutral-600">Transparent proces</span>
-                    </div>
-                    <span className="text-[11px] font-medium text-brand-500/70">Fast pris</span>
+                <div className="px-5 py-3 border-t border-neutral-800/60 flex items-center gap-1.5">
+                    <Clock className="w-3 h-3 text-neutral-700" />
+                    <span className="text-[11px] text-neutral-600">Transparent proces</span>
                 </div>
             </div>
 
