@@ -1,63 +1,72 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { Target, Palette, BarChart2, Send, CheckCircle2, Clock, Zap } from 'lucide-react'
 
 const tasks = [
-    {
-        icon: Target,
-        label: 'Research & Analyse',
-        sub: 'Målgruppe & konkurrenter',
-        status: 'done',
-        progress: 100,
-    },
-    {
-        icon: Palette,
-        label: 'Ad Creative',
-        sub: 'Static ads til Facebook & Meta',
-        status: 'active',
-        progress: 65,
-    },
-    {
-        icon: BarChart2,
-        label: 'CRO Gennemgang',
-        sub: 'Webshop & checkout',
-        status: 'pending',
-        progress: 0,
-    },
-    {
-        icon: Send,
-        label: 'Levering',
-        sub: 'Revision & godkendelse',
-        status: 'pending',
-        progress: 0,
-    },
+    { icon: Target,   label: 'Research & Analyse', sub: 'Målgruppe & konkurrenter' },
+    { icon: Palette,  label: 'Ad Creative',         sub: 'Static ads til Facebook & Meta' },
+    { icon: BarChart2, label: 'CRO Gennemgang',     sub: 'Webshop & checkout' },
+    { icon: Send,     label: 'Levering',             sub: 'Revision & godkendelse' },
 ]
 
+const FILL_SPEED = 25   // ms per tick
+const FILL_STEP  = 1.8  // % per tick  → ~1.4s to reach 100
+const HOLD_MS    = 900  // pause before moving to next task
+const RESET_MS   = 2200 // pause after all done before loop
+
 export default function HeroWorkflow() {
-    const [mounted, setMounted] = useState(false)
-    const [activeProgress, setActiveProgress] = useState(0)
+    const [mounted,   setMounted]   = useState(false)
+    const [doneUntil, setDoneUntil] = useState(0)   // tasks 0..doneUntil-1 are done
+    const [active,    setActive]    = useState(0)   // index of the animating task
+    const [progress,  setProgress]  = useState(0)   // 0–100
+    const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+    const intRef   = useRef<ReturnType<typeof setInterval> | null>(null)
+
+    const clear = () => {
+        if (intRef.current)   clearInterval(intRef.current)
+        if (timerRef.current) clearTimeout(timerRef.current)
+    }
+
+    const runTask = (taskIdx: number) => {
+        setActive(taskIdx)
+        setProgress(0)
+        intRef.current = setInterval(() => {
+            setProgress(p => {
+                if (p + FILL_STEP >= 100) {
+                    clearInterval(intRef.current!)
+                    // mark done, move on after hold
+                    timerRef.current = setTimeout(() => {
+                        setDoneUntil(taskIdx + 1)
+                        const next = taskIdx + 1
+                        if (next < tasks.length) {
+                            runTask(next)
+                        } else {
+                            // all done – reset loop
+                            timerRef.current = setTimeout(() => {
+                                setDoneUntil(0)
+                                setProgress(0)
+                                runTask(0)
+                            }, RESET_MS)
+                        }
+                    }, HOLD_MS)
+                    return 100
+                }
+                return p + FILL_STEP
+            })
+        }, FILL_SPEED)
+    }
 
     useEffect(() => {
         setMounted(true)
-        const timer = setTimeout(() => {
-            const interval = setInterval(() => {
-                setActiveProgress((p) => {
-                    if (p >= 65) {
-                        clearInterval(interval)
-                        return 65
-                    }
-                    return p + 2
-                })
-            }, 30)
-            return () => clearInterval(interval)
-        }, 600)
-        return () => clearTimeout(timer)
+        timerRef.current = setTimeout(() => runTask(0), 700)
+        return clear
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return (
         <div className="relative w-full max-w-md mx-auto lg:mx-0">
-            {/* Floating badge - top */}
+            {/* Floating badge – top right */}
             <div
                 className="absolute -top-4 -right-4 z-10 flex items-center gap-2 bg-neutral-900 border border-neutral-700/60 rounded-xl px-3.5 py-2.5 shadow-2xl animate-float"
                 style={{ animationDuration: '6s' }}
@@ -86,59 +95,57 @@ export default function HeroWorkflow() {
                 {/* Task list */}
                 <div className="p-4 space-y-2.5">
                     {tasks.map((task, i) => {
-                        const Icon = task.icon
-                        const isDone = task.status === 'done'
-                        const isActive = task.status === 'active'
-                        const progress = isActive ? activeProgress : isDone ? 100 : 0
+                        const Icon    = task.icon
+                        const isDone  = i < doneUntil
+                        const isActive = i === active && !isDone
+                        const barW    = isDone ? 100 : isActive ? progress : 0
 
                         return (
                             <div
                                 key={task.label}
                                 className={`rounded-xl p-3.5 border transition-all duration-500 ${
-                                    isActive
-                                        ? 'bg-brand-600/8 border-brand-600/25'
-                                        : isDone
-                                        ? 'bg-neutral-800/30 border-neutral-700/30'
-                                        : 'bg-neutral-800/15 border-neutral-800/40'
+                                    isActive ? 'bg-brand-600/8 border-brand-600/25'
+                                    : isDone  ? 'bg-neutral-800/30 border-neutral-700/30'
+                                    :           'bg-neutral-800/15 border-neutral-800/40'
                                 }`}
                                 style={{
-                                    opacity: mounted ? 1 : 0,
+                                    opacity:   mounted ? 1 : 0,
                                     transform: mounted ? 'translateY(0)' : 'translateY(8px)',
-                                    transition: `all 0.4s ease ${i * 80}ms`,
+                                    transition: `opacity 0.4s ease ${i * 80}ms, transform 0.4s ease ${i * 80}ms, background-color 0.5s, border-color 0.5s`,
                                 }}
                             >
                                 <div className="flex items-start gap-3">
-                                    <div className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 ${
-                                        isActive ? 'bg-brand-600/20 border border-brand-600/30' :
-                                        isDone ? 'bg-green-500/10 border border-green-500/20' :
-                                        'bg-neutral-800/60 border border-neutral-700/40'
+                                    <div className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 transition-all duration-500 ${
+                                        isActive ? 'bg-brand-600/20 border border-brand-600/30'
+                                        : isDone  ? 'bg-green-500/10 border border-green-500/20'
+                                        :           'bg-neutral-800/60 border border-neutral-700/40'
                                     }`}>
                                         {isDone
                                             ? <CheckCircle2 className="w-4 h-4 text-green-400" />
-                                            : <Icon className={`w-4 h-4 ${isActive ? 'text-brand-400' : 'text-neutral-600'}`} />
+                                            : <Icon className={`w-4 h-4 transition-colors duration-500 ${isActive ? 'text-brand-400' : 'text-neutral-600'}`} />
                                         }
                                     </div>
                                     <div className="flex-1 min-w-0">
                                         <div className="flex items-center justify-between mb-0.5">
-                                            <span className={`text-xs font-semibold ${isActive ? 'text-white' : isDone ? 'text-neutral-300' : 'text-neutral-600'}`}>
+                                            <span className={`text-xs font-semibold transition-colors duration-500 ${isActive ? 'text-white' : isDone ? 'text-neutral-300' : 'text-neutral-600'}`}>
                                                 {task.label}
                                             </span>
-                                            <span className={`text-[10px] font-medium px-2 py-0.5 rounded-full ${
-                                                isActive ? 'bg-brand-500/15 text-brand-400 border border-brand-500/20' :
-                                                isDone ? 'bg-green-500/10 text-green-400' :
-                                                'bg-neutral-800 text-neutral-600'
+                                            <span className={`text-[10px] font-medium px-2 py-0.5 rounded-full transition-all duration-500 ${
+                                                isActive ? 'bg-brand-500/15 text-brand-400 border border-brand-500/20'
+                                                : isDone  ? 'bg-green-500/10 text-green-400'
+                                                :           'bg-neutral-800 text-neutral-600'
                                             }`}>
                                                 {isDone ? 'Godkendt' : isActive ? 'Aktiv' : 'Afventer'}
                                             </span>
                                         </div>
-                                        <p className={`text-[11px] mb-2 ${isActive ? 'text-neutral-400' : isDone ? 'text-neutral-500' : 'text-neutral-700'}`}>
+                                        <p className={`text-[11px] mb-2 transition-colors duration-500 ${isActive ? 'text-neutral-400' : isDone ? 'text-neutral-500' : 'text-neutral-700'}`}>
                                             {task.sub}
                                         </p>
                                         {(isActive || isDone) && (
                                             <div className="h-1 rounded-full bg-neutral-800/60 overflow-hidden">
                                                 <div
-                                                    className={`h-full rounded-full transition-all duration-700 ease-out ${isDone ? 'bg-green-500/70' : 'bg-brand-500'}`}
-                                                    style={{ width: `${progress}%` }}
+                                                    className={`h-full rounded-full ${isDone ? 'bg-green-500/70' : 'bg-brand-500'}`}
+                                                    style={{ width: `${barW}%`, transition: isDone ? 'width 0.3s ease' : 'none' }}
                                                 />
                                             </div>
                                         )}
@@ -159,7 +166,7 @@ export default function HeroWorkflow() {
                 </div>
             </div>
 
-            {/* Floating badge - bottom */}
+            {/* Floating badge – bottom left */}
             <div
                 className="absolute -bottom-4 -left-4 z-10 flex items-center gap-2.5 bg-neutral-900 border border-neutral-700/60 rounded-xl px-3.5 py-2.5 shadow-2xl animate-float"
                 style={{ animationDuration: '8s', animationDelay: '1.5s' }}

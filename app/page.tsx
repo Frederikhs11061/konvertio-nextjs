@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { ArrowRight, Target, TrendingUp, ShoppingBag, Globe, Check, Zap, Play, Sparkles, MousePointer, Megaphone } from 'lucide-react'
+import { ArrowRight, Target, TrendingUp, ShoppingBag, Globe, Check, Zap, Play, Sparkles } from 'lucide-react'
 import type { Metadata } from 'next'
 import Testimonials from '@/components/Testimonials'
 import AnimateSection from '@/components/AnimateSection'
@@ -37,14 +37,6 @@ export default function HomePage() {
         <div className="absolute top-1/4 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-brand-600/6 blur-[120px] pointer-events-none" />
         <div className="absolute top-1/3 right-0 w-[300px] h-[300px] rounded-full bg-brand-700/4 blur-[100px] pointer-events-none" />
         <div className="absolute bottom-0 left-0 right-0 h-56 sm:h-44 md:h-32 bg-gradient-to-t from-neutral-950 via-neutral-950/90 to-transparent pointer-events-none" />
-
-        {/* Subtle floating icons – only far left, won't conflict with workflow */}
-        <div className="absolute top-[30%] left-[2%] text-brand-600/8 animate-float pointer-events-none hidden lg:block" style={{ animationDuration: '8s', animationDelay: '0.8s' }}>
-          <Megaphone className="w-8 h-8" />
-        </div>
-        <div className="absolute top-[65%] left-[4%] text-brand-500/8 animate-float pointer-events-none hidden lg:block" style={{ animationDuration: '6s', animationDelay: '2s' }}>
-          <MousePointer className="w-6 h-6" />
-        </div>
 
         <div className="relative max-w-7xl mx-auto w-full">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -146,28 +138,24 @@ export default function HomePage() {
             </AnimateSection>
 
             <AnimateSection animation="slide-right" delay={200}>
-              <div className="relative">
-                <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-neutral-900 to-neutral-800/80 border border-neutral-700/50 flex items-center justify-center">
-                  <div className="text-center p-8">
-                    <div className="w-16 h-16 rounded-2xl bg-brand-600/15 border border-brand-600/25 flex items-center justify-center mx-auto mb-6 animate-float" style={{ animationDuration: '5s' }}>
-                      <Sparkles className="w-8 h-8 text-brand-400" />
-                    </div>
-                    <p className="text-xl font-bold text-white mb-2">Strategisk indhold</p>
-                    <p className="text-neutral-400 text-sm leading-relaxed max-w-xs mx-auto">
-                      Jeg analyserer, tester og optimerer – så dit budget arbejder smartere, ikke bare hårdere.
-                    </p>
+              <div className="rounded-2xl overflow-hidden bg-gradient-to-br from-neutral-900 to-neutral-800/80 border border-neutral-700/50">
+                <div className="p-8 text-center">
+                  <div className="w-16 h-16 rounded-2xl bg-brand-600/15 border border-brand-600/25 flex items-center justify-center mx-auto mb-6 animate-float" style={{ animationDuration: '5s' }}>
+                    <Sparkles className="w-8 h-8 text-brand-400" />
                   </div>
+                  <p className="text-xl font-bold text-white mb-2">Strategisk indhold</p>
+                  <p className="text-neutral-400 text-sm leading-relaxed max-w-xs mx-auto">
+                    Jeg analyserer, tester og optimerer – så dit budget arbejder smartere, ikke bare hårdere.
+                  </p>
                 </div>
-                {/* Floating feature card */}
-                <div className="absolute -bottom-5 -left-5 p-4 rounded-xl bg-neutral-900 border border-neutral-800/70 shadow-2xl animate-float" style={{ animationDuration: '7s', animationDelay: '1s' }}>
-                  <div className="flex items-center gap-3">
-                    <div className="w-9 h-9 rounded-full bg-brand-600/15 flex items-center justify-center">
-                      <Target className="w-4 h-4 text-brand-400" />
-                    </div>
-                    <div>
-                      <p className="text-sm font-semibold text-white">Konkret strategi</p>
-                      <p className="text-xs text-neutral-500">Fra første dag</p>
-                    </div>
+                {/* Feature card inside – no overlap */}
+                <div className="border-t border-neutral-800/50 px-6 py-4 flex items-center gap-3">
+                  <div className="w-9 h-9 rounded-full bg-brand-600/15 flex items-center justify-center flex-shrink-0">
+                    <Target className="w-4 h-4 text-brand-400" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-white">Konkret strategi</p>
+                    <p className="text-xs text-neutral-500">Fra første dag</p>
                   </div>
                 </div>
               </div>
