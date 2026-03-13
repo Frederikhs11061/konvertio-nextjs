@@ -39,7 +39,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen">
       {/* Hero */}
-      <section className="relative min-h-screen flex flex-col justify-center pt-24 pb-32 px-6 overflow-hidden">
+      <section className="relative min-h-screen flex flex-col justify-center pt-48 pb-32 px-6 overflow-hidden">
         {/* Background effects – blød overgang til sort på mobil */}
         <div className="absolute inset-0 bg-hero-gradient" />
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-brand-600/5 blur-[120px] pointer-events-none" />
