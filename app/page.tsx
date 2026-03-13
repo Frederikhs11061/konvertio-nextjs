@@ -1,9 +1,10 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { ArrowRight, Target, TrendingUp, ShoppingBag, Globe, Check, Zap, Play, Sparkles } from 'lucide-react'
+import { ArrowRight, Target, TrendingUp, ShoppingBag, Globe, Check, Zap, Play, Sparkles, MousePointer, BarChart2, Megaphone } from 'lucide-react'
 import type { Metadata } from 'next'
 import Testimonials from '@/components/Testimonials'
 import AnimateSection from '@/components/AnimateSection'
+import ReviewsTicker from '@/components/ReviewsTicker'
 import { services, blogPosts } from '@/lib/data'
 import { SITE_URL } from '@/lib/site'
 
@@ -30,14 +31,32 @@ export default function HomePage() {
     <div className="min-h-screen">
       {/* Hero */}
       <section className="relative min-h-screen flex flex-col justify-center pt-36 pb-32 px-6 overflow-hidden">
-        {/* Background effects – blød overgang til sort på mobil */}
+        {/* Background effects */}
         <div className="absolute inset-0 bg-hero-gradient" />
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-brand-600/5 blur-[120px] pointer-events-none" />
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-brand-600/8 blur-[120px] pointer-events-none" />
+        <div className="absolute top-1/3 right-0 w-[400px] h-[400px] rounded-full bg-brand-700/5 blur-[100px] pointer-events-none" />
         <div className="absolute bottom-0 left-0 right-0 h-56 sm:h-44 md:h-32 bg-gradient-to-t from-neutral-950 via-neutral-950/90 to-transparent pointer-events-none" />
+
+        {/* Floating decorative icons */}
+        <div className="absolute top-1/4 right-[8%] text-brand-600/15 animate-float pointer-events-none hidden md:block" style={{ animationDuration: '7s' }}>
+          <Target className="w-10 h-10" />
+        </div>
+        <div className="absolute top-[55%] right-[15%] text-brand-500/10 animate-float pointer-events-none hidden md:block" style={{ animationDuration: '9s', animationDelay: '1.5s' }}>
+          <BarChart2 className="w-8 h-8" />
+        </div>
+        <div className="absolute top-[30%] left-[5%] text-brand-600/10 animate-float pointer-events-none hidden lg:block" style={{ animationDuration: '8s', animationDelay: '0.8s' }}>
+          <Megaphone className="w-9 h-9" />
+        </div>
+        <div className="absolute top-[65%] left-[8%] text-brand-500/10 animate-float pointer-events-none hidden lg:block" style={{ animationDuration: '6s', animationDelay: '2s' }}>
+          <MousePointer className="w-7 h-7" />
+        </div>
+        <div className="absolute top-[20%] right-[30%] text-brand-600/8 animate-float pointer-events-none hidden xl:block" style={{ animationDuration: '10s', animationDelay: '0.5s' }}>
+          <ShoppingBag className="w-6 h-6" />
+        </div>
 
         <div className="relative max-w-7xl mx-auto w-full">
           <AnimateSection delay={0} animation="fade-in">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-neutral-900/60 backdrop-blur border border-neutral-800/50 text-sm text-neutral-400 mb-8">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-600/10 backdrop-blur border border-brand-600/20 text-sm text-brand-400 mb-8">
               <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
               Tilgængelig for nye projekter
             </div>
@@ -73,10 +92,11 @@ export default function HomePage() {
 
           <AnimateSection delay={400}>
             <div className="flex flex-wrap gap-3">
-              {badges.map((badge) => (
+              {badges.map((badge, i) => (
                 <div
                   key={badge.label}
-                  className="flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-neutral-900/40 border border-neutral-800/50 backdrop-blur-sm"
+                  className="flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-neutral-900/50 border border-neutral-800/60 backdrop-blur-sm hover:border-brand-600/30 hover:bg-neutral-900/70 transition-all duration-300"
+                  style={{ animationDelay: `${i * 150}ms` }}
                 >
                   <badge.icon className="w-4 h-4 text-brand-500" />
                   <span className="text-sm text-neutral-300">{badge.label}</span>
@@ -87,8 +107,11 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Reviews ticker */}
+      <ReviewsTicker />
+
       {/* Problem / Agitation */}
-      <section className="py-10 md:py-20 px-6 relative overflow-hidden">
+      <section className="py-16 md:py-24 px-6 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-brand-600/5 rounded-full blur-[100px] pointer-events-none" />
         <div className="relative max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -122,22 +145,33 @@ export default function HomePage() {
 
             <AnimateSection animation="slide-right" delay={200}>
               <div className="relative">
-                <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-neutral-900 to-neutral-800 border border-neutral-800/50 flex items-center justify-center">
+                <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-neutral-900 to-neutral-800/80 border border-neutral-700/50 flex items-center justify-center">
                   <div className="text-center p-8">
-                    <Sparkles className="w-16 h-16 text-brand-500/30 mx-auto mb-4" />
-                    <p className="text-2xl font-bold text-white mb-2">+200%</p>
-                    <p className="text-neutral-500 text-sm">Gennemsnitlig ROAS-stigning</p>
+                    <div className="w-16 h-16 rounded-2xl bg-brand-600/15 border border-brand-600/25 flex items-center justify-center mx-auto mb-6 animate-float" style={{ animationDuration: '5s' }}>
+                      <Sparkles className="w-8 h-8 text-brand-400" />
+                    </div>
+                    <p className="text-xl font-bold text-white mb-2">Strategisk indhold</p>
+                    <p className="text-neutral-400 text-sm leading-relaxed max-w-xs mx-auto">
+                      Jeg analyserer, tester og optimerer – så dit budget arbejder smartere, ikke bare hårdere.
+                    </p>
                   </div>
                 </div>
-                <div className="absolute -bottom-4 -left-4 p-4 rounded-xl bg-neutral-900 border border-neutral-800/50 shadow-2xl">
+                {/* Floating feature cards */}
+                <div className="absolute -bottom-5 -left-5 p-4 rounded-xl bg-neutral-900 border border-neutral-800/70 shadow-2xl animate-float" style={{ animationDuration: '7s', animationDelay: '1s' }}>
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-green-500/10 flex items-center justify-center">
-                      <TrendingUp className="w-5 h-5 text-green-500" />
+                    <div className="w-9 h-9 rounded-full bg-brand-600/15 flex items-center justify-center">
+                      <Target className="w-4 h-4 text-brand-400" />
                     </div>
                     <div>
-                      <p className="text-sm font-semibold text-white">Konvertering ↑</p>
-                      <p className="text-xs text-neutral-500">Gennemsnit 30%+</p>
+                      <p className="text-sm font-semibold text-white">Konkret strategi</p>
+                      <p className="text-xs text-neutral-500">Fra første dag</p>
                     </div>
+                  </div>
+                </div>
+                <div className="absolute -top-4 -right-4 p-3 rounded-xl bg-neutral-900 border border-neutral-800/70 shadow-xl animate-float" style={{ animationDuration: '8s', animationDelay: '0.5s' }}>
+                  <div className="flex items-center gap-2">
+                    <Check className="w-4 h-4 text-green-500" />
+                    <p className="text-xs font-medium text-white">Ingen skjulte gebyrer</p>
                   </div>
                 </div>
               </div>
@@ -148,7 +182,7 @@ export default function HomePage() {
 
       {/* Services Preview */}
       <section id="services" className="py-10 md:py-20 px-6 relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-neutral-900/30 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-neutral-900/20 to-transparent pointer-events-none" />
         <div className="relative max-w-7xl mx-auto">
           <AnimateSection className="text-center mb-12 md:mb-16">
             <span className="inline-block text-sm font-medium text-brand-500 uppercase tracking-wider mb-4">
@@ -170,7 +204,7 @@ export default function HomePage() {
                 <AnimateSection key={service.slug} delay={i * 100} animation="scale">
                   <Link
                     href={`/ydelser/${service.slug}`}
-                    className="group flex flex-col p-5 md:p-8 rounded-2xl bg-neutral-900/30 border border-neutral-800/50 card-hover h-full relative overflow-hidden"
+                    className="group flex flex-col p-5 md:p-8 rounded-2xl bg-neutral-900/40 border border-neutral-800/50 card-hover h-full relative overflow-hidden"
                   >
                     <div className="absolute top-0 right-0 w-32 h-32 bg-brand-600/5 rounded-full blur-[60px] pointer-events-none group-hover:bg-brand-600/10 transition-all duration-700" />
                     <div className="relative">
@@ -260,7 +294,7 @@ export default function HomePage() {
               <AnimateSection delay={400}>
                 <div className="flex flex-wrap gap-2 mb-8">
                   {['Shopify', 'CRO', 'Static Ads', 'Facebook Ads', 'WordPress', 'UX Design'].map((skill) => (
-                    <span key={skill} className="px-3 py-1.5 rounded-full bg-neutral-800/50 border border-neutral-700/50 text-neutral-300 text-sm">
+                    <span key={skill} className="px-3 py-1.5 rounded-full bg-neutral-800/60 border border-neutral-700/50 text-neutral-300 text-sm hover:border-brand-600/30 hover:text-white transition-all duration-200">
                       {skill}
                     </span>
                   ))}
@@ -349,7 +383,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CTA Section – blød overgang fra sort på mobil */}
+      {/* CTA Section */}
       <section className="py-14 md:py-24 px-6 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-brand-950 via-neutral-950 to-neutral-950" />
         <div className="absolute top-0 left-0 right-0 h-32 sm:h-24 md:hidden bg-gradient-to-b from-neutral-950 to-transparent pointer-events-none z-10" />
