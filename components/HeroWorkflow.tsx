@@ -66,10 +66,10 @@ export default function HeroWorkflow() {
     return (
         <div className="relative w-full max-w-md mx-auto lg:mx-0">
             {/* Main card */}
-            <div className="rounded-2xl bg-neutral-900/80 border border-neutral-800/60 backdrop-blur-xl overflow-hidden shadow-2xl shadow-black/40">
+            <div className="rounded-2xl bg-white border border-neutral-200/80 overflow-hidden shadow-xl shadow-neutral-300/30">
                 {/* Header */}
-                <div className="flex items-center justify-between px-5 py-4 border-b border-neutral-800/60">
-                    <span className="text-sm font-semibold text-white tracking-tight">Min udviklingsproces</span>
+                <div className="flex items-center justify-between px-5 py-4 border-b border-neutral-200/60 bg-neutral-50/60">
+                    <span className="text-sm font-semibold text-neutral-900 tracking-tight">Min udviklingsproces</span>
                     <div className="flex items-center gap-2">
                         <span className="text-xs text-neutral-500">
                             Trin {Math.min(active + 1, phases.length)}/{phases.length}
@@ -78,13 +78,13 @@ export default function HeroWorkflow() {
                             {phases.map((_, i) => (
                                 <div
                                     key={i}
-                                    className={`h-1 rounded-full transition-all duration-500 ${
+                                    className={"h-1 rounded-full transition-all duration-500 " + (
                                         i < doneUntil
                                             ? 'w-4 bg-brand-500'
                                             : i === active
-                                            ? 'w-4 bg-brand-500/60'
-                                            : 'w-2 bg-neutral-700'
-                                    }`}
+                                            ? 'w-4 bg-brand-400'
+                                            : 'w-2 bg-neutral-300'
+                                    )}
                                 />
                             ))}
                         </div>
@@ -102,11 +102,11 @@ export default function HeroWorkflow() {
                         return (
                             <div
                                 key={phase.label}
-                                className={`rounded-xl p-3 border transition-all duration-500 ${
-                                    isActive ? 'bg-brand-600/8 border-brand-600/20'
-                                    : isDone  ? 'bg-neutral-800/20 border-neutral-700/20'
-                                    :           'bg-transparent border-neutral-800/30'
-                                }`}
+                                className={"rounded-xl p-3 border transition-all duration-500 " + (
+                                    isActive ? 'bg-brand-50/80 border-brand-200/60'
+                                    : isDone  ? 'bg-green-50/40 border-green-200/40'
+                                    :           'bg-transparent border-neutral-200/40'
+                                )}
                                 style={{
                                     opacity:   mounted ? 1 : 0,
                                     transform: mounted ? 'translateY(0)' : 'translateY(6px)',
@@ -114,36 +114,34 @@ export default function HeroWorkflow() {
                                 }}
                             >
                                 <div className="flex items-center gap-3">
-                                    {/* Step number + icon */}
-                                    <div className={`relative w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 transition-all duration-500 ${
-                                        isActive ? 'bg-brand-600/20 border border-brand-600/30'
-                                        : isDone  ? 'bg-green-500/8 border border-green-500/15'
-                                        :           'bg-neutral-800/40 border border-neutral-800/60'
-                                    }`}>
-                                        <Icon className={`w-3.5 h-3.5 transition-colors duration-500 ${
-                                            isActive ? 'text-brand-400' : isDone ? 'text-green-400/70' : 'text-neutral-700'
-                                        }`} />
-                                        <span className={`absolute -top-1 -right-1 w-3.5 h-3.5 rounded-full text-white text-[8px] font-bold flex items-center justify-center transition-all duration-300 ${
-                                            isDone ? 'bg-green-500' : isActive ? 'bg-brand-600' : 'bg-neutral-700'
-                                        }`}>
+                                    <div className={"relative w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 transition-all duration-500 " + (
+                                        isActive ? 'bg-brand-100 border border-brand-300/60'
+                                        : isDone  ? 'bg-green-100/60 border border-green-300/40'
+                                        :           'bg-neutral-100 border border-neutral-200/60'
+                                    )}>
+                                        <Icon className={"w-3.5 h-3.5 transition-colors duration-500 " + (
+                                            isActive ? 'text-brand-600' : isDone ? 'text-green-500' : 'text-neutral-400'
+                                        )} />
+                                        <span className={"absolute -top-1 -right-1 w-3.5 h-3.5 rounded-full text-white text-[8px] font-bold flex items-center justify-center transition-all duration-300 " + (
+                                            isDone ? 'bg-green-500' : isActive ? 'bg-brand-600' : 'bg-neutral-400'
+                                        )}>
                                             {isDone ? '✓' : i + 1}
                                         </span>
                                     </div>
 
-                                    {/* Text */}
                                     <div className="flex-1 min-w-0">
                                         <div className="flex items-center justify-between gap-2">
-                                            <span className={`text-xs font-semibold leading-tight transition-colors duration-500 ${
-                                                isActive ? 'text-white' : isDone ? 'text-neutral-400' : 'text-neutral-600'
-                                            }`}>
+                                            <span className={"text-xs font-semibold leading-tight transition-colors duration-500 " + (
+                                                isActive ? 'text-neutral-900' : isDone ? 'text-neutral-600' : 'text-neutral-400'
+                                            )}>
                                                 {phase.label}
                                             </span>
                                             {(isActive || isDone) && (
-                                                <span className={`text-[10px] font-medium px-1.5 py-0.5 rounded-full flex-shrink-0 transition-all duration-500 ${
-                                                    isActive ? 'text-brand-400 bg-brand-500/10 border border-brand-500/15'
-                                                    :           'text-neutral-600 bg-neutral-800/60'
-                                                }`}>
-                                                    {isDone ? `Trin ${i + 1}` : `Trin ${i + 1}`}
+                                                <span className={"text-[10px] font-medium px-1.5 py-0.5 rounded-full flex-shrink-0 transition-all duration-500 " + (
+                                                    isActive ? 'text-brand-600 bg-brand-100 border border-brand-200/60'
+                                                    :           'text-green-700 bg-green-100/60'
+                                                )}>
+                                                    {`Trin ${i + 1}`}
                                                 </span>
                                             )}
                                         </div>
@@ -151,9 +149,9 @@ export default function HeroWorkflow() {
                                             <p className="text-[10px] text-neutral-500 mt-0.5 leading-tight">{phase.sub}</p>
                                         )}
                                         {(isActive || isDone) && (
-                                            <div className="h-0.5 rounded-full bg-neutral-800/50 overflow-hidden mt-1.5">
+                                            <div className="h-0.5 rounded-full bg-neutral-200/60 overflow-hidden mt-1.5">
                                                 <div
-                                                    className={`h-full rounded-full ${isDone ? 'bg-green-500/50' : 'bg-brand-500'}`}
+                                                    className={"h-full rounded-full " + (isDone ? 'bg-green-400' : 'bg-brand-500')}
                                                     style={{ width: `${barW}%`, transition: isDone ? 'width 0.3s ease' : 'none' }}
                                                 />
                                             </div>
@@ -166,25 +164,25 @@ export default function HeroWorkflow() {
                 </div>
 
                 {/* Footer */}
-                <div className="px-5 py-3 border-t border-neutral-800/60 flex items-center gap-1.5">
-                    <Clock className="w-3 h-3 text-neutral-700" />
-                    <span className="text-[11px] text-neutral-600">Transparent proces</span>
+                <div className="px-5 py-3 border-t border-neutral-200/60 bg-neutral-50/60 flex items-center gap-1.5">
+                    <Clock className="w-3 h-3 text-neutral-400" />
+                    <span className="text-[11px] text-neutral-500">Transparent proces</span>
                 </div>
             </div>
 
             {/* Floating bottom badge */}
             <div
-                className="absolute -bottom-4 -left-4 z-10 flex items-center gap-2.5 bg-neutral-900 border border-neutral-700/60 rounded-xl px-3.5 py-2.5 shadow-2xl animate-float"
+                className="absolute -bottom-4 -left-4 z-10 flex items-center gap-2.5 bg-white border border-neutral-200/80 rounded-xl px-3.5 py-2.5 shadow-lg animate-float"
                 style={{ animationDuration: '8s', animationDelay: '1s' }}
             >
                 <div className="flex -space-x-1">
                     {['B','F','R'].map((l) => (
-                        <div key={l} className="w-5 h-5 rounded-full bg-gradient-to-br from-brand-600 to-brand-800 border border-neutral-900 flex items-center justify-center">
+                        <div key={l} className="w-5 h-5 rounded-full bg-gradient-to-br from-brand-500 to-brand-700 border border-white flex items-center justify-center">
                             <span className="text-white text-[9px] font-bold">{l}</span>
                         </div>
                     ))}
                 </div>
-                <span className="text-xs text-neutral-400">Tilfredse kunder</span>
+                <span className="text-xs text-neutral-600 font-medium">Tilfredse kunder</span>
             </div>
         </div>
     )

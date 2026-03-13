@@ -40,9 +40,9 @@ export default function Navigation() {
     }, [isOpen])
 
     const headerBg = isScrolled
-        ? 'bg-neutral-950/85 backdrop-blur-2xl shadow-2xl shadow-black/30'
-        : 'bg-transparent'
-    const headerBorder = isScrolled ? 'border-neutral-800/50' : 'border-transparent'
+        ? 'bg-white/95 backdrop-blur-2xl shadow-sm'
+        : 'bg-white/80 backdrop-blur-xl'
+    const headerBorder = isScrolled ? 'border-neutral-200/80' : 'border-neutral-200/30'
     const headerTransition = mounted ? 'transition-all duration-500' : 'transition-none'
 
     return (
@@ -66,7 +66,7 @@ export default function Navigation() {
                         </Link>
 
                         <div className="hidden lg:flex items-center">
-                            <div className="flex items-center gap-1 px-2 py-1.5 rounded-full bg-neutral-900/60 backdrop-blur-xl border border-neutral-800/50">
+                            <div className="flex items-center gap-1 px-2 py-1.5 rounded-full bg-neutral-100/80 backdrop-blur-xl border border-neutral-200/60">
                                 {navLinks.map((link) => {
                                     const isActive = pathname === link.href || (link.href !== '/' && pathname.startsWith(link.href))
                                     return (
@@ -75,8 +75,8 @@ export default function Navigation() {
                                             href={link.href}
                                             className={`relative px-4 py-2 rounded-full text-sm transition-all duration-300 ${
                                                 isActive
-                                                    ? 'text-white bg-neutral-800 font-medium'
-                                                    : 'text-neutral-400 hover:text-white hover:bg-neutral-800/50'
+                                                    ? 'text-neutral-900 bg-white shadow-sm font-medium'
+                                                    : 'text-neutral-600 hover:text-neutral-900 hover:bg-white/70'
                                             }`}
                                         >
                                             {link.label}
@@ -94,7 +94,7 @@ export default function Navigation() {
                         </div>
 
                         <button
-                            className="lg:hidden relative z-10 p-2 text-white"
+                            className="lg:hidden relative z-10 p-2 text-neutral-700"
                             onClick={() => setIsOpen(!isOpen)}
                             aria-label={isOpen ? 'Luk menu' : 'Åbn menu'}
                         >
@@ -107,20 +107,20 @@ export default function Navigation() {
 
             {/* Backdrop */}
             <div
-                className={`lg:hidden fixed inset-0 z-40 bg-black/60 backdrop-blur-sm transition-opacity duration-300 ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
+                className={`lg:hidden fixed inset-0 z-40 bg-neutral-900/30 backdrop-blur-sm transition-opacity duration-300 ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
                 onClick={() => setIsOpen(false)}
             />
 
             {/* Drawer panel */}
             <div
-                className={`lg:hidden fixed top-0 right-0 bottom-0 z-50 w-[82%] max-w-xs bg-neutral-950 border-l border-neutral-800/60 flex flex-col transition-transform duration-300 ease-out ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}
+                className={`lg:hidden fixed top-0 right-0 bottom-0 z-50 w-[82%] max-w-xs bg-white border-l border-neutral-200/60 flex flex-col transition-transform duration-300 ease-out shadow-2xl ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}
             >
                 {/* Drawer header */}
-                <div className="flex items-center justify-between px-6 py-5 border-b border-neutral-800/50">
+                <div className="flex items-center justify-between px-6 py-5 border-b border-neutral-200/60">
                     <Link href="/" onClick={() => setIsOpen(false)} aria-label="Forside">
                         <Image src="/logo.png" alt="Konvertio" width={80} height={80} className="h-10 w-auto object-contain" />
                     </Link>
-                    <button onClick={() => setIsOpen(false)} className="p-2 -mr-2 text-neutral-400 hover:text-white transition-colors rounded-lg">
+                    <button onClick={() => setIsOpen(false)} className="p-2 -mr-2 text-neutral-500 hover:text-neutral-900 transition-colors rounded-lg">
                         <X className="w-5 h-5" />
                     </button>
                 </div>
@@ -136,8 +136,8 @@ export default function Navigation() {
                                         href={link.href}
                                         className={`flex items-center justify-between px-4 py-3.5 rounded-xl text-base font-medium transition-all duration-200 ${
                                             isActive
-                                                ? 'bg-brand-600/10 text-brand-400 border border-brand-600/20'
-                                                : 'text-neutral-300 hover:bg-neutral-900/70 hover:text-white'
+                                                ? 'bg-brand-50 text-brand-700 border border-brand-200/60'
+                                                : 'text-neutral-700 hover:bg-neutral-100 hover:text-neutral-900'
                                         }`}
                                         style={{
                                             transitionDelay: isOpen ? `${60 + i * 35}ms` : '0ms',
@@ -155,7 +155,7 @@ export default function Navigation() {
                 </nav>
 
                 {/* Bottom CTA */}
-                <div className="px-4 pb-8 pt-4 border-t border-neutral-800/50 space-y-3">
+                <div className="px-4 pb-8 pt-4 border-t border-neutral-200/60 space-y-3">
                     <Link
                         href="/kontakt"
                         className="btn-primary w-full justify-center"
@@ -166,7 +166,7 @@ export default function Navigation() {
                     </Link>
                     <a
                         href="mailto:frederik@konvertio.dk"
-                        className="flex items-center justify-center gap-2 text-sm text-neutral-600 hover:text-neutral-400 transition-colors py-1"
+                        className="flex items-center justify-center gap-2 text-sm text-neutral-500 hover:text-neutral-700 transition-colors py-1"
                     >
                         <Mail className="w-3.5 h-3.5" />
                         frederik@konvertio.dk

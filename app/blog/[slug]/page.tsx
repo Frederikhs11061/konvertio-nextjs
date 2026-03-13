@@ -56,7 +56,7 @@ export default function BlogPostPage({ params }: PageProps) {
     }
 
     return (
-        <div className="pt-20 md:pt-28">
+        <div className="pt-20 md:pt-28 bg-white">
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
@@ -72,7 +72,7 @@ export default function BlogPostPage({ params }: PageProps) {
                 <div className="max-w-3xl mx-auto">
                     <AnimateSection delay={0}>
                         <div className="flex flex-wrap items-center gap-3 mb-6">
-                            <span className="px-3 py-1 bg-brand-600/10 border border-brand-600/20 text-sm font-medium text-brand-400 rounded-full">
+                            <span className="px-3 py-1 bg-brand-50 border border-brand-200/60 text-sm font-medium text-brand-600 rounded-full">
                                 {post.category}
                             </span>
                             <span className="text-sm text-neutral-500 flex items-center gap-1">
@@ -87,19 +87,19 @@ export default function BlogPostPage({ params }: PageProps) {
                     </AnimateSection>
 
                     <AnimateSection delay={100}>
-                        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight mb-6 leading-tight">
+                        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-900 tracking-tight mb-6 leading-tight">
                             {post.title}
                         </h1>
                     </AnimateSection>
 
                     <AnimateSection delay={150}>
-                        <p className="text-xl text-neutral-400 leading-relaxed mb-8 pb-8 border-b border-neutral-800/50">
+                        <p className="text-xl text-neutral-600 leading-relaxed mb-8 pb-8 border-b border-neutral-200/60">
                             {post.excerpt}
                         </p>
                     </AnimateSection>
 
                     <AnimateSection delay={200} className="mb-8">
-                        <div className="aspect-video rounded-2xl overflow-hidden bg-neutral-800 border border-neutral-800/50">
+                        <div className="aspect-video rounded-2xl overflow-hidden bg-neutral-100 border border-neutral-200/60">
                             <Image
                                 src={post.image}
                                 alt={post.title}
@@ -111,14 +111,14 @@ export default function BlogPostPage({ params }: PageProps) {
                         </div>
                     </AnimateSection>
 
-                    {/* Grafisk afbryder mellem billede og indhold */}
+                    {/* Grafisk afbryder */}
                     <AnimateSection delay={220} className="my-8">
                         <div className="flex items-center gap-4" aria-hidden>
-                            <div className="h-px flex-1 bg-gradient-to-r from-transparent via-brand-600/30 to-transparent" />
-                            <div className="w-12 h-12 rounded-xl bg-brand-600/10 border border-brand-600/20 flex items-center justify-center">
-                                <span className="text-brand-500 font-bold text-lg">K</span>
+                            <div className="h-px flex-1 bg-gradient-to-r from-transparent via-brand-300/40 to-transparent" />
+                            <div className="w-12 h-12 rounded-xl bg-brand-50 border border-brand-200/60 flex items-center justify-center">
+                                <span className="text-brand-600 font-bold text-lg">K</span>
                             </div>
-                            <div className="h-px flex-1 bg-gradient-to-l from-transparent via-brand-600/30 to-transparent" />
+                            <div className="h-px flex-1 bg-gradient-to-l from-transparent via-brand-300/40 to-transparent" />
                         </div>
                     </AnimateSection>
 
@@ -127,31 +127,31 @@ export default function BlogPostPage({ params }: PageProps) {
                     </AnimateSection>
 
                     {/* Author box */}
-                    <AnimateSection className="mt-12 p-6 rounded-2xl bg-neutral-900/50 border border-neutral-800/50 flex items-center gap-4">
-                        <div className="w-14 h-14 rounded-full bg-gradient-to-br from-brand-600 to-brand-800 flex items-center justify-center flex-shrink-0">
+                    <AnimateSection className="mt-12 p-6 rounded-2xl bg-neutral-50 border border-neutral-200/60 flex items-center gap-4">
+                        <div className="w-14 h-14 rounded-full bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center flex-shrink-0">
                             <span className="text-white font-bold text-lg">F</span>
                         </div>
                         <div>
-                            <p className="font-bold text-white">{post.author}</p>
+                            <p className="font-bold text-neutral-900">{post.author}</p>
                             <p className="text-sm text-neutral-500">
                                 Freelance ekspert i static ads, CRO og Shopify. Baseret i Viborg, Danmark.
                             </p>
-                            <Link href="/om-mig" className="text-sm text-brand-500 hover:text-brand-400 mt-1 inline-flex items-center gap-1 transition-colors">
+                            <Link href="/om-mig" className="text-sm text-brand-600 hover:text-brand-500 mt-1 inline-flex items-center gap-1 transition-colors">
                                 Læs mere om mig <ArrowRight className="w-3.5 h-3.5" />
                             </Link>
                         </div>
                     </AnimateSection>
 
-                    {/* Læs også – andre blogindlæg */}
-                    <AnimateSection className="mt-10 p-6 rounded-2xl bg-neutral-900/30 border border-neutral-800/50">
-                        <h3 className="text-lg font-bold text-white mb-3">Læs også</h3>
+                    {/* Læs også */}
+                    <AnimateSection className="mt-10 p-6 rounded-2xl bg-blue-50/50 border border-brand-200/40">
+                        <h3 className="text-lg font-bold text-neutral-900 mb-3">Læs også</h3>
                         <ul className="flex flex-wrap gap-3 text-sm">
                             {blogPosts
                                 .filter((p) => p.slug !== post.slug)
                                 .slice(0, 6)
                                 .map((other) => (
                                     <li key={other.slug}>
-                                        <Link href={`/blog/${other.slug}`} className="text-brand-400 hover:text-brand-300 transition-colors">
+                                        <Link href={`/blog/${other.slug}`} className="text-brand-600 hover:text-brand-500 transition-colors">
                                             {other.title}
                                         </Link>
                                     </li>
@@ -160,10 +160,10 @@ export default function BlogPostPage({ params }: PageProps) {
                     </AnimateSection>
 
                     {/* CTA */}
-                    <AnimateSection className="mt-10 p-8 rounded-2xl bg-gradient-to-br from-brand-950/50 to-neutral-900/50 border border-brand-600/20 text-center">
+                    <AnimateSection className="mt-10 p-8 rounded-2xl bg-gradient-to-br from-brand-600 to-brand-700 text-center">
                         <h3 className="text-xl font-bold text-white mb-3">Klar til at øge din konvertering?</h3>
-                        <p className="text-neutral-400 mb-6 text-sm">Tag en gratis og uforpligtende snak om dit projekt.</p>
-                        <Link href="/kontakt" className="btn-primary">
+                        <p className="text-brand-100/80 mb-6 text-sm">Tag en gratis og uforpligtende snak om dit projekt.</p>
+                        <Link href="/kontakt" className="inline-flex items-center gap-2 rounded-full bg-white text-brand-700 font-semibold hover:bg-brand-50 px-7 py-3.5 text-sm transition-all duration-300 hover:scale-[1.02]">
                             Kontakt mig
                             <ArrowRight className="w-4 h-4" />
                         </Link>
@@ -172,14 +172,14 @@ export default function BlogPostPage({ params }: PageProps) {
             </article>
 
             {relatedPosts.length > 0 && (
-                <section className="py-12 px-6 border-t border-neutral-800/30">
+                <section className="py-12 px-6 border-t border-neutral-200/60 bg-neutral-50/50">
                     <div className="max-w-7xl mx-auto">
-                        <h2 className="text-2xl font-bold text-white mb-8">Relaterede artikler</h2>
+                        <h2 className="text-2xl font-bold text-neutral-900 mb-8">Relaterede artikler</h2>
                         <div className="grid md:grid-cols-2 gap-6">
                             {relatedPosts.map((rp, i) => (
                                 <AnimateSection key={rp.slug} delay={i * 100}>
-                                    <Link href={`/blog/${rp.slug}`} className="group block">
-                                        <div className="aspect-video rounded-xl overflow-hidden bg-neutral-800 mb-4 border border-neutral-800/50">
+                                    <Link href={`/blog/${rp.slug}`} className="group block bg-white rounded-2xl border border-neutral-200/80 overflow-hidden hover:border-brand-200 hover:shadow-md transition-all duration-300">
+                                        <div className="aspect-video overflow-hidden bg-neutral-100">
                                             <Image
                                                 src={rp.image}
                                                 alt={rp.title}
@@ -189,10 +189,12 @@ export default function BlogPostPage({ params }: PageProps) {
                                                 loading="lazy"
                                             />
                                         </div>
-                                        <span className="text-xs text-brand-500 uppercase tracking-wider">{rp.category}</span>
-                                        <h3 className="font-bold text-white group-hover:text-brand-400 transition-colors duration-300 line-clamp-2 mt-1">
-                                            {rp.title}
-                                        </h3>
+                                        <div className="p-4">
+                                            <span className="text-xs text-brand-600 uppercase tracking-wider font-medium">{rp.category}</span>
+                                            <h3 className="font-bold text-neutral-900 group-hover:text-brand-600 transition-colors duration-300 line-clamp-2 mt-1">
+                                                {rp.title}
+                                            </h3>
+                                        </div>
                                     </Link>
                                 </AnimateSection>
                             ))}

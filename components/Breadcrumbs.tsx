@@ -36,14 +36,14 @@ export default function Breadcrumbs({ items }: BreadcrumbsProps) {
                     <ol className="flex items-center gap-2 text-sm text-neutral-500 flex-wrap">
                         {allItems.map((item, index) => (
                             <li key={index} className="flex items-center gap-2">
-                                {index > 0 && <ChevronRight className="w-3.5 h-3.5 text-neutral-700" />}
+                                {index > 0 && <ChevronRight className="w-3.5 h-3.5 text-neutral-400" />}
                                 {item.href && index < allItems.length - 1 ? (
-                                    <Link href={item.href} className="hover:text-white transition-colors duration-300 flex items-center gap-1">
+                                    <Link href={item.href} className="hover:text-neutral-900 transition-colors duration-300 flex items-center gap-1">
                                         {index === 0 && <Home className="w-3.5 h-3.5" />}
                                         {item.label}
                                     </Link>
                                 ) : (
-                                    <span className="text-neutral-300 font-medium">{item.label}</span>
+                                    <span className="text-neutral-900 font-medium">{item.label}</span>
                                 )}
                             </li>
                         ))}

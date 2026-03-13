@@ -9,82 +9,81 @@
 
   html {
     scroll-behavior: smooth;
-    /* Forhindrer at menuen/logo hopper: scrollbar plads reserveret fra start */
     scrollbar-gutter: stable;
     overflow-y: scroll;
   }
 
   body {
-    @apply bg-neutral-950 text-white antialiased;
+    @apply bg-white text-neutral-900 antialiased;
     font-family: var(--font-inter);
   }
 
   ::selection {
-    @apply bg-brand-500/30 text-white;
+    @apply bg-brand-500/20 text-neutral-900;
   }
 
   * {
-    @apply border-neutral-800;
+    @apply border-neutral-200;
   }
 }
 
 @layer components {
   .glass {
-    @apply bg-neutral-900/60 backdrop-blur-xl border border-neutral-800/50;
+    @apply bg-white/80 backdrop-blur-xl border border-neutral-200/60 shadow-sm;
   }
 
   .glass-light {
-    @apply bg-white/5 backdrop-blur-xl border border-white/10;
+    @apply bg-white/60 backdrop-blur-xl border border-neutral-200/40;
   }
 
   .gradient-text {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-white via-white to-neutral-400;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-neutral-900 via-neutral-700 to-neutral-500;
   }
 
   .gradient-text-brand {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-400 to-brand-600;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-500 to-brand-700;
   }
 
-  .section-dark {
-    @apply bg-neutral-950;
+  .section-light {
+    @apply bg-white;
   }
 
-  .section-darker {
-    @apply bg-black;
+  .section-alt {
+    @apply bg-blue-50/40;
   }
 
   .section-card {
-    @apply bg-neutral-900/50 border border-neutral-800/50 rounded-2xl;
+    @apply bg-white border border-neutral-200/80 rounded-2xl shadow-sm;
   }
 
   .btn-primary {
     @apply inline-flex items-center gap-2 rounded-full bg-brand-600 text-white font-semibold
            hover:bg-brand-500 px-7 py-3.5 text-sm transition-all duration-300
-           hover:scale-[1.03] hover:shadow-lg hover:shadow-brand-600/20 active:scale-[0.98];
+           hover:scale-[1.03] hover:shadow-lg hover:shadow-brand-600/25 active:scale-[0.98];
   }
 
   .btn-secondary {
-    @apply inline-flex items-center gap-2 rounded-full border border-neutral-700 text-neutral-300
-           hover:bg-neutral-800 hover:text-white hover:border-neutral-600
+    @apply inline-flex items-center gap-2 rounded-full border border-neutral-300 text-neutral-700
+           hover:bg-neutral-100 hover:text-neutral-900 hover:border-neutral-400
            px-7 py-3.5 text-sm font-medium transition-all duration-300;
   }
 
   .btn-ghost {
-    @apply inline-flex items-center gap-2 text-sm font-medium text-neutral-400
-           hover:text-white transition-colors duration-300;
+    @apply inline-flex items-center gap-2 text-sm font-medium text-neutral-600
+           hover:text-neutral-900 transition-colors duration-300;
   }
 
   .card-hover {
-    @apply transition-all duration-500 hover:border-neutral-700
-           hover:shadow-xl hover:shadow-black/20 hover:-translate-y-1;
+    @apply transition-all duration-500 hover:border-neutral-300
+           hover:shadow-xl hover:shadow-neutral-200/80 hover:-translate-y-1;
   }
 
   .glow-brand {
-    box-shadow: 0 0 80px 20px rgba(59, 130, 246, 0.08);
+    box-shadow: 0 0 80px 20px rgba(59, 130, 246, 0.06);
   }
 
   .glow-brand-strong {
-    box-shadow: 0 0 120px 40px rgba(59, 130, 246, 0.12);
+    box-shadow: 0 0 120px 40px rgba(59, 130, 246, 0.10);
   }
 }
 
@@ -108,23 +107,23 @@
 }
 
 /* Prose overrides for blog content */
-.prose-dark {
-  --tw-prose-body: theme('colors.neutral.300');
-  --tw-prose-headings: theme('colors.white');
-  --tw-prose-lead: theme('colors.neutral.400');
-  --tw-prose-links: theme('colors.brand.400');
-  --tw-prose-bold: theme('colors.white');
-  --tw-prose-counters: theme('colors.neutral.400');
-  --tw-prose-bullets: theme('colors.neutral.600');
-  --tw-prose-hr: theme('colors.neutral.800');
-  --tw-prose-quotes: theme('colors.neutral.300');
-  --tw-prose-quote-borders: theme('colors.brand.600');
-  --tw-prose-captions: theme('colors.neutral.400');
-  --tw-prose-code: theme('colors.brand.400');
-  --tw-prose-pre-code: theme('colors.neutral.300');
-  --tw-prose-pre-bg: theme('colors.neutral.900');
-  --tw-prose-th-borders: theme('colors.neutral.700');
-  --tw-prose-td-borders: theme('colors.neutral.800');
+.prose-blog {
+  --tw-prose-body: theme('colors.neutral.700');
+  --tw-prose-headings: theme('colors.neutral.900');
+  --tw-prose-lead: theme('colors.neutral.600');
+  --tw-prose-links: theme('colors.brand.600');
+  --tw-prose-bold: theme('colors.neutral.900');
+  --tw-prose-counters: theme('colors.neutral.500');
+  --tw-prose-bullets: theme('colors.neutral.400');
+  --tw-prose-hr: theme('colors.neutral.200');
+  --tw-prose-quotes: theme('colors.neutral.700');
+  --tw-prose-quote-borders: theme('colors.brand.400');
+  --tw-prose-captions: theme('colors.neutral.500');
+  --tw-prose-code: theme('colors.brand.600');
+  --tw-prose-pre-code: theme('colors.neutral.700');
+  --tw-prose-pre-bg: theme('colors.neutral.50');
+  --tw-prose-th-borders: theme('colors.neutral.300');
+  --tw-prose-td-borders: theme('colors.neutral.200');
 }
 
 /* Reduced motion */

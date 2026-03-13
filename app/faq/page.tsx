@@ -55,7 +55,7 @@ const faqCategories = [
     {
         name: 'Om Konvertio',
         items: [
-            { q: 'Hvem er du?', a: 'Jeg hedder Frederik Høgh Simonsen, er bosat i Viborg, og hjælper danske virksomheder med at vækste online via CRO, Shopify og static ads.' },
+            { q: 'Hvem er du?', a: 'Jeg er Frederik, bosat i Viborg, og hjælper danske virksomheder med at vækste online via CRO, Shopify og static ads.' },
             { q: 'Arbejder du kun med danske virksomheder?', a: 'Primært ja, men jeg arbejder også med internationale virksomheder der vil ind på det danske marked.' },
             { q: 'Hvad gør dig forskellig fra andre?', a: 'Jeg kombinerer teknisk Shopify-viden, kreativ ekspertise i static ads og CRO. Jeg ser helheden og stopper ikke før du er tilfreds.' },
         ],
@@ -90,61 +90,65 @@ export default function FAQPage() {
     }
 
     return (
-        <div className="pt-20 md:pt-28">
+        <div className="pt-20 md:pt-28 bg-white">
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
             <Breadcrumbs items={[{ label: 'FAQ', href: '/faq' }]} />
 
-            <section className="py-10 md:py-16 px-6">
+            <section className="py-10 md:py-16 px-6 bg-hero-gradient">
                 <div className="max-w-4xl mx-auto">
                     <AnimateSection className="text-center mb-12">
-                        <span className="inline-block text-sm font-medium text-brand-500 uppercase tracking-wider mb-4">
+                        <span className="inline-block text-sm font-medium text-brand-600 uppercase tracking-wider mb-4">
                             FAQ
                         </span>
-                        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-6">
+                        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-neutral-900 tracking-tight mb-6">
                             Ofte stillede spørgsmål –{' '}
                             <span className="gradient-text-brand">ærlige svar.</span>
                         </h1>
-                        <p className="text-lg text-neutral-400 max-w-2xl mx-auto text-left md:text-center">
+                        <p className="text-lg text-neutral-600 max-w-2xl mx-auto text-left md:text-center">
                             Find svar på de mest almindelige spørgsmål om static ads, Shopify, CRO og samarbejdet med mig.
                         </p>
                     </AnimateSection>
 
                     <AnimateSection className="relative mb-12">
-                        <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-neutral-600" />
+                        <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-neutral-400" />
                         <input
                             type="search"
                             placeholder="Søg efter spørgsmål..."
                             value={search}
                             onChange={(e) => setSearch(e.target.value)}
-                            className="w-full pl-12 pr-4 py-4 rounded-xl bg-neutral-900/50 border border-neutral-800/50 text-white placeholder:text-neutral-600 focus:outline-none focus:ring-2 focus:ring-brand-600/50 focus:border-brand-600/50 transition-all text-sm"
+                            className="w-full pl-12 pr-4 py-4 rounded-xl bg-white border border-neutral-200/80 text-neutral-900 placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-400 transition-all text-sm shadow-sm"
                         />
                     </AnimateSection>
+                </div>
+            </section>
 
+            <section className="py-10 px-6 bg-white">
+                <div className="max-w-4xl mx-auto">
                     <div className="space-y-8">
                         {filtered.map((cat, catIdx) => (
                             <AnimateSection key={cat.name} delay={catIdx * 50}>
-                                <h2 className="text-xl font-bold text-white mb-4">{cat.name}</h2>
+                                <h2 className="text-xl font-bold text-neutral-900 mb-4">{cat.name}</h2>
                                 <div className="space-y-3">
                                     {cat.items.map((item, qIdx) => {
                                         const key = `${catIdx}-${qIdx}`
                                         const isOpen = open[key]
                                         return (
-                                            <div key={key} className="border border-neutral-800/50 rounded-xl overflow-hidden hover:border-neutral-700/50 transition-colors duration-300 bg-neutral-900/20">
+                                            <div key={key} className="border border-neutral-200/80 rounded-xl overflow-hidden hover:border-brand-200 transition-colors duration-300 bg-white shadow-sm">
                                                 <button
                                                     onClick={() => toggle(key)}
-                                                    className="w-full flex items-center justify-between p-5 text-left hover:bg-neutral-900/40 transition-colors duration-300"
+                                                    className="w-full flex items-center justify-between p-5 text-left hover:bg-neutral-50 transition-colors duration-300"
                                                     aria-expanded={isOpen}
                                                 >
-                                                    <span className="font-medium text-white pr-4 text-sm sm:text-base">{item.q}</span>
+                                                    <span className="font-medium text-neutral-900 pr-4 text-sm sm:text-base">{item.q}</span>
                                                     <ChevronDown
-                                                        className={`w-5 h-5 text-neutral-500 flex-shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-180 text-brand-500' : ''}`}
+                                                        className={"w-5 h-5 text-neutral-400 flex-shrink-0 transition-transform duration-300 " + (isOpen ? 'rotate-180 text-brand-500' : '')}
                                                     />
                                                 </button>
                                                 <div
-                                                    className={`overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}
+                                                    className={"overflow-hidden transition-all duration-300 " + (isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0')}
                                                 >
-                                                    <div className="px-5 pb-5">
-                                                        <p className="text-neutral-400 leading-relaxed text-sm sm:text-base">{item.a}</p>
+                                                    <div className="px-5 pb-5 border-t border-neutral-100">
+                                                        <p className="text-neutral-600 leading-relaxed text-sm sm:text-base pt-4">{item.a}</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -161,12 +165,12 @@ export default function FAQPage() {
                         )}
                     </div>
 
-                    <AnimateSection className="mt-16 p-10 rounded-2xl bg-gradient-to-br from-neutral-900/50 to-neutral-900/30 border border-neutral-800/50 text-center">
+                    <AnimateSection className="mt-16 p-10 rounded-2xl bg-gradient-to-br from-brand-600 to-brand-700 text-center">
                         <h3 className="text-2xl font-bold text-white mb-3">Har du ikke fundet svar?</h3>
-                        <p className="text-neutral-400 mb-8">
+                        <p className="text-brand-100/80 mb-8">
                             Jeg er altid klar til at hjælpe. Send mig en besked og jeg vender tilbage inden for 24 timer.
                         </p>
-                        <Link href="/kontakt" className="btn-primary">
+                        <Link href="/kontakt" className="inline-flex items-center gap-2 rounded-full bg-white text-brand-700 font-semibold hover:bg-brand-50 px-7 py-3.5 text-sm transition-all duration-300 hover:scale-[1.02]">
                             Kontakt mig
                             <ArrowRight className="w-4 h-4" />
                         </Link>
