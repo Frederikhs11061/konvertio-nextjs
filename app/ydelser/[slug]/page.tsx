@@ -175,41 +175,41 @@ export default function YdelsePage({ params }: PageProps) {
                 <section className="py-10 md:py-16 px-6 relative overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-b from-transparent via-neutral-900/20 to-transparent pointer-events-none" />
                     <div className="relative max-w-7xl mx-auto">
-                        <AnimateSection className="text-center mb-12">
+                        <AnimateSection className="text-center mb-8 md:mb-12">
                             <span className="inline-block text-sm font-medium text-brand-500 uppercase tracking-wider mb-3">Processen</span>
-                            <h2 className="text-3xl font-bold text-white mb-4">Sådan foregår det</h2>
-                            <p className="text-neutral-400 text-left md:text-center">Transparent og effektiv fra start til slut</p>
+                            <h2 className="text-3xl font-bold text-white mb-3">Sådan foregår det</h2>
+                            <p className="text-neutral-400 text-left md:text-center text-sm">Transparent og effektiv fra start til slut</p>
                         </AnimateSection>
 
-                        {/* Steps – horizontal on md+, vertical on mobile */}
+                        {/* Mobile: 2-col compact cards | Desktop: horizontal 5-col */}
                         <div className="relative">
-                            {/* Connecting line desktop */}
-                            <div className="hidden md:block absolute top-8 left-0 right-0 h-px pointer-events-none" style={{ background: 'linear-gradient(to right, transparent, #262626 15%, #262626 85%, transparent)' }} />
+                            {/* Connecting line – desktop only */}
+                            <div className="hidden md:block absolute top-7 left-0 right-0 h-px pointer-events-none" style={{ background: 'linear-gradient(to right, transparent, #262626 10%, #262626 90%, transparent)' }} />
 
-                            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 md:gap-3">
+                            <div className="grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-3">
                                 {service.process.map((step, i) => {
                                     const stepIcons = [Search, Lightbulb, Palette, RotateCcw, Send]
                                     const StepIcon = stepIcons[i] || Target
+                                    const isLast = i === service.process!.length - 1
                                     return (
-                                        <AnimateSection key={step.step} delay={i * 80}>
-                                            <div className="relative flex md:flex-col gap-4 md:gap-0 items-start md:items-center md:text-center p-4 md:p-0">
-                                                {/* Mobile vertical line */}
-                                                {i < service.process!.length - 1 && (
-                                                    <div className="md:hidden absolute left-[19px] top-14 bottom-0 w-px bg-neutral-800" style={{ height: 'calc(100% - 2.5rem)' }} />
-                                                )}
-
-                                                {/* Icon circle */}
-                                                <div className="relative z-10 w-10 h-10 rounded-full bg-brand-600/15 border border-brand-600/25 flex items-center justify-center flex-shrink-0 md:mb-4 group-hover:bg-brand-600/25 transition-colors">
-                                                    <StepIcon className="w-4 h-4 text-brand-400" />
-                                                    <span className="absolute -top-1.5 -right-1.5 w-4 h-4 rounded-full bg-brand-600 text-white text-[9px] font-bold flex items-center justify-center">
+                                        <AnimateSection
+                                            key={step.step}
+                                            delay={i * 80}
+                                            animation="scale"
+                                            className={isLast && service.process!.length % 2 !== 0 ? 'col-span-2 md:col-span-1' : ''}
+                                        >
+                                            <div className="group h-full rounded-xl bg-neutral-900/40 border border-neutral-800/50 hover:border-brand-600/25 hover:bg-neutral-900/60 transition-all duration-300 p-4 md:p-0 md:bg-transparent md:border-transparent md:hover:bg-transparent md:hover:border-transparent flex flex-col md:items-center md:text-center gap-3 md:gap-0">
+                                                {/* Icon */}
+                                                <div className="relative w-10 h-10 md:w-14 h-14 rounded-full bg-brand-600/10 border border-brand-600/20 flex items-center justify-center flex-shrink-0 md:mx-auto md:mb-4 group-hover:bg-brand-600/20 group-hover:border-brand-600/35 transition-all duration-300 relative z-10">
+                                                    <StepIcon className="w-4 h-4 md:w-5 md:h-5 text-brand-400" />
+                                                    <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-brand-600 text-white text-[9px] font-bold flex items-center justify-center shadow-sm">
                                                         {step.step}
                                                     </span>
                                                 </div>
-
                                                 {/* Text */}
-                                                <div className="md:px-2">
-                                                    <p className="font-semibold text-white text-sm mb-1">{step.title}</p>
-                                                    <p className="text-xs text-neutral-500 leading-relaxed">{step.description}</p>
+                                                <div className="md:px-1">
+                                                    <p className="font-semibold text-white text-xs md:text-sm mb-1 leading-tight">{step.title}</p>
+                                                    <p className="text-xs text-neutral-500 leading-relaxed hidden sm:block md:block">{step.description}</p>
                                                 </div>
                                             </div>
                                         </AnimateSection>
