@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { ArrowRight, Target, TrendingUp, ShoppingBag, Globe, Check, Zap, Play, Sparkles, MousePointer, BarChart2, Megaphone } from 'lucide-react'
+import { ArrowRight, Target, TrendingUp, ShoppingBag, Globe, Check, Zap, Play, Sparkles, MousePointer, Megaphone } from 'lucide-react'
 import type { Metadata } from 'next'
 import Testimonials from '@/components/Testimonials'
 import AnimateSection from '@/components/AnimateSection'
