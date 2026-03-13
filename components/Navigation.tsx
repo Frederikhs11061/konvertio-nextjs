@@ -52,10 +52,10 @@ export default function Navigation() {
             className={`fixed top-0 left-0 right-0 z-50 ${headerTransition} ${headerBg}`}
         >
             <div className="max-w-7xl mx-auto px-6">
-                <nav className="relative z-[60] flex items-center justify-between h-18 py-4">
+                <nav className={`relative z-[60] flex items-center justify-between transition-all duration-500 ${isScrolled ? 'py-2' : 'py-4'}`}>
                     <Link
                         href="/"
-                        className="relative z-10 flex items-center gap-2.5 group w-32 h-32 shrink-0"
+                        className={`relative z-10 flex items-center gap-2.5 group shrink-0 transition-all duration-500 ${isScrolled ? 'w-20 h-20' : 'w-32 h-32'}`}
                         aria-label="Konvertio – forsiden"
                     >
                         <Image
@@ -63,7 +63,7 @@ export default function Navigation() {
                             alt=""
                             width={128}
                             height={128}
-                            className="h-32 w-32 object-contain"
+                            className={`object-contain transition-all duration-500 ${isScrolled ? 'h-20 w-20' : 'h-32 w-32'}`}
                             priority
                         />
                     </Link>
