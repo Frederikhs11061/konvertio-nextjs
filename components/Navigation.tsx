@@ -41,15 +41,16 @@ export default function Navigation() {
 
     // På mobil: når menuen er åben skal det altid se ud som i toppen – solid sort, ingen forsinket overgang
     const headerBg = isOpen
-        ? 'bg-black border-b border-neutral-800/50'
+        ? 'bg-black'
         : isScrolled
-            ? 'bg-neutral-950/80 backdrop-blur-2xl border-b border-neutral-800/50 shadow-2xl shadow-black/20'
+            ? 'bg-neutral-950/80 backdrop-blur-2xl shadow-2xl shadow-black/20'
             : 'bg-transparent'
+    const headerBorder = isOpen || isScrolled ? 'border-neutral-800/50' : 'border-transparent'
     const headerTransition = isOpen ? 'transition-none' : mounted ? 'transition-all duration-500' : 'transition-none'
 
     return (
         <header
-            className={`fixed top-0 left-0 right-0 z-50 ${headerTransition} ${headerBg}`}
+            className={`fixed top-0 left-0 right-0 z-50 border-b ${headerTransition} ${headerBg} ${headerBorder}`}
         >
             <div className="max-w-7xl mx-auto px-6">
                 <nav className={`relative z-[60] flex items-center justify-between transition-all duration-500 ${isScrolled ? 'py-2' : 'py-4'}`}>
