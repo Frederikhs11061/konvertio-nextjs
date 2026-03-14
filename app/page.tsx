@@ -4,7 +4,7 @@ import { ArrowRight, Target, TrendingUp, ShoppingBag, Globe, Check, Zap, Play, X
 import type { Metadata } from 'next'
 import Testimonials from '@/components/Testimonials'
 import AnimateSection from '@/components/AnimateSection'
-import ReviewsTicker from '@/components/ReviewsTicker'
+
 import HeroWorkflow from '@/components/HeroWorkflow'
 import { getAllBlogPosts } from '@/lib/sanity/fetchBlog'
 import { getAllServices } from '@/lib/sanity/fetchServices'
@@ -129,7 +129,6 @@ export default async function HomePage() {
       </section>
 
       {/* Reviews ticker */}
-      <ReviewsTicker />
 
       {/* Problem / Solution – redesigned */}
       <section className="py-16 md:py-24 px-6 bg-gradient-to-b from-blue-100 to-blue-50">
