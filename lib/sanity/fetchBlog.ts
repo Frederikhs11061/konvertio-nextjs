@@ -23,7 +23,14 @@ export async function getBlogPostBySlug(slug: string) {
     if (!isConfigured) return staticPosts.find((p) => p.slug === slug) ?? null
     try {
         const post = await getClient().fetch(blogPostBySlugQuery, { slug })
-        if (post) return post
+        if (post) {
+            // If Sanity post has no content, fall back to static content for that slug
+            if (!post.content || (Array.isArray(post.content) && post.content.length === 0)) {
+                const staticPost = staticPosts.find((p) => p.slug === slug)
+                if (staticPost?.content) return { ...post, content: staticPost.content }
+            }
+            return post
+        }
         return staticPosts.find((p) => p.slug === slug) ?? null
     } catch {
         return staticPosts.find((p) => p.slug === slug) ?? null
