@@ -19,6 +19,13 @@ const nextConfig = {
                     { key: 'Strict-Transport-Security', value: 'max-age=63072000; includeSubDomains; preload' },
                 ],
             },
+            // Tillad Sanity Studio at vise siden i iframe (Presentation Tool)
+            {
+                source: '/(.*)',
+                headers: [
+                    { key: 'Content-Security-Policy', value: "frame-ancestors 'self' https://konvertio.sanity.studio" },
+                ],
+            },
         ]
     },
 }
