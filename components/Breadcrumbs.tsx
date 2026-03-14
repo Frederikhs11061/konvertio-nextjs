@@ -31,22 +31,25 @@ export default function Breadcrumbs({ items }: BreadcrumbsProps) {
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
             />
-            <nav aria-label="Breadcrumb" className="pt-8 pb-4 px-6">
+            <nav aria-label="Breadcrumb" className="pt-6 pb-3 px-6">
                 <div className="max-w-7xl mx-auto">
-                    <ol className="flex items-center gap-2 text-sm text-neutral-500 flex-wrap">
-                        {allItems.map((item, index) => (
-                            <li key={index} className="flex items-center gap-2">
-                                {index > 0 && <ChevronRight className="w-3.5 h-3.5 text-neutral-400" />}
-                                {item.href && index < allItems.length - 1 ? (
-                                    <Link href={item.href} className="hover:text-neutral-900 transition-colors duration-300 flex items-center gap-1">
-                                        {index === 0 && <Home className="w-3.5 h-3.5" />}
-                                        {item.label}
-                                    </Link>
-                                ) : (
-                                    <span className="text-neutral-900 font-medium">{item.label}</span>
-                                )}
-                            </li>
-                        ))}
+                    <ol className="flex items-center gap-1.5 text-sm text-neutral-500 min-w-0">
+                        {allItems.map((item, index) => {
+                            const isLast = index === allItems.length - 1
+                            return (
+                                <li key={index} className={`flex items-center gap-1.5 ${isLast ? 'min-w-0' : 'flex-shrink-0'}`}>
+                                    {index > 0 && <ChevronRight className="w-3.5 h-3.5 text-neutral-400 flex-shrink-0" />}
+                                    {item.href && !isLast ? (
+                                        <Link href={item.href} className="hover:text-neutral-900 transition-colors duration-300 flex items-center gap-1 flex-shrink-0">
+                                            {index === 0 && <Home className="w-3.5 h-3.5" />}
+                                            {item.label}
+                                        </Link>
+                                    ) : (
+                                        <span className="text-neutral-900 font-medium truncate">{item.label}</span>
+                                    )}
+                                </li>
+                            )
+                        })}
                     </ol>
                 </div>
             </nav>
