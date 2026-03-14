@@ -11,9 +11,9 @@ const phases = [
     { icon: RotateCcw,   label: 'Revision & Iteration',       sub: 'Feedback & løbende udvikling' },
 ]
 
-const FILL_SPEED = 50
+const FILL_SPEED = 25
 const FILL_STEP  = 1.2
-const HOLD_MS    = 1200
+const HOLD_MS    = 600
 const RESET_MS   = 2000
 
 export default function HeroWorkflow() {
