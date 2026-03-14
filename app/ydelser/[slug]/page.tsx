@@ -255,15 +255,14 @@ export default function YdelsePage({ params }: PageProps) {
             </section>
 
             {/* CTA */}
-            <section className="py-12 md:py-20 px-6 relative overflow-hidden bg-gradient-to-br from-brand-600 to-brand-800">
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full bg-white/5 blur-[100px] pointer-events-none" />
+            <section className="py-12 md:py-20 px-6 relative overflow-hidden bg-gradient-to-b from-blue-100 to-blue-50">
                 <div className="relative max-w-4xl mx-auto text-center">
                     <AnimateSection>
-                        <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">Klar til at komme i gang?</h2>
-                        <p className="text-brand-100/80 mb-8 max-w-xl mx-auto text-left md:text-center">
+                        <h2 className="text-3xl sm:text-4xl font-bold text-neutral-900 mb-4">Klar til at komme i gang?</h2>
+                        <p className="text-neutral-600 mb-8 max-w-xl mx-auto text-left md:text-center">
                             Tag en gratis og uforpligtende snak om {service.shortTitle.toLowerCase()}.
                         </p>
-                        <Link href="/kontakt" className="inline-flex items-center gap-2 rounded-full bg-white text-brand-700 font-semibold hover:bg-brand-50 px-10 py-4 text-base transition-all duration-300 hover:scale-[1.03] hover:shadow-lg active:scale-[0.98]">
+                        <Link href="/kontakt" className="btn-primary text-base px-10 py-4">
                             Kontakt mig i dag
                             <ArrowRight className="w-5 h-5" />
                         </Link>

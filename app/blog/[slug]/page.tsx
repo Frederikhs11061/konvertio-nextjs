@@ -160,10 +160,10 @@ export default function BlogPostPage({ params }: PageProps) {
                     </AnimateSection>
 
                     {/* CTA */}
-                    <AnimateSection className="mt-10 p-8 rounded-2xl bg-gradient-to-br from-brand-600 to-brand-700 text-center">
-                        <h3 className="text-xl font-bold text-white mb-3">Klar til at øge din konvertering?</h3>
-                        <p className="text-brand-100/80 mb-6 text-sm">Tag en gratis og uforpligtende snak om dit projekt.</p>
-                        <Link href="/kontakt" className="inline-flex items-center gap-2 rounded-full bg-white text-brand-700 font-semibold hover:bg-brand-50 px-7 py-3.5 text-sm transition-all duration-300 hover:scale-[1.02]">
+                    <AnimateSection className="mt-10 p-8 rounded-2xl bg-gradient-to-b from-blue-100 to-blue-50 border border-blue-200/60 text-center">
+                        <h3 className="text-xl font-bold text-neutral-900 mb-3">Klar til at øge din konvertering?</h3>
+                        <p className="text-neutral-600 mb-6 text-sm">Tag en gratis og uforpligtende snak om dit projekt.</p>
+                        <Link href="/kontakt" className="btn-primary text-sm px-7 py-3.5">
                             Kontakt mig
                             <ArrowRight className="w-4 h-4" />
                         </Link>

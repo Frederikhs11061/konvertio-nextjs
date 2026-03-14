@@ -386,27 +386,25 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-14 md:py-24 px-6 relative overflow-hidden bg-gradient-to-br from-brand-600 via-brand-700 to-brand-800">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-white/5 blur-[120px] pointer-events-none" />
-        <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-brand-400/20 blur-[80px] pointer-events-none" />
+      <section className="py-14 md:py-24 px-6 relative overflow-hidden bg-gradient-to-b from-blue-100 to-blue-50">
         <div className="relative max-w-4xl mx-auto text-center">
           <AnimateSection>
-            <span className="inline-block text-sm font-medium text-brand-200 uppercase tracking-wider mb-6">
+            <span className="inline-block text-sm font-medium text-brand-600 uppercase tracking-wider mb-6">
               Klar til at starte?
             </span>
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-6">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-neutral-900 tracking-tight mb-6">
               Klar til at skabe indhold du er{' '}
-              <span className="text-brand-200">stolt</span> af at dele?
+              <span className="gradient-text-brand">stolt</span> af at dele?
             </h2>
-            <p className="text-lg text-brand-100/80 mb-12 max-w-xl mx-auto text-left md:text-center">
+            <p className="text-lg text-neutral-600 mb-12 max-w-xl mx-auto text-left md:text-center">
               Tag en uforpligtende snak om hvordan jeg kan hjælpe din virksomhed med at vækste online.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
-              <Link href="/kontakt" className="inline-flex items-center gap-2 rounded-full bg-white text-brand-700 font-semibold hover:bg-brand-50 px-10 py-4 text-base transition-all duration-300 hover:scale-[1.03] hover:shadow-lg hover:shadow-brand-900/20 active:scale-[0.98]">
+              <Link href="/kontakt" className="btn-primary text-base px-10 py-4">
                 Kontakt mig i dag
                 <ArrowRight className="w-5 h-5" />
               </Link>
-              <Link href="/ydelser" className="inline-flex items-center gap-2 rounded-full border border-white/30 text-white hover:bg-white/10 hover:border-white/50 px-10 py-4 text-base font-medium transition-all duration-300">
+              <Link href="/ydelser" className="btn-secondary text-base px-10 py-4">
                 Se ydelser & priser
               </Link>
             </div>
