@@ -363,14 +363,14 @@ export default async function HomePage() {
                 <article className="group bg-white rounded-2xl border border-neutral-200/80 overflow-hidden hover:border-brand-200 hover:shadow-lg hover:shadow-brand-100/40 transition-all duration-500 hover:-translate-y-1">
                   <Link href={`/blog/${post.slug}`}>
                     <div className="aspect-video overflow-hidden bg-neutral-100">
-                      <Image
+                      {post.image && <Image
                         src={post.image}
                         alt={post.title}
                         width={600}
                         height={338}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                         loading="lazy"
-                      />
+                      />}
                     </div>
                     <div className="p-5">
                       <div className="flex items-center gap-3 mb-3">

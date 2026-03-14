@@ -16,7 +16,7 @@ const proseClass = `
 
 export default function BlogContent({ content }: { content: string }) {
     const sections = useMemo(() => {
-        const trimmed = content.trim()
+        const trimmed = (content || '').trim()
         if (!trimmed) return [{ type: 'intro' as const, html: '' }]
         const parts = trimmed.split(/(?=<h2>)/i).map((p) => p.trim()).filter(Boolean)
         const result: { type: 'intro' | 'section'; html: string }[] = []

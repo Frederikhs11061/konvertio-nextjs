@@ -89,14 +89,14 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                             <Link href={`/blog/${featuredPost.slug}`} className="group block">
                                 <div className="grid md:grid-cols-2 gap-0 rounded-2xl overflow-hidden border border-neutral-200/80 bg-white hover:border-brand-200 hover:shadow-lg hover:shadow-brand-100/40 transition-all duration-500">
                                     <div className="aspect-video overflow-hidden bg-neutral-100">
-                                        <Image
+                                        {featuredPost.image && <Image
                                             src={featuredPost.image}
                                             alt={featuredPost.title}
                                             width={800}
                                             height={450}
                                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                                             priority
-                                        />
+                                        />}
                                     </div>
                                     <div className="p-8 flex flex-col justify-center">
                                         <div className="flex items-center gap-3 mb-4">
@@ -127,14 +127,14 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                                     <article className="group bg-white rounded-2xl border border-neutral-200/80 overflow-hidden hover:border-brand-200 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
                                         <Link href={`/blog/${post.slug}`} className="block">
                                             <div className="aspect-video overflow-hidden bg-neutral-100">
-                                                <Image
+                                                {post.image && <Image
                                                     src={post.image}
                                                     alt={post.title}
                                                     width={600}
                                                     height={338}
                                                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                                                     loading="lazy"
-                                                />
+                                                />}
                                             </div>
                                             <div className="p-5">
                                                 <div className="flex items-center gap-3 mb-3">

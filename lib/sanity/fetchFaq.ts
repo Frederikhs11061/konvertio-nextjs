@@ -1,4 +1,4 @@
-import { client } from './client'
+import { getClient } from './getClient'
 import { allFaqCategoriesQuery } from './queries'
 
 // Static fallback – matches the shape used in faq/page.tsx
@@ -23,7 +23,7 @@ const isConfigured = !!process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
 export async function getAllFaqCategories() {
     if (!isConfigured) return staticFaq
     try {
-        const items = await client.fetch(allFaqCategoriesQuery)
+        const items = await getClient().fetch(allFaqCategoriesQuery)
         return items && items.length > 0 ? items : staticFaq
     } catch {
         return staticFaq

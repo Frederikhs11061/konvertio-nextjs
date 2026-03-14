@@ -192,14 +192,14 @@ export default async function BlogPostPage({ params }: PageProps) {
                                 <AnimateSection key={rp.slug} delay={i * 100}>
                                     <Link href={`/blog/${rp.slug}`} className="group block bg-white rounded-2xl border border-neutral-200/80 overflow-hidden hover:border-brand-200 hover:shadow-md transition-all duration-300">
                                         <div className="aspect-video overflow-hidden bg-neutral-100">
-                                            <Image
+                                            {rp.image && <Image
                                                 src={rp.image}
                                                 alt={rp.title}
                                                 width={600}
                                                 height={338}
                                                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                                                 loading="lazy"
-                                            />
+                                            />}
                                         </div>
                                         <div className="p-4">
                                             <span className="text-xs text-brand-600 uppercase tracking-wider font-medium">{rp.category}</span>
