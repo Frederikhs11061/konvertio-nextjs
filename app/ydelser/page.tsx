@@ -3,7 +3,7 @@ import { ArrowRight, ShoppingBag, TrendingUp, Target, Globe, Check } from 'lucid
 import type { Metadata } from 'next'
 import AnimateSection from '@/components/AnimateSection'
 import Breadcrumbs from '@/components/Breadcrumbs'
-import { services } from '@/lib/data'
+import { getAllServices } from '@/lib/sanity/fetchServices'
 import { SITE_URL } from '@/lib/site'
 
 export const metadata: Metadata = {
@@ -16,7 +16,8 @@ const iconMap: Record<string, React.ElementType> = {
     Target, TrendingUp, ShoppingBag, Globe,
 }
 
-export default function YdelserPage() {
+export default async function YdelserPage() {
+    const services = await getAllServices()
     return (
         <div className="pt-20 md:pt-28 bg-blue-100">
             <Breadcrumbs items={[{ label: 'Ydelser', href: '/ydelser' }]} />
@@ -40,7 +41,7 @@ export default function YdelserPage() {
                     {/* Quick-access */}
                     <AnimateSection className="mb-10 md:mb-14">
                         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
-                            {services.map((s) => {
+                            {(services as { slug: string; icon: string; shortTitle: string }[]).map((s) => {
                                 const Icon = iconMap[s.icon] || Target
                                 return (
                                     <Link
@@ -65,7 +66,7 @@ export default function YdelserPage() {
             <section className="py-10 md:py-16 px-6">
                 <div className="max-w-7xl mx-auto">
                     <div className="space-y-16 md:space-y-20">
-                        {services.map((service, si) => {
+                        {(services as { slug: string; icon: string; title: string; description: string; benefits: string[]; packageNote?: string; packages?: { name: string; price: string; description: string; features: string[]; popular?: boolean }[]; process?: { step: number; title: string; description: string }[] }[]).map((service, si) => {
                             const Icon = iconMap[service.icon] || Target
                             return (
                                 <article key={service.slug} id={service.slug}>
@@ -165,7 +166,7 @@ export default function YdelserPage() {
                                         </div>
                                     </AnimateSection>
 
-                                    {si < services.length - 1 && (
+                                    {si < (services as unknown[]).length - 1 && (
                                         <div className="border-b border-neutral-200/60 mt-10 md:mt-12" />
                                     )}
                                 </article>

@@ -5,7 +5,7 @@ import { notFound } from 'next/navigation'
 import AnimateSection from '@/components/AnimateSection'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import Testimonials from '@/components/Testimonials'
-import { services } from '@/lib/data'
+import { getAllServices, getServiceBySlug, getAllServiceSlugs } from '@/lib/sanity/fetchServices'
 import { SITE_URL } from '@/lib/site'
 
 interface PageProps {
@@ -17,25 +17,27 @@ const iconMap: Record<string, React.ElementType> = {
 }
 
 export async function generateStaticParams() {
-    return services.map((s) => ({ slug: s.slug }))
+    const slugs = await getAllServiceSlugs()
+    return slugs.map(({ slug }) => ({ slug }))
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-    const service = services.find((s) => s.slug === params.slug)
+    const service = await getServiceBySlug(params.slug)
     if (!service) return {}
     return {
-        title: service.metaTitle,
-        description: service.metaDescription,
+        title: service.metaTitle || service.title,
+        description: service.metaDescription || service.description,
         alternates: { canonical: `${SITE_URL}/ydelser/${service.slug}` },
     }
 }
 
-export default function YdelsePage({ params }: PageProps) {
-    const service = services.find((s) => s.slug === params.slug)
+export default async function YdelsePage({ params }: PageProps) {
+    const service = await getServiceBySlug(params.slug)
     if (!service) notFound()
 
     const Icon = iconMap[service.icon] || Target
-    const otherServices = services.filter((s) => s.slug !== service.slug)
+    const allServices = await getAllServices()
+    const otherServices = allServices.filter((s: { slug: string }) => s.slug !== service.slug)
 
     return (
         <div className="pt-20 md:pt-28 bg-blue-100">
@@ -90,7 +92,7 @@ export default function YdelsePage({ params }: PageProps) {
                             <div className="p-8 rounded-2xl bg-neutral-50 border border-neutral-200/60">
                                 <h2 className="text-2xl font-bold text-neutral-900 mb-6">Hvad er inkluderet</h2>
                                 <ul className="space-y-4">
-                                    {service.features.map((f) => (
+                                    {(service.features as string[]).map((f) => (
                                         <li key={f} className="flex items-start gap-3">
                                             <Check className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
                                             <span className="text-neutral-700">{f}</span>
@@ -103,7 +105,7 @@ export default function YdelsePage({ params }: PageProps) {
                             <div className="p-8 rounded-2xl bg-brand-50/60 border border-brand-200/40">
                                 <h2 className="text-2xl font-bold text-neutral-900 mb-6">Dine fordele</h2>
                                 <ul className="space-y-4">
-                                    {service.benefits.map((b) => (
+                                    {(service.benefits as string[]).map((b) => (
                                         <li key={b} className="flex items-start gap-3">
                                             <div className="w-5 h-5 rounded-full bg-brand-100 flex items-center justify-center flex-shrink-0 mt-0.5">
                                                 <div className="w-2 h-2 rounded-full bg-brand-500" />
@@ -127,7 +129,7 @@ export default function YdelsePage({ params }: PageProps) {
                             <p className="text-neutral-600 text-left md:text-center">Fast pris – ingen skjulte gebyrer</p>
                         </AnimateSection>
                         <div className={"grid gap-6 mx-auto " + (service.packages.length >= 3 ? 'md:grid-cols-2 lg:grid-cols-3 max-w-6xl' : 'md:grid-cols-2 max-w-4xl')}>
-                            {service.packages.map((pkg, i) => (
+                            {(service.packages as { name: string; description: string; price: string; features: string[]; popular?: boolean }[]).map((pkg, i) => (
                                 <AnimateSection key={pkg.name} delay={i * 100}>
                                     <div
                                         className={"relative p-8 rounded-2xl border transition-all duration-500 " + (
@@ -145,7 +147,7 @@ export default function YdelsePage({ params }: PageProps) {
                                         <p className="text-sm text-neutral-500 mb-6">{pkg.description}</p>
                                         <p className="text-4xl font-bold text-neutral-900 mb-8">{pkg.price}</p>
                                         <ul className="space-y-3 mb-8">
-                                            {pkg.features.map((f) => (
+                                            {(pkg.features as string[]).map((f) => (
                                                 <li key={f} className="flex items-start gap-3">
                                                     <Check className={"w-5 h-5 mt-0.5 flex-shrink-0 " + (pkg.popular ? 'text-brand-500' : 'text-green-500')} />
                                                     <span className="text-sm text-neutral-700">{f}</span>
@@ -188,7 +190,7 @@ export default function YdelsePage({ params }: PageProps) {
                             <div className="hidden md:block absolute top-7 left-0 right-0 h-px pointer-events-none bg-neutral-200/60" />
 
                             <div className="grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-3">
-                                {service.process.map((step, i) => {
+                                {(service.process as { step: number; title: string; description: string }[]).map((step, i) => {
                                     const stepIcons = [Search, Lightbulb, Palette, RotateCcw, Send]
                                     const StepIcon = stepIcons[i] || Target
                                     const isLast = i === service.process!.length - 1
@@ -230,7 +232,7 @@ export default function YdelsePage({ params }: PageProps) {
                         <p className="text-neutral-500">Se hvad jeg ellers kan hjælpe med</p>
                     </AnimateSection>
                     <div className="grid md:grid-cols-3 gap-6">
-                        {otherServices.map((s, i) => {
+                        {(otherServices as { slug: string; icon: string; shortTitle: string; shortDescription: string }[]).map((s, i) => {
                             const OtherIcon = iconMap[s.icon] || Target
                             return (
                                 <AnimateSection key={s.slug} delay={i * 100}>

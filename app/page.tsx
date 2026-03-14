@@ -6,8 +6,8 @@ import Testimonials from '@/components/Testimonials'
 import AnimateSection from '@/components/AnimateSection'
 import ReviewsTicker from '@/components/ReviewsTicker'
 import HeroWorkflow from '@/components/HeroWorkflow'
-import { services } from '@/lib/data'
 import { getAllBlogPosts } from '@/lib/sanity/fetchBlog'
+import { getAllServices } from '@/lib/sanity/fetchServices'
 import { SITE_URL } from '@/lib/site'
 
 export const metadata: Metadata = {
@@ -43,6 +43,7 @@ const solutions = [
 export default async function HomePage() {
   const allPosts = await getAllBlogPosts()
   const recentPosts = allPosts.slice(0, 3)
+  const services = await getAllServices()
 
   return (
     <div className="min-h-screen">
@@ -211,7 +212,7 @@ export default async function HomePage() {
           </AnimateSection>
 
           <div className="grid grid-cols-2 gap-4 md:gap-6 mb-12">
-            {services.map((service, i) => {
+            {(services as { slug: string; icon: string; shortTitle: string; shortDescription: string }[]).map((service, i) => {
               const Icon = iconMap[service.icon] || Target
               return (
                 <AnimateSection key={service.slug} delay={i * 100} animation="scale">
