@@ -1,16 +1,15 @@
 import { defineConfig } from 'sanity'
-import { structureTool } from 'sanity/structure'
+import { deskTool } from 'sanity/desk'
 import { visionTool } from '@sanity/vision'
 import { schemas } from './schemas'
 
 export default defineConfig({
     name: 'konvertio',
     title: 'Konvertio CMS',
-    projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
-    dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
-    basePath: '/studio',
+    projectId: 'x4du0gcn',
+    dataset: 'production',
     plugins: [
-        structureTool(),
+        deskTool(),
         visionTool(),
     ],
     schema: {
