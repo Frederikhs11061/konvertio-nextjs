@@ -56,7 +56,7 @@ export default function Navigation() {
                     <nav className={`relative z-[60] flex items-center justify-between transition-all duration-500 ${isScrolled ? 'py-2 lg:py-2' : 'py-3 lg:py-4'}`}>
                         <Link
                             href="/"
-                            className={`relative z-10 flex items-center gap-2.5 group shrink-0 transition-all duration-500 ${isScrolled ? 'w-16 h-16 lg:w-20 lg:h-20' : 'w-20 h-20 lg:w-24 lg:h-24'}`}
+                            className={`relative z-10 flex items-center gap-2.5 group shrink-0 transition-all duration-500 ${isScrolled ? 'w-14 h-14 lg:w-20 lg:h-20' : 'w-[60px] h-[60px] lg:w-24 lg:h-24'}`}
                             aria-label="Konvertio – forsiden"
                         >
                             <Image
@@ -64,7 +64,7 @@ export default function Navigation() {
                                 alt=""
                                 width={128}
                                 height={128}
-                                className={`object-contain transition-all duration-500 ${isScrolled ? 'h-16 w-16 lg:h-20 lg:w-20' : 'h-20 w-20 lg:h-24 lg:w-24'}`}
+                                className={`object-contain transition-all duration-500 ${isScrolled ? 'h-14 w-14 lg:h-20 lg:w-20' : 'h-[60px] w-[60px] lg:h-24 lg:w-24'}`}
                                 priority
                             />
                         </Link>
