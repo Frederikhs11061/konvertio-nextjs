@@ -16,7 +16,18 @@
   body {
     @apply text-neutral-900 antialiased;
     font-family: var(--font-poppins);
-    background: linear-gradient(155deg, #ffffff 0%, #eff6ff 22%, #dbeafe 50%, #bfdbfe 78%, #93c5fd 100%);
+    background: linear-gradient(
+      to bottom,
+      #0c1a3a 0%,
+      #122354 8%,
+      #1e3a8a 20%,
+      #2563eb 40%,
+      #3b82f6 56%,
+      #93c5fd 72%,
+      #bfdbfe 84%,
+      #e8f2ff 93%,
+      #f8fbff 100%
+    );
     background-attachment: fixed;
   }
 
