@@ -36,6 +36,7 @@ const config: Config = {
         'glow': 'glow 3s ease-in-out infinite alternate',
         'float': 'float 6s ease-in-out infinite',
         'marquee': 'marquee 30s linear infinite',
+        'marquee-reverse': 'marquee-reverse 30s linear infinite',
       },
       keyframes: {
         fadeInUp: {
@@ -73,6 +74,10 @@ const config: Config = {
         marquee: {
           from: { transform: 'translateX(0)' },
           to: { transform: 'translateX(-50%)' },
+        },
+        'marquee-reverse': {
+          from: { transform: 'translateX(-50%)' },
+          to: { transform: 'translateX(0)' },
         },
       },
       backgroundImage: {

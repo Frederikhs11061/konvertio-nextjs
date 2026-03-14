@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import Image from 'next/image'
 import { ArrowRight, Linkedin, Mail, Check, Zap } from 'lucide-react'
 import type { Metadata } from 'next'
 import AnimateSection from '@/components/AnimateSection'
@@ -34,33 +33,7 @@ export default function AboutPage() {
                 <div className="absolute top-0 right-0 w-96 h-96 bg-brand-100/40 rounded-full blur-[120px] pointer-events-none" />
                 <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-transparent to-transparent pointer-events-none" />
                 <div className="relative max-w-7xl mx-auto">
-                    <div className="grid lg:grid-cols-2 gap-16 items-center">
-                        <AnimateSection animation="slide-left">
-                            <div className="relative max-w-md mx-auto lg:mx-0">
-                                <div className="aspect-[4/5] rounded-2xl overflow-hidden border border-neutral-200/80 relative shadow-lg">
-                                    <Image
-                                        src="/images/frederik.png"
-                                        alt="Frederik"
-                                        fill
-                                        className="object-cover object-top"
-                                        sizes="(max-width: 1024px) 100vw, 448px"
-                                        priority
-                                    />
-                                </div>
-                                <div className="absolute -bottom-4 -right-4 p-4 rounded-xl bg-white border border-neutral-200/80 shadow-lg">
-                                    <div className="flex items-center gap-3">
-                                        <div className="w-10 h-10 rounded-full bg-brand-600 flex items-center justify-center">
-                                            <span className="text-white text-sm font-bold">K</span>
-                                        </div>
-                                        <div>
-                                            <p className="font-bold text-neutral-900 text-sm">Konvertio</p>
-                                            <p className="text-xs text-neutral-500">Viborg, Danmark</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </AnimateSection>
-
+                    <div className="max-w-2xl">
                         <div>
                             <AnimateSection delay={100}>
                                 <span className="inline-block text-sm font-medium text-brand-600 uppercase tracking-wider mb-4">

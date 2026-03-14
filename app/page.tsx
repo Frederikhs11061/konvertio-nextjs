@@ -57,9 +57,14 @@ export default function HomePage() {
             {/* Left: copy */}
             <div>
               <AnimateSection delay={0} animation="fade-in">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-sm text-white mb-8">
-                  <span className="w-2 h-2 rounded-full bg-brand-400 animate-pulse" />
-                  Tilgængelig for nye projekter
+                <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-sm text-white mb-8">
+                  <div className="flex gap-0.5">
+                    {[...Array(5)].map((_, i) => (
+                      <span key={i} className="text-amber-400 text-sm leading-none">★</span>
+                    ))}
+                  </div>
+                  <span className="text-white/40">|</span>
+                  <span>Hurtig levering · Professionelt resultat</span>
                 </div>
               </AnimateSection>
 
@@ -107,7 +112,11 @@ export default function HomePage() {
             </div>
 
             {/* Right: animated workflow board (desktop only) */}
-            <AnimateSection delay={300} animation="slide-right" className="hidden lg:flex items-center justify-center pt-8">
+            <AnimateSection delay={300} animation="slide-right" className="hidden lg:flex flex-col items-end gap-4 pt-8">
+              <div className="inline-flex items-center gap-2 self-end px-4 py-2 rounded-full bg-green-500/15 border border-green-400/30 text-sm text-green-300">
+                <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse flex-shrink-0" />
+                Klar til nye opgaver
+              </div>
               <HeroWorkflow />
             </AnimateSection>
           </div>
