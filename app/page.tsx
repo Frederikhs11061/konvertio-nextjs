@@ -126,7 +126,7 @@ export default async function HomePage() {
       </section>
 
       {/* Section transition: dark hero → light blue */}
-      <div className="h-16 bg-gradient-to-b from-[#0d1829] to-blue-100 pointer-events-none" />
+      <div className="h-28 bg-gradient-to-b from-[#0d1829] via-slate-400/30 to-blue-100 pointer-events-none" />
 
       {/* Problem / Solution – redesigned */}
       <section className="py-16 md:py-24 px-6 bg-gradient-to-b from-blue-100 to-blue-50">
