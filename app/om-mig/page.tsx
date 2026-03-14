@@ -3,7 +3,6 @@ import { ArrowRight, Linkedin, Mail, Check, Zap } from 'lucide-react'
 import type { Metadata } from 'next'
 import AnimateSection from '@/components/AnimateSection'
 import Breadcrumbs from '@/components/Breadcrumbs'
-import Testimonials from '@/components/Testimonials'
 import { SITE_URL } from '@/lib/site'
 
 export const metadata: Metadata = {
@@ -115,8 +114,6 @@ export default function AboutPage() {
                     </div>
                 </div>
             </section>
-
-            <Testimonials />
 
             <section className="py-12 md:py-20 px-6 relative overflow-hidden bg-gradient-to-b from-blue-100 to-blue-50">
                 <div className="relative max-w-4xl mx-auto text-center">
