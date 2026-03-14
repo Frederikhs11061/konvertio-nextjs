@@ -47,7 +47,7 @@ export default async function HomePage() {
   return (
     <div className="min-h-screen">
       {/* Hero */}
-      <section className="hero-dark relative min-h-screen flex flex-col justify-center pt-[130px] pb-24 px-6 overflow-hidden">
+      <section className="hero-dark relative min-h-screen flex flex-col justify-center pt-[100px] pb-16 px-6 overflow-hidden">
         {/* Decorative blobs */}
         <div className="absolute top-1/4 right-0 w-[600px] h-[600px] rounded-full bg-brand-500/30 blur-[140px] pointer-events-none" />
         <div className="absolute bottom-1/4 left-0 w-[400px] h-[400px] rounded-full bg-brand-700/20 blur-[120px] pointer-events-none" />
@@ -55,11 +55,11 @@ export default async function HomePage() {
         <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-white/8 to-transparent pointer-events-none" />
 
         <div className="relative max-w-7xl mx-auto w-full">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             {/* Left: copy */}
             <div>
               <AnimateSection delay={0} animation="fade-in">
-                <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-sm text-white mb-8">
+                <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-sm text-white mb-5">
                   <div className="flex gap-0.5">
                     {[...Array(5)].map((_, i) => (
                       <span key={i} className="text-amber-400 text-sm leading-none">★</span>
@@ -71,7 +71,7 @@ export default async function HomePage() {
               </AnimateSection>
 
               <AnimateSection delay={100}>
-                <h1 className="text-5xl sm:text-6xl lg:text-6xl xl:text-7xl font-bold text-white leading-[0.95] tracking-tight mb-8">
+                <h1 className="text-4xl sm:text-5xl lg:text-5xl xl:text-6xl font-bold text-white leading-[0.95] tracking-tight mb-5">
                   Løft dit brand med{' '}
                   <span className="gradient-text-brand">stærke</span>{' '}
                   kreative løsninger
@@ -79,19 +79,19 @@ export default async function HomePage() {
               </AnimateSection>
 
               <AnimateSection delay={200}>
-                <p className="text-lg sm:text-xl text-neutral-300 leading-relaxed mb-10">
+                <p className="text-base sm:text-lg text-neutral-300 leading-relaxed mb-7">
                   Jeg hjælper danske e-commerce virksomheder med at skabe static ads der konverterer,
                   Shopify-webshops der sælger, og CRO-analyser der giver resultater.
                 </p>
               </AnimateSection>
 
               <AnimateSection delay={300}>
-                <div className="flex flex-wrap gap-4 mb-10">
-                  <Link href="/ydelser" className="btn-primary text-base px-8 py-4">
+                <div className="flex flex-wrap gap-4 mb-7">
+                  <Link href="/ydelser" className="btn-primary text-sm px-6 py-3">
                     Se mine ydelser
                     <ArrowRight className="w-5 h-5" />
                   </Link>
-                  <Link href="/kontakt" className="inline-flex items-center gap-2 rounded-full border border-white/30 text-white hover:bg-white/10 hover:border-white/50 px-8 py-4 text-base font-medium transition-all duration-300">
+                  <Link href="/kontakt" className="inline-flex items-center gap-2 rounded-full border border-white/30 text-white hover:bg-white/10 hover:border-white/50 px-6 py-3 text-sm font-medium transition-all duration-300">
                     <Play className="w-4 h-4" />
                     Kontakt mig
                   </Link>
