@@ -420,14 +420,16 @@ async function seed() {
     // Anmeldelser
     console.log('📝 Uploader anmeldelser...')
     for (const t of testimonials) {
-        const doc = await client.create(t)
+        const id = `testimonial-${t.order}`
+        const doc = await client.createOrReplace({ ...t, _id: id })
         console.log(`   ✅ ${doc.name}`)
     }
 
     // FAQ
     console.log('\n📝 Uploader FAQ kategorier...')
     for (const cat of faqCategories) {
-        const doc = await client.create(cat)
+        const id = `faqCategory-${cat.order}`
+        const doc = await client.createOrReplace({ ...cat, _id: id })
         console.log(`   ✅ ${doc.name}`)
     }
 
