@@ -4,7 +4,7 @@ import { ArrowRight, Clock, User } from 'lucide-react'
 import type { Metadata } from 'next'
 import AnimateSection from '@/components/AnimateSection'
 import Breadcrumbs from '@/components/Breadcrumbs'
-import { blogPosts } from '@/lib/data'
+import { getAllBlogPosts } from '@/lib/sanity/fetchBlog'
 import { SITE_URL } from '@/lib/site'
 
 export const metadata: Metadata = {
@@ -13,16 +13,16 @@ export const metadata: Metadata = {
     alternates: { canonical: `${SITE_URL}/blog` },
 }
 
-const categories = Array.from(new Set(blogPosts.map((p) => p.category)))
-
 interface BlogPageProps {
     searchParams?: { category?: string }
 }
 
-export default function BlogPage({ searchParams }: BlogPageProps) {
+export default async function BlogPage({ searchParams }: BlogPageProps) {
+    const blogPosts = await getAllBlogPosts()
+    const categories = Array.from(new Set(blogPosts.map((p: { category: string }) => p.category)))
     const activeCategory = searchParams?.category ?? null
     const filteredPosts = activeCategory
-        ? blogPosts.filter((p) => p.category === activeCategory)
+        ? blogPosts.filter((p: { category: string }) => p.category === activeCategory)
         : blogPosts
     const featuredPost = filteredPosts[0]
     const restPosts = filteredPosts.slice(1)

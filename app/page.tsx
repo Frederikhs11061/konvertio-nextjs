@@ -6,7 +6,8 @@ import Testimonials from '@/components/Testimonials'
 import AnimateSection from '@/components/AnimateSection'
 import ReviewsTicker from '@/components/ReviewsTicker'
 import HeroWorkflow from '@/components/HeroWorkflow'
-import { services, blogPosts } from '@/lib/data'
+import { services } from '@/lib/data'
+import { getAllBlogPosts } from '@/lib/sanity/fetchBlog'
 import { SITE_URL } from '@/lib/site'
 
 export const metadata: Metadata = {
@@ -39,8 +40,9 @@ const solutions = [
   { title: 'Løbende optimering', desc: 'Kontinuerlige forbedringer baseret på performance-data' },
 ]
 
-export default function HomePage() {
-  const recentPosts = blogPosts.slice(0, 3)
+export default async function HomePage() {
+  const allPosts = await getAllBlogPosts()
+  const recentPosts = allPosts.slice(0, 3)
 
   return (
     <div className="min-h-screen">

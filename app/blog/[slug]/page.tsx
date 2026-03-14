@@ -6,7 +6,8 @@ import { notFound } from 'next/navigation'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import AnimateSection from '@/components/AnimateSection'
 import BlogContent from '@/components/BlogContent'
-import { blogPosts } from '@/lib/data'
+import SanityContent from '@/components/SanityContent'
+import { getAllBlogPosts, getBlogPostBySlug, getAllBlogSlugs } from '@/lib/sanity/fetchBlog'
 import { SITE_URL } from '@/lib/site'
 
 interface PageProps {
@@ -14,20 +15,21 @@ interface PageProps {
 }
 
 export async function generateStaticParams() {
-    return blogPosts.map((p) => ({ slug: p.slug }))
+    const slugs = await getAllBlogSlugs()
+    return slugs.map(({ slug }) => ({ slug }))
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-    const post = blogPosts.find((p) => p.slug === params.slug)
+    const post = await getBlogPostBySlug(params.slug)
     if (!post) return {}
     return {
-        title: post.metaTitle,
-        description: post.metaDescription,
+        title: post.metaTitle || post.title,
+        description: post.metaDescription || post.excerpt,
         alternates: { canonical: `${SITE_URL}/blog/${post.slug}` },
         openGraph: {
             title: post.title,
             description: post.excerpt,
-            images: [{ url: `${SITE_URL}${post.image}`, width: 1200, height: 630 }],
+            images: post.image ? [{ url: post.image.startsWith('http') ? post.image : `${SITE_URL}${post.image}`, width: 1200, height: 630 }] : [],
             type: 'article',
             publishedTime: post.date,
             authors: [post.author],
@@ -35,20 +37,24 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     }
 }
 
-export default function BlogPostPage({ params }: PageProps) {
-    const post = blogPosts.find((p) => p.slug === params.slug)
+export default async function BlogPostPage({ params }: PageProps) {
+    const post = await getBlogPostBySlug(params.slug)
     if (!post) notFound()
 
-    const related = blogPosts.filter((p) => p.slug !== post.slug && p.category === post.category).slice(0, 2)
-    const others = blogPosts.filter((p) => p.slug !== post.slug).slice(0, 2)
+    const allPosts = await getAllBlogPosts()
+    const related = allPosts.filter((p: { slug: string; category: string }) => p.slug !== post.slug && p.category === post.category).slice(0, 2)
+    const others = allPosts.filter((p: { slug: string }) => p.slug !== post.slug).slice(0, 2)
     const relatedPosts = related.length > 0 ? related : others
+
+    // Content can be Portable Text array (Sanity) or HTML string (static)
+    const isSanityContent = Array.isArray(post.content)
 
     const articleSchema = {
         '@context': 'https://schema.org',
         '@type': 'Article',
         headline: post.title,
         description: post.excerpt,
-        image: `${SITE_URL}${post.image}`,
+        image: post.image ? (post.image.startsWith('http') ? post.image : `${SITE_URL}${post.image}`) : '',
         author: { '@type': 'Person', name: post.author },
         publisher: { '@type': 'Organization', name: 'Konvertio' },
         datePublished: post.date,
@@ -98,20 +104,21 @@ export default function BlogPostPage({ params }: PageProps) {
                         </p>
                     </AnimateSection>
 
-                    <AnimateSection delay={200} className="mb-8">
-                        <div className="aspect-video rounded-2xl overflow-hidden bg-neutral-100 border border-neutral-200/60">
-                            <Image
-                                src={post.image}
-                                alt={post.title}
-                                width={1200}
-                                height={675}
-                                className="w-full h-full object-cover"
-                                priority
-                            />
-                        </div>
-                    </AnimateSection>
+                    {post.image && (
+                        <AnimateSection delay={200} className="mb-8">
+                            <div className="aspect-video rounded-2xl overflow-hidden bg-neutral-100 border border-neutral-200/60">
+                                <Image
+                                    src={post.image}
+                                    alt={post.title}
+                                    width={1200}
+                                    height={675}
+                                    className="w-full h-full object-cover"
+                                    priority
+                                />
+                            </div>
+                        </AnimateSection>
+                    )}
 
-                    {/* Grafisk afbryder */}
                     <AnimateSection delay={220} className="my-8">
                         <div className="flex items-center gap-4" aria-hidden>
                             <div className="h-px flex-1 bg-gradient-to-r from-transparent via-brand-300/40 to-transparent" />
@@ -123,7 +130,10 @@ export default function BlogPostPage({ params }: PageProps) {
                     </AnimateSection>
 
                     <AnimateSection delay={250}>
-                        <BlogContent content={post.content} />
+                        {isSanityContent
+                            ? <SanityContent content={post.content} />
+                            : <BlogContent content={post.content} />
+                        }
                     </AnimateSection>
 
                     {/* Author box */}
@@ -146,10 +156,10 @@ export default function BlogPostPage({ params }: PageProps) {
                     <AnimateSection className="mt-10 p-6 rounded-2xl bg-blue-50/50 border border-brand-200/40">
                         <h3 className="text-lg font-bold text-neutral-900 mb-3">Læs også</h3>
                         <ul className="flex flex-wrap gap-3 text-sm">
-                            {blogPosts
-                                .filter((p) => p.slug !== post.slug)
+                            {allPosts
+                                .filter((p: { slug: string }) => p.slug !== post.slug)
                                 .slice(0, 6)
-                                .map((other) => (
+                                .map((other: { slug: string; title: string }) => (
                                     <li key={other.slug}>
                                         <Link href={`/blog/${other.slug}`} className="text-brand-600 hover:text-brand-500 transition-colors">
                                             {other.title}
@@ -176,7 +186,7 @@ export default function BlogPostPage({ params }: PageProps) {
                     <div className="max-w-7xl mx-auto">
                         <h2 className="text-2xl font-bold text-neutral-900 mb-8">Relaterede artikler</h2>
                         <div className="grid md:grid-cols-2 gap-6">
-                            {relatedPosts.map((rp, i) => (
+                            {relatedPosts.map((rp: { slug: string; image: string; title: string; category: string }, i: number) => (
                                 <AnimateSection key={rp.slug} delay={i * 100}>
                                     <Link href={`/blog/${rp.slug}`} className="group block bg-white rounded-2xl border border-neutral-200/80 overflow-hidden hover:border-brand-200 hover:shadow-md transition-all duration-300">
                                         <div className="aspect-video overflow-hidden bg-neutral-100">
