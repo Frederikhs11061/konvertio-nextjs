@@ -47,7 +47,7 @@ export default async function HomePage() {
   return (
     <div className="min-h-screen">
       {/* Hero */}
-      <section className="hero-dark relative min-h-screen flex flex-col justify-center pt-[100px] pb-16 px-6 overflow-hidden">
+      <section className="hero-dark relative min-h-[100svh] flex flex-col justify-center pt-[100px] pb-12 px-6 overflow-hidden">
         {/* Decorative blobs */}
         <div className="absolute top-1/4 right-0 w-[600px] h-[600px] rounded-full bg-brand-500/30 blur-[140px] pointer-events-none" />
         <div className="absolute bottom-1/4 left-0 w-[400px] h-[400px] rounded-full bg-brand-700/20 blur-[120px] pointer-events-none" />
@@ -59,7 +59,7 @@ export default async function HomePage() {
             {/* Left: copy */}
             <div>
               <AnimateSection delay={0} animation="fade-in">
-                <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-sm text-white mb-5 lg:mt-5">
+                <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-sm text-white mb-6 lg:mt-5">
                   <div className="flex gap-0.5">
                     {[...Array(5)].map((_, i) => (
                       <span key={i} className="text-amber-400 text-sm leading-none">★</span>
@@ -71,7 +71,7 @@ export default async function HomePage() {
               </AnimateSection>
 
               <AnimateSection delay={100}>
-                <h1 className="text-4xl sm:text-5xl lg:text-5xl xl:text-6xl font-bold text-white leading-[0.95] tracking-tight mb-5">
+                <h1 className="text-[2.6rem] sm:text-5xl lg:text-5xl xl:text-6xl font-bold text-white leading-[1.0] tracking-tight mb-6">
                   Løft dit brand med{' '}
                   <span className="gradient-text-brand">stærke</span>{' '}
                   kreative løsninger

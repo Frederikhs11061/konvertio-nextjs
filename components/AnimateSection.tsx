@@ -1,7 +1,6 @@
 'use client'
 
-import { motion, Variants } from 'framer-motion'
-import { ReactNode } from 'react'
+import { useEffect, useRef, ReactNode } from 'react'
 
 type AnimationType = 'fade-up' | 'fade-in' | 'slide-left' | 'slide-right' | 'scale'
 
@@ -13,29 +12,6 @@ interface AnimateSectionProps {
     as?: 'div' | 'section' | 'article'
 }
 
-const variants: Record<AnimationType, Variants> = {
-    'fade-up': {
-        hidden: { opacity: 0, y: 28 },
-        visible: { opacity: 1, y: 0 },
-    },
-    'fade-in': {
-        hidden: { opacity: 0 },
-        visible: { opacity: 1 },
-    },
-    'slide-left': {
-        hidden: { opacity: 0, x: -40 },
-        visible: { opacity: 1, x: 0 },
-    },
-    'slide-right': {
-        hidden: { opacity: 0, x: 40 },
-        visible: { opacity: 1, x: 0 },
-    },
-    'scale': {
-        hidden: { opacity: 0, scale: 0.93 },
-        visible: { opacity: 1, scale: 1 },
-    },
-}
-
 export default function AnimateSection({
     children,
     className = '',
@@ -43,22 +19,53 @@ export default function AnimateSection({
     animation = 'fade-up',
     as: Tag = 'div',
 }: AnimateSectionProps) {
-    const MotionTag = motion[Tag] as typeof motion.div
+    const ref = useRef<HTMLDivElement>(null)
+
+    useEffect(() => {
+        const el = ref.current
+        if (!el) return
+
+        // Elements already in viewport on load: show immediately, no animation
+        const rect = el.getBoundingClientRect()
+        if (rect.top < window.innerHeight * 0.95) {
+            el.style.opacity = '1'
+            el.style.transform = 'none'
+            return
+        }
+
+        // Below fold: hide and animate in when scrolled into view
+        el.style.opacity = '0'
+        el.style.transform = animation === 'fade-in' ? 'none'
+            : animation === 'slide-left' ? 'translateX(-24px)'
+            : animation === 'slide-right' ? 'translateX(24px)'
+            : animation === 'scale' ? 'scale(0.96)'
+            : 'translateY(20px)'
+
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    const t = setTimeout(() => {
+                        el.style.transition = 'opacity 0.5s ease, transform 0.5s ease'
+                        el.style.opacity = '1'
+                        el.style.transform = 'none'
+                    }, Math.min(delay, 200))
+                    observer.unobserve(el)
+                    return () => clearTimeout(t)
+                }
+            },
+            { threshold: 0.05, rootMargin: '0px 0px -40px 0px' }
+        )
+        observer.observe(el)
+        return () => observer.disconnect()
+    }, [delay, animation])
 
     return (
-        <MotionTag
+        <Tag
+            ref={ref as React.RefObject<HTMLDivElement>}
             className={className}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '0px 0px -60px 0px' }}
-            variants={variants[animation]}
-            transition={{
-                duration: 0.65,
-                delay: delay / 1000,
-                ease: [0.16, 1, 0.3, 1],
-            }}
+            style={{ willChange: 'opacity, transform' }}
         >
             {children}
-        </MotionTag>
+        </Tag>
     )
 }
