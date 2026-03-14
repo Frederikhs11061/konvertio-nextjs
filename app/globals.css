@@ -16,18 +16,7 @@
   body {
     @apply text-neutral-900 antialiased;
     font-family: var(--font-poppins);
-    background: linear-gradient(
-      to bottom,
-      #0c1a3a 0%,
-      #122354 8%,
-      #1e3a8a 20%,
-      #2563eb 40%,
-      #3b82f6 56%,
-      #93c5fd 72%,
-      #bfdbfe 84%,
-      #e8f2ff 93%,
-      #f8fbff 100%
-    );
+    @apply bg-white;
   }
 
   ::selection {
@@ -118,12 +107,12 @@
   }
 }
 
-/* Dark hero with blue radial glow – like reference image but blue */
+/* Dark hero with blue radial glow */
 .hero-dark {
   background:
-    radial-gradient(ellipse at 80% 50%, rgba(59, 130, 246, 0.45) 0%, rgba(59, 130, 246, 0) 55%),
-    radial-gradient(ellipse at 15% 75%, rgba(37, 99, 235, 0.18) 0%, transparent 45%),
-    linear-gradient(135deg, #080e1f 0%, #0f172a 55%, #111827 100%);
+    radial-gradient(ellipse at 78% 45%, rgba(59, 130, 246, 0.55) 0%, rgba(59, 130, 246, 0) 50%),
+    radial-gradient(ellipse at 10% 80%, rgba(29, 78, 216, 0.22) 0%, transparent 42%),
+    linear-gradient(135deg, #05091a 0%, #0c1a3a 45%, #0f172a 100%);
 }
 
 /* Prose overrides for blog content */

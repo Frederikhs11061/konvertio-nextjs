@@ -11,9 +11,9 @@ const reviews = [
 
 export default function ReviewsTicker() {
     return (
-        <div className="py-8 border-y border-neutral-200/60 overflow-hidden relative bg-neutral-50/60">
-            <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-neutral-50 to-transparent z-10 pointer-events-none" />
-            <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-neutral-50 to-transparent z-10 pointer-events-none" />
+        <div className="py-8 border-y border-blue-200/50 overflow-hidden relative bg-gradient-to-r from-blue-100 via-blue-50 to-blue-100">
+            <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-blue-100 to-transparent z-10 pointer-events-none" />
+            <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-blue-100 to-transparent z-10 pointer-events-none" />
 
             <div className="flex gap-4 animate-marquee w-max items-stretch" style={{ animationDuration: '60s' }}>
                 {[...reviews, ...reviews].map((r, i) => (

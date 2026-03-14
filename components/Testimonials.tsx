@@ -29,7 +29,7 @@ const testimonials = [
 
 export default function Testimonials() {
     return (
-        <section id="anbefalinger" className="py-24 px-6 relative overflow-hidden">
+        <section id="anbefalinger" className="py-24 px-6 relative overflow-hidden bg-gradient-to-b from-white to-blue-50">
             <div className="absolute top-0 right-1/4 w-96 h-96 bg-brand-100/40 rounded-full blur-[120px] pointer-events-none" />
             <div className="relative max-w-7xl mx-auto">
                 <AnimateSection className="text-center mb-16">

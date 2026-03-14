@@ -39,11 +39,18 @@ export default function Navigation() {
         return () => { document.body.style.overflow = '' }
     }, [isOpen])
 
-    // Desktop: transparent (no bg). Mobile: dark bg but compact.
+    // Home: desktop transparent (dark hero below). Sub-pages: always dark.
+    const isHome = pathname === '/'
     const headerBg = isScrolled
         ? 'bg-slate-900/95 backdrop-blur-2xl shadow-lg shadow-black/30'
-        : 'bg-slate-900/80 backdrop-blur-xl lg:bg-transparent lg:backdrop-blur-none'
-    const headerBorder = isScrolled ? 'border-white/10' : 'border-white/5 lg:border-transparent'
+        : isHome
+            ? 'bg-slate-900/80 backdrop-blur-xl lg:bg-transparent lg:backdrop-blur-none'
+            : 'bg-slate-900/90 backdrop-blur-xl'
+    const headerBorder = isScrolled
+        ? 'border-white/10'
+        : isHome
+            ? 'border-white/5 lg:border-transparent'
+            : 'border-white/10'
     const headerTransition = mounted ? 'transition-all duration-500' : 'transition-none'
 
     return (

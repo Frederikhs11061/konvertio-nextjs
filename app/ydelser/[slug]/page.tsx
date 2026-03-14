@@ -38,7 +38,7 @@ export default function YdelsePage({ params }: PageProps) {
     const otherServices = services.filter((s) => s.slug !== service.slug)
 
     return (
-        <div className="pt-20 md:pt-28">
+        <div className="pt-20 md:pt-28 bg-gradient-to-b from-slate-900 via-blue-950/60 to-transparent">
             <Breadcrumbs
                 items={[
                     { label: 'Ydelser', href: '/ydelser' },
