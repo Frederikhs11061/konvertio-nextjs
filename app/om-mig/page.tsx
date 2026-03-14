@@ -94,7 +94,7 @@ export default function AboutPage() {
                                 </div>
                             </AnimateSection>
 
-                            <AnimateSection delay={300}>
+                            <AnimateSection delay={600}>
                                 <div className="flex flex-wrap gap-4">
                                     <a
                                         href="https://www.linkedin.com/in/frederik-høgh-simonsen/"

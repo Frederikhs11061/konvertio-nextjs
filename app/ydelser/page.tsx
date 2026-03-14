@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import { ArrowRight, ShoppingBag, TrendingUp, Target, Globe, Check } from 'lucide-react'
-// iconMap kept for service detail section below
 import type { Metadata } from 'next'
 import AnimateSection from '@/components/AnimateSection'
 import Breadcrumbs from '@/components/Breadcrumbs'
@@ -113,14 +112,39 @@ export default async function YdelserPage() {
 
                                     {service.process && (
                                         <AnimateSection className="mb-8">
-                                            <h3 className="text-xl font-bold text-neutral-900 mb-6">Sådan foregår det</h3>
-                                            <div className="grid sm:grid-cols-5 gap-4">
+                                            <h3 className="text-xl font-bold text-neutral-900 mb-8">Sådan foregår det</h3>
+
+                                            {/* Mobile: vertical list */}
+                                            <div className="flex flex-col gap-4 lg:hidden">
                                                 {service.process.map((step) => (
-                                                    <div key={step.step} className="text-center">
-                                                        <div className="w-10 h-10 rounded-full bg-brand-100 border border-brand-300/40 text-brand-700 flex items-center justify-center text-sm font-bold mx-auto mb-3">
+                                                    <div key={step.step} className="flex gap-4 items-start">
+                                                        <div className="w-9 h-9 rounded-full bg-brand-600 text-white flex items-center justify-center text-sm font-bold flex-shrink-0">
                                                             {step.step}
                                                         </div>
-                                                        <p className="text-sm font-semibold text-neutral-900 mb-1">{step.title}</p>
+                                                        <div className="pt-1">
+                                                            <p className="text-sm font-semibold text-neutral-900 mb-0.5">{step.title}</p>
+                                                            <p className="text-sm text-neutral-500 leading-relaxed">{step.description}</p>
+                                                        </div>
+                                                    </div>
+                                                ))}
+                                            </div>
+
+                                            {/* Desktop: horizontal timeline */}
+                                            <div className="hidden lg:grid gap-0" style={{ gridTemplateColumns: `repeat(${service.process.length}, 1fr)` }}>
+                                                {service.process.map((step, idx) => (
+                                                    <div key={step.step} className="relative flex flex-col items-center text-center px-3">
+                                                        {/* Connecting line */}
+                                                        {idx < service.process!.length - 1 && (
+                                                            <div className="absolute top-[18px] left-1/2 right-0 h-px bg-gradient-to-r from-brand-300 to-brand-100 z-0" />
+                                                        )}
+                                                        {idx > 0 && (
+                                                            <div className="absolute top-[18px] right-1/2 left-0 h-px bg-gradient-to-r from-brand-100 to-brand-300 z-0" />
+                                                        )}
+                                                        {/* Step circle */}
+                                                        <div className="relative z-10 w-9 h-9 rounded-full bg-brand-600 text-white flex items-center justify-center text-sm font-bold mb-4 shadow-md shadow-brand-200/60">
+                                                            {step.step}
+                                                        </div>
+                                                        <p className="text-sm font-bold text-neutral-900 mb-1.5 leading-tight">{step.title}</p>
                                                         <p className="text-xs text-neutral-500 leading-relaxed">{step.description}</p>
                                                     </div>
                                                 ))}
