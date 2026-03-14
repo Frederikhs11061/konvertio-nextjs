@@ -45,25 +45,26 @@ export default function HomePage() {
   return (
     <div className="min-h-screen">
       {/* Hero */}
-      <section className="relative min-h-screen flex flex-col justify-center pt-36 pb-24 px-6 overflow-hidden">
+      <section className="hero-dark relative min-h-screen flex flex-col justify-center pt-36 pb-24 px-6 overflow-hidden">
         {/* Decorative blobs */}
-        <div className="absolute top-1/4 right-0 w-[500px] h-[500px] rounded-full bg-brand-400/25 blur-[130px] pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-[350px] h-[350px] rounded-full bg-blue-400/20 blur-[110px] pointer-events-none" />
-        <div className="absolute top-0 left-1/3 w-[400px] h-[400px] rounded-full bg-brand-300/15 blur-[150px] pointer-events-none" />
+        <div className="absolute top-1/4 right-0 w-[600px] h-[600px] rounded-full bg-brand-500/30 blur-[140px] pointer-events-none" />
+        <div className="absolute bottom-1/4 left-0 w-[400px] h-[400px] rounded-full bg-brand-700/20 blur-[120px] pointer-events-none" />
+        {/* Bottom fade into next section */}
+        <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-white/8 to-transparent pointer-events-none" />
 
         <div className="relative max-w-7xl mx-auto w-full">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             {/* Left: copy */}
             <div>
               <AnimateSection delay={0} animation="fade-in">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-neutral-200/80 text-sm text-neutral-700 mb-8 shadow-sm">
-                  <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-sm text-white mb-8">
+                  <span className="w-2 h-2 rounded-full bg-brand-400 animate-pulse" />
                   Tilgængelig for nye projekter
                 </div>
               </AnimateSection>
 
               <AnimateSection delay={100}>
-                <h1 className="text-5xl sm:text-6xl lg:text-6xl xl:text-7xl font-bold text-neutral-900 leading-[0.95] tracking-tight mb-8">
+                <h1 className="text-5xl sm:text-6xl lg:text-6xl xl:text-7xl font-bold text-white leading-[0.95] tracking-tight mb-8">
                   Løft dit brand med{' '}
                   <span className="gradient-text-brand">stærke</span>{' '}
                   kreative løsninger
@@ -71,7 +72,7 @@ export default function HomePage() {
               </AnimateSection>
 
               <AnimateSection delay={200}>
-                <p className="text-lg sm:text-xl text-neutral-600 leading-relaxed mb-10">
+                <p className="text-lg sm:text-xl text-neutral-300 leading-relaxed mb-10">
                   Jeg hjælper danske e-commerce virksomheder med at skabe static ads der konverterer,
                   Shopify-webshops der sælger, og CRO-analyser der giver resultater.
                 </p>
@@ -83,7 +84,7 @@ export default function HomePage() {
                     Se mine ydelser
                     <ArrowRight className="w-5 h-5" />
                   </Link>
-                  <Link href="/kontakt" className="btn-secondary text-base px-8 py-4">
+                  <Link href="/kontakt" className="inline-flex items-center gap-2 rounded-full border border-white/30 text-white hover:bg-white/10 hover:border-white/50 px-8 py-4 text-base font-medium transition-all duration-300">
                     <Play className="w-4 h-4" />
                     Kontakt mig
                   </Link>
@@ -95,10 +96,10 @@ export default function HomePage() {
                   {badges.map((badge) => (
                     <div
                       key={badge.label}
-                      className="flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-white border border-neutral-200/80 shadow-sm hover:border-brand-300 hover:bg-brand-50/30 transition-all duration-300"
+                      className="flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-white/10 border border-white/20 hover:bg-white/20 transition-all duration-300"
                     >
-                      <badge.icon className="w-4 h-4 text-brand-600" />
-                      <span className="text-sm text-neutral-700 font-medium">{badge.label}</span>
+                      <badge.icon className="w-4 h-4 text-brand-400" />
+                      <span className="text-sm text-white font-medium">{badge.label}</span>
                     </div>
                   ))}
                 </div>

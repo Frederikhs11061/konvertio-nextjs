@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Poppins } from 'next/font/google'
 import './globals.css'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
@@ -7,11 +7,11 @@ import BackToTop from '@/components/BackToTop'
 import { organizationSchema, websiteSchema, localBusinessSchema } from '@/lib/seo'
 import { SITE_URL } from '@/lib/site'
 
-const inter = Inter({
+const poppins = Poppins({
   subsets: ['latin'],
-  display: 'optional',
-  adjustFontFallback: true,
-  variable: '--font-inter',
+  weight: ['300', '400', '500', '600', '700', '800'],
+  display: 'swap',
+  variable: '--font-poppins',
 })
 
 export const metadata: Metadata = {
@@ -69,7 +69,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="da" className={`${inter.variable} dark`}>
+    <html lang="da" className={`${poppins.variable} dark`}>
       <head>
         <script
           type="application/ld+json"
