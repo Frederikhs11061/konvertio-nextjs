@@ -56,7 +56,7 @@ export default function BlogPostPage({ params }: PageProps) {
     }
 
     return (
-        <div className="pt-20 md:pt-28">
+        <div className="pt-20 md:pt-28 bg-blue-100">
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}

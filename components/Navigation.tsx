@@ -46,11 +46,7 @@ export default function Navigation() {
         : isHome
             ? 'bg-slate-900/80 backdrop-blur-xl lg:bg-transparent lg:backdrop-blur-none'
             : 'bg-slate-900/90 backdrop-blur-xl'
-    const headerBorder = isScrolled
-        ? 'border-white/10'
-        : isHome
-            ? 'border-white/5 lg:border-transparent'
-            : 'border-white/10'
+    const headerBorder = isScrolled ? 'border-white/10' : 'border-transparent'
     const headerTransition = mounted ? 'transition-all duration-500' : 'transition-none'
 
     return (

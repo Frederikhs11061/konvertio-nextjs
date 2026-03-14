@@ -60,7 +60,7 @@ export default function KontaktPage() {
     }
 
     return (
-        <div className="pt-20 md:pt-28">
+        <div className="pt-20 md:pt-28 bg-blue-100">
             <Breadcrumbs items={[{ label: 'Kontakt', href: '/kontakt' }]} />
 
             <section className="py-10 md:py-16 px-6 relative overflow-hidden bg-gradient-to-b from-blue-100 to-blue-50">
