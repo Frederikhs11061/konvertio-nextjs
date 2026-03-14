@@ -44,10 +44,10 @@ export default function Navigation() {
     const headerBg = isScrolled
         ? 'bg-slate-900/95 backdrop-blur-2xl shadow-lg shadow-black/30'
         : isHome
-            ? 'bg-slate-900/80 backdrop-blur-xl lg:bg-transparent lg:backdrop-blur-none'
+            ? 'bg-slate-900/85 backdrop-blur-xl lg:bg-slate-900/60 lg:backdrop-blur-xl'
             : 'bg-slate-900/90 backdrop-blur-xl'
-    const headerBorder = isScrolled ? 'border-white/10' : 'border-transparent'
-    const headerTransition = mounted ? 'transition-all duration-500' : 'transition-none'
+    const headerBorder = isScrolled ? 'border-white/10' : 'border-white/5'
+    const headerTransition = mounted ? 'transition-all duration-300' : 'transition-none'
 
     return (
         <>
