@@ -1,9 +1,10 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { ArrowRight, Target, TrendingUp, ShoppingBag, Globe, Check, Zap, Play, X } from 'lucide-react'
+import { ArrowRight, Target, TrendingUp, ShoppingBag, Check, Zap, Play, X } from 'lucide-react'
 import type { Metadata } from 'next'
 import Testimonials from '@/components/Testimonials'
 import AnimateSection from '@/components/AnimateSection'
+import ServiceCardsGrid from '@/components/ServiceCardsGrid'
 
 import HeroWorkflow from '@/components/HeroWorkflow'
 import { getAllBlogPosts } from '@/lib/sanity/fetchBlog'
@@ -16,10 +17,6 @@ export const metadata: Metadata = {
   title: 'Konvertio | Static Ads, CRO & Shopify Specialist',
   description: 'Jeg hjælper danske e-commerce virksomheder med at vækste online gennem static ads der konverterer, CRO-analyser og Shopify-webshops.',
   alternates: { canonical: SITE_URL },
-}
-
-const iconMap: Record<string, React.ElementType> = {
-  Target, TrendingUp, ShoppingBag, Globe,
 }
 
 const badges = [
@@ -212,32 +209,7 @@ export default async function HomePage() {
             </p>
           </AnimateSection>
 
-          <div className="grid grid-cols-2 gap-4 md:gap-6 mb-12">
-            {(services as { slug: string; icon: string; shortTitle: string; shortDescription: string }[]).map((service, i) => {
-              const Icon = iconMap[service.icon] || Target
-              return (
-                <AnimateSection key={service.slug} delay={i * 100} animation="scale">
-                  <Link
-                    href={`/ydelser/${service.slug}`}
-                    className="group flex flex-col p-5 md:p-8 rounded-2xl bg-white border border-neutral-200/80 hover:border-brand-300 hover:shadow-lg hover:shadow-brand-100/50 transition-all duration-500 h-full relative overflow-hidden hover:-translate-y-1"
-                  >
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-brand-50 rounded-full blur-[60px] opacity-0 group-hover:opacity-100 pointer-events-none transition-all duration-700" />
-                    <div className="relative">
-                      <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-brand-50 border border-brand-200/60 flex items-center justify-center mb-4 md:mb-6 group-hover:bg-brand-100 transition-colors duration-300">
-                        <Icon className="w-5 h-5 md:w-6 md:h-6 text-brand-600" />
-                      </div>
-                      <h3 className="text-base md:text-xl font-bold text-neutral-900 mb-2 md:mb-3 leading-tight">{service.shortTitle}</h3>
-                      <p className="text-neutral-600 leading-relaxed mb-4 md:mb-6 flex-1 text-sm md:text-base hidden sm:block">{service.shortDescription}</p>
-                      <span className="inline-flex items-center gap-1.5 text-xs md:text-sm font-medium text-brand-600 group-hover:text-brand-500 transition-colors">
-                        Se ydelse
-                        <ArrowRight className="w-3.5 h-3.5 md:w-4 md:h-4 group-hover:translate-x-1 transition-transform duration-300" />
-                      </span>
-                    </div>
-                  </Link>
-                </AnimateSection>
-              )
-            })}
-          </div>
+          <ServiceCardsGrid services={services as { slug: string; icon: string; shortTitle: string; shortDescription: string }[]} />
 
           <AnimateSection className="text-center">
             <Link href="/ydelser" className="btn-secondary">

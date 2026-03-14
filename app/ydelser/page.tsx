@@ -1,8 +1,10 @@
 import Link from 'next/link'
 import { ArrowRight, ShoppingBag, TrendingUp, Target, Globe, Check } from 'lucide-react'
+// iconMap kept for service detail section below
 import type { Metadata } from 'next'
 import AnimateSection from '@/components/AnimateSection'
 import Breadcrumbs from '@/components/Breadcrumbs'
+import ServiceCardsGrid from '@/components/ServiceCardsGrid'
 import { getAllServices } from '@/lib/sanity/fetchServices'
 import { SITE_URL } from '@/lib/site'
 
@@ -41,27 +43,7 @@ export default async function YdelserPage() {
                     </AnimateSection>
 
                     {/* Quick-access */}
-                    <AnimateSection className="mb-10 md:mb-14">
-                        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
-                            {(services as { slug: string; icon: string; shortTitle: string }[]).map((s) => {
-                                const Icon = iconMap[s.icon] || Target
-                                return (
-                                    <Link
-                                        key={s.slug}
-                                        href={`/ydelser/${s.slug}`}
-                                        className="flex items-center gap-3 p-4 rounded-xl bg-white border border-neutral-200/80 hover:border-brand-200 hover:shadow-sm transition-all duration-300 group"
-                                    >
-                                        <div className="w-10 h-10 rounded-lg bg-brand-50 border border-brand-200/60 flex items-center justify-center flex-shrink-0 group-hover:bg-brand-100 transition-colors">
-                                            <Icon className="w-5 h-5 text-brand-600" />
-                                        </div>
-                                        <span className="text-sm font-medium text-neutral-800 group-hover:text-brand-600 transition-colors">
-                                            {s.shortTitle}
-                                        </span>
-                                    </Link>
-                                )
-                            })}
-                        </div>
-                    </AnimateSection>
+                    <ServiceCardsGrid services={services as { slug: string; icon: string; shortTitle: string; shortDescription: string }[]} />
                 </div>
             </section>
 
