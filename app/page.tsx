@@ -8,6 +8,8 @@ import ReviewsTicker from '@/components/ReviewsTicker'
 import HeroWorkflow from '@/components/HeroWorkflow'
 import { getAllBlogPosts } from '@/lib/sanity/fetchBlog'
 import { getAllServices } from '@/lib/sanity/fetchServices'
+
+export const revalidate = 60
 import { SITE_URL } from '@/lib/site'
 
 export const metadata: Metadata = {

@@ -8,6 +8,8 @@ import Testimonials from '@/components/Testimonials'
 import { getAllServices, getServiceBySlug, getAllServiceSlugs } from '@/lib/sanity/fetchServices'
 import { SITE_URL } from '@/lib/site'
 
+export const revalidate = 60
+
 interface PageProps {
     params: { slug: string }
 }

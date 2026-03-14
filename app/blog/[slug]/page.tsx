@@ -6,6 +6,8 @@ import { notFound } from 'next/navigation'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import AnimateSection from '@/components/AnimateSection'
 import BlogContent from '@/components/BlogContent'
+
+export const revalidate = 60
 import SanityContent from '@/components/SanityContent'
 import { getAllBlogPosts, getBlogPostBySlug, getAllBlogSlugs } from '@/lib/sanity/fetchBlog'
 import { SITE_URL } from '@/lib/site'

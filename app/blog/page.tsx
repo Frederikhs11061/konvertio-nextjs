@@ -3,6 +3,8 @@ import Image from 'next/image'
 import { ArrowRight, Clock, User } from 'lucide-react'
 import type { Metadata } from 'next'
 import AnimateSection from '@/components/AnimateSection'
+
+export const revalidate = 60
 import Breadcrumbs from '@/components/Breadcrumbs'
 import { getAllBlogPosts } from '@/lib/sanity/fetchBlog'
 import { SITE_URL } from '@/lib/site'
