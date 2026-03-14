@@ -125,7 +125,8 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Reviews ticker */}
+      {/* Section transition: dark hero → light blue */}
+      <div className="h-16 bg-gradient-to-b from-[#0d1829] to-blue-100 pointer-events-none" />
 
       {/* Problem / Solution – redesigned */}
       <section className="py-16 md:py-24 px-6 bg-gradient-to-b from-blue-100 to-blue-50">
@@ -146,10 +147,10 @@ export default async function HomePage() {
                 <div className="px-6 py-5 border-b border-neutral-200/60 bg-neutral-50">
                   <h3 className="text-lg font-bold text-neutral-900">Kender du problemerne?</h3>
                 </div>
-                <div className="p-6 space-y-4 bg-white">
+                <div className="p-6 space-y-2.5 bg-white">
                   {problems.map((p) => (
                     <div key={p.title} className="flex items-start gap-4">
-                      <div className="w-8 h-8 rounded-lg bg-red-50 border border-red-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <div className="w-8 h-8 rounded-lg bg-red-50 border border-red-100 flex items-center justify-center flex-shrink-0 mt-0.5 hover:scale-110 hover:bg-red-100 transition-all duration-200">
                         <X className="w-4 h-4 text-red-500" />
                       </div>
                       <div>
@@ -168,10 +169,10 @@ export default async function HomePage() {
                 <div className="px-6 py-5 border-b border-brand-200/40 bg-brand-50/80">
                   <h3 className="text-lg font-bold text-neutral-900">Sådan løser jeg det</h3>
                 </div>
-                <div className="p-6 space-y-4">
+                <div className="p-6 space-y-2.5">
                   {solutions.map((s) => (
                     <div key={s.title} className="flex items-start gap-4">
-                      <div className="w-8 h-8 rounded-lg bg-green-50 border border-green-200/60 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <div className="w-8 h-8 rounded-lg bg-green-50 border border-green-200/60 flex items-center justify-center flex-shrink-0 mt-0.5 hover:scale-110 hover:bg-green-100 transition-all duration-200">
                         <Check className="w-4 h-4 text-green-600" />
                       </div>
                       <div>
@@ -371,7 +372,7 @@ export default async function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-14 md:py-24 px-6 bg-gradient-to-b from-blue-50 to-blue-100">
+      <section className="py-14 md:py-24 px-6 bg-gradient-to-b from-blue-100 to-blue-50">
         <AnimateSection>
           <div className="relative max-w-4xl mx-auto text-center bg-white/70 backdrop-blur-sm border border-blue-200/60 rounded-3xl px-8 py-14 shadow-sm">
             <span className="inline-block text-sm font-medium text-brand-600 uppercase tracking-wider mb-6">
