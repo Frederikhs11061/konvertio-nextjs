@@ -51,7 +51,7 @@ export default function ServiceCardsGrid({ services }: { services: Service[] }) 
 
             {/* Mobile: light card grid */}
             <div className="grid grid-cols-2 gap-4 lg:hidden mb-12">
-                {services.map((service, i) => {
+                {services.map((service) => {
                     const Icon = iconMap[service.icon] || Target
                     return (
                         <Link
