@@ -47,7 +47,7 @@ export default async function HomePage() {
   return (
     <div className="min-h-screen">
       {/* Hero */}
-      <section className="hero-dark relative min-h-screen flex flex-col justify-center pt-20 pb-24 px-6 overflow-hidden">
+      <section className="hero-dark relative min-h-screen flex flex-col justify-center pt-[110px] pb-24 px-6 overflow-hidden">
         {/* Decorative blobs */}
         <div className="absolute top-1/4 right-0 w-[600px] h-[600px] rounded-full bg-brand-500/30 blur-[140px] pointer-events-none" />
         <div className="absolute bottom-1/4 left-0 w-[400px] h-[400px] rounded-full bg-brand-700/20 blur-[120px] pointer-events-none" />
