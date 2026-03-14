@@ -386,9 +386,9 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-14 md:py-24 px-6 relative overflow-hidden bg-gradient-to-b from-blue-100 to-blue-50">
-        <div className="relative max-w-4xl mx-auto text-center">
-          <AnimateSection>
+      <section className="py-14 md:py-24 px-6 bg-gradient-to-b from-blue-50 to-blue-100">
+        <AnimateSection>
+          <div className="relative max-w-4xl mx-auto text-center bg-white/70 backdrop-blur-sm border border-blue-200/60 rounded-3xl px-8 py-14 shadow-sm">
             <span className="inline-block text-sm font-medium text-brand-600 uppercase tracking-wider mb-6">
               Klar til at starte?
             </span>
@@ -408,8 +408,8 @@ export default function HomePage() {
                 Se ydelser & priser
               </Link>
             </div>
-          </AnimateSection>
-        </div>
+          </div>
+        </AnimateSection>
       </section>
     </div>
   )
