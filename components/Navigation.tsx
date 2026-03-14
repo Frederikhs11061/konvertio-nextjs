@@ -53,10 +53,10 @@ export default function Navigation() {
         <>
             <header className={`fixed top-0 left-0 right-0 z-50 border-b ${headerTransition} ${headerBg} ${headerBorder}`}>
                 <div className="max-w-7xl mx-auto px-6">
-                    <nav className={`relative z-[60] flex items-center justify-between transition-all duration-500 ${isScrolled ? 'py-1 lg:py-2' : 'py-2 lg:py-4'}`}>
+                    <nav className={`relative z-[60] flex items-center justify-between transition-all duration-500 ${isScrolled ? 'py-2 lg:py-2' : 'py-3 lg:py-4'}`}>
                         <Link
                             href="/"
-                            className={`relative z-10 flex items-center gap-2.5 group shrink-0 transition-all duration-500 ${isScrolled ? 'w-10 h-10 lg:w-20 lg:h-20' : 'w-12 h-12 lg:w-24 lg:h-24'}`}
+                            className={`relative z-10 flex items-center gap-2.5 group shrink-0 transition-all duration-500 ${isScrolled ? 'w-16 h-16 lg:w-20 lg:h-20' : 'w-20 h-20 lg:w-24 lg:h-24'}`}
                             aria-label="Konvertio – forsiden"
                         >
                             <Image
@@ -64,7 +64,7 @@ export default function Navigation() {
                                 alt=""
                                 width={128}
                                 height={128}
-                                className={`object-contain transition-all duration-500 ${isScrolled ? 'h-10 w-10 lg:h-20 lg:w-20' : 'h-12 w-12 lg:h-24 lg:w-24'}`}
+                                className={`object-contain transition-all duration-500 ${isScrolled ? 'h-16 w-16 lg:h-20 lg:w-20' : 'h-20 w-20 lg:h-24 lg:w-24'}`}
                                 priority
                             />
                         </Link>
