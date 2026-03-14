@@ -60,10 +60,10 @@ export default function KontaktPage() {
     }
 
     return (
-        <div className="pt-20 md:pt-28 bg-gradient-to-b from-slate-900 via-blue-950/60 to-transparent">
+        <div className="pt-20 md:pt-28">
             <Breadcrumbs items={[{ label: 'Kontakt', href: '/kontakt' }]} />
 
-            <section className="py-10 md:py-16 px-6 relative overflow-hidden">
+            <section className="py-10 md:py-16 px-6 relative overflow-hidden bg-gradient-to-b from-blue-100 to-blue-50">
                 <div className="absolute top-0 right-1/4 w-96 h-96 bg-brand-100/40 rounded-full blur-[120px] pointer-events-none" />
                 <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-transparent to-transparent pointer-events-none" />
                 <div className="relative max-w-7xl mx-auto">

@@ -90,11 +90,11 @@ export default function FAQPage() {
     }
 
     return (
-        <div className="pt-20 md:pt-28 bg-gradient-to-b from-slate-900 via-blue-950/60 to-transparent">
+        <div className="pt-20 md:pt-28">
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
             <Breadcrumbs items={[{ label: 'FAQ', href: '/faq' }]} />
 
-            <section className="py-10 md:py-16 px-6">
+            <section className="py-10 md:py-16 px-6 bg-gradient-to-b from-blue-100 to-blue-50">
                 <div className="max-w-4xl mx-auto">
                     <AnimateSection className="text-center mb-12">
                         <span className="inline-block text-sm font-medium text-brand-600 uppercase tracking-wider mb-4">

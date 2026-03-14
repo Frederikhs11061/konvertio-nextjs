@@ -18,7 +18,7 @@ const iconMap: Record<string, React.ElementType> = {
 
 export default function YdelserPage() {
     return (
-        <div className="pt-20 md:pt-28 bg-gradient-to-b from-slate-900 via-blue-950/60 to-transparent">
+        <div className="pt-20 md:pt-28">
             <Breadcrumbs items={[{ label: 'Ydelser', href: '/ydelser' }]} />
 
             <section className="py-10 md:py-16 px-6">
