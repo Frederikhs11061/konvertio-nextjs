@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { Mail, Linkedin, ArrowUpRight } from 'lucide-react'
+import AnimateSection from './AnimateSection'
 
 const footerLinks = [
     { label: 'Ydelser', href: '/ydelser' },
@@ -20,7 +21,7 @@ const serviceLinks = [
 export default function Footer() {
     return (
         <footer className="relative border-t border-white/10 bg-slate-900">
-            <div className="relative max-w-7xl mx-auto px-6 pt-20 pb-10">
+            <AnimateSection animation="fade-in" className="relative max-w-7xl mx-auto px-6 pt-20 pb-10">
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-16">
                     <div className="col-span-2 md:col-span-1">
                         <Link href="/" className="flex items-center gap-2.5 mb-5">
@@ -114,7 +115,7 @@ export default function Footer() {
                         CVR: Konvertio
                     </p>
                 </div>
-            </div>
+            </AnimateSection>
         </footer>
     )
 }
