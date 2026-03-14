@@ -43,13 +43,13 @@ export default function HomePage() {
   const recentPosts = blogPosts.slice(0, 3)
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen">
       {/* Hero */}
-      <section className="relative min-h-screen flex flex-col justify-center pt-36 pb-24 px-6 overflow-hidden bg-hero-gradient">
+      <section className="relative min-h-screen flex flex-col justify-center pt-36 pb-24 px-6 overflow-hidden">
         {/* Decorative blobs */}
-        <div className="absolute top-1/4 right-0 w-[500px] h-[500px] rounded-full bg-brand-100/50 blur-[120px] pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-[300px] h-[300px] rounded-full bg-blue-100/40 blur-[100px] pointer-events-none" />
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent pointer-events-none" />
+        <div className="absolute top-1/4 right-0 w-[500px] h-[500px] rounded-full bg-brand-400/25 blur-[130px] pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-[350px] h-[350px] rounded-full bg-blue-400/20 blur-[110px] pointer-events-none" />
+        <div className="absolute top-0 left-1/3 w-[400px] h-[400px] rounded-full bg-brand-300/15 blur-[150px] pointer-events-none" />
 
         <div className="relative max-w-7xl mx-auto w-full">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -117,7 +117,7 @@ export default function HomePage() {
       <ReviewsTicker />
 
       {/* Problem / Solution – redesigned */}
-      <section className="py-16 md:py-24 px-6 bg-white">
+      <section className="py-16 md:py-24 px-6">
         <div className="max-w-7xl mx-auto">
           <AnimateSection className="text-center mb-12">
             <span className="inline-block text-sm font-medium text-brand-600 uppercase tracking-wider mb-4">
@@ -183,7 +183,7 @@ export default function HomePage() {
       </section>
 
       {/* Services Preview */}
-      <section id="services" className="py-10 md:py-20 px-6 relative bg-gradient-to-b from-blue-50/30 to-white">
+      <section id="services" className="py-10 md:py-20 px-6 relative">
         <div className="relative max-w-7xl mx-auto">
           <AnimateSection className="text-center mb-12 md:mb-16">
             <span className="inline-block text-sm font-medium text-brand-600 uppercase tracking-wider mb-4">
@@ -238,7 +238,7 @@ export default function HomePage() {
       <Testimonials />
 
       {/* About Preview */}
-      <section className="py-10 md:py-20 px-6 relative overflow-hidden bg-white">
+      <section className="py-10 md:py-20 px-6 relative overflow-hidden">
         <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-brand-50 rounded-full blur-[100px] pointer-events-none" />
         <div className="relative max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -328,7 +328,7 @@ export default function HomePage() {
       </section>
 
       {/* Blog Preview */}
-      <section className="py-10 md:py-20 px-6 relative bg-gradient-to-b from-blue-50/30 to-white">
+      <section className="py-10 md:py-20 px-6 relative">
         <div className="relative max-w-7xl mx-auto">
           <AnimateSection className="text-center mb-12 md:mb-16">
             <span className="inline-block text-sm font-medium text-brand-600 uppercase tracking-wider mb-4">

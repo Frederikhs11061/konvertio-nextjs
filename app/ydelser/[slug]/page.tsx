@@ -38,7 +38,7 @@ export default function YdelsePage({ params }: PageProps) {
     const otherServices = services.filter((s) => s.slug !== service.slug)
 
     return (
-        <div className="pt-20 md:pt-28 bg-white">
+        <div className="pt-20 md:pt-28">
             <Breadcrumbs
                 items={[
                     { label: 'Ydelser', href: '/ydelser' },
@@ -47,9 +47,9 @@ export default function YdelsePage({ params }: PageProps) {
             />
 
             {/* Hero */}
-            <section className="py-10 md:py-16 px-6 relative overflow-hidden bg-hero-gradient">
+            <section className="py-10 md:py-16 px-6 relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-100/40 rounded-full blur-[120px] pointer-events-none" />
-                <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent pointer-events-none" />
+                <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-transparent to-transparent pointer-events-none" />
                 <div className="relative max-w-7xl mx-auto">
                     <div className="max-w-3xl">
                         <AnimateSection delay={0}>
@@ -83,7 +83,7 @@ export default function YdelsePage({ params }: PageProps) {
             </section>
 
             {/* Features & Benefits */}
-            <section className="py-10 md:py-16 px-6 relative bg-white">
+            <section className="py-10 md:py-16 px-6 relative">
                 <div className="relative max-w-7xl mx-auto">
                     <div className="grid md:grid-cols-2 gap-8">
                         <AnimateSection>
@@ -176,7 +176,7 @@ export default function YdelsePage({ params }: PageProps) {
 
             {/* Process */}
             {service.process && (
-                <section className="py-10 md:py-16 px-6 relative overflow-hidden bg-white">
+                <section className="py-10 md:py-16 px-6 relative overflow-hidden">
                     <div className="relative max-w-7xl mx-auto">
                         <AnimateSection className="text-center mb-8 md:mb-12">
                             <span className="inline-block text-sm font-medium text-brand-600 uppercase tracking-wider mb-3">Processen</span>
@@ -223,7 +223,7 @@ export default function YdelsePage({ params }: PageProps) {
             <Testimonials />
 
             {/* Other Services */}
-            <section className="py-10 md:py-16 px-6 bg-neutral-50/60">
+            <section className="py-10 md:py-16 px-6">
                 <div className="max-w-7xl mx-auto">
                     <AnimateSection className="mb-8">
                         <h2 className="text-2xl font-bold text-neutral-900 mb-2">Andre ydelser</h2>

@@ -18,10 +18,10 @@ const iconMap: Record<string, React.ElementType> = {
 
 export default function YdelserPage() {
     return (
-        <div className="pt-20 md:pt-28 bg-white">
+        <div className="pt-20 md:pt-28">
             <Breadcrumbs items={[{ label: 'Ydelser', href: '/ydelser' }]} />
 
-            <section className="py-10 md:py-16 px-6 bg-hero-gradient">
+            <section className="py-10 md:py-16 px-6">
                 <div className="max-w-7xl mx-auto">
                     <AnimateSection className="text-center mb-8 md:mb-12">
                         <span className="inline-block text-sm font-medium text-brand-600 uppercase tracking-wider mb-4">
@@ -62,7 +62,7 @@ export default function YdelserPage() {
                 </div>
             </section>
 
-            <section className="py-10 md:py-16 px-6 bg-white">
+            <section className="py-10 md:py-16 px-6">
                 <div className="max-w-7xl mx-auto">
                     <div className="space-y-16 md:space-y-20">
                         {services.map((service, si) => {

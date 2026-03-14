@@ -14,8 +14,10 @@
   }
 
   body {
-    @apply bg-white text-neutral-900 antialiased;
+    @apply text-neutral-900 antialiased;
     font-family: var(--font-inter);
+    background: linear-gradient(155deg, #ffffff 0%, #eff6ff 22%, #dbeafe 50%, #bfdbfe 78%, #93c5fd 100%);
+    background-attachment: fixed;
   }
 
   ::selection {
@@ -45,11 +47,11 @@
   }
 
   .section-light {
-    @apply bg-white;
+    @apply bg-white/50 backdrop-blur-sm;
   }
 
   .section-alt {
-    @apply bg-blue-50/40;
+    @apply bg-blue-100/20 backdrop-blur-sm;
   }
 
   .section-card {

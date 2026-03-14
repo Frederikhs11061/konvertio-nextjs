@@ -84,7 +84,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
         />
       </head>
-      <body className="min-h-screen flex flex-col bg-neutral-950 text-white">
+      <body className="min-h-screen flex flex-col text-neutral-900">
         <Navigation />
         <main className="flex-1">{children}</main>
         <Footer />
