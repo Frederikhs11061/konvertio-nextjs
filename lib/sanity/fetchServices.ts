@@ -11,22 +11,15 @@ const SLUG_ALIASES: Record<string, string> = {
     'wordpress-website': 'websites',
 }
 
-// Always override these fields from static data (source of truth for content edits)
+// Only fix the slug — let Sanity be source of truth for all content
 function mergeWithStatic(sanityItem: Record<string, unknown>): StaticService {
     const rawSlug = typeof sanityItem.slug === 'object' && sanityItem.slug !== null
         ? (sanityItem.slug as { current: string }).current
         : sanityItem.slug as string
-    const slug = SLUG_ALIASES[rawSlug] ?? rawSlug
-    const staticItem = staticServices.find((s) => s.slug === slug)
-    if (!staticItem) return sanityItem as unknown as StaticService
+    const newSlug = SLUG_ALIASES[rawSlug] ?? rawSlug
     return {
         ...(sanityItem as unknown as StaticService),
-        slug: staticItem.slug,
-        title: staticItem.title,
-        packages: staticItem.packages,
-        packageNote: staticItem.packageNote,
-        metaTitle: staticItem.metaTitle,
-        metaDescription: staticItem.metaDescription,
+        slug: newSlug,
     }
 }
 
