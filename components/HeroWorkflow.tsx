@@ -1,14 +1,14 @@
 'use client'
 
 import { useEffect, useState, useRef } from 'react'
-import { Search, Target, Layers, TrendingUp, RotateCcw, Clock } from 'lucide-react'
+import { FileText, Search, Layers, Send, RotateCcw, Clock } from 'lucide-react'
 
 const phases = [
-    { icon: Search,      label: 'Research & Analyse',        sub: 'Målgruppe, marked & indsigter' },
-    { icon: Target,      label: 'Strategisk Retning',         sub: 'Mål, budskab & tilgang' },
-    { icon: Layers,      label: 'Udarbejdelse',               sub: 'Indhold, design & kreativ' },
-    { icon: TrendingUp,  label: 'Konverteringsoptimering',    sub: 'Test, data & forbedring' },
-    { icon: RotateCcw,   label: 'Revision & Iteration',       sub: 'Feedback & løbende udvikling' },
+    { icon: FileText,    label: 'Brief',                      sub: 'Dine ønsker, mål & krav' },
+    { icon: Search,      label: 'Research & Analyse',         sub: 'Marked, UX-tænkning & copy' },
+    { icon: Layers,      label: 'Udvikling',                  sub: 'Best practice & CRO-optimeret' },
+    { icon: Send,        label: 'Levering',                   sub: 'Klar til brug' },
+    { icon: RotateCcw,   label: 'Fortsat samarbejde',         sub: 'Pakkeløsninger ved behov' },
 ]
 
 const FILL_SPEED = 25

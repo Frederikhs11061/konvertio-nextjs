@@ -6,17 +6,25 @@ const isConfigured = !!process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
 
 type StaticService = typeof staticServices[number]
 
+// Slug aliases: maps old Sanity slugs to new static slugs
+const SLUG_ALIASES: Record<string, string> = {
+    'wordpress-website': 'websites',
+}
+
 // Always override these fields from static data (source of truth for content edits)
 function mergeWithStatic(sanityItem: Record<string, unknown>): StaticService {
-    const slug = typeof sanityItem.slug === 'object' && sanityItem.slug !== null
+    const rawSlug = typeof sanityItem.slug === 'object' && sanityItem.slug !== null
         ? (sanityItem.slug as { current: string }).current
         : sanityItem.slug as string
+    const slug = SLUG_ALIASES[rawSlug] ?? rawSlug
     const staticItem = staticServices.find((s) => s.slug === slug)
     if (!staticItem) return sanityItem as unknown as StaticService
     return {
         ...(sanityItem as unknown as StaticService),
+        slug: staticItem.slug,
         title: staticItem.title,
         packages: staticItem.packages,
+        packageNote: staticItem.packageNote,
         metaTitle: staticItem.metaTitle,
         metaDescription: staticItem.metaDescription,
     }

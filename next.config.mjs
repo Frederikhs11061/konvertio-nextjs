@@ -11,6 +11,7 @@ const nextConfig = {
         return [
             { source: '/services', destination: '/ydelser', permanent: true },
             { source: '/services/:path*', destination: '/ydelser/:path*', permanent: true },
+            { source: '/ydelser/wordpress-website', destination: '/ydelser/websites', permanent: true },
         ]
     },
     async headers() {

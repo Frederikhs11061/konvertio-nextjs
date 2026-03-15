@@ -981,7 +981,7 @@ export const services: Service[] = [
     metaDescription: 'Få en professionel Shopify webshop der konverterer. Opsætning, design og optimering.',
   },
   {
-    slug: 'wordpress-website',
+    slug: 'websites',
     title: 'Websites',
     shortTitle: 'Websites',
     description: 'Skræddersyede websites med høj performance og unikt design til din virksomhed.',
@@ -1002,9 +1002,9 @@ export const services: Service[] = [
     ],
     packages: [
       {
-        name: 'Onepage',
-        price: '4.995 kr.',
-        description: 'Ideel til mindre virksomheder der vil stå stærkt online og konvertere besøgende til leads via én målrettet og overbevisende side.',
+        name: 'Website One Pager',
+        price: 'Fra 4.995 kr.',
+        description: 'Oplagt til mindre virksomheder der vil stå stærkt online og konvertere besøgende til leads – alt samlet på én gennemarbejdet og overbevisende side.',
         features: [
           'Onepage opbygning',
           'Responsivt design',
@@ -1015,7 +1015,7 @@ export const services: Service[] = [
       },
       {
         name: 'Website Basis',
-        price: '7.995 kr.',
+        price: 'Fra 7.995 kr.',
         description: 'Perfekt til mindre virksomheder der skal have en professionel hjemmeside.',
         features: [
           'Op til 5 sider',
@@ -1026,7 +1026,7 @@ export const services: Service[] = [
       },
       {
         name: 'Website Pro',
-        price: '14.995 kr.',
+        price: 'Fra 14.995 kr.',
         description: 'Komplet løsning med avancerede funktioner og custom design.',
         features: [
           'Op til 10 sider',
@@ -1038,6 +1038,7 @@ export const services: Service[] = [
         popular: true,
       },
     ],
+    packageNote: 'Priserne er vejledende og tilpasses det konkrete projekt – omfang, antal sider og specifikke krav aftales individuelt.',
     metaTitle: 'Website Udvikling | Konvertio',
     metaDescription: 'Få et professionelt website med høj performance og unikt design. Onepage, Basis eller Pro løsning.',
   },
