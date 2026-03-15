@@ -172,7 +172,18 @@ export default async function YdelsePage({ params }: PageProps) {
                             ))}
                         </div>
                         {service.packageNote && (
-                            <p className="text-center text-sm text-neutral-500 mt-6">{service.packageNote}</p>
+                            <div className="flex items-start gap-4 p-5 rounded-2xl bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-200/70 shadow-sm hover:shadow-md hover:border-amber-300 transition-all duration-300 mt-6">
+                                <div className="w-9 h-9 rounded-xl bg-amber-100 border border-amber-200 flex items-center justify-center flex-shrink-0 text-lg">
+                                    🚀
+                                </div>
+                                <div>
+                                    <p className="text-sm font-bold text-amber-900 mb-0.5">Større projekt? Bedre pris.</p>
+                                    <p className="text-sm text-amber-800/80 leading-relaxed">{service.packageNote}</p>
+                                    <a href="/kontakt" className="inline-flex items-center gap-1.5 mt-2 text-xs font-semibold text-amber-700 hover:text-amber-900 transition-colors">
+                                        Få et tilbud <span>→</span>
+                                    </a>
+                                </div>
+                            </div>
                         )}
                     </div>
                 </section>
