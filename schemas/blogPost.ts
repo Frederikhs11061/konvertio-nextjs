@@ -108,7 +108,7 @@ export default defineType({
             name: 'author',
             title: 'Forfatter',
             type: 'string',
-            initialValue: 'Frederik Høgh Simonsen',
+            initialValue: 'Frederik / Ejer af Konvertio',
         }),
         defineField({
             name: 'publishedAt',

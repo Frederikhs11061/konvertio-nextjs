@@ -146,7 +146,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                         <div>
                             <p className="font-bold text-neutral-900">{post.author}</p>
                             <p className="text-sm text-neutral-500">
-                                Freelance ekspert i static ads, CRO og Shopify. Baseret i Viborg, Danmark.
+                                Freelance ekspert i static ads, CRO og Shopify – Konvertio. Baseret i Viborg, Danmark.
                             </p>
                             <Link href="/om-mig" className="text-sm text-brand-600 hover:text-brand-500 mt-1 inline-flex items-center gap-1 transition-colors">
                                 Læs mere om mig <ArrowRight className="w-3.5 h-3.5" />
