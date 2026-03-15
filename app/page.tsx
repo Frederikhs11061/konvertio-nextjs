@@ -16,7 +16,7 @@ import { SITE_URL } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'Static Ads & CRO Specialist til e-commerce | Konvertio',
-  description: 'Jeg hjælper danske e-commerce virksomheder med at vækste online gennem static ads der konverterer, CRO-analyser og Shopify-webshops.',
+  description: 'Specialiseret i static ads, CRO-analyser, Shopify-webshops og websites til danske e-commerce virksomheder.',
   alternates: { canonical: SITE_URL },
 }
 

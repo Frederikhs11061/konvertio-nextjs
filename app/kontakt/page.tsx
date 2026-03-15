@@ -8,7 +8,7 @@ export const revalidate = 60
 
 export const metadata: Metadata = {
     title: 'Kontakt Konvertio – Gratis og uforpligtende snak | Konvertio',
-    description: 'Ræk ud til Frederik og få en gratis samtale om static ads, CRO eller Shopify. Svar inden for 24 timer. Ingen binding.',
+    description: 'Ræk ud til Konvertio og få en gratis samtale om static ads, CRO eller Shopify. Svar inden for 24 timer. Ingen binding.',
     alternates: { canonical: `${SITE_URL}/kontakt` },
 }
 
