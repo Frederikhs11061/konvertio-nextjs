@@ -64,12 +64,12 @@ export default async function AboutPage() {
     }
 
     return (
-        <div className="pt-20 md:pt-28 bg-gradient-to-b from-blue-50/60 to-white">
+        <div className="pt-20 md:pt-28 bg-blue-100">
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
             <Breadcrumbs items={[{ label: 'Om mig', href: '/om-mig' }]} />
 
             {/* Hero – to kolonner */}
-            <section className="py-12 md:py-20 px-6 relative overflow-hidden bg-gradient-to-b from-blue-50/60 to-white">
+            <section className="py-12 md:py-20 px-6 relative overflow-hidden bg-gradient-to-b from-blue-100 to-white">
                 {/* Baggrunds-blob */}
                 <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-100/30 rounded-full blur-[130px] pointer-events-none" />
                 <div className="absolute bottom-0 left-0 w-80 h-80 bg-blue-100/40 rounded-full blur-[100px] pointer-events-none" />
