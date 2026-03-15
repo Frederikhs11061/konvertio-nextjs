@@ -15,7 +15,7 @@ const serviceLinks = [
     { label: 'Static Ads', href: '/ydelser/static-ads' },
     { label: 'CRO Analyse', href: '/ydelser/cro-analyse' },
     { label: 'Shopify Webshop', href: '/ydelser/shopify-webshop' },
-    { label: 'Websites', href: '/ydelser/wordpress-website' },
+    { label: 'Websites', href: '/ydelser/websites' },
 ]
 
 export default function Footer() {
