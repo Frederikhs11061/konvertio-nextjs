@@ -191,8 +191,8 @@ export default async function HomePage() {
                 <div className="p-6 space-y-2.5 bg-white">
                   {problems.map((p: { title: string; desc: string }) => (
                     <div key={p.title} className="flex items-start gap-4">
-                      <div className="w-8 h-8 rounded-lg bg-slate-100 border border-slate-200 flex items-center justify-center flex-shrink-0 mt-0.5 hover:scale-110 hover:bg-slate-200 transition-all duration-200">
-                        <X className="w-4 h-4 text-slate-500" />
+                      <div className="w-8 h-8 rounded-lg bg-red-50 border border-red-100 flex items-center justify-center flex-shrink-0 mt-0.5 hover:scale-110 hover:bg-red-100 transition-all duration-200">
+                        <X className="w-4 h-4 text-red-500" />
                       </div>
                       <div>
                         <p className="font-semibold text-neutral-900 text-sm">{p.title}</p>

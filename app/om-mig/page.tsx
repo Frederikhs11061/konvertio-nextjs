@@ -50,8 +50,22 @@ export default async function AboutPage() {
 
     const contactLinkedin = settings?.contact?.linkedin ?? 'https://www.linkedin.com/in/frederik-h%C3%B8gh-simonsen/'
 
+    const personSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'Person',
+        name: 'Frederik',
+        jobTitle: 'Freelance Ekspert i Static Ads, CRO & Webudvikling',
+        worksFor: { '@type': 'Organization', name: 'Konvertio', url: SITE_URL },
+        url: `${SITE_URL}/om-mig`,
+        email: 'frederik@konvertio.dk',
+        address: { '@type': 'PostalAddress', addressLocality: 'Viborg', addressCountry: 'DK' },
+        knowsAbout: ['Static Ads', 'CRO', 'Shopify', 'Webudvikling', 'Facebook Ads', 'Konverteringsoptimering'],
+        sameAs: [contactLinkedin],
+    }
+
     return (
         <div className="pt-20 md:pt-28 bg-white">
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
             <Breadcrumbs items={[{ label: 'Om mig', href: '/om-mig' }]} />
 
             {/* Hero – to kolonner */}

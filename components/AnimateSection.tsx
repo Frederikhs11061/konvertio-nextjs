@@ -30,6 +30,7 @@ export default function AnimateSection({
         if (rect.top < window.innerHeight * 0.95) {
             el.style.opacity = '1'
             el.style.transform = 'none'
+            el.style.willChange = 'auto'
             return
         }
 
@@ -48,6 +49,8 @@ export default function AnimateSection({
                         el.style.transition = 'opacity 0.55s cubic-bezier(0.16,1,0.3,1), transform 0.55s cubic-bezier(0.16,1,0.3,1)'
                         el.style.opacity = '1'
                         el.style.transform = 'none'
+                        // Free GPU memory after animation completes
+                        setTimeout(() => { el.style.willChange = 'auto' }, 600)
                     }, delay)
                     observer.unobserve(el)
                     return () => clearTimeout(t)

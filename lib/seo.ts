@@ -20,7 +20,7 @@ export const organizationSchema = {
         addressCountry: 'DK',
     },
     sameAs: [
-        'https://www.linkedin.com/in/frederik-høgh-simonsen/',
+        'https://www.linkedin.com/in/frederik-h%C3%B8gh-simonsen/',
     ],
 }
 

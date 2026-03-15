@@ -41,8 +41,32 @@ export default async function YdelsePage({ params }: PageProps) {
     const allServices = await getAllServices()
     const otherServices = allServices.filter((s: { slug: string }) => s.slug !== service.slug)
 
+    const serviceSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'Service',
+        name: service.title,
+        description: service.description,
+        provider: {
+            '@type': 'LocalBusiness',
+            name: 'Konvertio',
+            url: SITE_URL,
+        },
+        areaServed: { '@type': 'Country', name: 'Denmark' },
+        url: `${SITE_URL}/ydelser/${service.slug}`,
+        offers: service.packages
+            ? (service.packages as { name: string; price: string }[]).map((pkg) => ({
+                '@type': 'Offer',
+                name: pkg.name,
+                price: pkg.price.replace(/[^0-9,.]/g, ''),
+                priceCurrency: 'DKK',
+                url: `${SITE_URL}/kontakt`,
+            }))
+            : undefined,
+    }
+
     return (
         <div className="pt-20 md:pt-28 bg-blue-100">
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
             <Breadcrumbs
                 items={[
                     { label: 'Ydelser', href: '/ydelser' },

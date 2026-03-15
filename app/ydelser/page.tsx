@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { ArrowRight, ShoppingBag, TrendingUp, Target, Globe, Check, ChevronDown } from 'lucide-react'
+import { ArrowRight, ShoppingBag, TrendingUp, Target, Globe, Check } from 'lucide-react'
 import type { Metadata } from 'next'
 import AnimateSection from '@/components/AnimateSection'
 import Breadcrumbs from '@/components/Breadcrumbs'
@@ -41,31 +41,6 @@ export default async function YdelserPage() {
                         </p>
                     </AnimateSection>
 
-                    {/* Quick-access service nav */}
-                    <AnimateSection className="mb-10">
-                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                            {(services as { slug: string; icon: string; title: string }[]).map((s) => {
-                                const Icon = iconMap[s.icon] || Target
-                                return (
-                                    <a
-                                        key={s.slug}
-                                        href={`#${s.slug}`}
-                                        className="flex items-center gap-3 p-4 rounded-xl bg-white border border-neutral-200/80 hover:border-brand-300 hover:shadow-md hover:shadow-brand-100/30 transition-all duration-300 group"
-                                    >
-                                        <div className="w-9 h-9 rounded-lg bg-brand-50 border border-brand-200/60 flex items-center justify-center flex-shrink-0 group-hover:bg-brand-100 transition-colors">
-                                            <Icon className="w-4.5 h-4.5 text-brand-600" />
-                                        </div>
-                                        <div className="min-w-0">
-                                            <p className="text-sm font-semibold text-neutral-900 leading-tight line-clamp-2">{s.title}</p>
-                                        </div>
-                                        <ChevronDown className="w-3.5 h-3.5 text-neutral-400 flex-shrink-0 ml-auto group-hover:text-brand-500 transition-colors" />
-                                    </a>
-                                )
-                            })}
-                        </div>
-                    </AnimateSection>
-
-                    {/* Overview cards */}
                     <ServiceCardsGrid services={services as { slug: string; icon: string; shortTitle: string; shortDescription: string }[]} />
                 </div>
             </section>

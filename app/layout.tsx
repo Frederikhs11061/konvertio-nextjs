@@ -71,6 +71,8 @@ export default function RootLayout({
   return (
     <html lang="da" className={`${poppins.variable} dark`}>
       <head>
+        <link rel="preconnect" href="https://cdn.sanity.io" />
+        <link rel="dns-prefetch" href="https://cdn.sanity.io" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
