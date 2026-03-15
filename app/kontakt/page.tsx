@@ -22,7 +22,7 @@ const defaultContact = {
         'Ingen binding, ingen skjulte gebyrer',
     ],
     email: 'frederik@konvertio.dk',
-    linkedin: 'https://www.linkedin.com/in/frederik-høgh-simonsen/',
+    linkedin: 'https://www.linkedin.com/in/frederik-h%C3%B8gh-simonsen/',
     location: 'Viborg, Danmark',
     responseTime: 'Inden for 24 timer',
     availabilityText: 'Tilgængelig for nye projekter',

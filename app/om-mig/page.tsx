@@ -21,7 +21,7 @@ const defaultSkills = [
 ]
 
 const defaultBenefits = [
-    'Gratis indledende samtale',
+    'Dybdegående analyse før projektet påbegyndes',
     'Konkrete anbefalinger fra dag 1',
     'Stopper ikke før du er tilfreds',
 ]
@@ -48,7 +48,7 @@ export default async function AboutPage() {
         ? settings.about.benefits
         : defaultBenefits
 
-    const contactLinkedin = settings?.contact?.linkedin ?? 'https://www.linkedin.com/in/frederik-høgh-simonsen/'
+    const contactLinkedin = settings?.contact?.linkedin ?? 'https://www.linkedin.com/in/frederik-h%C3%B8gh-simonsen/'
 
     return (
         <div className="pt-20 md:pt-28 bg-white">

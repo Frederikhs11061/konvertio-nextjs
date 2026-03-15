@@ -45,7 +45,7 @@ export default function Footer() {
                                 <Mail className="w-4 h-4" />
                             </a>
                             <a
-                                href="https://www.linkedin.com/in/frederik-høgh-simonsen/"
+                                href="https://www.linkedin.com/in/frederik-h%C3%B8gh-simonsen/"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="w-10 h-10 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center text-neutral-400 hover:text-white hover:border-white/30 hover:bg-white/20 transition-all duration-300"
@@ -110,9 +110,6 @@ export default function Footer() {
                 <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
                     <p className="text-xs text-neutral-500">
                         © {new Date().getFullYear()} Konvertio · Viborg, Danmark
-                    </p>
-                    <p className="text-xs text-neutral-500">
-                        CVR: Konvertio
                     </p>
                 </div>
             </AnimateSection>

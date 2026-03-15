@@ -74,7 +74,7 @@ const defaultHomePage = {
 }
 
 const defaultAboutSkills = ['Shopify', 'CRO', 'Static Ads', 'Facebook Ads', 'WordPress', 'UX Design']
-const defaultAboutBenefits = ['Gratis indledende samtale', 'Konkrete anbefalinger fra dag 1', 'Stopper ikke før du er tilfreds']
+const defaultAboutBenefits = ['Dybdegående analyse før projektet påbegyndes', 'Konkrete anbefalinger fra dag 1', 'Stopper ikke før du er tilfreds']
 
 export default async function HomePage() {
   const [allPosts, services, settings] = await Promise.all([
