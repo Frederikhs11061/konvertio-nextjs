@@ -24,7 +24,6 @@ const defaultBenefits = [
     'Gratis indledende samtale',
     'Konkrete anbefalinger fra dag 1',
     'Stopper ikke før du er tilfreds',
-    'Fast pris – ingen skjulte gebyrer',
 ]
 
 const defaultAbout = {

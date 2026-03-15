@@ -33,7 +33,7 @@ const defaultHero = {
   title1: 'Løft dit brand med',
   titleHighlight: 'stærke',
   title2: 'kreative løsninger',
-  subtitle: 'Jeg hjælper danske e-commerce virksomheder med at skabe static ads der konverterer, Shopify-webshops der sælger, og CRO-analyser der giver resultater.',
+  subtitle: 'Jeg hjælper danske virksomheder med at få flere kunder gennem static ads, CRO og konverterende webshops og websites.',
   ctaPrimary: 'Se mine ydelser',
   ctaSecondary: 'Kontakt mig',
 }
@@ -60,7 +60,7 @@ const defaultHomePage = {
   servicesH2highlight: 'accelerere',
   servicesH2part2: 'dit brand',
   servicesSubtitle: 'Fra static ads der stopper scroll til webshops der konverterer – her er mine ydelser.',
-  aboutH2: 'Indhold der føles ægte – fordi det er det',
+  aboutH2: 'Bag Konvertio...',
   aboutPara1: 'Jeg er Frederik – ekspert i udvikling af shops til SMV\'er til ecommerce, med dyb erfaring i CRO-gennemgange og static ads der konverterer.',
   aboutPara2: 'Baseret i Viborg og arbejder med kunder over hele Danmark. Mit mål er simpelt: konkrete, brugbare løsninger – ikke lange rapporter der samler støv.',
   blogSectionH2: 'Seneste indsigter',
@@ -74,7 +74,7 @@ const defaultHomePage = {
 }
 
 const defaultAboutSkills = ['Shopify', 'CRO', 'Static Ads', 'Facebook Ads', 'WordPress', 'UX Design']
-const defaultAboutBenefits = ['Gratis indledende samtale', 'Konkrete anbefalinger fra dag 1', 'Stopper ikke før du er tilfreds', 'Fast pris – ingen skjulte gebyrer']
+const defaultAboutBenefits = ['Gratis indledende samtale', 'Konkrete anbefalinger fra dag 1', 'Stopper ikke før du er tilfreds']
 
 export default async function HomePage() {
   const [allPosts, services, settings] = await Promise.all([
