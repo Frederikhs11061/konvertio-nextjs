@@ -25,10 +25,10 @@ const benefits = [
 
 export default function AboutPage() {
     return (
-        <div className="pt-20 md:pt-28 bg-blue-100">
+        <div className="pt-20 md:pt-28 bg-white">
             <Breadcrumbs items={[{ label: 'Om mig', href: '/om-mig' }]} />
 
-            <section className="py-10 md:py-16 px-6 relative overflow-hidden bg-gradient-to-b from-blue-100 to-blue-50">
+            <section className="py-10 md:py-16 px-6 relative overflow-hidden bg-gradient-to-b from-blue-50/40 to-white">
                 <div className="absolute top-0 right-0 w-96 h-96 bg-brand-100/40 rounded-full blur-[120px] pointer-events-none" />
                 <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-transparent to-transparent pointer-events-none" />
                 <div className="relative max-w-7xl mx-auto">
@@ -115,7 +115,7 @@ export default function AboutPage() {
                 </div>
             </section>
 
-            <section className="py-12 md:py-20 px-6 relative overflow-hidden bg-gradient-to-b from-blue-100 to-blue-50">
+            <section className="py-12 md:py-20 px-6 relative overflow-hidden bg-gradient-to-b from-white to-blue-50/40">
                 <div className="relative max-w-4xl mx-auto text-center">
                     <AnimateSection>
                         <h2 className="text-3xl sm:text-4xl font-bold text-neutral-900 mb-4">Klar til at samarbejde?</h2>

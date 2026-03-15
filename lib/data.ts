@@ -982,7 +982,7 @@ export const services: Service[] = [
   },
   {
     slug: 'wordpress-website',
-    title: 'WordPress & Websites',
+    title: 'Websites',
     shortTitle: 'Websites',
     description: 'Skræddersyede websites med høj performance og unikt design til din virksomhed.',
     shortDescription: 'Professionelle websites med høj performance og unikt design.',
@@ -1002,6 +1002,18 @@ export const services: Service[] = [
     ],
     packages: [
       {
+        name: 'Onepage',
+        price: '4.995 kr.',
+        description: 'Ideel til mindre virksomheder der vil stå stærkt online og konvertere besøgende til leads via én målrettet og overbevisende side.',
+        features: [
+          'Onepage opbygning',
+          'Responsivt design',
+          'Enkel kontaktformular',
+          'Grundlæggende SEO',
+          'Hurtig levering',
+        ],
+      },
+      {
         name: 'Website Basis',
         price: '7.995 kr.',
         description: 'Perfekt til mindre virksomheder der skal have en professionel hjemmeside.',
@@ -1010,7 +1022,6 @@ export const services: Service[] = [
           'Responsivt design',
           'Kontaktformular',
           'Grundlæggende SEO',
-          'Google Analytics opsætning',
         ],
       },
       {
@@ -1019,17 +1030,16 @@ export const services: Service[] = [
         description: 'Komplet løsning med avancerede funktioner og custom design.',
         features: [
           'Op til 10 sider',
-          'Custom design',
-          'Blog opsætning',
-          'Avanceret SEO',
-          'Speed optimering',
-          '3 måneders support',
+          'Responsivt design',
+          'Kontaktformular',
+          'Muligheder for flere undersider ift. ydelser, cases etc.',
+          'SEO-optimeret site',
         ],
         popular: true,
       },
     ],
-    metaTitle: 'WordPress & Website Udvikling | Konvertio',
-    metaDescription: 'Få et professionelt website med høj performance og unikt design. WordPress og custom løsninger.',
+    metaTitle: 'Website Udvikling | Konvertio',
+    metaDescription: 'Få et professionelt website med høj performance og unikt design. Onepage, Basis eller Pro løsning.',
   },
 ]
 
