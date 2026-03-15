@@ -46,143 +46,136 @@ export default async function YdelserPage() {
                 </div>
             </section>
 
-            <section className="py-10 md:py-16 px-6">
-                <div className="max-w-7xl mx-auto">
-                    <div className="space-y-16 md:space-y-20">
-                        {(services as { slug: string; icon: string; title: string; description: string; benefits: string[]; packageNote?: string; packages?: { name: string; price: string; description: string; features: string[]; popular?: boolean }[]; process?: { step: number; title: string; description: string }[] }[]).map((service, si) => {
-                            const Icon = iconMap[service.icon] || Target
-                            return (
-                                <article key={service.slug} id={service.slug}>
-                                    <AnimateSection className="mb-6">
-                                        <div className="mb-4">
-                                            <div className="w-14 h-14 rounded-xl bg-brand-50 border border-brand-200/60 flex items-center justify-center mb-4">
-                                                <Icon className="w-7 h-7 text-brand-600" />
-                                            </div>
-                                            <h2 className="text-2xl sm:text-3xl font-bold text-neutral-900 mb-2">{service.title}</h2>
-                                            <p className="text-neutral-600 max-w-2xl text-left">{service.description}</p>
-                                        </div>
-                                    </AnimateSection>
+            {(services as { slug: string; icon: string; title: string; description: string; benefits: string[]; packageNote?: string; packages?: { name: string; price: string; description: string; features: string[]; popular?: boolean }[]; process?: { step: number; title: string; description: string }[] }[]).map((service, si) => {
+                const Icon = iconMap[service.icon] || Target
+                const isEven = si % 2 === 0
+                const sectionBg = isEven ? 'bg-white' : 'bg-blue-50'
+                const benefitsBg = isEven ? 'bg-neutral-50' : 'bg-white/80'
+                return (
+                    <section key={service.slug} id={service.slug} className={`py-12 md:py-16 px-6 ${sectionBg}`}>
+                        <div className="max-w-7xl mx-auto">
+                            <AnimateSection className="mb-6">
+                                <div className="mb-4">
+                                    <div className="w-14 h-14 rounded-xl bg-brand-50 border border-brand-200/60 flex items-center justify-center mb-4">
+                                        <Icon className="w-7 h-7 text-brand-600" />
+                                    </div>
+                                    <h2 className="text-2xl sm:text-3xl font-bold text-neutral-900 mb-2">{service.title}</h2>
+                                    <p className="text-neutral-600 max-w-2xl text-left">{service.description}</p>
+                                </div>
+                            </AnimateSection>
 
-                                    {service.packages && (
-                                        <div className={"grid gap-6 mb-8 " + (service.packages.length >= 3 ? 'md:grid-cols-2 lg:grid-cols-3' : 'md:grid-cols-2')}>
-                                            {service.packages.map((pkg, i) => (
-                                                <AnimateSection key={pkg.name} delay={i * 100}>
-                                                    <div
-                                                        className={"relative p-8 rounded-2xl border transition-all duration-500 " + (
-                                                            pkg.popular
-                                                                ? 'border-brand-300 bg-gradient-to-br from-brand-50 to-white shadow-xl shadow-brand-100/50'
-                                                                : 'border-neutral-200/80 bg-white hover:border-brand-200 hover:shadow-md'
-                                                        )}
-                                                    >
-                                                        {pkg.popular && (
-                                                            <span className="absolute top-4 right-4 bg-brand-600 text-white text-xs font-bold px-3 py-1 rounded-full">
-                                                                Mest populær
-                                                            </span>
-                                                        )}
-                                                        <h3 className="text-xl font-bold text-neutral-900 mb-2">{pkg.name}</h3>
-                                                        <p className="text-sm text-neutral-500 mb-6">{pkg.description}</p>
-                                                        <p className="text-3xl font-bold text-neutral-900 mb-6">{pkg.price}</p>
-                                                        <ul className="space-y-3 mb-8">
-                                                            {pkg.features.map((f) => (
-                                                                <li key={f} className="flex items-start gap-3">
-                                                                    <Check className={"w-5 h-5 mt-0.5 flex-shrink-0 " + (pkg.popular ? 'text-brand-500' : 'text-green-500')} />
-                                                                    <span className="text-sm text-neutral-700">{f}</span>
-                                                                </li>
-                                                            ))}
-                                                        </ul>
-                                                        <Link
-                                                            href="/kontakt"
-                                                            className={"w-full flex justify-center items-center gap-2 rounded-full py-3.5 text-sm font-semibold transition-all duration-300 hover:scale-[1.02] " + (
-                                                                pkg.popular
-                                                                    ? 'bg-brand-600 text-white hover:bg-brand-500 shadow-md shadow-brand-200'
-                                                                    : 'bg-neutral-100 text-neutral-800 hover:bg-neutral-200 border border-neutral-200'
-                                                            )}
-                                                        >
-                                                            Bestil nu
-                                                            <ArrowRight className="w-4 h-4" />
-                                                        </Link>
-                                                    </div>
-                                                </AnimateSection>
-                                            ))}
-                                        </div>
-                                    )}
-                                    {service.packageNote && (
-                                        <p className="text-sm text-neutral-500 mb-8 mt-2">{service.packageNote}</p>
-                                    )}
-
-                                    {service.process && (
-                                        <AnimateSection className="mb-8">
-                                            <h3 className="text-xl font-bold text-neutral-900 mb-8">Sådan foregår det</h3>
-
-                                            {/* Mobile: vertical list */}
-                                            <div className="flex flex-col gap-4 lg:hidden">
-                                                {service.process.map((step) => (
-                                                    <div key={step.step} className="flex gap-4 items-start">
-                                                        <div className="w-9 h-9 rounded-full bg-brand-600 text-white flex items-center justify-center text-sm font-bold flex-shrink-0">
-                                                            {step.step}
-                                                        </div>
-                                                        <div className="pt-1">
-                                                            <p className="text-sm font-semibold text-neutral-900 mb-0.5">{step.title}</p>
-                                                            <p className="text-sm text-neutral-500 leading-relaxed">{step.description}</p>
-                                                        </div>
-                                                    </div>
-                                                ))}
-                                            </div>
-
-                                            {/* Desktop: horizontal timeline */}
-                                            <div className="hidden lg:grid gap-0" style={{ gridTemplateColumns: `repeat(${service.process.length}, 1fr)` }}>
-                                                {service.process.map((step, idx) => (
-                                                    <div key={step.step} className="relative flex flex-col items-center text-center px-3">
-                                                        {/* Connecting line */}
-                                                        {idx < service.process!.length - 1 && (
-                                                            <div className="absolute top-[18px] left-1/2 right-0 h-px bg-gradient-to-r from-brand-300 to-brand-100 z-0" />
-                                                        )}
-                                                        {idx > 0 && (
-                                                            <div className="absolute top-[18px] right-1/2 left-0 h-px bg-gradient-to-r from-brand-100 to-brand-300 z-0" />
-                                                        )}
-                                                        {/* Step circle */}
-                                                        <div className="relative z-10 w-9 h-9 rounded-full bg-brand-600 text-white flex items-center justify-center text-sm font-bold mb-4 shadow-md shadow-brand-200/60">
-                                                            {step.step}
-                                                        </div>
-                                                        <p className="text-sm font-bold text-neutral-900 mb-1.5 leading-tight">{step.title}</p>
-                                                        <p className="text-xs text-neutral-500 leading-relaxed">{step.description}</p>
-                                                    </div>
-                                                ))}
+                            {service.packages && (
+                                <div className={"grid gap-6 mb-8 " + (service.packages.length >= 3 ? 'md:grid-cols-2 lg:grid-cols-3' : 'md:grid-cols-2')}>
+                                    {service.packages.map((pkg, i) => (
+                                        <AnimateSection key={pkg.name} delay={i * 100}>
+                                            <div
+                                                className={"relative p-8 rounded-2xl border transition-all duration-500 " + (
+                                                    pkg.popular
+                                                        ? 'border-brand-300 bg-gradient-to-br from-brand-50 to-white shadow-xl shadow-brand-100/50'
+                                                        : 'border-neutral-200/80 bg-white hover:border-brand-200 hover:shadow-md'
+                                                )}
+                                            >
+                                                {pkg.popular && (
+                                                    <span className="absolute top-4 right-4 bg-brand-600 text-white text-xs font-bold px-3 py-1 rounded-full">
+                                                        Mest populær
+                                                    </span>
+                                                )}
+                                                <h3 className="text-xl font-bold text-neutral-900 mb-2">{pkg.name}</h3>
+                                                <p className="text-sm text-neutral-500 mb-6">{pkg.description}</p>
+                                                <p className="text-3xl font-bold text-neutral-900 mb-6">{pkg.price}</p>
+                                                <ul className="space-y-3 mb-8">
+                                                    {pkg.features.map((f) => (
+                                                        <li key={f} className="flex items-start gap-3">
+                                                            <Check className={"w-5 h-5 mt-0.5 flex-shrink-0 " + (pkg.popular ? 'text-brand-500' : 'text-green-500')} />
+                                                            <span className="text-sm text-neutral-700">{f}</span>
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                                <Link
+                                                    href="/kontakt"
+                                                    className={"w-full flex justify-center items-center gap-2 rounded-full py-3.5 text-sm font-semibold transition-all duration-300 hover:scale-[1.02] " + (
+                                                        pkg.popular
+                                                            ? 'bg-brand-600 text-white hover:bg-brand-500 shadow-md shadow-brand-200'
+                                                            : 'bg-neutral-100 text-neutral-800 hover:bg-neutral-200 border border-neutral-200'
+                                                    )}
+                                                >
+                                                    Bestil nu
+                                                    <ArrowRight className="w-4 h-4" />
+                                                </Link>
                                             </div>
                                         </AnimateSection>
-                                    )}
+                                    ))}
+                                </div>
+                            )}
+                            {service.packageNote && (
+                                <p className="text-sm text-neutral-500 mb-8 mt-2">{service.packageNote}</p>
+                            )}
 
-                                    <AnimateSection>
-                                        <div className="flex flex-col sm:flex-row gap-6 items-start justify-between p-6 rounded-xl bg-neutral-50 border border-neutral-200/60">
-                                            <div>
-                                                <p className="text-sm font-semibold text-neutral-900 mb-3">Hvad du får:</p>
-                                                <div className="flex flex-wrap gap-2">
-                                                    {service.benefits.map((b) => (
-                                                        <span key={b} className="px-3 py-1.5 bg-white rounded-full border border-neutral-200/80 text-sm text-neutral-700">
-                                                            {b}
-                                                        </span>
-                                                    ))}
+                            {service.process && (
+                                <AnimateSection className="mb-8">
+                                    <h3 className="text-xl font-bold text-neutral-900 mb-8">Sådan foregår det</h3>
+                                    <div className="flex flex-col gap-4 lg:hidden">
+                                        {service.process.map((step) => (
+                                            <div key={step.step} className="flex gap-4 items-start">
+                                                <div className="w-9 h-9 rounded-full bg-brand-600 text-white flex items-center justify-center text-sm font-bold flex-shrink-0">
+                                                    {step.step}
+                                                </div>
+                                                <div className="pt-1">
+                                                    <p className="text-sm font-semibold text-neutral-900 mb-0.5">{step.title}</p>
+                                                    <p className="text-sm text-neutral-500 leading-relaxed">{step.description}</p>
                                                 </div>
                                             </div>
-                                            <Link
-                                                href={`/ydelser/${service.slug}`}
-                                                className="inline-flex items-center gap-2 text-sm font-medium text-brand-600 hover:text-brand-500 whitespace-nowrap transition-colors"
-                                            >
-                                                Se detaljer
-                                                <ArrowRight className="w-4 h-4" />
-                                            </Link>
+                                        ))}
+                                    </div>
+                                    <div className="hidden lg:grid gap-0" style={{ gridTemplateColumns: `repeat(${service.process.length}, 1fr)` }}>
+                                        {service.process.map((step, idx) => (
+                                            <div key={step.step} className="relative flex flex-col items-center text-center px-3">
+                                                {idx < service.process!.length - 1 && (
+                                                    <div className="absolute top-[18px] left-1/2 right-0 h-px bg-gradient-to-r from-brand-300 to-brand-100 z-0" />
+                                                )}
+                                                {idx > 0 && (
+                                                    <div className="absolute top-[18px] right-1/2 left-0 h-px bg-gradient-to-r from-brand-100 to-brand-300 z-0" />
+                                                )}
+                                                <div className="relative z-10 w-9 h-9 rounded-full bg-brand-600 text-white flex items-center justify-center text-sm font-bold mb-4 shadow-md shadow-brand-200/60">
+                                                    {step.step}
+                                                </div>
+                                                <p className="text-sm font-bold text-neutral-900 mb-1.5 leading-tight">{step.title}</p>
+                                                <p className="text-xs text-neutral-500 leading-relaxed">{step.description}</p>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </AnimateSection>
+                            )}
+
+                            <AnimateSection>
+                                <div className={`flex flex-col sm:flex-row gap-6 items-start justify-between p-6 rounded-xl border border-neutral-200/60 ${benefitsBg}`}>
+                                    <div>
+                                        <p className="text-sm font-semibold text-neutral-900 mb-3">Hvad du får:</p>
+                                        <div className="flex flex-wrap gap-2">
+                                            {service.benefits.map((b) => (
+                                                <span key={b} className="px-3 py-1.5 bg-white rounded-full border border-neutral-200/80 text-sm text-neutral-700">
+                                                    {b}
+                                                </span>
+                                            ))}
                                         </div>
-                                    </AnimateSection>
+                                    </div>
+                                    <Link
+                                        href={`/ydelser/${service.slug}`}
+                                        className="inline-flex items-center gap-2 text-sm font-medium text-brand-600 hover:text-brand-500 whitespace-nowrap transition-colors"
+                                    >
+                                        Se detaljer
+                                        <ArrowRight className="w-4 h-4" />
+                                    </Link>
+                                </div>
+                            </AnimateSection>
+                        </div>
+                    </section>
+                )
+            })}
 
-                                    {si < (services as unknown[]).length - 1 && (
-                                        <div className="border-b border-neutral-200/60 mt-10 md:mt-12" />
-                                    )}
-                                </article>
-                            )
-                        })}
-                    </div>
-
-                    <AnimateSection className="mt-12 md:mt-16 p-8 md:p-10 rounded-2xl bg-gradient-to-br from-brand-50 to-white border border-brand-200/40 text-center">
+            <section className="py-14 md:py-20 px-6 bg-blue-50">
+                <div className="max-w-7xl mx-auto">
+                    <AnimateSection className="p-8 md:p-10 rounded-2xl bg-gradient-to-br from-brand-50 to-white border border-brand-200/40 text-center">
                         <h3 className="text-2xl font-bold text-neutral-900 mb-3">Har du brug for noget andet?</h3>
                         <p className="text-neutral-600 mb-8 max-w-xl mx-auto">
                             Jeg tilbyder også skræddersyede løsninger til større kampagner, abonnementsløsninger med løbende levering,
