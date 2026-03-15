@@ -65,7 +65,7 @@ export default function FaqClient({ faqCategories }: { faqCategories: FaqCategor
                 </div>
             </section>
 
-            <section className="py-10 px-6">
+            <section className="py-10 px-6 bg-blue-50">
                 <div className="max-w-4xl mx-auto">
                     <div className="space-y-8">
                         {filtered.map((cat, catIdx) => (
@@ -102,7 +102,7 @@ export default function FaqClient({ faqCategories }: { faqCategories: FaqCategor
                             </div>
                         )}
                     </div>
-                    <AnimateSection className="mt-16 p-10 rounded-2xl bg-gradient-to-b from-blue-100 to-blue-50 border border-blue-200/60 text-center">
+                    <AnimateSection className="mt-16 p-10 rounded-2xl bg-white border border-neutral-200/80 shadow-sm text-center">
                         <h3 className="text-2xl font-bold text-neutral-900 mb-3">Har du ikke fundet svar?</h3>
                         <p className="text-neutral-600 mb-8">Jeg er altid klar til at hjælpe. Send mig en besked og jeg vender tilbage inden for 24 timer.</p>
                         <Link href="/kontakt" className="btn-primary text-sm px-7 py-3.5">

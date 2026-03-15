@@ -108,7 +108,20 @@ export default async function YdelserPage() {
                                 </div>
                             )}
                             {service.packageNote && (
-                                <p className="text-sm text-neutral-500 mb-8 mt-2">{service.packageNote}</p>
+                                <AnimateSection className="mb-8" animation="scale">
+                                    <div className="flex items-start gap-4 p-5 rounded-2xl bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-200/70 shadow-sm hover:shadow-md hover:border-amber-300 transition-all duration-300">
+                                        <div className="w-9 h-9 rounded-xl bg-amber-100 border border-amber-200 flex items-center justify-center flex-shrink-0 text-lg">
+                                            🚀
+                                        </div>
+                                        <div>
+                                            <p className="text-sm font-bold text-amber-900 mb-0.5">Større batch? Bedre pris.</p>
+                                            <p className="text-sm text-amber-800/80 leading-relaxed">{service.packageNote}</p>
+                                            <Link href="/kontakt" className="inline-flex items-center gap-1.5 mt-2 text-xs font-semibold text-amber-700 hover:text-amber-900 transition-colors">
+                                                Få et tilbud <ArrowRight className="w-3.5 h-3.5" />
+                                            </Link>
+                                        </div>
+                                    </div>
+                                </AnimateSection>
                             )}
 
                             {service.process && (
@@ -173,9 +186,9 @@ export default async function YdelserPage() {
                 )
             })}
 
-            <section className="py-14 md:py-20 px-6 bg-blue-50">
+            <section className="py-14 md:py-20 px-6 bg-white">
                 <div className="max-w-7xl mx-auto">
-                    <AnimateSection className="p-8 md:p-10 rounded-2xl bg-gradient-to-br from-brand-50 to-white border border-brand-200/40 text-center">
+                    <AnimateSection className="p-8 md:p-10 rounded-2xl bg-gradient-to-br from-blue-50 to-brand-50/40 border border-blue-200/60 text-center">
                         <h3 className="text-2xl font-bold text-neutral-900 mb-3">Har du brug for noget andet?</h3>
                         <p className="text-neutral-600 mb-8 max-w-xl mx-auto">
                             Jeg tilbyder også skræddersyede løsninger til større kampagner, abonnementsløsninger med løbende levering,
