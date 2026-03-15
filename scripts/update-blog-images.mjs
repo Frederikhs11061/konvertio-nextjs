@@ -2,7 +2,7 @@ import { createClient } from '@sanity/client'
 import https from 'https'
 import http from 'http'
 
-const TOKEN = 'skrOFtXnVCSuZgIxkOQJryKbQjraKcusdhA48kuwhyEPjKnUNkaKx6g7wPDXF65xguWKig07PkiOsCyyzuNgPutmuUPbvZUoG5Ndp974QisAgPUqtE1qDC2iQBKog3OTfT1nDcWEtxWiGGve9E2e6cjMyxdydClkyPDlyN9sTJbIyDl3Y1TW'
+const TOKEN = process.env.SANITY_SEED_TOKEN
 const PROJECT_ID = 'x4du0gcn'
 const DATASET = 'production'
 

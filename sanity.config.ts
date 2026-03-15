@@ -33,39 +33,30 @@ export default defineConfig({
                         S.divider(),
                         S.listItem()
                             .title('Forside – tekster')
-                            .id('siteSettings-home')
+                            .id('pageHome')
                             .child(
                                 S.document()
                                     .title('Forside – tekster')
-                                    .schemaType('siteSettings')
-                                    .documentId('siteSettings')
+                                    .schemaType('pageHome')
+                                    .documentId('pageHome')
                             ),
                         S.listItem()
                             .title('Om mig – side')
-                            .id('siteSettings-about')
+                            .id('pageAbout')
                             .child(
                                 S.document()
                                     .title('Om mig – side')
-                                    .schemaType('siteSettings')
-                                    .documentId('siteSettings')
+                                    .schemaType('pageAbout')
+                                    .documentId('pageAbout')
                             ),
                         S.listItem()
                             .title('Kontakt – side')
-                            .id('siteSettings-contact')
+                            .id('pageContact')
                             .child(
                                 S.document()
                                     .title('Kontakt – side')
-                                    .schemaType('siteSettings')
-                                    .documentId('siteSettings')
-                            ),
-                        S.divider(),
-                        S.listItem()
-                            .title('Alle siteindstillinger')
-                            .id('siteSettings')
-                            .child(
-                                S.document()
-                                    .schemaType('siteSettings')
-                                    .documentId('siteSettings')
+                                    .schemaType('pageContact')
+                                    .documentId('pageContact')
                             ),
                     ]),
         }),

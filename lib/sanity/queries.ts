@@ -38,7 +38,12 @@ export const allFaqCategoriesQuery = `*[_type == "faqCategory"] | order(order as
   _id, name, items,
 }`
 
-// Site settings
+// Site settings (legacy)
 export const siteSettingsQuery = `*[_type == "siteSettings" && _id == "siteSettings"][0] {
   hero, contact, about, homePage,
 }`
+
+// Page-specific settings
+export const pageHomeQuery = `*[_type == "pageHome" && _id == "pageHome"][0] { hero, homePage }`
+export const pageAboutQuery = `*[_type == "pageAbout" && _id == "pageAbout"][0] { badge, title, intro, body, closing, skills, benefits, availabilityText, ctaH2, ctaSubtitle, ctaButtonText }`
+export const pageContactQuery = `*[_type == "pageContact" && _id == "pageContact"][0] { badge, h1, subtitle, benefits, email, linkedin, location, responseTime, availabilityText }`

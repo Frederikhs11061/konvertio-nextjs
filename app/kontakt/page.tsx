@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import KontaktClient from '@/components/KontaktClient'
-import { getSiteSettings } from '@/lib/sanity/fetchSettings'
+import { getPageContact } from '@/lib/sanity/fetchSettings'
 import { SITE_URL } from '@/lib/site'
 
 export const revalidate = 60
@@ -29,8 +29,7 @@ const defaultContact = {
 }
 
 export default async function KontaktPage() {
-    const settings = await getSiteSettings()
-    const c = settings?.contact ?? {}
+    const c = await getPageContact() ?? {}
 
     const props = {
         badge: c.badge ?? defaultContact.badge,

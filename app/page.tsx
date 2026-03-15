@@ -9,7 +9,7 @@ import ServiceCardsGrid from '@/components/ServiceCardsGrid'
 import HeroWorkflow from '@/components/HeroWorkflow'
 import { getAllBlogPosts } from '@/lib/sanity/fetchBlog'
 import { getAllServices } from '@/lib/sanity/fetchServices'
-import { getSiteSettings } from '@/lib/sanity/fetchSettings'
+import { getPageHome } from '@/lib/sanity/fetchSettings'
 
 export const revalidate = 60
 import { SITE_URL } from '@/lib/site'
@@ -77,19 +77,19 @@ const defaultAboutSkills = ['Shopify', 'CRO', 'Static Ads', 'Facebook Ads', 'Wor
 const defaultAboutBenefits = ['Dybdegående analyse før projektet påbegyndes', 'Konkrete anbefalinger fra dag 1', 'Stopper ikke før du er tilfreds']
 
 export default async function HomePage() {
-  const [allPosts, services, settings] = await Promise.all([
+  const [allPosts, services, pageHome] = await Promise.all([
     getAllBlogPosts(),
     getAllServices(),
-    getSiteSettings(),
+    getPageHome(),
   ])
   const recentPosts = allPosts.slice(0, 3)
 
-  const hero = { ...defaultHero, ...(settings?.hero ?? {}) }
-  const hp = { ...defaultHomePage, ...(settings?.homePage ?? {}) }
+  const hero = { ...defaultHero, ...(pageHome?.hero ?? {}) }
+  const hp = { ...defaultHomePage, ...(pageHome?.homePage ?? {}) }
   const problems = (hp.problems && hp.problems.length > 0) ? hp.problems : defaultHomePage.problems
   const solutions = (hp.solutions && hp.solutions.length > 0) ? hp.solutions : defaultHomePage.solutions
-  const aboutSkills = (settings?.about?.skills && settings.about.skills.length > 0) ? settings.about.skills : defaultAboutSkills
-  const aboutBenefits = (settings?.about?.benefits && settings.about.benefits.length > 0) ? settings.about.benefits : defaultAboutBenefits
+  const aboutSkills = defaultAboutSkills
+  const aboutBenefits = defaultAboutBenefits
 
   return (
     <div className="min-h-screen">
@@ -363,7 +363,7 @@ export default async function HomePage() {
                   ))}
                   <div className="flex items-center gap-3">
                     <Zap className="w-4 h-4 text-amber-500" />
-                    <span className="text-sm text-neutral-700">{settings?.about?.availabilityText ?? 'Klar til nye projekter'}</span>
+                    <span className="text-sm text-neutral-700">{'Klar til nye projekter'}</span>
                   </div>
                 </div>
               </AnimateSection>

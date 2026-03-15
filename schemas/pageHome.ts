@@ -1,0 +1,61 @@
+import { defineField, defineType } from 'sanity'
+
+export default defineType({
+    name: 'pageHome',
+    title: 'Forside – tekster',
+    type: 'document',
+    fields: [
+        defineField({
+            name: 'hero',
+            title: 'Hero-sektion',
+            type: 'object',
+            fields: [
+                { name: 'socialProofText', title: 'Social proof tekst (øverst)', type: 'string' },
+                { name: 'availabilityText', title: 'Tilgængeligheds-badge', type: 'string' },
+                { name: 'badge', title: 'Badge-tekst', type: 'string' },
+                { name: 'title1', title: 'Overskrift linje 1', type: 'string' },
+                { name: 'titleHighlight', title: 'Overskrift – fremhævet ord', type: 'string' },
+                { name: 'title2', title: 'Overskrift linje 2', type: 'string' },
+                { name: 'subtitle', title: 'Undertekst', type: 'text', rows: 3 },
+                { name: 'ctaPrimary', title: 'Primær knap-tekst', type: 'string' },
+                { name: 'ctaSecondary', title: 'Sekundær knap-tekst', type: 'string' },
+            ],
+        }),
+        defineField({
+            name: 'homePage',
+            title: 'Forside – sektioner',
+            type: 'object',
+            fields: [
+                { name: 'problemsSectionLabel', title: 'Problem-sektion – label', type: 'string' },
+                { name: 'problemsSectionH2', title: 'Problem-sektion – overskrift', type: 'string' },
+                { name: 'problemsCardTitle', title: 'Problemer kort – titel', type: 'string' },
+                { name: 'solutionsCardTitle', title: 'Løsninger kort – titel', type: 'string' },
+                { name: 'solutionsCtaText', title: 'Løsninger CTA-knap tekst', type: 'string' },
+                {
+                    name: 'problems', title: 'Problemer (liste)', type: 'array',
+                    of: [{ type: 'object', fields: [{ name: 'title', type: 'string', title: 'Titel' }, { name: 'desc', type: 'string', title: 'Beskrivelse' }], preview: { select: { title: 'title' } } }],
+                },
+                {
+                    name: 'solutions', title: 'Løsninger (liste)', type: 'array',
+                    of: [{ type: 'object', fields: [{ name: 'title', type: 'string', title: 'Titel' }, { name: 'desc', type: 'string', title: 'Beskrivelse' }], preview: { select: { title: 'title' } } }],
+                },
+                { name: 'servicesH2part1', title: 'Ydelser-sektion – overskrift del 1', type: 'string' },
+                { name: 'servicesH2highlight', title: 'Ydelser-sektion – fremhævet ord', type: 'string' },
+                { name: 'servicesH2part2', title: 'Ydelser-sektion – overskrift del 2', type: 'string' },
+                { name: 'servicesSubtitle', title: 'Ydelser-sektion – undertekst', type: 'text', rows: 2 },
+                { name: 'aboutH2', title: 'Om mig-sektion – overskrift', type: 'string' },
+                { name: 'aboutPara1', title: 'Om mig-sektion – afsnit 1', type: 'text', rows: 3 },
+                { name: 'aboutPara2', title: 'Om mig-sektion – afsnit 2', type: 'text', rows: 3 },
+                { name: 'blogSectionH2', title: 'Blog-sektion – overskrift', type: 'string' },
+                { name: 'blogSectionSubtitle', title: 'Blog-sektion – undertekst', type: 'text', rows: 2 },
+                { name: 'ctaH2part1', title: 'CTA-sektion – overskrift del 1', type: 'string' },
+                { name: 'ctaH2highlight', title: 'CTA-sektion – fremhævet ord', type: 'string' },
+                { name: 'ctaH2part2', title: 'CTA-sektion – overskrift del 2', type: 'string' },
+                { name: 'ctaSubtitle', title: 'CTA-sektion – undertekst', type: 'text', rows: 2 },
+                { name: 'ctaPrimaryText', title: 'CTA – primær knap', type: 'string' },
+                { name: 'ctaSecondaryText', title: 'CTA – sekundær knap', type: 'string' },
+            ],
+        }),
+    ],
+    preview: { prepare: () => ({ title: 'Forside – tekster' }) },
+})

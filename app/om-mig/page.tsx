@@ -5,7 +5,7 @@ import type { Metadata } from 'next'
 import AnimateSection from '@/components/AnimateSection'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import { SITE_URL } from '@/lib/site'
-import { getSiteSettings } from '@/lib/sanity/fetchSettings'
+import { getPageAbout } from '@/lib/sanity/fetchSettings'
 
 export const revalidate = 60
 
@@ -39,16 +39,16 @@ const defaultAbout = {
 }
 
 export default async function AboutPage() {
-    const settings = await getSiteSettings()
-    const about = { ...defaultAbout, ...(settings?.about ?? {}) }
-    const skills = (settings?.about?.skills && settings.about.skills.length > 0)
-        ? settings.about.skills
+    const pageAbout = await getPageAbout()
+    const about = { ...defaultAbout, ...(pageAbout ?? {}) }
+    const skills = (pageAbout?.skills && pageAbout.skills.length > 0)
+        ? pageAbout.skills
         : defaultSkills
-    const benefits = (settings?.about?.benefits && settings.about.benefits.length > 0)
-        ? settings.about.benefits
+    const benefits = (pageAbout?.benefits && pageAbout.benefits.length > 0)
+        ? pageAbout.benefits
         : defaultBenefits
 
-    const contactLinkedin = settings?.contact?.linkedin ?? 'https://www.linkedin.com/in/frederik-h%C3%B8gh-simonsen/'
+    const contactLinkedin = 'https://www.linkedin.com/in/frederik-h%C3%B8gh-simonsen/'
 
     const personSchema = {
         '@context': 'https://schema.org',
