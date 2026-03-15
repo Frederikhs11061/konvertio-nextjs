@@ -10,7 +10,7 @@ import { getSiteSettings } from '@/lib/sanity/fetchSettings'
 export const revalidate = 60
 
 export const metadata: Metadata = {
-    title: 'Om mig – Freelance Ekspert i Static Ads, CRO & Webudvikling',
+    title: 'Om mig – Frederik | Ekspert i Static Ads, CRO & Webudvikling',
     description: 'Mød Frederik – freelance ekspert der hjælper danske virksomheder med static ads, CRO-optimeringer og konverterende webshops. Baseret i Viborg.',
     alternates: { canonical: `${SITE_URL}/om-mig` },
 }

@@ -15,7 +15,7 @@ export const revalidate = 60
 import { SITE_URL } from '@/lib/site'
 
 export const metadata: Metadata = {
-  title: 'Konvertio | Static Ads, CRO & Shopify Specialist',
+  title: 'Static Ads & CRO Ekspert til e-commerce | Konvertio',
   description: 'Jeg hjælper danske e-commerce virksomheder med at vækste online gennem static ads der konverterer, CRO-analyser og Shopify-webshops.',
   alternates: { canonical: SITE_URL },
 }

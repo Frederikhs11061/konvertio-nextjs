@@ -42,7 +42,6 @@ export const localBusinessSchema = {
     name: 'Konvertio',
     description: 'Freelance ekspert i static ads, CRO og Shopify webshops til danske e-commerce virksomheder.',
     url: SITE_URL,
-    telephone: '',
     email: 'frederik@konvertio.dk',
     address: {
         '@type': 'PostalAddress',

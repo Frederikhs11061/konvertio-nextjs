@@ -7,7 +7,7 @@ export const revalidate = 60
 
 export const metadata: Metadata = {
     title: 'FAQ – Ofte stillede spørgsmål | Konvertio',
-    description: 'Find svar på de mest almindelige spørgsmål om static ads, Shopify, CRO og samarbejdet med mig.',
+    description: 'Find svar på de mest stillede spørgsmål om static ads, Shopify, CRO og samarbejdet med mig.',
     alternates: { canonical: `${SITE_URL}/faq` },
 }
 

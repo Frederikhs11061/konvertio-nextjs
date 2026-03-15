@@ -61,7 +61,7 @@ export default function Navigation() {
                         >
                             <Image
                                 src="/logo.png"
-                                alt=""
+                                alt="Konvertio"
                                 width={128}
                                 height={128}
                                 className={`object-contain transition-all duration-500 ${isScrolled ? 'h-16 w-16 lg:h-24 lg:w-24' : 'h-[72px] w-[72px] lg:h-28 lg:w-28'}`}
