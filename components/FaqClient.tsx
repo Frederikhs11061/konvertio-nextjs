@@ -49,7 +49,7 @@ export default function FaqClient({ faqCategories }: { faqCategories: FaqCategor
                             <span className="gradient-text-brand">Få svaret her.</span>
                         </h1>
                         <p className="text-lg text-neutral-600 max-w-2xl mx-auto text-left md:text-center">
-                            Find svar på de mest almindelige spørgsmål om static ads, Shopify, CRO og samarbejdet med mig.
+                            Find svar på de mest stillede spørgsmål om static ads, Shopify, CRO og samarbejdet med mig.
                         </p>
                     </AnimateSection>
                     <AnimateSection className="relative mb-2">
