@@ -45,6 +45,14 @@ export default defineType({
             title: 'Forsidebillede',
             type: 'image',
             options: { hotspot: true },
+            fields: [
+                {
+                    name: 'alt',
+                    type: 'string',
+                    title: 'Alt-tekst (billedbeskrivelse)',
+                    description: 'Vigtigt for SEO og tilgængelighed. Beskriv hvad billedet viser.',
+                },
+            ],
         }),
         defineField({
             name: 'content',
@@ -81,6 +89,12 @@ export default defineType({
                     type: 'image',
                     options: { hotspot: true },
                     fields: [
+                        {
+                            name: 'alt',
+                            type: 'string',
+                            title: 'Alt-tekst (billedbeskrivelse)',
+                            description: 'Vigtigt for SEO og tilgængelighed.',
+                        },
                         {
                             name: 'caption',
                             type: 'string',

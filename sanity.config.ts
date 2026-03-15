@@ -32,7 +32,35 @@ export default defineConfig({
                         S.listItem().title('FAQ').schemaType('faqCategory').child(S.documentTypeList('faqCategory')),
                         S.divider(),
                         S.listItem()
-                            .title('Siteindstillinger')
+                            .title('Forside – tekster')
+                            .id('siteSettings-home')
+                            .child(
+                                S.document()
+                                    .title('Forside – tekster')
+                                    .schemaType('siteSettings')
+                                    .documentId('siteSettings')
+                            ),
+                        S.listItem()
+                            .title('Om mig – side')
+                            .id('siteSettings-about')
+                            .child(
+                                S.document()
+                                    .title('Om mig – side')
+                                    .schemaType('siteSettings')
+                                    .documentId('siteSettings')
+                            ),
+                        S.listItem()
+                            .title('Kontakt – side')
+                            .id('siteSettings-contact')
+                            .child(
+                                S.document()
+                                    .title('Kontakt – side')
+                                    .schemaType('siteSettings')
+                                    .documentId('siteSettings')
+                            ),
+                        S.divider(),
+                        S.listItem()
+                            .title('Alle siteindstillinger')
                             .id('siteSettings')
                             .child(
                                 S.document()

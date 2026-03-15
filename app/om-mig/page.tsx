@@ -1,9 +1,13 @@
 import Link from 'next/link'
-import { ArrowRight, Linkedin, Mail, Check, Zap } from 'lucide-react'
+import Image from 'next/image'
+import { ArrowRight, Linkedin, Mail, Check, Zap, MapPin } from 'lucide-react'
 import type { Metadata } from 'next'
 import AnimateSection from '@/components/AnimateSection'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import { SITE_URL } from '@/lib/site'
+import { getSiteSettings } from '@/lib/sanity/fetchSettings'
+
+export const revalidate = 60
 
 export const metadata: Metadata = {
     title: 'Om mig – Konvertio',
@@ -11,63 +15,90 @@ export const metadata: Metadata = {
     alternates: { canonical: `${SITE_URL}/om-mig` },
 }
 
-const skills = [
+const defaultSkills = [
     'Static Ads', 'Facebook Ads', 'Instagram Ads', 'Shopify',
     'CRO', 'WordPress', 'Webudvikling', 'UX Design', 'Konverteringsoptimering',
 ]
 
-const benefits = [
+const defaultBenefits = [
     'Gratis indledende samtale',
     'Konkrete anbefalinger fra dag 1',
     'Stopper ikke før du er tilfreds',
     'Fast pris – ingen skjulte gebyrer',
 ]
 
-export default function AboutPage() {
+const defaultAbout = {
+    badge: 'Om mig',
+    title: 'Static Ads, CRO & Shopify',
+    intro: 'Jeg er bosat i Viborg og har en passion for e-commerce og digital markedsføring. Jeg hjælper danske virksomheder med at vækste online gennem effektive static ads, CRO-optimering og Shopify-webshops der konverterer.',
+    body: 'Min tilgang er enkel: Jeg fokuserer på resultater, ikke lange rapporter der samler støv. Jeg tror på at teste, måle og optimere kontinuerligt.',
+    closing: 'Jeg stopper ikke før du er tilfreds. Det er ikke bare noget jeg siger – det er hvad mine kunder siger om at arbejde med mig.',
+    availabilityText: 'Klar til nye projekter',
+    ctaH2: 'Klar til at samarbejde?',
+    ctaSubtitle: 'Lad os tage en uforpligtende snak om hvordan jeg kan hjælpe din virksomhed med at vækste online.',
+    ctaButtonText: 'Start samtalen',
+}
+
+export default async function AboutPage() {
+    const settings = await getSiteSettings()
+    const about = { ...defaultAbout, ...(settings?.about ?? {}) }
+    const skills = (settings?.about?.skills && settings.about.skills.length > 0)
+        ? settings.about.skills
+        : defaultSkills
+    const benefits = (settings?.about?.benefits && settings.about.benefits.length > 0)
+        ? settings.about.benefits
+        : defaultBenefits
+
+    const contactLinkedin = settings?.contact?.linkedin ?? 'https://www.linkedin.com/in/frederik-høgh-simonsen/'
+
     return (
         <div className="pt-20 md:pt-28 bg-white">
             <Breadcrumbs items={[{ label: 'Om mig', href: '/om-mig' }]} />
 
-            <section className="py-10 md:py-16 px-6 relative overflow-hidden bg-gradient-to-b from-blue-50/40 to-white">
-                <div className="absolute top-0 right-0 w-96 h-96 bg-brand-100/40 rounded-full blur-[120px] pointer-events-none" />
-                <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-transparent to-transparent pointer-events-none" />
+            {/* Hero – to kolonner */}
+            <section className="py-12 md:py-20 px-6 relative overflow-hidden bg-gradient-to-b from-blue-50/60 to-white">
+                {/* Baggrunds-blob */}
+                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-100/30 rounded-full blur-[130px] pointer-events-none" />
+                <div className="absolute bottom-0 left-0 w-80 h-80 bg-blue-100/40 rounded-full blur-[100px] pointer-events-none" />
+
                 <div className="relative max-w-7xl mx-auto">
-                    <div className="max-w-2xl">
-                        <div>
+                    <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+                        {/* Venstre – tekst */}
+                        <div className="order-2 lg:order-1">
                             <AnimateSection delay={100}>
                                 <span className="inline-block text-sm font-medium text-brand-600 uppercase tracking-wider mb-4">
-                                    Om mig
+                                    {about.badge}
                                 </span>
-                                <h1 className="text-4xl sm:text-5xl font-bold text-neutral-900 tracking-tight mb-6">
-                                    Static Ads, CRO & Shopify
+                                <h1 className="text-4xl sm:text-5xl font-bold text-neutral-900 tracking-tight mb-6 leading-[1.1]">
+                                    {about.title}
                                 </h1>
                             </AnimateSection>
 
                             <AnimateSection delay={200}>
                                 <p className="text-lg text-neutral-600 leading-relaxed mb-4">
-                                    Jeg er bosat i Viborg og har en passion for e-commerce og digital markedsføring.
-                                    Jeg hjælper danske virksomheder med at vækste online gennem effektive static ads,
-                                    CRO-optimering og Shopify-webshops der konverterer.
+                                    {about.intro}
                                 </p>
                             </AnimateSection>
 
                             <AnimateSection delay={300}>
                                 <p className="text-neutral-500 leading-relaxed mb-4">
-                                    Min tilgang er enkel: Jeg fokuserer på resultater, ikke lange rapporter der samler støv.
-                                    Jeg tror på at teste, måle og optimere kontinuerligt.
+                                    {about.body}
                                 </p>
                             </AnimateSection>
 
-                            <AnimateSection delay={350}>
-                                <p className="text-neutral-500 leading-relaxed mb-8">
-                                    Jeg stopper ikke før du er tilfreds. Det er ikke bare noget jeg siger – det er hvad
-                                    mine kunder siger om at arbejde med mig.
-                                </p>
-                            </AnimateSection>
+                            {about.closing && (
+                                <AnimateSection delay={350}>
+                                    <p className="text-neutral-500 leading-relaxed mb-8">
+                                        {about.closing}
+                                    </p>
+                                </AnimateSection>
+                            )}
 
+                            {/* Skills */}
                             <AnimateSection delay={400}>
                                 <div className="flex flex-wrap gap-2 mb-8">
-                                    {skills.map((skill) => (
+                                    {skills.map((skill: string) => (
                                         <span
                                             key={skill}
                                             className="px-3 py-1.5 rounded-full bg-neutral-100 border border-neutral-200/80 text-neutral-700 text-sm hover:border-brand-300 hover:bg-brand-50 hover:text-brand-700 transition-all duration-300"
@@ -78,25 +109,31 @@ export default function AboutPage() {
                                 </div>
                             </AnimateSection>
 
+                            {/* Fordele */}
                             <AnimateSection delay={500}>
                                 <div className="space-y-3 mb-8">
-                                    {benefits.map((b) => (
+                                    {benefits.map((b: string) => (
                                         <div key={b} className="flex items-center gap-3">
-                                            <Check className="w-5 h-5 text-green-500 flex-shrink-0" />
+                                            <div className="w-5 h-5 rounded-full bg-green-50 border border-green-200/60 flex items-center justify-center flex-shrink-0">
+                                                <Check className="w-3 h-3 text-green-600" />
+                                            </div>
                                             <span className="text-neutral-700">{b}</span>
                                         </div>
                                     ))}
                                     <div className="flex items-center gap-3">
-                                        <Zap className="w-5 h-5 text-amber-500" />
-                                        <span className="text-neutral-700">Klar til nye projekter</span>
+                                        <div className="w-5 h-5 rounded-full bg-amber-50 border border-amber-200/60 flex items-center justify-center flex-shrink-0">
+                                            <Zap className="w-3 h-3 text-amber-500" />
+                                        </div>
+                                        <span className="text-neutral-700">{about.availabilityText}</span>
                                     </div>
                                 </div>
                             </AnimateSection>
 
+                            {/* CTA knapper */}
                             <AnimateSection delay={600}>
                                 <div className="flex flex-wrap gap-4">
                                     <a
-                                        href="https://www.linkedin.com/in/frederik-høgh-simonsen/"
+                                        href={contactLinkedin}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="btn-primary"
@@ -111,19 +148,70 @@ export default function AboutPage() {
                                 </div>
                             </AnimateSection>
                         </div>
+
+                        {/* Højre – billede */}
+                        <AnimateSection delay={200} animation="slide-right" className="order-1 lg:order-2">
+                            <div className="relative mx-auto max-w-sm lg:max-w-none">
+                                {/* Baggrundsdekoration */}
+                                <div className="absolute -inset-4 bg-gradient-to-br from-brand-100/40 to-blue-100/40 rounded-3xl blur-xl" />
+                                <div className="absolute -top-3 -right-3 w-full h-full rounded-2xl border-2 border-brand-200/40" />
+
+                                {/* Billede */}
+                                <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-neutral-200/60 aspect-[3/4]">
+                                    <Image
+                                        src="/images/frederik.png"
+                                        alt="Frederik Høgh Simonsen – Konvertio"
+                                        fill
+                                        className="object-cover object-top"
+                                        sizes="(max-width: 1024px) 80vw, 45vw"
+                                        priority
+                                    />
+                                    {/* Gradient overlay i bunden */}
+                                    <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-neutral-900/60 to-transparent" />
+                                    <div className="absolute bottom-5 left-5 right-5">
+                                        <div className="flex items-center gap-2">
+                                            <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+                                            <span className="text-white text-sm font-medium">{about.availabilityText}</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* Floating badge – lokation */}
+                                <div className="absolute -bottom-4 -left-4 bg-white rounded-xl px-4 py-3 shadow-lg border border-neutral-200/80 flex items-center gap-2.5">
+                                    <div className="w-8 h-8 rounded-lg bg-brand-50 border border-brand-200/60 flex items-center justify-center flex-shrink-0">
+                                        <MapPin className="w-4 h-4 text-brand-600" />
+                                    </div>
+                                    <div>
+                                        <p className="text-xs text-neutral-500 leading-none mb-0.5">Baseret i</p>
+                                        <p className="text-sm font-semibold text-neutral-900">Viborg, Danmark</p>
+                                    </div>
+                                </div>
+
+                                {/* Floating badge – erfaring */}
+                                <div className="absolute -top-4 -right-4 bg-white rounded-xl px-4 py-3 shadow-lg border border-neutral-200/80">
+                                    <div className="flex items-center gap-1 mb-0.5">
+                                        {[...Array(5)].map((_, i) => (
+                                            <span key={i} className="text-amber-400 text-xs leading-none">★</span>
+                                        ))}
+                                    </div>
+                                    <p className="text-xs text-neutral-500">Topbedømt freelancer</p>
+                                </div>
+                            </div>
+                        </AnimateSection>
                     </div>
                 </div>
             </section>
 
+            {/* CTA */}
             <section className="py-12 md:py-20 px-6 relative overflow-hidden bg-gradient-to-b from-white to-blue-50/40">
                 <div className="relative max-w-4xl mx-auto text-center">
                     <AnimateSection>
-                        <h2 className="text-3xl sm:text-4xl font-bold text-neutral-900 mb-4">Klar til at samarbejde?</h2>
+                        <h2 className="text-3xl sm:text-4xl font-bold text-neutral-900 mb-4">{about.ctaH2}</h2>
                         <p className="text-neutral-600 mb-8 max-w-xl mx-auto text-left md:text-center">
-                            Lad os tage en uforpligtende snak om hvordan jeg kan hjælpe din virksomhed med at vækste online.
+                            {about.ctaSubtitle}
                         </p>
                         <Link href="/kontakt" className="btn-primary text-base px-10 py-4">
-                            Start samtalen
+                            {about.ctaButtonText}
                             <ArrowRight className="w-5 h-5" />
                         </Link>
                     </AnimateSection>

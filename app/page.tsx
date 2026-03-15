@@ -9,6 +9,7 @@ import ServiceCardsGrid from '@/components/ServiceCardsGrid'
 import HeroWorkflow from '@/components/HeroWorkflow'
 import { getAllBlogPosts } from '@/lib/sanity/fetchBlog'
 import { getAllServices } from '@/lib/sanity/fetchServices'
+import { getSiteSettings } from '@/lib/sanity/fetchSettings'
 
 export const revalidate = 60
 import { SITE_URL } from '@/lib/site'
@@ -19,39 +20,83 @@ export const metadata: Metadata = {
   alternates: { canonical: SITE_URL },
 }
 
-const badges = [
+// ── Fallback-indhold (bruges hvis Sanity ikke har data) ──────────────
+const badgeIcons = [
   { icon: Target, label: 'Static Ads' },
   { icon: TrendingUp, label: 'CRO' },
   { icon: ShoppingBag, label: 'Shopify' },
 ]
 
-const problems = [
-  { title: 'Ads der ikke konverterer', desc: 'Du bruger penge på annoncer, men får ikke salg tilbage' },
-  { title: 'Svage creatives', desc: 'Dine annoncer bliver scrollet forbi uden engagement' },
-  { title: 'Webshop drop-off', desc: 'Besøgende forlader din shop før de når til checkout' },
-  { title: 'Uklar strategi', desc: 'Du ved ikke præcis hvor problemerne ligger' },
-]
+const defaultHero = {
+  socialProofText: 'Hurtig levering · Professionelt resultat',
+  availabilityText: 'Klar til nye opgaver',
+  title1: 'Løft dit brand med',
+  titleHighlight: 'stærke',
+  title2: 'kreative løsninger',
+  subtitle: 'Jeg hjælper danske e-commerce virksomheder med at skabe static ads der konverterer, Shopify-webshops der sælger, og CRO-analyser der giver resultater.',
+  ctaPrimary: 'Se mine ydelser',
+  ctaSecondary: 'Kontakt mig',
+}
 
-const solutions = [
-  { title: 'Datadrevet tilgang', desc: 'Jeg finder præcis hvor du taber kunder og laver konkrete løsninger' },
-  { title: 'Testede koncepter', desc: 'Static ads og designs der er bevist at stoppe scrollet og skabe salg' },
-  { title: 'Hurtig eksekvering', desc: 'Fra analyse til implementation – jeg sætter det i værk med det samme' },
-  { title: 'Løbende optimering', desc: 'Kontinuerlige forbedringer baseret på performance-data' },
-]
+const defaultHomePage = {
+  problemsSectionLabel: 'Kender du det?',
+  problemsSectionH2: 'Fra problem til løsning',
+  problemsCardTitle: 'Kender du problemerne?',
+  solutionsCardTitle: 'Sådan løser jeg det',
+  solutionsCtaText: 'Start din gratis samtale',
+  problems: [
+    { title: 'Ads der ikke konverterer', desc: 'Du bruger penge på annoncer, men får ikke salg tilbage' },
+    { title: 'Svage creatives', desc: 'Dine annoncer bliver scrollet forbi uden engagement' },
+    { title: 'Webshop drop-off', desc: 'Besøgende forlader din shop før de når til checkout' },
+    { title: 'Uklar strategi', desc: 'Du ved ikke præcis hvor problemerne ligger' },
+  ],
+  solutions: [
+    { title: 'Datadrevet tilgang', desc: 'Jeg finder præcis hvor du taber kunder og laver konkrete løsninger' },
+    { title: 'Testede koncepter', desc: 'Static ads og designs der er bevist at stoppe scrollet og skabe salg' },
+    { title: 'Hurtig eksekvering', desc: 'Fra analyse til implementation – jeg sætter det i værk med det samme' },
+    { title: 'Løbende optimering', desc: 'Kontinuerlige forbedringer baseret på performance-data' },
+  ],
+  servicesH2part1: 'Alt hvad du skal bruge for at',
+  servicesH2highlight: 'accelerere',
+  servicesH2part2: 'dit brand',
+  servicesSubtitle: 'Fra static ads der stopper scroll til webshops der konverterer – her er mine ydelser.',
+  aboutH2: 'Indhold der føles ægte – fordi det er det',
+  aboutPara1: 'Jeg er Frederik – ekspert i udvikling af shops til SMV\'er til ecommerce, med dyb erfaring i CRO-gennemgange og static ads der konverterer.',
+  aboutPara2: 'Baseret i Viborg og arbejder med kunder over hele Danmark. Mit mål er simpelt: konkrete, brugbare løsninger – ikke lange rapporter der samler støv.',
+  blogSectionH2: 'Seneste indsigter',
+  blogSectionSubtitle: 'Praktiske guides til dig der vil have mere ud af din webshop og markedsføring.',
+  ctaH2part1: 'Klar til at skabe indhold du er',
+  ctaH2highlight: 'stolt',
+  ctaH2part2: 'af at dele?',
+  ctaSubtitle: 'Tag en uforpligtende snak om hvordan jeg kan hjælpe din virksomhed med at vækste online.',
+  ctaPrimaryText: 'Kontakt mig i dag',
+  ctaSecondaryText: 'Se ydelser & priser',
+}
+
+const defaultAboutSkills = ['Shopify', 'CRO', 'Static Ads', 'Facebook Ads', 'WordPress', 'UX Design']
+const defaultAboutBenefits = ['Gratis indledende samtale', 'Konkrete anbefalinger fra dag 1', 'Stopper ikke før du er tilfreds', 'Fast pris – ingen skjulte gebyrer']
 
 export default async function HomePage() {
-  const allPosts = await getAllBlogPosts()
+  const [allPosts, services, settings] = await Promise.all([
+    getAllBlogPosts(),
+    getAllServices(),
+    getSiteSettings(),
+  ])
   const recentPosts = allPosts.slice(0, 3)
-  const services = await getAllServices()
+
+  const hero = { ...defaultHero, ...(settings?.hero ?? {}) }
+  const hp = { ...defaultHomePage, ...(settings?.homePage ?? {}) }
+  const problems = (hp.problems && hp.problems.length > 0) ? hp.problems : defaultHomePage.problems
+  const solutions = (hp.solutions && hp.solutions.length > 0) ? hp.solutions : defaultHomePage.solutions
+  const aboutSkills = (settings?.about?.skills && settings.about.skills.length > 0) ? settings.about.skills : defaultAboutSkills
+  const aboutBenefits = (settings?.about?.benefits && settings.about.benefits.length > 0) ? settings.about.benefits : defaultAboutBenefits
 
   return (
     <div className="min-h-screen">
       {/* Hero */}
       <section className="hero-dark relative min-h-[100svh] flex flex-col justify-center pt-[100px] pb-12 px-6 overflow-hidden">
-        {/* Decorative blobs */}
         <div className="absolute top-1/4 right-0 w-[600px] h-[600px] rounded-full bg-brand-500/30 blur-[140px] pointer-events-none" />
         <div className="absolute bottom-1/4 left-0 w-[400px] h-[400px] rounded-full bg-brand-700/20 blur-[120px] pointer-events-none" />
-        {/* Bottom fade into next section */}
         <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-white/8 to-transparent pointer-events-none" />
 
         <div className="relative max-w-7xl mx-auto w-full">
@@ -66,41 +111,40 @@ export default async function HomePage() {
                     ))}
                   </div>
                   <span className="text-white/40">|</span>
-                  <span>Hurtig levering · Professionelt resultat</span>
+                  <span>{hero.socialProofText}</span>
                 </div>
               </AnimateSection>
 
               <AnimateSection delay={100}>
                 <h1 className="text-[2.6rem] sm:text-5xl lg:text-5xl xl:text-6xl font-bold text-white leading-[1.0] tracking-tight mb-6">
-                  Løft dit brand med{' '}
-                  <span className="gradient-text-brand">stærke</span>{' '}
-                  kreative løsninger
+                  {hero.title1}{' '}
+                  <span className="gradient-text-brand">{hero.titleHighlight}</span>{' '}
+                  {hero.title2}
                 </h1>
               </AnimateSection>
 
               <AnimateSection delay={200}>
                 <p className="text-base sm:text-lg text-neutral-300 leading-relaxed mb-7">
-                  Jeg hjælper danske e-commerce virksomheder med at skabe static ads der konverterer,
-                  Shopify-webshops der sælger, og CRO-analyser der giver resultater.
+                  {hero.subtitle}
                 </p>
               </AnimateSection>
 
               <AnimateSection delay={300}>
                 <div className="flex flex-wrap gap-4 mb-7">
                   <Link href="/ydelser" className="btn-primary text-sm px-6 py-3">
-                    Se mine ydelser
+                    {hero.ctaPrimary}
                     <ArrowRight className="w-5 h-5" />
                   </Link>
                   <Link href="/kontakt" className="inline-flex items-center gap-2 rounded-full border border-white/30 text-white hover:bg-white/10 hover:border-white/50 px-6 py-3 text-sm font-medium transition-all duration-300">
                     <Mail className="w-4 h-4" />
-                    Kontakt mig
+                    {hero.ctaSecondary}
                   </Link>
                 </div>
               </AnimateSection>
 
               <AnimateSection delay={400}>
                 <div className="flex flex-wrap gap-2 sm:gap-3">
-                  {badges.map((badge) => (
+                  {badgeIcons.map((badge) => (
                     <div
                       key={badge.label}
                       className="flex items-center gap-1.5 sm:gap-2.5 px-3 py-2 sm:px-4 sm:py-2.5 rounded-xl bg-white/10 border border-white/20 hover:bg-white/20 transition-all duration-300"
@@ -117,7 +161,7 @@ export default async function HomePage() {
             <AnimateSection delay={300} animation="slide-right" className="hidden lg:flex flex-col items-end gap-4 pt-8">
               <div className="inline-flex items-center gap-2 self-end px-4 py-2 rounded-full bg-green-500/15 border border-green-400/30 text-sm text-green-300">
                 <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse flex-shrink-0" />
-                Klar til nye opgaver
+                {hero.availabilityText}
               </div>
               <HeroWorkflow />
             </AnimateSection>
@@ -125,15 +169,15 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Problem / Solution – redesigned */}
+      {/* Problem / Solution */}
       <section className="py-16 md:py-24 px-6 bg-gradient-to-b from-blue-100 to-blue-50">
         <div className="max-w-7xl mx-auto">
           <AnimateSection className="text-center mb-12">
             <span className="inline-block text-sm font-medium text-brand-600 uppercase tracking-wider mb-4">
-              Kender du det?
+              {hp.problemsSectionLabel}
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-900 tracking-tight mb-4">
-              Fra problem til løsning
+              {hp.problemsSectionH2}
             </h2>
           </AnimateSection>
 
@@ -142,10 +186,10 @@ export default async function HomePage() {
             <AnimateSection animation="slide-left">
               <div className="rounded-2xl border border-neutral-200/80 overflow-hidden shadow-sm">
                 <div className="px-6 py-5 border-b border-neutral-200/60 bg-neutral-50">
-                  <h3 className="text-lg font-bold text-neutral-900">Kender du problemerne?</h3>
+                  <h3 className="text-lg font-bold text-neutral-900">{hp.problemsCardTitle}</h3>
                 </div>
                 <div className="p-6 space-y-2.5 bg-white">
-                  {problems.map((p) => (
+                  {problems.map((p: { title: string; desc: string }) => (
                     <div key={p.title} className="flex items-start gap-4">
                       <div className="w-8 h-8 rounded-lg bg-red-50 border border-red-100 flex items-center justify-center flex-shrink-0 mt-0.5 hover:scale-110 hover:bg-red-100 transition-all duration-200">
                         <X className="w-4 h-4 text-red-500" />
@@ -164,10 +208,10 @@ export default async function HomePage() {
             <AnimateSection animation="slide-right" delay={150}>
               <div className="rounded-2xl border border-brand-200/60 overflow-hidden shadow-sm bg-gradient-to-br from-brand-50/60 to-white">
                 <div className="px-6 py-5 border-b border-brand-200/40 bg-brand-50/80">
-                  <h3 className="text-lg font-bold text-neutral-900">Sådan løser jeg det</h3>
+                  <h3 className="text-lg font-bold text-neutral-900">{hp.solutionsCardTitle}</h3>
                 </div>
                 <div className="p-6 space-y-2.5">
-                  {solutions.map((s) => (
+                  {solutions.map((s: { title: string; desc: string }) => (
                     <div key={s.title} className="flex items-start gap-4">
                       <div className="w-8 h-8 rounded-lg bg-green-50 border border-green-200/60 flex items-center justify-center flex-shrink-0 mt-0.5 hover:scale-110 hover:bg-green-100 transition-all duration-200">
                         <Check className="w-4 h-4 text-green-600" />
@@ -180,7 +224,7 @@ export default async function HomePage() {
                   ))}
                   <div className="pt-2">
                     <Link href="/kontakt" className="btn-primary w-full justify-center">
-                      Start din gratis samtale
+                      {hp.solutionsCtaText}
                       <ArrowRight className="w-4 h-4" />
                     </Link>
                   </div>
@@ -199,11 +243,12 @@ export default async function HomePage() {
               Ydelser
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-900 tracking-tight mb-4">
-              Alt hvad du skal bruge for at{' '}
-              <span className="gradient-text-brand">accelerere</span> dit brand
+              {hp.servicesH2part1}{' '}
+              <span className="gradient-text-brand">{hp.servicesH2highlight}</span>{' '}
+              {hp.servicesH2part2}
             </h2>
             <p className="text-lg text-neutral-600 max-w-2xl mx-auto text-left md:text-center">
-              Fra static ads der stopper scroll til webshops der konverterer – her er mine ydelser.
+              {hp.servicesSubtitle}
             </p>
           </AnimateSection>
 
@@ -258,26 +303,25 @@ export default async function HomePage() {
                   Om mig
                 </span>
                 <h2 className="text-3xl sm:text-4xl font-bold text-neutral-900 tracking-tight mb-6">
-                  Indhold der føles ægte – fordi det er det
+                  {hp.aboutH2}
                 </h2>
               </AnimateSection>
 
               <AnimateSection delay={200}>
                 <p className="text-lg text-neutral-600 leading-relaxed mb-4">
-                  Jeg er Frederik – ekspert i udvikling af shops til SMV&apos;er til ecommerce, med dyb erfaring i CRO-gennemgange og static ads der konverterer.
+                  {hp.aboutPara1}
                 </p>
               </AnimateSection>
 
               <AnimateSection delay={300}>
                 <p className="text-neutral-500 leading-relaxed mb-8">
-                  Baseret i Viborg og arbejder med kunder over hele Danmark.
-                  Mit mål er simpelt: konkrete, brugbare løsninger – ikke lange rapporter der samler støv.
+                  {hp.aboutPara2}
                 </p>
               </AnimateSection>
 
               <AnimateSection delay={400}>
                 <div className="flex flex-wrap gap-2 mb-8">
-                  {['Shopify', 'CRO', 'Static Ads', 'Facebook Ads', 'WordPress', 'UX Design'].map((skill) => (
+                  {aboutSkills.map((skill: string) => (
                     <span key={skill} className="px-3 py-1.5 rounded-full bg-neutral-100 border border-neutral-200/80 text-neutral-700 text-sm hover:border-brand-300 hover:text-brand-700 hover:bg-brand-50 transition-all duration-200">
                       {skill}
                     </span>
@@ -287,7 +331,7 @@ export default async function HomePage() {
 
               <AnimateSection delay={500}>
                 <div className="space-y-3 mb-8">
-                  {['Gratis indledende samtale', 'Konkrete anbefalinger fra dag 1', 'Stopper ikke før du er tilfreds', 'Fast pris – ingen skjulte gebyrer'].map((b) => (
+                  {aboutBenefits.map((b: string) => (
                     <div key={b} className="flex items-center gap-3">
                       <Check className="w-4 h-4 text-green-500 flex-shrink-0" />
                       <span className="text-sm text-neutral-700">{b}</span>
@@ -295,7 +339,7 @@ export default async function HomePage() {
                   ))}
                   <div className="flex items-center gap-3">
                     <Zap className="w-4 h-4 text-amber-500" />
-                    <span className="text-sm text-neutral-700">Klar til nye projekter</span>
+                    <span className="text-sm text-neutral-700">{settings?.about?.availabilityText ?? 'Klar til nye projekter'}</span>
                   </div>
                 </div>
               </AnimateSection>
@@ -319,10 +363,10 @@ export default async function HomePage() {
               Blog & Viden
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-900 tracking-tight mb-4">
-              Seneste indsigter
+              {hp.blogSectionH2}
             </h2>
             <p className="text-lg text-neutral-600 max-w-xl mx-auto text-left md:text-center">
-              Praktiske guides til dig der vil have mere ud af din webshop og markedsføring.
+              {hp.blogSectionSubtitle}
             </p>
           </AnimateSection>
 
@@ -334,7 +378,7 @@ export default async function HomePage() {
                     <div className="aspect-video overflow-hidden bg-neutral-100">
                       {post.image && <Image
                         src={post.image}
-                        alt={post.title}
+                        alt={(post as { imageAlt?: string }).imageAlt || post.title}
                         width={600}
                         height={338}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
@@ -376,19 +420,20 @@ export default async function HomePage() {
               Klar til at starte?
             </span>
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-neutral-900 tracking-tight mb-6">
-              Klar til at skabe indhold du er{' '}
-              <span className="gradient-text-brand">stolt</span> af at dele?
+              {hp.ctaH2part1}{' '}
+              <span className="gradient-text-brand">{hp.ctaH2highlight}</span>{' '}
+              {hp.ctaH2part2}
             </h2>
             <p className="text-lg text-neutral-600 mb-12 max-w-xl mx-auto text-left md:text-center">
-              Tag en uforpligtende snak om hvordan jeg kan hjælpe din virksomhed med at vækste online.
+              {hp.ctaSubtitle}
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Link href="/kontakt" className="btn-primary text-base px-10 py-4">
-                Kontakt mig i dag
+                {hp.ctaPrimaryText}
                 <ArrowRight className="w-5 h-5" />
               </Link>
               <Link href="/ydelser" className="btn-secondary text-base px-10 py-4">
-                Se ydelser & priser
+                {hp.ctaSecondaryText}
               </Link>
             </div>
           </div>
