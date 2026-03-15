@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 const defaultContact = {
     badge: 'Kontakt',
     h1: 'Lad os tale om dit projekt',
-    subtitle: 'Ræk ud for en gratis og uforpligtende snak om, hvordan jeg kan hjælpe din virksomhed med at vækste online. Jeg vender tilbage inden for 24 timer.',
+    subtitle: 'Ræk ud for en gratis og uforpligtende dialog om, hvordan jeg kan hjælpe din virksomhed med at vækste. Jeg vender tilbage inden for 24 timer.',
     benefits: [
         'Gratis og uforpligtende snak',
         'Svar inden for 24 timer',

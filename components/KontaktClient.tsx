@@ -9,8 +9,7 @@ const serviceOptions = [
     { value: 'static-ads', label: 'Static Ads' },
     { value: 'cro', label: 'CRO Analyse' },
     { value: 'shopify', label: 'Shopify Webshop' },
-    { value: 'website', label: 'WordPress/Website' },
-    { value: 'facebook-ads', label: 'Facebook/Instagram Ads' },
+    { value: 'website', label: 'Website' },
     { value: 'andet', label: 'Andet' },
 ]
 

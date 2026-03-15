@@ -151,7 +151,7 @@ export default async function AboutPage() {
 
                         {/* Højre – billede */}
                         <AnimateSection delay={200} animation="slide-right" className="order-1 lg:order-2">
-                            <div className="relative mx-auto max-w-sm lg:max-w-none">
+                            <div className="relative mx-auto max-w-xs lg:max-w-xs xl:max-w-sm">
                                 {/* Baggrundsdekoration */}
                                 <div className="absolute -inset-4 bg-gradient-to-br from-brand-100/40 to-blue-100/40 rounded-3xl blur-xl" />
                                 <div className="absolute -top-3 -right-3 w-full h-full rounded-2xl border-2 border-brand-200/40" />
@@ -160,15 +160,15 @@ export default async function AboutPage() {
                                 <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-neutral-200/60 aspect-[3/4]">
                                     <Image
                                         src="/images/frederik.png"
-                                        alt="Frederik Høgh Simonsen – Konvertio"
+                                        alt="Frederik – Konvertio"
                                         fill
-                                        className="object-cover object-top"
-                                        sizes="(max-width: 1024px) 80vw, 45vw"
+                                        className="object-cover object-top transition-transform duration-700 hover:scale-105"
+                                        sizes="(max-width: 1024px) 70vw, 35vw"
                                         priority
                                     />
                                     {/* Gradient overlay i bunden */}
-                                    <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-neutral-900/60 to-transparent" />
-                                    <div className="absolute bottom-5 left-5 right-5">
+                                    <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-neutral-900/70 to-transparent" />
+                                    <div className="absolute bottom-4 left-4 right-4">
                                         <div className="flex items-center gap-2">
                                             <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
                                             <span className="text-white text-sm font-medium">{about.availabilityText}</span>
@@ -177,24 +177,24 @@ export default async function AboutPage() {
                                 </div>
 
                                 {/* Floating badge – lokation */}
-                                <div className="absolute -bottom-4 -left-4 bg-white rounded-xl px-4 py-3 shadow-lg border border-neutral-200/80 flex items-center gap-2.5">
-                                    <div className="w-8 h-8 rounded-lg bg-brand-50 border border-brand-200/60 flex items-center justify-center flex-shrink-0">
-                                        <MapPin className="w-4 h-4 text-brand-600" />
+                                <div className="absolute -bottom-4 -left-4 bg-white rounded-xl px-3 py-2.5 shadow-lg border border-neutral-200/80 flex items-center gap-2">
+                                    <div className="w-7 h-7 rounded-lg bg-brand-50 border border-brand-200/60 flex items-center justify-center flex-shrink-0">
+                                        <MapPin className="w-3.5 h-3.5 text-brand-600" />
                                     </div>
                                     <div>
                                         <p className="text-xs text-neutral-500 leading-none mb-0.5">Baseret i</p>
-                                        <p className="text-sm font-semibold text-neutral-900">Viborg, Danmark</p>
+                                        <p className="text-xs font-semibold text-neutral-900">Viborg, Danmark</p>
                                     </div>
                                 </div>
 
-                                {/* Floating badge – erfaring */}
-                                <div className="absolute -top-4 -right-4 bg-white rounded-xl px-4 py-3 shadow-lg border border-neutral-200/80">
-                                    <div className="flex items-center gap-1 mb-0.5">
+                                {/* Floating badge – stjerner */}
+                                <div className="absolute -top-4 -right-4 bg-white rounded-xl px-3 py-2.5 shadow-lg border border-neutral-200/80">
+                                    <div className="flex items-center gap-0.5 mb-0.5">
                                         {[...Array(5)].map((_, i) => (
                                             <span key={i} className="text-amber-400 text-xs leading-none">★</span>
                                         ))}
                                     </div>
-                                    <p className="text-xs text-neutral-500">Topbedømt freelancer</p>
+                                    <p className="text-xs text-neutral-500">Baseret på glade kunder</p>
                                 </div>
                             </div>
                         </AnimateSection>

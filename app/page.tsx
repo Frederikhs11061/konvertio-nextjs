@@ -272,27 +272,51 @@ export default async function HomePage() {
         <div className="relative max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <AnimateSection animation="slide-left">
-              <div className="relative">
-                <div className="aspect-[3/4] rounded-2xl overflow-hidden border border-neutral-200/80 relative shadow-lg">
+              <div className="relative mx-auto max-w-xs lg:max-w-xs xl:max-w-sm">
+                {/* Baggrundsglow */}
+                <div className="absolute -inset-4 bg-gradient-to-br from-brand-100/30 to-blue-100/30 rounded-3xl blur-xl pointer-events-none" />
+                <div className="absolute -top-2 -right-2 w-full h-full rounded-2xl border-2 border-brand-200/30" />
+
+                <div className="relative aspect-[3/4] rounded-2xl overflow-hidden border border-neutral-200/60 shadow-2xl">
                   <Image
                     src="/images/frederik.png"
-                    alt="Frederik"
+                    alt="Frederik – Konvertio"
                     fill
-                    className="object-cover object-top"
-                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className="object-cover object-top transition-transform duration-700 hover:scale-105"
+                    sizes="(max-width: 1024px) 70vw, 30vw"
                     priority
                   />
+                  {/* Gradient overlay */}
+                  <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-neutral-900/60 to-transparent" />
+                  <div className="absolute bottom-4 left-4">
+                    <div className="flex items-center gap-1.5">
+                      <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+                      <span className="text-white text-xs font-medium">Klar til nye projekter</span>
+                    </div>
+                  </div>
                 </div>
-                <div className="absolute -bottom-4 -right-4 p-4 rounded-xl bg-white border border-neutral-200/80 shadow-lg">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-brand-600 flex items-center justify-center">
-                      <span className="text-white text-sm font-bold">K</span>
+
+                {/* Floating badge – Konvertio */}
+                <div className="absolute -bottom-4 -right-4 bg-white rounded-xl px-3 py-2.5 shadow-lg border border-neutral-200/80">
+                  <div className="flex items-center gap-2">
+                    <div className="w-7 h-7 rounded-full bg-brand-600 flex items-center justify-center flex-shrink-0">
+                      <span className="text-white text-xs font-bold">K</span>
                     </div>
                     <div>
-                      <p className="text-sm font-semibold text-neutral-900">Konvertio</p>
+                      <p className="text-xs font-semibold text-neutral-900">Konvertio</p>
                       <p className="text-xs text-neutral-500">Viborg, Danmark</p>
                     </div>
                   </div>
+                </div>
+
+                {/* Floating badge – stjerner */}
+                <div className="absolute -top-4 -left-4 bg-white rounded-xl px-3 py-2.5 shadow-lg border border-neutral-200/80">
+                  <div className="flex items-center gap-0.5 mb-0.5">
+                    {[...Array(5)].map((_, i) => (
+                      <span key={i} className="text-amber-400 text-xs leading-none">★</span>
+                    ))}
+                  </div>
+                  <p className="text-xs text-neutral-500">Baseret på glade kunder</p>
                 </div>
               </div>
             </AnimateSection>
