@@ -15,6 +15,16 @@ const BLOG_SLUGS = [
     'hvad-er-cro',
     'shopify-vs-woocommerce',
     'static-ads-guide',
+    'hvad-koster-static-ads',
+    'cro-analyse-hvad-er-det',
+    'hvad-er-en-statisk-annonce',
+    'ab-test-shopify-guide',
+    'facebook-ads-foerste-kunde',
+    'shopify-webshop-pris-2026',
+    'landingsside-vs-hjemmeside',
+    'shopify-vs-wordpress',
+    'static-ads-vs-video-ads',
+    'cro-vs-mere-trafik',
 ]
 
 export default function sitemap(): MetadataRoute.Sitemap {

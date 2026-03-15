@@ -10,8 +10,8 @@ import { SITE_URL } from '@/lib/site'
 export const revalidate = 60
 
 export const metadata: Metadata = {
-    title: 'Ydelser & Priser – Static Ads, CRO & Webudvikling',
-    description: 'Static Ads, CRO Analyse, Shopify Webshop og websites der konverterer. Se alle ydelser og priser fra Konvertio.',
+    title: 'Static Ads, CRO & Shopify Webshop – Se Priser | Konvertio',
+    description: 'Se priser og pakker på Static Ads, CRO Analyse, Shopify Webshops og websites. Få et uforpligtende tilbud fra Konvertio – levering i hele Danmark.',
     alternates: { canonical: `${SITE_URL}/ydelser` },
 }
 

@@ -11,7 +11,7 @@ export const revalidate = 60
 
 export const metadata: Metadata = {
     title: 'Om mig – Frederik | Ekspert i Static Ads, CRO & Webudvikling',
-    description: 'Mød Frederik – freelance ekspert der hjælper danske virksomheder med static ads, CRO-optimeringer og konverterende webshops. Baseret i Viborg.',
+    description: 'Mød Frederik – baseret i Viborg, ekspert i static ads, CRO og Shopify webshops. Hjælper virksomheder i hele Danmark: København, Aarhus, Odense, Aalborg og mere.',
     alternates: { canonical: `${SITE_URL}/om-mig` },
 }
 
