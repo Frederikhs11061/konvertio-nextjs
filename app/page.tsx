@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 const badgeIcons = [
   { icon: Target, label: 'Static Ads' },
   { icon: TrendingUp, label: 'CRO' },
-  { icon: ShoppingBag, label: 'Shopify' },
+  { icon: ShoppingBag, label: 'Webudvikling' },
 ]
 
 const defaultHero = {
@@ -54,7 +54,7 @@ const defaultHomePage = {
     { title: 'Datadrevet tilgang', desc: 'Jeg finder præcis hvor du taber kunder og laver konkrete løsninger' },
     { title: 'Testede koncepter', desc: 'Static ads og designs der er bevist at stoppe scrollet og skabe salg' },
     { title: 'Hurtig eksekvering', desc: 'Fra analyse til implementation – jeg sætter det i værk med det samme' },
-    { title: 'Løbende optimering', desc: 'Kontinuerlige forbedringer baseret på performance-data' },
+    { title: 'Løbende optimering', desc: 'Mulighed for løbende forbedringer gennem samarbejde' },
   ],
   servicesH2part1: 'Alt hvad du skal bruge for at',
   servicesH2highlight: 'accelerere',
@@ -289,9 +289,9 @@ export default async function HomePage() {
                   {/* Gradient overlay */}
                   <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-neutral-900/80 to-transparent" />
                   <div className="absolute bottom-4 left-4 right-4">
-                    <div className="inline-flex items-center gap-2 px-3 py-2 rounded-full bg-white/15 border border-white/30 backdrop-blur-sm">
-                      <div className="w-2.5 h-2.5 rounded-full bg-green-400 animate-pulse flex-shrink-0" />
-                      <span className="text-white text-sm font-semibold tracking-wide">Klar til nye projekter</span>
+                    <div className="flex items-center gap-1.5">
+                      <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse flex-shrink-0" />
+                      <span className="text-white text-xs font-medium">Klar til nye projekter</span>
                     </div>
                   </div>
                 </div>

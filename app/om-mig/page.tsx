@@ -29,7 +29,7 @@ const defaultBenefits = [
 
 const defaultAbout = {
     badge: 'Om mig',
-    title: 'Static Ads, CRO & Shopify',
+    title: 'Hvem er jeg?',
     intro: 'Jeg er bosat i Viborg og har en passion for e-commerce og digital markedsføring. Jeg hjælper danske virksomheder med at vækste online gennem effektive static ads, CRO-optimering og Shopify-webshops der konverterer.',
     body: 'Min tilgang er enkel: Jeg fokuserer på resultater, ikke lange rapporter der samler støv. Jeg tror på at teste, måle og optimere kontinuerligt.',
     closing: 'Jeg stopper ikke før du er tilfreds. Det er ikke bare noget jeg siger – det er hvad mine kunder siger om at arbejde med mig.',
