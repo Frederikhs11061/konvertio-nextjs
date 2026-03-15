@@ -10,8 +10,8 @@ import { getSiteSettings } from '@/lib/sanity/fetchSettings'
 export const revalidate = 60
 
 export const metadata: Metadata = {
-    title: 'Om mig – Konvertio',
-    description: 'Freelance ekspert i static ads, CRO og Shopify. Baseret i Viborg med passion for e-commerce og digital markedsføring.',
+    title: 'Om mig – Freelance Ekspert i Static Ads, CRO & Webudvikling',
+    description: 'Mød Frederik – freelance ekspert der hjælper danske virksomheder med static ads, CRO-optimeringer og konverterende webshops. Baseret i Viborg.',
     alternates: { canonical: `${SITE_URL}/om-mig` },
 }
 
@@ -28,7 +28,7 @@ const defaultBenefits = [
 
 const defaultAbout = {
     badge: 'Om mig',
-    title: 'Hvem er jeg?',
+    title: 'Freelance Ekspert i Static Ads, CRO & Webudvikling',
     intro: 'Jeg er bosat i Viborg og har en passion for e-commerce og digital markedsføring. Jeg hjælper danske virksomheder med at vækste online gennem effektive static ads, CRO-optimering og Shopify-webshops der konverterer.',
     body: 'Min tilgang er enkel: Jeg fokuserer på resultater, ikke lange rapporter der samler støv. Jeg tror på at teste, måle og optimere kontinuerligt.',
     closing: 'Jeg stopper ikke før du er tilfreds. Det er ikke bare noget jeg siger – det er hvad mine kunder siger om at arbejde med mig.',

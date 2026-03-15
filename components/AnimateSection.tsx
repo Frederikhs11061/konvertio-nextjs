@@ -45,15 +45,15 @@ export default function AnimateSection({
             ([entry]) => {
                 if (entry.isIntersecting) {
                     const t = setTimeout(() => {
-                        el.style.transition = 'opacity 0.5s ease, transform 0.5s ease'
+                        el.style.transition = 'opacity 0.55s cubic-bezier(0.16,1,0.3,1), transform 0.55s cubic-bezier(0.16,1,0.3,1)'
                         el.style.opacity = '1'
                         el.style.transform = 'none'
-                    }, Math.min(delay, 200))
+                    }, delay)
                     observer.unobserve(el)
                     return () => clearTimeout(t)
                 }
             },
-            { threshold: 0.05, rootMargin: '0px 0px -40px 0px' }
+            { threshold: 0.08, rootMargin: '0px 0px -20px 0px' }
         )
         observer.observe(el)
         return () => observer.disconnect()

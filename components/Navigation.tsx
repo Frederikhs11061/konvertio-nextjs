@@ -41,8 +41,8 @@ export default function Navigation() {
 
     // Home: desktop transparent (dark hero below). Sub-pages: always dark.
     const isHome = pathname === '/'
-    const headerBg = isScrolled
-        ? 'bg-slate-900/95 backdrop-blur-2xl shadow-lg shadow-black/30'
+    const headerBg = isOpen || isScrolled
+        ? 'bg-slate-900 backdrop-blur-2xl shadow-lg shadow-black/30'
         : isHome
             ? 'bg-slate-900/85 backdrop-blur-xl lg:bg-slate-900/60 lg:backdrop-blur-xl'
             : 'bg-slate-900/90 backdrop-blur-xl'
