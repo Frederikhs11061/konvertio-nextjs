@@ -14,7 +14,7 @@ export default async function Testimonials() {
                     </h2>
                     <p className="text-lg font-medium text-neutral-500 mb-2">Hvad kunderne siger</p>
                     <p className="text-neutral-400 max-w-xl mx-auto">
-                        Jeg stopper ikke før du er tilfreds. Her er hvad mine kunder siger.
+                        Jeg stopper ikke før du er tilfreds.
                     </p>
                 </AnimateSection>
             </div>
