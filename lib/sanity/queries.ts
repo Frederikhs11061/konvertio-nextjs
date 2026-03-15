@@ -18,12 +18,12 @@ export const allBlogSlugsQuery = `*[_type == "blogPost"] { "slug": slug.current 
 // Services
 export const allServicesQuery = `*[_type == "service"] {
   _id, "slug": slug.current, title, shortTitle, description, shortDescription,
-  icon, features, benefits, packages, packageNote, process, metaTitle, metaDescription,
+  icon, features, benefits, packages, packageNote, process, faq, metaTitle, metaDescription,
 }`
 
 export const serviceBySlugQuery = `*[_type == "service" && slug.current == $slug][0] {
   _id, "slug": slug.current, title, shortTitle, description, shortDescription,
-  icon, features, benefits, packages, packageNote, process, metaTitle, metaDescription,
+  icon, features, benefits, packages, packageNote, process, faq, metaTitle, metaDescription,
 }`
 
 export const allServiceSlugsQuery = `*[_type == "service"] { "slug": slug.current }`

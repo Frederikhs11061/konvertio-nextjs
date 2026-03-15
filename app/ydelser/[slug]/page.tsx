@@ -259,6 +259,46 @@ export default async function YdelsePage({ params }: PageProps) {
                 </section>
             )}
 
+            {/* FAQ */}
+            {service.faq && (service.faq as { question: string; answer: string }[]).length > 0 && (() => {
+                const faqs = service.faq as { question: string; answer: string }[]
+                const faqSchema = {
+                    '@context': 'https://schema.org',
+                    '@type': 'FAQPage',
+                    mainEntity: faqs.map((f) => ({
+                        '@type': 'Question',
+                        name: f.question,
+                        acceptedAnswer: { '@type': 'Answer', text: f.answer },
+                    })),
+                }
+                return (
+                    <section className="py-10 md:py-16 px-6 bg-white">
+                        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+                        <div className="max-w-3xl mx-auto">
+                            <AnimateSection className="text-center mb-10">
+                                <span className="inline-block text-sm font-medium text-brand-600 uppercase tracking-wider mb-3">FAQ</span>
+                                <h2 className="text-3xl font-bold text-neutral-900">Ofte stillede spørgsmål</h2>
+                            </AnimateSection>
+                            <div className="divide-y divide-neutral-100">
+                                {faqs.map((f, i) => (
+                                    <AnimateSection key={i} delay={i * 60} className="py-6">
+                                        <div className="flex gap-4">
+                                            <div className="w-7 h-7 rounded-full bg-brand-50 border border-brand-200/60 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                                <span className="text-xs font-bold text-brand-600">Q</span>
+                                            </div>
+                                            <div>
+                                                <p className="font-semibold text-neutral-900 mb-2">{f.question}</p>
+                                                <p className="text-neutral-600 text-sm leading-relaxed">{f.answer}</p>
+                                            </div>
+                                        </div>
+                                    </AnimateSection>
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+                )
+            })()}
+
             <Testimonials />
 
             {/* Other Services */}

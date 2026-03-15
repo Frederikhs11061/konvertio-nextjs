@@ -64,6 +64,19 @@ export default defineType({
                 preview: { select: { title: 'title', subtitle: 'step' } },
             }],
         }),
+        defineField({
+            name: 'faq',
+            title: 'FAQ – Ofte stillede spørgsmål',
+            type: 'array',
+            of: [{
+                type: 'object',
+                fields: [
+                    { name: 'question', title: 'Spørgsmål', type: 'string' },
+                    { name: 'answer', title: 'Svar', type: 'text', rows: 3 },
+                ],
+                preview: { select: { title: 'question' } },
+            }],
+        }),
         defineField({ name: 'metaTitle', title: 'SEO – Titel', type: 'string' }),
         defineField({ name: 'metaDescription', title: 'SEO – Beskrivelse', type: 'text', rows: 2, validation: (Rule) => Rule.max(160) }),
     ],
