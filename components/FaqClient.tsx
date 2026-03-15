@@ -52,7 +52,7 @@ export default function FaqClient({ faqCategories }: { faqCategories: FaqCategor
                             Find svar på de mest almindelige spørgsmål om static ads, Shopify, CRO og samarbejdet med mig.
                         </p>
                     </AnimateSection>
-                    <AnimateSection className="relative mb-6">
+                    <AnimateSection className="relative mb-2">
                         <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-neutral-400" />
                         <input
                             type="search"

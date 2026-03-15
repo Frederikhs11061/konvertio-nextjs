@@ -64,7 +64,7 @@ export default async function AboutPage() {
     }
 
     return (
-        <div className="pt-20 md:pt-28 bg-white">
+        <div className="pt-20 md:pt-28 bg-gradient-to-b from-blue-50/60 to-white">
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
             <Breadcrumbs items={[{ label: 'Om mig', href: '/om-mig' }]} />
 
