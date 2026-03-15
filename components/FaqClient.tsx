@@ -46,13 +46,13 @@ export default function FaqClient({ faqCategories }: { faqCategories: FaqCategor
                         <span className="inline-block text-sm font-medium text-brand-600 uppercase tracking-wider mb-4">FAQ</span>
                         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-neutral-900 tracking-tight mb-6">
                             Ofte stillede spørgsmål –{' '}
-                            <span className="gradient-text-brand">ærlige svar.</span>
+                            <span className="gradient-text-brand">Få svaret her.</span>
                         </h1>
                         <p className="text-lg text-neutral-600 max-w-2xl mx-auto text-left md:text-center">
                             Find svar på de mest almindelige spørgsmål om static ads, Shopify, CRO og samarbejdet med mig.
                         </p>
                     </AnimateSection>
-                    <AnimateSection className="relative mb-12">
+                    <AnimateSection className="relative mb-6">
                         <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-neutral-400" />
                         <input
                             type="search"
