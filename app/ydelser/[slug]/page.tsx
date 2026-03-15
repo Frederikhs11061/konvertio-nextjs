@@ -334,17 +334,20 @@ export default async function YdelsePage({ params }: PageProps) {
             </section>
 
             {/* CTA */}
-            <section className="py-12 md:py-20 px-6 relative overflow-hidden bg-gradient-to-b from-blue-100 to-blue-50">
-                <div className="relative max-w-4xl mx-auto text-center">
+            <section className="py-12 md:py-20 px-6 bg-white">
+                <div className="max-w-4xl mx-auto">
                     <AnimateSection>
-                        <h2 className="text-3xl sm:text-4xl font-bold text-neutral-900 mb-4">Klar til at komme i gang?</h2>
-                        <p className="text-neutral-600 mb-8 max-w-xl mx-auto text-left md:text-center">
-                            Tag en gratis og uforpligtende snak om {service.shortTitle.toLowerCase()}.
-                        </p>
-                        <Link href="/kontakt" className="btn-primary text-base px-10 py-4">
-                            Kontakt mig i dag
-                            <ArrowRight className="w-5 h-5" />
-                        </Link>
+                        <div className="p-10 md:p-14 rounded-3xl bg-gradient-to-br from-blue-50 to-brand-50/40 border border-blue-200/60 text-center shadow-sm">
+                            <span className="inline-block text-sm font-medium text-brand-600 uppercase tracking-wider mb-4">Kom i gang</span>
+                            <h2 className="text-3xl sm:text-4xl font-bold text-neutral-900 mb-4">Klar til at komme i gang?</h2>
+                            <p className="text-neutral-600 mb-8 max-w-xl mx-auto text-left md:text-center">
+                                Tag en gratis og uforpligtende snak om {service.shortTitle.toLowerCase()}.
+                            </p>
+                            <Link href="/kontakt" className="btn-primary text-base px-10 py-4">
+                                Kontakt mig i dag
+                                <ArrowRight className="w-5 h-5" />
+                            </Link>
+                        </div>
                     </AnimateSection>
                 </div>
             </section>
