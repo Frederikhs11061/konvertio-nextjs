@@ -40,7 +40,7 @@ export const localBusinessSchema = {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
     name: 'Konvertio',
-    description: 'Freelance ekspert i static ads, CRO og Shopify webshops til danske e-commerce virksomheder.',
+    description: 'Specialist i static ads, CRO og Shopify webshops til danske e-commerce virksomheder.',
     url: SITE_URL,
     email: 'frederik@konvertio.dk',
     address: {

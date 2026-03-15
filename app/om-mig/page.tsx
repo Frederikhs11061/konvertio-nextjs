@@ -10,8 +10,8 @@ import { getSiteSettings } from '@/lib/sanity/fetchSettings'
 export const revalidate = 60
 
 export const metadata: Metadata = {
-    title: 'Om mig – Frederik | Ekspert i Static Ads, CRO & Webudvikling',
-    description: 'Mød Frederik – baseret i Viborg, ekspert i static ads, CRO og Shopify webshops. Hjælper virksomheder i hele Danmark: København, Aarhus, Odense, Aalborg og mere.',
+    title: 'Om mig – Frederik | Specialist i Static Ads, CRO & Webudvikling',
+    description: 'Mød Frederik – baseret i Viborg, specialist i static ads, CRO og Shopify webshops. Hjælper virksomheder i hele Danmark: København, Aarhus, Odense, Aalborg og mere.',
     alternates: { canonical: `${SITE_URL}/om-mig` },
 }
 
@@ -28,7 +28,7 @@ const defaultBenefits = [
 
 const defaultAbout = {
     badge: 'Om mig',
-    title: 'Ekspert i Static Ads, CRO & Webudvikling',
+    title: 'Specialist i Static Ads, CRO & Webudvikling',
     intro: 'Jeg er bosat i Viborg og har en passion for e-commerce og digital markedsføring. Jeg hjælper danske virksomheder med at vækste online gennem effektive static ads, CRO-optimering og Shopify-webshops der konverterer.',
     body: 'Min tilgang er enkel: Jeg fokuserer på resultater, ikke lange rapporter der samler støv. Jeg tror på at teste, måle og optimere kontinuerligt.',
     closing: 'Jeg stopper ikke før du er tilfreds. Det er ikke bare noget jeg siger – det er hvad mine kunder siger om at arbejde med mig.',
@@ -54,7 +54,7 @@ export default async function AboutPage() {
         '@context': 'https://schema.org',
         '@type': 'Person',
         name: 'Frederik',
-        jobTitle: 'Freelance Ekspert i Static Ads, CRO & Webudvikling',
+        jobTitle: 'Specialist i Static Ads, CRO & Webudvikling',
         worksFor: { '@type': 'Organization', name: 'Konvertio', url: SITE_URL },
         url: `${SITE_URL}/om-mig`,
         email: 'frederik@konvertio.dk',

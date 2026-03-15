@@ -18,7 +18,7 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Konvertio | Static Ads, CRO & Shopify Ekspert',
+    default: 'Konvertio | Static Ads, CRO & Shopify Specialist',
     template: '%s | Konvertio',
   },
   description: 'Jeg hjælper danske e-commerce virksomheder med at vækste online gennem static ads der konverterer, CRO-analyser og Shopify-webshops.',
@@ -42,20 +42,20 @@ export const metadata: Metadata = {
     locale: 'da_DK',
     url: SITE_URL,
     siteName: 'Konvertio',
-    title: 'Konvertio | Static Ads, CRO & Shopify Ekspert',
+    title: 'Konvertio | Static Ads, CRO & Shopify Specialist',
     description: 'Jeg hjælper danske e-commerce virksomheder med at vækste online gennem static ads der konverterer, CRO-analyser og Shopify-webshops.',
     images: [
       {
         url: `${SITE_URL}/og-image.jpg`,
         width: 1200,
         height: 630,
-        alt: 'Konvertio - Static Ads, CRO & Shopify Ekspert',
+        alt: 'Konvertio - Static Ads, CRO & Shopify Specialist',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Konvertio | Static Ads, CRO & Shopify Ekspert',
+    title: 'Konvertio | Static Ads, CRO & Shopify Specialist',
     description: 'Jeg hjælper danske e-commerce virksomheder med at vækste online.',
     images: [`${SITE_URL}/og-image.jpg`],
   },

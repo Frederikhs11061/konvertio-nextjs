@@ -15,7 +15,7 @@ export const revalidate = 60
 import { SITE_URL } from '@/lib/site'
 
 export const metadata: Metadata = {
-  title: 'Static Ads & CRO Ekspert til e-commerce | Konvertio',
+  title: 'Static Ads & CRO Specialist til e-commerce | Konvertio',
   description: 'Jeg hjælper danske e-commerce virksomheder med at vækste online gennem static ads der konverterer, CRO-analyser og Shopify-webshops.',
   alternates: { canonical: SITE_URL },
 }
@@ -61,7 +61,7 @@ const defaultHomePage = {
   servicesH2part2: 'dit brand',
   servicesSubtitle: 'Fra static ads der stopper scroll til webshops der konverterer – her er mine ydelser.',
   aboutH2: 'Bag Konvertio...',
-  aboutPara1: 'Jeg er Frederik – ekspert i udvikling af shops til SMV\'er til ecommerce, med dyb erfaring i CRO-gennemgange og static ads der konverterer.',
+  aboutPara1: 'Jeg er Frederik – specialist i udvikling af shops til SMV\'er til ecommerce, med dyb erfaring i CRO-gennemgange og static ads der konverterer.',
   aboutPara2: 'Baseret i Viborg og arbejder med kunder over hele Danmark. Mit mål er simpelt: konkrete, brugbare løsninger – ikke lange rapporter der samler støv.',
   blogSectionH2: 'Seneste indsigter',
   blogSectionSubtitle: 'Praktiske guides til dig der vil have mere ud af din webshop og markedsføring.',

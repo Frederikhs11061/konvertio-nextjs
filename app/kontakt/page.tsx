@@ -53,7 +53,7 @@ export default async function KontaktPage() {
             '@type': 'Person',
             name: 'Frederik',
             email: props.email,
-            jobTitle: 'Freelance Ekspert i Static Ads, CRO & Webudvikling',
+            jobTitle: 'Specialist i Static Ads, CRO & Webudvikling',
             worksFor: { '@type': 'Organization', name: 'Konvertio', url: SITE_URL },
         },
     }

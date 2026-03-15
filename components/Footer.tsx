@@ -34,7 +34,7 @@ export default function Footer() {
                             />
                         </Link>
                         <p className="text-sm text-neutral-400 leading-relaxed max-w-xs mb-6">
-                            Freelance ekspert i static ads, CRO og Shopify webshops. Baseret i Viborg, Danmark.
+                            Specialist i static ads, CRO og Shopify webshops. Baseret i Viborg, Danmark.
                         </p>
                         <div className="flex gap-3">
                             <a
