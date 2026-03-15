@@ -4,15 +4,17 @@ import { services as staticServices } from '@/lib/data'
 
 const isConfigured = !!process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
 
+type StaticService = typeof staticServices[number]
+
 // Always override these fields from static data (source of truth for content edits)
-function mergeWithStatic(sanityItem: Record<string, unknown>) {
+function mergeWithStatic(sanityItem: Record<string, unknown>): StaticService {
     const slug = typeof sanityItem.slug === 'object' && sanityItem.slug !== null
         ? (sanityItem.slug as { current: string }).current
         : sanityItem.slug as string
     const staticItem = staticServices.find((s) => s.slug === slug)
-    if (!staticItem) return sanityItem
+    if (!staticItem) return sanityItem as unknown as StaticService
     return {
-        ...sanityItem,
+        ...(sanityItem as unknown as StaticService),
         title: staticItem.title,
         packages: staticItem.packages,
         metaTitle: staticItem.metaTitle,
