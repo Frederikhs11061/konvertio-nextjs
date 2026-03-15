@@ -6,7 +6,7 @@ import { FileText, Search, Layers, Send, RotateCcw, Clock } from 'lucide-react'
 const phases = [
     { icon: FileText,    label: 'Indledende brief',            sub: 'Mål, input & succeskriterier' },
     { icon: Search,      label: 'Research & Analyse',         sub: 'Research, strategi, budskaber & udviklingsretning' },
-    { icon: Layers,      label: 'Udvikling',                  sub: 'Best practice & CRO-optimeret' },
+    { icon: Layers,      label: 'Udvikling',                  sub: 'Best practice og CRO optimering' },
     { icon: Send,        label: 'Levering',                   sub: 'Klar til brug' },
     { icon: RotateCcw,   label: 'Fortsat samarbejde',         sub: 'Pakkeløsninger ved behov' },
 ]
