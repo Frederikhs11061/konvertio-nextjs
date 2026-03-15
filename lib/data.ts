@@ -84,7 +84,7 @@ export const blogPosts: BlogPost[] = [
       <p>Er du klar til at begynde? <a href="/kontakt">Kontakt os i dag</a> og få en uforpligtende snak om hvad CRO kan gøre for din webshop.</p>
     `,
     image: '/images/blog-1.jpg',
-    author: 'Frederik Høgh Simonsen',
+    author: 'Frederik / Ejer af Konvertio',
     date: '2026-02-15',
     readTime: '5 min',
     category: 'CRO',
@@ -147,7 +147,7 @@ export const blogPosts: BlogPost[] = [
       <p>Vil du have en professionel gennemgang af dit checkout-flow og konkrete anbefalinger? <a href="/kontakt">Tag fat i os</a>, og lad os kigge på din Shopify webshop sammen.</p>
     `,
     image: '/images/blog-2.jpg',
-    author: 'Frederik Høgh Simonsen',
+    author: 'Frederik / Ejer af Konvertio',
     date: '2026-02-10',
     readTime: '7 min',
     category: 'Shopify',
@@ -218,7 +218,7 @@ export const blogPosts: BlogPost[] = [
       <p>Vil du have en professionel gennemgang af din webshops performance og konkrete anbefalinger til forbedringer? <a href="/kontakt">Kontakt os</a> og kom i gang i dag.</p>
     `,
     image: '/images/blog-3.jpg',
-    author: 'Frederik Høgh Simonsen',
+    author: 'Frederik / Ejer af Konvertio',
     date: '2026-02-05',
     readTime: '6 min',
     category: 'Performance',
@@ -295,7 +295,7 @@ export const blogPosts: BlogPost[] = [
       <p>Vil du have professionelt designede static ads baseret på systematisk research og CRO-principper? Se vores <a href="/ydelser/static-ads">pakker til static ads</a> — eller <a href="/kontakt">kontakt os</a> for at høre hvad vi kan gøre for din specifikke situation.</p>
     `,
     image: '/images/blog-4.jpg',
-    author: 'Frederik Høgh Simonsen',
+    author: 'Frederik / Ejer af Konvertio',
     date: '2026-02-01',
     readTime: '8 min',
     category: 'Static Ads',
@@ -375,7 +375,7 @@ export const blogPosts: BlogPost[] = [
       <p>Facebook Ads Denmark er et kompetitivt marked — men for de virksomheder der mestrer kombinationen af stærke creatives, solid first-party data og en struktureret test-tilgang, er potentialet enormt. <a href="/kontakt">Kontakt os</a> og lad os gennemgå din nuværende Meta Ads-strategi og identificere de hurtigste veje til forbedret ROAS.</p>
     `,
     image: '/images/blog-5.jpg',
-    author: 'Frederik Høgh Simonsen',
+    author: 'Frederik / Ejer af Konvertio',
     date: '2026-01-25',
     readTime: '10 min',
     category: 'Facebook Ads',
@@ -446,7 +446,7 @@ export const blogPosts: BlogPost[] = [
       <p>Vil du have hjælp til at bygge en annoncestrategi der kombinerer UGC og designede creatives? <a href="/kontakt">Tag kontakt til os</a> og lad os se på hvad der giver mest mening for din webshop.</p>
     `,
     image: '/images/blog-6.jpg',
-    author: 'Frederik Høgh Simonsen',
+    author: 'Frederik / Ejer af Konvertio',
     date: '2026-01-20',
     readTime: '6 min',
     category: 'UGC',
@@ -529,7 +529,7 @@ export const blogPosts: BlogPost[] = [
       <p>CRO-arbejde betaler sig — og det begynder med at forstå din nuværende konverteringsrate og identificere de vigtigste lækager i dit konverteringsflow. Vil du have en professionel gennemgang? <a href="/kontakt">Kontakt os</a> og få en uforpligtende snak om hvad CRO kan gøre for din specifikke webshop.</p>
     `,
     image: '/images/blog-1.jpg', // TODO: add blog-7.jpg when available
-    author: 'Frederik Høgh Simonsen',
+    author: 'Frederik / Ejer af Konvertio',
     date: '2026-01-15',
     readTime: '8 min',
     category: 'CRO',
@@ -605,7 +605,7 @@ export const blogPosts: BlogPost[] = [
       <p>Er du i tvivl om hvilken platform der passer bedst til din situation? <a href="/kontakt">Kontakt os</a> for en uforpligtende snak — vi har erfaring med begge platforme og kan hjælpe dig med at træffe det rigtige valg.</p>
     `,
     image: '/images/blog-1.jpg', // TODO: add blog-8.jpg when available
-    author: 'Frederik Høgh Simonsen',
+    author: 'Frederik / Ejer af Konvertio',
     date: '2026-01-10',
     readTime: '7 min',
     category: 'Shopify',
@@ -744,7 +744,7 @@ export const faqCategories: FAQCategory[] = [
     items: [
       {
         q: 'Hvem er du?',
-        a: 'Jeg hedder Frederik Høgh Simonsen, er bosat i Viborg, og har passion for e-commerce og digital markedsføring. Jeg hjælper danske virksomheder med at vækste online gennem effektive static ads, CRO-optimering og Shopify-webshops.',
+        a: 'Jeg er Frederik – ejer af Konvertio, baseret i Viborg. Jeg hjælper danske virksomheder med at vækste online gennem effektive static ads, CRO-optimering og Shopify-webshops.',
       },
       {
         q: 'Arbejder du kun med danske virksomheder?',

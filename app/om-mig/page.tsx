@@ -176,8 +176,8 @@ export default async function AboutPage() {
                                     </div>
                                 </div>
 
-                                {/* Floating badge – lokation */}
-                                <div className="absolute -bottom-4 -left-4 bg-white rounded-xl px-3 py-2.5 shadow-lg border border-neutral-200/80 flex items-center gap-2">
+                                {/* Floating badge – lokation (højre side, ingen overlap) */}
+                                <div className="absolute -bottom-4 -right-4 bg-white rounded-xl px-3 py-2.5 shadow-lg border border-neutral-200/80 flex items-center gap-2">
                                     <div className="w-7 h-7 rounded-lg bg-brand-50 border border-brand-200/60 flex items-center justify-center flex-shrink-0">
                                         <MapPin className="w-3.5 h-3.5 text-brand-600" />
                                     </div>
@@ -203,19 +203,24 @@ export default async function AboutPage() {
             </section>
 
             {/* CTA */}
-            <section className="py-12 md:py-20 px-6 relative overflow-hidden bg-gradient-to-b from-white to-blue-50/40">
-                <div className="relative max-w-4xl mx-auto text-center">
-                    <AnimateSection>
-                        <h2 className="text-3xl sm:text-4xl font-bold text-neutral-900 mb-4">{about.ctaH2}</h2>
-                        <p className="text-neutral-600 mb-8 max-w-xl mx-auto text-left md:text-center">
+            <section className="py-14 md:py-24 px-6 bg-white">
+                <AnimateSection>
+                    <div className="relative max-w-4xl mx-auto text-center bg-gradient-to-br from-blue-50 to-brand-50/40 border border-blue-200/60 rounded-3xl px-8 py-14 shadow-sm">
+                        <span className="inline-block text-sm font-medium text-brand-600 uppercase tracking-wider mb-6">
+                            Lad os arbejde sammen
+                        </span>
+                        <h2 className="text-3xl sm:text-4xl font-bold text-neutral-900 tracking-tight mb-4">
+                            {about.ctaH2}
+                        </h2>
+                        <p className="text-neutral-600 mb-10 max-w-xl mx-auto text-left md:text-center">
                             {about.ctaSubtitle}
                         </p>
                         <Link href="/kontakt" className="btn-primary text-base px-10 py-4">
                             {about.ctaButtonText}
                             <ArrowRight className="w-5 h-5" />
                         </Link>
-                    </AnimateSection>
-                </div>
+                    </div>
+                </AnimateSection>
             </section>
         </div>
     )

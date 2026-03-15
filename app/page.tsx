@@ -287,11 +287,11 @@ export default async function HomePage() {
                     priority
                   />
                   {/* Gradient overlay */}
-                  <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-neutral-900/60 to-transparent" />
-                  <div className="absolute bottom-4 left-4">
-                    <div className="flex items-center gap-1.5">
-                      <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                      <span className="text-white text-xs font-medium">Klar til nye projekter</span>
+                  <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-neutral-900/80 to-transparent" />
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <div className="inline-flex items-center gap-2 px-3 py-2 rounded-full bg-white/15 border border-white/30 backdrop-blur-sm">
+                      <div className="w-2.5 h-2.5 rounded-full bg-green-400 animate-pulse flex-shrink-0" />
+                      <span className="text-white text-sm font-semibold tracking-wide">Klar til nye projekter</span>
                     </div>
                   </div>
                 </div>

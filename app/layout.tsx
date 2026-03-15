@@ -22,8 +22,8 @@ export const metadata: Metadata = {
   },
   description: 'Jeg hjælper danske e-commerce virksomheder med at vækste online gennem static ads der konverterer, CRO-analyser og Shopify-webshops.',
   keywords: ['static ads', 'CRO', 'konverteringsoptimering', 'Shopify', 'e-commerce', 'Facebook ads', 'Instagram ads', 'Viborg'],
-  authors: [{ name: 'Frederik Høgh Simonsen' }],
-  creator: 'Frederik Høgh Simonsen',
+  authors: [{ name: 'Frederik – Konvertio' }],
+  creator: 'Konvertio',
   publisher: 'Konvertio',
   robots: {
     index: true,
