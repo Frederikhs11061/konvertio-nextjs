@@ -4,6 +4,7 @@ import './globals.css'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import BackToTop from '@/components/BackToTop'
+import GTMProvider from '@/components/GTMProvider'
 import { organizationSchema, websiteSchema, localBusinessSchema } from '@/lib/seo'
 import { SITE_URL } from '@/lib/site'
 
@@ -91,6 +92,7 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
         <Footer />
         <BackToTop />
+        <GTMProvider />
       </body>
     </html>
   )

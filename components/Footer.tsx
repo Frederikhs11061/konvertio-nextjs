@@ -111,6 +111,14 @@ export default function Footer() {
                     <p className="text-xs text-neutral-500">
                         © {new Date().getFullYear()} Konvertio · Viborg, Danmark
                     </p>
+                    <div className="flex gap-4">
+                        <Link href="/privatlivspolitik" className="text-xs text-neutral-500 hover:text-neutral-300 transition-colors duration-300">
+                            Privatlivspolitik
+                        </Link>
+                        <Link href="/cookiepolitik" className="text-xs text-neutral-500 hover:text-neutral-300 transition-colors duration-300">
+                            Cookiepolitik
+                        </Link>
+                    </div>
                 </div>
             </AnimateSection>
         </footer>
