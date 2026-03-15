@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     description: 'Jeg hjælper danske e-commerce virksomheder med at vækste online gennem static ads der konverterer, CRO-analyser og Shopify-webshops.',
     images: [
       {
-        url: `${SITE_URL}/og-image.jpg`,
+        url: `${SITE_URL}/images/konvertio1200x630.png`,
         width: 1200,
         height: 630,
         alt: 'Konvertio - Static Ads, CRO & Shopify Specialist',
