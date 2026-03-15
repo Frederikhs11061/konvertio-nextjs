@@ -53,12 +53,6 @@ export const metadata: Metadata = {
       },
     ],
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Konvertio | Static Ads, CRO & Shopify Specialist',
-    description: 'Jeg hjælper danske e-commerce virksomheder med at vækste online.',
-    images: [`${SITE_URL}/og-image.jpg`],
-  },
   alternates: {
     canonical: SITE_URL,
   },

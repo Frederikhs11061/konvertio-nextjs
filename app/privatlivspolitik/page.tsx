@@ -20,7 +20,7 @@ export default function PrivacyPolicyPage() {
 
                     <h2>1. Dataansvarlig</h2>
                     <p>
-                        Frederik Høgh Simonsen (Konvertio)<br />
+                        Konvertio<br />
                         Viborg, Danmark<br />
                         E-mail: <a href="mailto:frederik@konvertio.dk">frederik@konvertio.dk</a>
                     </p>
