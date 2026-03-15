@@ -989,6 +989,10 @@ export interface Service {
   metaTitle: string;
   metaDescription: string;
   packageNote?: string;
+  faq?: {
+    question: string;
+    answer: string;
+  }[];
 }
 
 export const services: Service[] = [
