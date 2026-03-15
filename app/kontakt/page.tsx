@@ -7,7 +7,7 @@ import { SITE_URL } from '@/lib/site'
 export const revalidate = 60
 
 export const metadata: Metadata = {
-    title: 'Kontakt Frederik – Gratis og uforpligtende snak | Konvertio',
+    title: 'Kontakt Konvertio – Gratis og uforpligtende snak | Konvertio',
     description: 'Ræk ud til Frederik og få en gratis samtale om static ads, CRO eller Shopify. Svar inden for 24 timer. Ingen binding.',
     alternates: { canonical: `${SITE_URL}/kontakt` },
 }

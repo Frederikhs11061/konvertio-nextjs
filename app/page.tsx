@@ -30,9 +30,9 @@ const badgeIcons = [
 const defaultHero = {
   socialProofText: 'Hurtig levering · Professionelt resultat',
   availabilityText: 'Klar til nye opgaver',
-  title1: 'Løft dit brand med',
-  titleHighlight: 'stærke',
-  title2: 'kreative løsninger',
+  title1: 'Din partner i',
+  titleHighlight: 'Web, Static Ads & CRO',
+  title2: '',
   subtitle: 'Jeg hjælper danske virksomheder med at få flere kunder gennem static ads, CRO og konverterende webshops og websites.',
   ctaPrimary: 'Se mine ydelser',
   ctaSecondary: 'Kontakt mig',
