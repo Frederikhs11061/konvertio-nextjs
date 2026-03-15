@@ -1,33 +1,42 @@
 import { MetadataRoute } from 'next'
-import { getAllServices, getAllServiceSlugs } from '@/lib/sanity/fetchServices'
-import { getAllBlogPosts } from '@/lib/sanity/fetchBlog'
 import { SITE_URL } from '@/lib/site'
 
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+// Sitemap er baseret på kendte, statiske URLs – ikke Sanity-data.
+// Dette sikrer at sitemappet altid er korrekt uanset Sanity-indhold.
+const SERVICE_SLUGS = ['static-ads', 'cro-analyse', 'shopify-webshop', 'websites']
+
+const BLOG_SLUGS = [
+    '5-cro-tips',
+    'shopify-checkout-optimering',
+    'hastighedsoptimering-webshop',
+    'static-ads-der-virker',
+    'facebook-ads-strategi-2026',
+    'ugc-ads-guide',
+    'hvad-er-cro',
+    'shopify-vs-woocommerce',
+    'static-ads-guide',
+]
+
+export default function sitemap(): MetadataRoute.Sitemap {
     const staticPages: MetadataRoute.Sitemap = [
-        { url: SITE_URL, lastModified: new Date(), changeFrequency: 'weekly', priority: 1 },
-        { url: `${SITE_URL}/ydelser`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
-        { url: `${SITE_URL}/om-mig`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
-        { url: `${SITE_URL}/blog`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
-        { url: `${SITE_URL}/faq`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
-        { url: `${SITE_URL}/kontakt`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+        { url: SITE_URL,                         lastModified: new Date(), changeFrequency: 'weekly',  priority: 1.0 },
+        { url: `${SITE_URL}/ydelser`,            lastModified: new Date(), changeFrequency: 'weekly',  priority: 0.9 },
+        { url: `${SITE_URL}/om-mig`,             lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+        { url: `${SITE_URL}/blog`,               lastModified: new Date(), changeFrequency: 'weekly',  priority: 0.8 },
+        { url: `${SITE_URL}/faq`,                lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
+        { url: `${SITE_URL}/kontakt`,            lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     ]
 
-    const [serviceSlugs, blogPosts] = await Promise.all([
-        getAllServiceSlugs(),
-        getAllBlogPosts(),
-    ])
-
-    const ydelserPages: MetadataRoute.Sitemap = serviceSlugs.map(({ slug }) => ({
+    const ydelserPages: MetadataRoute.Sitemap = SERVICE_SLUGS.map((slug) => ({
         url: `${SITE_URL}/ydelser/${slug}`,
         lastModified: new Date(),
         changeFrequency: 'monthly',
         priority: 0.85,
     }))
 
-    const blogPages: MetadataRoute.Sitemap = blogPosts.map((post: { slug: string; date?: string }) => ({
-        url: `${SITE_URL}/blog/${post.slug}`,
-        lastModified: post.date ? new Date(post.date) : new Date(),
+    const blogPages: MetadataRoute.Sitemap = BLOG_SLUGS.map((slug) => ({
+        url: `${SITE_URL}/blog/${slug}`,
+        lastModified: new Date(),
         changeFrequency: 'yearly',
         priority: 0.7,
     }))
