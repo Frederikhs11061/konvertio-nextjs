@@ -21,8 +21,23 @@ const iconMap: Record<string, React.ElementType> = {
 
 export default async function YdelserPage() {
     const services = await getAllServices()
+
+    const serviceListSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'ItemList',
+        name: 'Ydelser – Konvertio',
+        url: `${SITE_URL}/ydelser`,
+        itemListElement: (services as { slug: string; title: string; description?: string }[]).map((s, i) => ({
+            '@type': 'ListItem',
+            position: i + 1,
+            name: s.title,
+            url: `${SITE_URL}/ydelser/${s.slug}`,
+        })),
+    }
+
     return (
         <div className="pt-20 md:pt-28 bg-blue-100">
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceListSchema) }} />
             <Breadcrumbs items={[{ label: 'Ydelser', href: '/ydelser' }]} />
 
             <section className="py-10 md:py-16 px-6">

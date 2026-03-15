@@ -35,10 +35,9 @@ export default function CookieConsent({ onConsent }: { onConsent?: (accepted: bo
             className="fixed bottom-4 left-4 right-4 sm:left-auto sm:right-6 sm:bottom-6 sm:max-w-sm z-50 bg-slate-900 border border-white/10 rounded-2xl shadow-2xl p-5"
         >
             <p className="text-sm text-neutral-300 leading-relaxed mb-4">
-                Vi bruger cookies til at analysere trafikken på sitet (Google Analytics via GTM), så vi kan forbedre oplevelsen.
-                Læs mere i vores{' '}
+                Vi værdsætter dit privatliv. Vi bruger cookies til at forbedre din browseroplevelse, vise personlige reklamer eller indhold og analysere trafikken på vores netsted. Ved at klikke på &ldquo;Accepter alle cookies&rdquo; giver du dit samtykke til vores brug af cookies. Se vores{' '}
                 <Link href="/cookiepolitik" className="underline text-brand-400 hover:text-brand-300 transition-colors">
-                    cookiepolitik
+                    Cookiepolitik
                 </Link>
                 .
             </p>
@@ -47,7 +46,7 @@ export default function CookieConsent({ onConsent }: { onConsent?: (accepted: bo
                     onClick={() => respond(true)}
                     className="flex-1 bg-brand-600 hover:bg-brand-700 text-white text-sm font-medium py-2.5 rounded-xl transition-colors duration-200"
                 >
-                    Accepter
+                    Accepter alle cookies
                 </button>
                 <button
                     onClick={() => respond(false)}

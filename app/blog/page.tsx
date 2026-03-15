@@ -29,8 +29,25 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
     const featuredPost = filteredPosts[0]
     const restPosts = filteredPosts.slice(1)
 
+    const blogSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'Blog',
+        name: 'Blog – Konvertio',
+        url: `${SITE_URL}/blog`,
+        description: 'Praktiske guides, tips og strategier til dig der vil have mere ud af din webshop og sociale medier markedsføring.',
+        author: { '@type': 'Person', name: 'Frederik', url: `${SITE_URL}/om-mig` },
+        blogPost: filteredPosts.slice(0, 10).map((post: { slug: string; title: string; excerpt?: string; date?: string }) => ({
+            '@type': 'BlogPosting',
+            headline: post.title,
+            url: `${SITE_URL}/blog/${post.slug}`,
+            ...(post.date && { datePublished: post.date }),
+            ...(post.excerpt && { description: post.excerpt }),
+        })),
+    }
+
     return (
         <div className="pt-20 md:pt-28 bg-blue-100">
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }} />
             <Breadcrumbs items={[{ label: 'Blog', href: '/blog' }]} />
 
             <section className="py-10 md:py-16 px-6 bg-gradient-to-b from-blue-100 to-blue-50">

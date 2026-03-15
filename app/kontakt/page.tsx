@@ -44,8 +44,23 @@ export default async function KontaktPage() {
         availabilityText: c.availabilityText ?? defaultContact.availabilityText,
     }
 
+    const contactSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'ContactPage',
+        name: 'Kontakt Konvertio',
+        url: `${SITE_URL}/kontakt`,
+        mainEntity: {
+            '@type': 'Person',
+            name: 'Frederik',
+            email: props.email,
+            jobTitle: 'Freelance Ekspert i Static Ads, CRO & Webudvikling',
+            worksFor: { '@type': 'Organization', name: 'Konvertio', url: SITE_URL },
+        },
+    }
+
     return (
         <div className="pt-20 md:pt-28 bg-blue-100">
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(contactSchema) }} />
             <Breadcrumbs items={[{ label: 'Kontakt', href: '/kontakt' }]} />
             <KontaktClient {...props} />
         </div>
